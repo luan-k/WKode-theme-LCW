@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-
-<?php if (is_user_logged_in()) { ?>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" class="wpadmin-logged-in">
-<?php } else { ?>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<?php } ?>
-
 <?php include('header.php'); ?>
-
-  <body class="bg-slate-950">
 
     <main id="main">
 
@@ -18,8 +8,4 @@
 
     </main>
 
-    <?php include('footer.php'); ?>
-
-  </body>
-
-</html>
+<?php include('footer.php'); ?>
