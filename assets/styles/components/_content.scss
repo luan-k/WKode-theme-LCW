@@ -1,0 +1,33 @@
+main {
+  max-width: 500px;
+  margin: 20px;
+  padding: 20px;
+  background: rgb(255, 255, 255, 0.8);
+  border-radius: 10px;
+}
+html {
+  background-size: cover;
+  font-family: "Open Sans", serif;
+  font-weight: 400;
+}
+
+body {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+footer {
+  position: fixed;
+  bottom: 0px;
+  color: white;
+}
+.bg-red {
+  background-color: red;
+}

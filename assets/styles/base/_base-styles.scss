@@ -1,0 +1,56 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+/* ================scroolbar=================== */
+
+/* width */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: rgb(204, 204, 204);
+  border-radius: 10px;
+  transition: background-color 0.8s;
+}
+
+::-webkit-scrollbar-corner {
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+/* ::-webkit-scrollbar-thumb:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgba(6, 78, 59, var(--tw-bg-opacity));
+} */
+
+/* ================scroolbar=================== */
+
+html {
+  /* this defines what one rem is */
+  font-size: 62.5%;
+}
+
+/* a:hover {
+    color: inherit !important;
+    text-decoration: none !important;
+  } */
+/* @apply bg-unitermi-primary-gray */
+body {
+  box-sizing: border-box; /* Padding and Margin are no longer part of the width and height of the element */
+  overflow-x: hidden;
+  min-height: 100vh;
+  //background-color: var(--lightPrimary);
+}
