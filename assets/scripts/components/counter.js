@@ -7,6 +7,7 @@ export class DisplayLabel {
     setTimeout(() => {
       const displayLabelElem = document.createElement("p");
       displayLabelElem.classList.add("bg-gray-500");
+      displayLabelElem.classList.add("text-5xl");
       displayLabelElem.innerHTML =
         "Babel transpiled JavaScript successfully loaded.";
       document.getElementsByTagName("main")[0].appendChild(displayLabelElem);
