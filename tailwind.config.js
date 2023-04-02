@@ -12,11 +12,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        /*  primary: "#002e65", */
-        /* light: {
-          primary: "#D0E5EC",
-        }, */
-        /*  primary: "#002e65", */
+        lcw: {
+          primary: {
+            white: "#D6D6D6",
+            red: "#D72818",
+            blue: "#14151B",
+          },
+        },
       },
       fontFamily: {
         '"poppins"': ["Poppins", "sans-serif"],

@@ -1,46 +1,62 @@
-window.addEventListener("load", () => {
-  //checking if its mobile or not
-  const ThereIsMobile = document.querySelector(".there-is-mobile");
-  const sliderContainer = document.getElementById("wkode-slider-container");
-  const sliderContainerMobile = document.getElementById(
-    "wkode-slider-container-mobile"
-  );
-  let screenWidth = window.innerWidth;
-  console.log(sliderContainer);
-  console.log(sliderContainerMobile);
-  console.log(ThereIsMobile);
+//checking if its mobile or not
+const ThereIsMobile = document.querySelector(".there-is-mobile");
+const sliderContainer = document.getElementById("wkode-slider-container");
+const sliderContainerMobile = document.getElementById(
+  "wkode-slider-container-mobile"
+);
+let screenWidth = window.innerWidth;
 
-  if (ThereIsMobile) {
-    if (screenWidth <= 1080) {
-      console.log("less than 1080");
-      console.log(sliderContainerMobile);
-      if (sliderContainer) {
-        sliderContainer.remove();
-      }
-    } else {
-      console.log("higher than 1080");
-      console.log(sliderContainer);
-      if (sliderContainerMobile) {
-        sliderContainerMobile.remove();
-      }
+if (ThereIsMobile) {
+  if (screenWidth <= 1080) {
+    if (sliderContainer) {
+      sliderContainer.remove();
+    }
+  } else {
+    if (sliderContainerMobile) {
+      sliderContainerMobile.remove();
     }
   }
+}
 
+window.addEventListener("load", () => {
   const slider = document.querySelector(".wkode-slider");
   const slides = document.querySelectorAll(".wkode-slider-slide");
   const prevBtn = document.querySelector(".wkode-slider-prev");
   const nextBtn = document.querySelector(".wkode-slider-next");
   const dots = document.querySelector(".wkode-slider-dots");
-  const progressBar = document.querySelector(".wkode-slider-progress-bar");
 
   let currentSlide = 0;
   let interval = setInterval(nextSlide, 5000);
 
+  /* function createDots() {
+    for (let i = 0; i < slides.length; i++) {
+      const dot = document.createElement("div");
+      const dotProgressBar = document.createElement("div");
+      dotProgressBar.classList.add("wkode-slider-progress-bar");
+      dot.classList.add("wkode-slider-dot");
+      dots.appendChild(dot);
+      dot.appendChild(dotProgressBar);
+      if (i === 0) {
+        dot.classList.add("active");
+      }
+      dot.addEventListener("click", () => {
+        currentSlide = i;
+        clearInterval(interval);
+        setSlide();
+        interval = setInterval(nextSlide, 5000);
+        resetProgressBar();
+        startProgressBar();
+      });
+    }
+  } */
   function createDots() {
     for (let i = 0; i < slides.length; i++) {
       const dot = document.createElement("div");
       dot.classList.add("wkode-slider-dot");
       dots.appendChild(dot);
+      const dotProgressBar = document.createElement("div");
+      dotProgressBar.classList.add("wkode-slider-progress-bar");
+      dot.appendChild(dotProgressBar);
       if (i === 0) {
         dot.classList.add("active");
       }
@@ -94,6 +110,7 @@ window.addEventListener("load", () => {
     startProgressBar();
   });
 
+  let currentProgressBar;
   function setSlide() {
     slider.style.transform = `translateX(${-currentSlide * 100}%)`;
     slides.forEach((slide) => {
@@ -106,6 +123,10 @@ window.addEventListener("load", () => {
     dots
       .querySelectorAll(".wkode-slider-dot")
       [currentSlide].classList.add("active");
+    const newProgressBar = document.querySelectorAll(
+      ".wkode-slider-progress-bar"
+    );
+    currentProgressBar = newProgressBar[currentSlide];
   }
 
   function nextSlide() {
@@ -130,6 +151,7 @@ window.addEventListener("load", () => {
 
   createDots();
   setSlide();
+  const progressBar = document.querySelector(".wkode-slider-progress-bar");
   startProgressBar();
 
   prevBtn.addEventListener("click", () => {
@@ -149,13 +171,13 @@ window.addEventListener("load", () => {
   });
 
   function startProgressBar() {
-    progressBar.style.width = "100%";
-    progressBar.style.transition = "width 4.5s linear";
+    currentProgressBar.style.width = "100%";
+    currentProgressBar.style.transition = "width 4.5s linear";
   }
 
   function resetProgressBar() {
-    progressBar.style.width = "0";
-    progressBar.style.transition = "none";
+    currentProgressBar.style.width = "0";
+    currentProgressBar.style.transition = "none";
   }
 
   slider.addEventListener("mouseover", () => {

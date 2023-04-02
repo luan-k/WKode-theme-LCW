@@ -38,11 +38,12 @@ if( isset( $block['data']['preview'] )  ) {    /* rendering in inserter preview 
       }
       ?>
     </div>
-    <button class="wkode-slider-prev"><i class="fa-solid fa-chevron-left"></i></button>
-    <button class="wkode-slider-next"><i class="fa-solid fa-chevron-right"></i></button>
-    <div class="wkode-slider-dots"></div>
-    <div class="wkode-slider-progress">
-      <div class="wkode-slider-progress-bar"></div>
+    <div class="wkode-slider-navigation">
+      <button class="wkode-slider-prev" style="background-image: url(<?php echo get_theme_file_uri('assets/img/svg/arrow-left.svg'); ?>);">
+      </button>
+      <div class="wkode-slider-dots"></div>
+      <button class="wkode-slider-next" style="background-image: url(<?php echo get_theme_file_uri('assets/img/svg/arrow-right.svg'); ?>);"> 
+      </button>
     </div>
   </div>
   <?php 
@@ -73,11 +74,12 @@ if( isset( $block['data']['preview'] )  ) {    /* rendering in inserter preview 
         }
         ?>
       </div>
-      <button class="wkode-slider-prev"><i class="fa-solid fa-chevron-left"></i></button>
-      <button class="wkode-slider-next"><i class="fa-solid fa-chevron-right"></i></button>
-      <div class="wkode-slider-dots"></div>
-      <div class="wkode-slider-progress">
-        <div class="wkode-slider-progress-bar"></div>
+      <div class="wkode-slider-navigation">
+        <button class="wkode-slider-prev" style="background-image: url(<?php echo get_theme_file_uri('assets/img/svg/arrow-left.svg'); ?>);">
+        </button>
+        <div class="wkode-slider-dots"></div>
+        <button class="wkode-slider-next" style="background-image: url(<?php echo get_theme_file_uri('assets/img/svg/arrow-right.svg'); ?>);"> 
+        </button>
       </div>
     </div>
   <?php
@@ -101,3 +103,13 @@ if( isset( $block['data']['preview'] )  ) {    /* rendering in inserter preview 
         </style>';
   }
 }
+?>
+<style>
+   .wkode-slider-progress-bar {
+      height: 100%;
+      background-color: white;
+      width: 0%;
+      transition: none;
+      border-radius: 44px;
+    }
+</style>

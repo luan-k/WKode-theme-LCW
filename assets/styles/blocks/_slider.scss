@@ -11,11 +11,11 @@
     max-height: 80rem;
     display: flex;
     align-items: center;
-    @media (max-width: 1080px) {
+    /* @media (max-width: 1080px) {
       & {
         display: none;
       }
-    }
+    } */
   }
 
   &-slide {
@@ -33,19 +33,31 @@
     }
   }
 
+  &-navigation {
+    position: absolute;
+    bottom: 3rem;
+    right: 6rem;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-radius: 99rem;
+    @apply bg-lcw-primary-blue;
+  }
+
   &-prev,
   &-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
     font-size: 2rem;
+    width: 2.4rem;
+    height: 2.3rem;
     color: white;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 99rem;
     cursor: pointer;
     z-index: 1;
-    width: 5rem;
-    height: 5rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
   }
 
   &-prev {
@@ -59,24 +71,24 @@
   &-dots {
     display: flex;
     justify-content: center;
-    margin-top: 1rem;
-    position: absolute;
-    bottom: 3rem;
-    transform: translateX(-50%);
-    left: 50%;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
 
     .wkode-slider-dot {
-      width: 1.5rem;
-      height: 1.5rem;
-      border-radius: 50%;
+      width: 2.1rem;
+      height: 2.1rem;
+      border-radius: 44px;
       background-color: white;
       margin-right: 1.5rem;
       cursor: pointer;
+      transition: all 0.3s;
+      overflow: hidden;
       &:last-of-type {
         margin-right: 0;
       }
       &.active {
-        background-color: #000327;
+        @apply bg-lcw-primary-red;
+        width: 4.2rem;
       }
     }
   }
@@ -91,9 +103,9 @@
 
     .wkode-slider-progress-bar {
       height: 100%;
-      background-color: #000327;
       width: 0%;
       transition: none;
+      background-color: white;
     }
   }
 }
@@ -106,13 +118,40 @@
   }
 }
 .wkode-slider {
+  @media (max-width: 1080px) {
+    &-navigation {
+      right: auto;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  @media (max-width: 700px) {
+    &-navigation {
+      bottom: 1.5rem;
+    }
+  }
+  @media (max-width: 333px) {
+    &-dots &-dot {
+      width: 1rem;
+      height: 1rem;
+      &.active {
+        width: 2.1rem;
+      }
+    }
+    &-prev,
+    &-next {
+      width: 1.2rem;
+      height: 1.2rem;
+    }
+  }
+
   &-container-mobile {
-    display: none;
+    /*  display: none; */
     max-height: 108rem;
     @media (max-width: 1080px) {
-      & {
+      /* & {
         display: flex;
-      }
+      } */
     }
   }
 }
