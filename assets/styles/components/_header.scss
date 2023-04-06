@@ -1,0 +1,63 @@
+.wkode-header {
+  &__nav {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 3.9rem;
+    position: relative;
+    &--top {
+      border-bottom: 0.1rem #d6d6d6 solid;
+    }
+  }
+  &__logo-wraper {
+    img {
+      width: 9rem;
+    }
+  }
+  &__icons-wraper {
+  }
+  &__social-media-icon {
+    width: 3.4rem;
+    height: 3.4rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    margin-left: 1rem;
+    transition: all 0.3s;
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  &__menu-container {
+    width: 70%;
+    ul {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      .menu-item {
+        margin-right: 3.3rem;
+        font-size: 1.6rem;
+        font-family: "Rubik", sans-serif;
+        text-transform: uppercase;
+        font-weight: normal;
+        padding-right: 1rem;
+        padding-left: 1rem;
+        white-space: nowrap;
+      }
+    }
+  }
+  .menu-hover-line {
+    position: absolute;
+    bottom: 0.3rem;
+    border-radius: 999px;
+    height: 0.6rem;
+    transition: width 0.2s ease-out;
+    width: 0;
+    @apply bg-lcw-primary-red;
+  }
+}

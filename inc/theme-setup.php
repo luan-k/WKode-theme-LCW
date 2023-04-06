@@ -87,6 +87,12 @@ if ( ! function_exists( 'wkode_theme_setup' ) ) :
 			)
 		);
 
+		register_nav_menus(
+			array(
+				'main_menu' 	=> 'Main Menu',
+			)
+		);
+
 		// Remove post format
 		remove_theme_support( 'post-formats' );
 
