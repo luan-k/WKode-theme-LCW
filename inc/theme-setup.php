@@ -39,7 +39,8 @@ if ( ! function_exists( 'wkode_theme_setup' ) ) :
 		update_option( 'large_size_w', 750 );
 		update_option( 'large_size_h', 540 );
 
-		add_image_size( 'slider ', 1910, 800, true, array( 'left', 'top' ) );
+		add_image_size( 'slider', 1910, 800, true, array( 'center', 'center' ) );
+		add_image_size( 'slider_mobile', 1080, 1080, true, array( 'center', 'center' ) );
 		//add_image_size( 'vertical_medium', 180, 265, true );
 		// add_image_size('magazine_mini', 343, 441, true) is defined in extras.php
 		// add_image_size('magazine_mega', 510, 666, true) is defined in extras.php

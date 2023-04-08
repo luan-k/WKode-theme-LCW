@@ -11,7 +11,6 @@ if( isset( $block['data']['preview'] )  ) {    /* rendering in inserter preview 
 
 <?php
 }else{ ?>
-
   <div class="wkode-slider-container <?php if(!empty($is_mobile)){ echo " there-is-mobile "; }else{ echo " there-is-no-mobile ";} ?>" id="wkode-slider-container">
     <div class="wkode-slider">
       <?php
@@ -20,7 +19,7 @@ if( isset( $block['data']['preview'] )  ) {    /* rendering in inserter preview 
           if(!empty($slide['slider_image'])){
             ?>
             <div class="wkode-slider-slide">
-              <img src="<?php echo $slide['slider_image']; ?>" alt="" srcset="">
+              <img src="<?php echo $slide['slider_image']['sizes']['slider']; ?>" alt="" srcset="">
             </div>
             <?php
           }else{?>
@@ -56,7 +55,7 @@ if( isset( $block['data']['preview'] )  ) {    /* rendering in inserter preview 
             if(!empty($slide['slider_image_mobile'])){
               ?>
               <div class="wkode-slider-slide">
-                <img src="<?php echo $slide['slider_image_mobile']; ?>" alt="" srcset="">
+                <img src="<?php echo $slide['slider_image_mobile']['sizes']['slider_mobile']; ?>" alt="" srcset="">
               </div>
               <?php
             }else{?>
