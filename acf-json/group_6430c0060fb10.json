@@ -1,0 +1,205 @@
+{
+    "key": "group_6430c0060fb10",
+    "title": "WKode Main Block",
+    "fields": [
+        {
+            "key": "field_6430c8bbbfaca",
+            "label": "Dark Mode?",
+            "name": "wkode_main_block_dark_mode",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Dark Mode",
+            "ui_off_text": "Light Mode"
+        },
+        {
+            "key": "field_6430c02319bd2",
+            "label": "Titulo",
+            "name": "wkode_main_block_title",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "Africa Twin Adventure Sport",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_6430c09219bd3",
+            "label": "Descrição",
+            "name": "wkode_main_block_description",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
+            "key": "field_6430db443ac74",
+            "label": "Botão",
+            "name": "wkode_main_block_btn",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_6430c2ac19bd6",
+                    "label": "Botão Texto",
+                    "name": "wkode_main_block_btn_text",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Ver Mais",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_6430c31a19bd7",
+                    "label": "Botão Link",
+                    "name": "wkode_main_block_btn_url",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_6430c33619bd8",
+                    "label": "Botão Estilos",
+                    "name": "wkode_main_block_btn_style",
+                    "type": "radio",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "wkode-btn wkode-btn--solid-red": "Vermelho Sólido",
+                        "wkode-btn wkode-btn--solid-blue": "Azul Sólido",
+                        "wkode-btn wkode-btn--outline-red": "Vermelho Outline",
+                        "wkode-btn wkode-btn--outline-blue": "Azul Outline",
+                        "wkode-btn wkode-btn--solid-white-red": "Texto Vermelho com Branco Sólido",
+                        "wkode-btn wkode-btn--solid-white-blue": "Texto Azul com Branco Sólido"
+                    },
+                    "allow_null": 0,
+                    "other_choice": 0,
+                    "default_value": "",
+                    "layout": "vertical",
+                    "return_format": "value",
+                    "save_other_choice": 0
+                }
+            ]
+        },
+        {
+            "key": "field_6431e0f45542d",
+            "label": "Imagem",
+            "name": "wkode_main_block_img",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_6431f1c628a1b",
+            "label": "Direção",
+            "name": "wkode_main_block_direction",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "texto na esquerda e imagem na direita",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Invertido",
+            "ui_off_text": "Normal"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/wkode-main-block"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1681000889
+}

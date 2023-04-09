@@ -1,0 +1,36 @@
+.wkode-btn {
+  transition: all 0.3s;
+  @apply text-2xl font-bold px-32 py-4 font-rubik border-4 rounded-full uppercase;
+  &--outline {
+    &-red {
+      @apply hover:bg-lcw-primary-red hover:text-white bg-transparent text-lcw-primary-red border-lcw-primary-red;
+    }
+    &-blue {
+      @apply hover:bg-lcw-primary-blue hover:text-white bg-transparent text-lcw-primary-blue border-lcw-primary-blue;
+    }
+  }
+  &--solid {
+    &-blue {
+      @apply hover:bg-transparent hover:text-lcw-primary-blue bg-lcw-primary-blue text-white border-lcw-primary-blue;
+    }
+    &-red {
+      @apply hover:bg-transparent hover:text-lcw-primary-red bg-lcw-primary-red text-white border-lcw-primary-red;
+    }
+    &-white {
+      &-blue {
+        @apply hover:bg-lcw-primary-blue hover:text-white bg-white text-lcw-primary-blue border-white hover:border-lcw-primary-blue;
+      }
+      &-red {
+        @apply hover:bg-lcw-primary-red hover:text-white bg-white text-lcw-primary-red border-white hover:border-lcw-primary-red;
+      }
+    }
+  }
+}
+/* 
+wkode-btn wkode-btn--outline-blue
+wkode-btn wkode-btn--outline-red
+wkode-btn wkode-btn--solid-blue
+wkode-btn wkode-btn--solid-red
+wkode-btn wkode-btn--solid-white-blue
+wkode-btn wkode-btn--solid-white-red
+*/

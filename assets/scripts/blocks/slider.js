@@ -28,27 +28,6 @@ window.addEventListener("load", () => {
   let currentSlide = 0;
   let interval = setInterval(nextSlide, 5000);
 
-  /* function createDots() {
-    for (let i = 0; i < slides.length; i++) {
-      const dot = document.createElement("div");
-      const dotProgressBar = document.createElement("div");
-      dotProgressBar.classList.add("wkode-slider-progress-bar");
-      dot.classList.add("wkode-slider-dot");
-      dots.appendChild(dot);
-      dot.appendChild(dotProgressBar);
-      if (i === 0) {
-        dot.classList.add("active");
-      }
-      dot.addEventListener("click", () => {
-        currentSlide = i;
-        clearInterval(interval);
-        setSlide();
-        interval = setInterval(nextSlide, 5000);
-        resetProgressBar();
-        startProgressBar();
-      });
-    }
-  } */
   function createDots() {
     for (let i = 0; i < slides.length; i++) {
       const dot = document.createElement("div");

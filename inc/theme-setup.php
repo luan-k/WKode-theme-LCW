@@ -41,9 +41,9 @@ if ( ! function_exists( 'wkode_theme_setup' ) ) :
 
 		add_image_size( 'slider', 1910, 800, true, array( 'center', 'center' ) );
 		add_image_size( 'slider_mobile', 1080, 1080, true, array( 'center', 'center' ) );
-		//add_image_size( 'vertical_medium', 180, 265, true );
-		// add_image_size('magazine_mini', 343, 441, true) is defined in extras.php
-		// add_image_size('magazine_mega', 510, 666, true) is defined in extras.php
+
+		add_image_size( 'wkode_main_block', 1080, 550, true, array( 'center', 'center' ) );
+		add_image_size( 'wkode_main_block_mobile', 1200, 1200, true, array( 'center', 'center' ) );
 
 
 		/*
@@ -165,7 +165,7 @@ if ( function_exists( 'acf_register_block_type' ) ) {
 					'description'     => __( 'Um block de slider para o tema padrão Wkode' ),
 					'render_template' => 'template-parts/blocks/posts/wkode-slider.php',
 					'category'        => 'wkode',
-					'icon'            => 'format-status',
+					'icon'            => 'slides',
 					'supports'        => array(
 						'multiple' => false, // prevent block from being added more than once on a page
 					),
@@ -202,45 +202,26 @@ if ( function_exists( 'acf_register_block_type' ) ) {
 
 				return $block;
 			}
-
-			/* acf_register_block_type(
-				array(
-					'name'            => 'utilitary_contact_bar',
-					'title'           => __( 'Barra Utilitária de Contato' ),
-					'description'     => __( 'A custom phrase of the week block' ),
-					'render_template' => 'template-parts/blocks/posts/utilitary-bar.php',
-					'category'        => 'wkode',
-					'icon'            => 'format-status',
-					'keywords'        => array( 'barra utilitaria de contato' ),
-					'example'         => array(
-						'attributes' => array(
-							'mode' => 'preview',
-							'data' => array(
-								'preview' => WL_URL . '/template-parts/blocks/preview/post.png',
-							),
-						),
-					),
-				)
-			);
 			acf_register_block_type(
 				array(
-					'name'            => 'products_banner_carousel',
-					'title'           => __( 'Banner de produtos carousel' ),
-					'description'     => __( 'Um Banner com produtos em um carousel' ),
-					'render_template' => 'template-parts/blocks/posts/products_banner_carousel.php',
+					'name'            => 'wkode-main-block',
+					'title'           => __( 'Moto nova bloco' ),
+					'description'     => __( 'Um bloco primariamente feito para colocar a nova moto na home page. Mas pode ser usado para vários propósitos.' ),
+					'render_template' => 'template-parts/blocks/posts/wkode-main-block.php',
 					'category'        => 'wkode',
-					'icon'            => 'format-status',
-					'keywords'        => array( 'slider' ),
-					'example'         => array(
+					'icon'            => 'align-pull-right',
+					'keywords'        => array( 'wkode Bloco principal', 'wkode', 'Principal', 'Moto', 'nova', 'moto nova', 'home' ),
+					'example'  => array(
 						'attributes' => array(
 							'mode' => 'preview',
 							'data' => array(
-								'preview' => WL_URL . '/template-parts/blocks/preview/post.png',
-							),
-						),
-					),
+								'preview' => '/template-parts/blocks/preview/wkode-main-block.png',
+							)
+						)
+					)
 				)
-			); */
+			);
+
 		}
 	);
 }

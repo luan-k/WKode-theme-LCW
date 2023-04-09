@@ -25,6 +25,7 @@ module.exports = {
         "josefin-sans": ["Josefin Sans", "sans-serif"],
         montserrat: ["montserrat", "sans-serif"],
         "dancing-script": ["Dancing Script", "cursive"],
+        rubik: ["Rubik", "sans-serif"],
       },
       screens: {
         "2xl": "1685px",
