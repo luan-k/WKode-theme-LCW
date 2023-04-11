@@ -1,0 +1,144 @@
+{
+    "key": "group_6433f653bad9e",
+    "title": "Motos Novas custom theme",
+    "fields": [
+        {
+            "key": "field_6433f689b80b6",
+            "label": "Cores",
+            "name": "wkode_motorcycles_post_colors",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 1,
+            "max": 5,
+            "layout": "table",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_6433facdb80b7",
+                    "label": "Cor",
+                    "name": "wkode_motorcycles_post_color",
+                    "type": "color_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "enable_opacity": 0,
+                    "return_format": "string"
+                },
+                {
+                    "key": "field_6433fd6671514",
+                    "label": "Bicolor ou Tricolor",
+                    "name": "bicolor_ou_tricolor",
+                    "type": "radio",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "bicolor": "Bicolor",
+                        "tricolor": "Tricolor"
+                    },
+                    "allow_null": 1,
+                    "other_choice": 0,
+                    "default_value": "",
+                    "layout": "horizontal",
+                    "return_format": "value",
+                    "save_other_choice": 0
+                },
+                {
+                    "key": "field_6433fdbf71515",
+                    "label": "Segunda Cor",
+                    "name": "wkode_motorcycles_post_color_two",
+                    "type": "color_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_6433fd6671514",
+                                "operator": "==",
+                                "value": "bicolor"
+                            }
+                        ],
+                        [
+                            {
+                                "field": "field_6433fd6671514",
+                                "operator": "==",
+                                "value": "tricolor"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "enable_opacity": 0,
+                    "return_format": "string"
+                },
+                {
+                    "key": "field_6433fddd71516",
+                    "label": "Terceira Cor",
+                    "name": "wkode_motorcycles_post_color_three",
+                    "type": "color_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_6433fd6671514",
+                                "operator": "==",
+                                "value": "tricolor"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "enable_opacity": 0,
+                    "return_format": "string"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "motos-novas"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 1,
+    "modified": 1681147155
+}

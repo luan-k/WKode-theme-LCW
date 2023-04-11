@@ -225,3 +225,113 @@ if ( function_exists( 'acf_register_block_type' ) ) {
 		}
 	);
 }
+// Our custom post type function
+function create_posttype() {
+
+    register_post_type( 'motos-novas',
+    // CPT Options
+        array(
+            'labels' => array(
+                'name' => __( 'Motos Novas' ),
+                'singular_name' => __( 'Motos Novas' )
+            ),
+            'public'              => true,
+			'menu_icon'           => 'dashicons-media-default',
+            'has_archive'         => true,
+            'rewrite'             => array('slug' => 'motos-novas'),
+            'show_in_rest'        => true,
+			'public'              => true,
+			'show_ui'             => true,
+			'show_in_menu'        => true,
+			'show_in_nav_menus'   => true,
+			'show_in_admin_bar'   => true,
+			'can_export'          => true,
+			'has_archive'         => true,
+			'exclude_from_search' => false,
+			'publicly_queryable'  => true,
+			'taxonomies' => array( 'moto_nova_categoria' ),
+			'capability_type'     => 'post',
+			'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail',  'revisions', 'custom-fields', ),
+
+        )
+    );
+}
+// Hooking up our function to theme setup
+add_action( 'init', 'create_posttype' );
+
+function create_taxonomy() {
+
+    $labels = array(
+        'name'                       => _x( 'Nome da Categoria', 'Taxonomy General Name', 'moto-nova-categoria' ),
+        'singular_name'              => _x( 'Categoria', 'Taxonomy Singular Name', 'moto-nova-categoria' ),
+        'menu_name'                  => __( 'Nome Categoria', 'moto-nova-categoria' ),
+        'all_items'                  => __( 'Todas as Categorias', 'moto-nova-categoria' ),
+        'parent_item'                => __( 'Categoria Parente', 'moto-nova-categoria' ),
+        'parent_item_colon'          => __( 'Categoria Parente:', 'moto-nova-categoria' ),
+        'new_item_name'              => __( 'Novo Item', 'moto-nova-categoria' ),
+        'add_new_item'               => __( 'Adicionar novo Item', 'moto-nova-categoria' ),
+        'edit_item'                  => __( 'Editar Item', 'moto-nova-categoria' ),
+        'update_item'                => __( 'Update Item', 'moto-nova-categoria' ),
+        'view_item'                  => __( 'Ver Item', 'moto-nova-categoria' ),
+        'separate_items_with_commas' => __( 'Separar Items com virgulas', 'moto-nova-categoria' ),
+        'add_or_remove_items'        => __( 'Adiconar ou Remover Items', 'moto-nova-categoria' ),
+        'choose_from_most_used'      => __( 'Escolher os Mais Usados', 'moto-nova-categoria' ),
+        'popular_items'              => __( 'Items Populares', 'moto-nova-categoria' ),
+        'search_items'               => __( 'Procurar Items', 'moto-nova-categoria' ),
+        'not_found'                  => __( 'Não Encontrado', 'moto-nova-categoria' ),
+        'no_terms'                   => __( 'Nenhum Item', 'moto-nova-categoria' ),
+        'items_list'                 => __( 'Lista de Items', 'moto-nova-categoria' ),
+        'items_list_navigation'      => __( 'Navegação de items de lista ', 'moto-nova-categoria' ),
+    );
+    $args = array(
+        'labels'                     => $labels,
+        'hierarchical'               => true,
+        'public'                     => true,
+        'show_ui'                    => true,
+        'show_admin_column'          => true,
+		'show_in_rest'               => true,
+        'show_in_nav_menus'          => true,
+        'show_tagcloud'              => true,
+    );
+    register_taxonomy( 'moto_nova_categoria', array( 'motos-novas' ), $args );
+
+}
+add_action( 'init', 'create_taxonomy', 0 );
+
+/* function create_taxonomy() {
+
+    $labels = array(
+        'name'                       => _x( 'Taxonomy Name', 'Taxonomy General Name', 'text_domain' ),
+        'singular_name'              => _x( 'Taxonomy Singular Name', 'Taxonomy Singular Name', 'text_domain' ),
+        'menu_name'                  => __( 'Taxonomy Name', 'text_domain' ),
+        'all_items'                  => __( 'All Items', 'text_domain' ),
+        'parent_item'                => __( 'Parent Item', 'text_domain' ),
+        'parent_item_colon'          => __( 'Parent Item:', 'text_domain' ),
+        'new_item_name'              => __( 'New Item Name', 'text_domain' ),
+        'add_new_item'               => __( 'Add New Item', 'text_domain' ),
+        'edit_item'                  => __( 'Edit Item', 'text_domain' ),
+        'update_item'                => __( 'Update Item', 'text_domain' ),
+        'view_item'                  => __( 'View Item', 'text_domain' ),
+        'separate_items_with_commas' => __( 'Separate items with commas', 'text_domain' ),
+        'add_or_remove_items'        => __( 'Add or remove items', 'text_domain' ),
+        'choose_from_most_used'      => __( 'Choose from the most used', 'text_domain' ),
+        'popular_items'              => __( 'Popular Items', 'text_domain' ),
+        'search_items'               => __( 'Search Items', 'text_domain' ),
+        'not_found'                  => __( 'Not Found', 'text_domain' ),
+        'no_terms'                   => __( 'No items', 'text_domain' ),
+        'items_list'                 => __( 'Items list', 'text_domain' ),
+        'items_list_navigation'      => __( 'Items list navigation', 'text_domain' ),
+    );
+    $args = array(
+        'labels'                     => $labels,
+        'hierarchical'               => true,
+        'public'                     => true,
+        'show_ui'                    => true,
+        'show_admin_column'          => true,
+        'show_in_nav_menus'          => true,
+        'show_tagcloud'              => true,
+    );
+    register_taxonomy( 'taxonomy_name', array( 'motos-novas' ), $args );
+
+}
+add_action( 'init', 'create_taxonomy', 0 ); */

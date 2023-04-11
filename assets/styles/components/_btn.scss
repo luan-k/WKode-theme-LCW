@@ -1,12 +1,35 @@
 .wkode-btn {
   transition: all 0.3s;
-  @apply text-2xl font-bold px-32 py-4 font-rubik border-4 rounded-full uppercase;
+  position: relative;
+  @apply overflow-hidden text-2xl font-bold px-32 py-4 font-rubik border-4 rounded-full uppercase;
   &--outline {
     &-red {
-      @apply hover:bg-lcw-primary-red hover:text-white bg-transparent text-lcw-primary-red border-lcw-primary-red;
+      @apply bg-transparent text-lcw-primary-red border-lcw-primary-red;
+      cursor: pointer;
+      display: inline-block;
+      text-transform: uppercase;
+      background-image: linear-gradient(0, #d72818, #d72818);
+      background-size: 0;
+      transition: 0.3s;
+      background-repeat: no-repeat;
+      &:hover {
+        background-size: 100%;
+        color: white;
+      }
     }
     &-blue {
-      @apply hover:bg-lcw-primary-blue hover:text-white bg-transparent text-lcw-primary-blue border-lcw-primary-blue;
+      @apply bg-transparent text-lcw-primary-blue border-lcw-primary-blue;
+      cursor: pointer;
+      display: inline-block;
+      text-transform: uppercase;
+      background-image: linear-gradient(0, #14151b, #14151b);
+      background-size: 0;
+      transition: 0.3s;
+      background-repeat: no-repeat;
+      &:hover {
+        background-size: 100%;
+        color: white;
+      }
     }
   }
   &--solid {
@@ -26,6 +49,7 @@
     }
   }
 }
+
 /* 
 wkode-btn wkode-btn--outline-blue
 wkode-btn wkode-btn--outline-red

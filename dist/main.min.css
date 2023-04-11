@@ -1257,6 +1257,8 @@ body.admin-bar .search-overlay {
 
 .wkode-btn {
   transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
   border-radius: 9999px;
   border-width: 4px;
   padding-left: 8rem;
@@ -1275,12 +1277,17 @@ body.admin-bar .search-overlay {
   background-color: transparent;
   --tw-text-opacity: 1;
   color: rgb(215 40 24 / var(--tw-text-opacity));
+  cursor: pointer;
+  display: inline-block;
+  text-transform: uppercase;
+  background-image: linear-gradient(0, #d72818, #d72818);
+  background-size: 0;
+  transition: 0.3s;
+  background-repeat: no-repeat;
 }
-.wkode-btn--outline-red:hover{
-  --tw-bg-opacity: 1;
-  background-color: rgb(215 40 24 / var(--tw-bg-opacity));
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
+.wkode-btn--outline-red:hover {
+  background-size: 100%;
+  color: white;
 }
 .wkode-btn--outline-blue{
   --tw-border-opacity: 1;
@@ -1288,12 +1295,17 @@ body.admin-bar .search-overlay {
   background-color: transparent;
   --tw-text-opacity: 1;
   color: rgb(20 21 27 / var(--tw-text-opacity));
+  cursor: pointer;
+  display: inline-block;
+  text-transform: uppercase;
+  background-image: linear-gradient(0, #14151b, #14151b);
+  background-size: 0;
+  transition: 0.3s;
+  background-repeat: no-repeat;
 }
-.wkode-btn--outline-blue:hover{
-  --tw-bg-opacity: 1;
-  background-color: rgb(20 21 27 / var(--tw-bg-opacity));
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
+.wkode-btn--outline-blue:hover {
+  background-size: 100%;
+  color: white;
 }
 .wkode-btn--solid-blue{
   --tw-border-opacity: 1;

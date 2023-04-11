@@ -27,8 +27,7 @@ if( isset( $block['data']['preview'] )  ) {    /* rendering in inserter preview 
 
 <?php
 }else{ ?>
-    <section class="wkode-main-block <?php echo $current_mode; echo " " . $current_direction; ?>">
-        <?php var_dump($block_direction); ?>
+<section class="wkode-main-block <?php echo $current_mode; echo " " . $current_direction; ?>">
         <div class="wkode-main-block__wrapper">
             <div class="wkode-main-block__content">
                 <h2 class="wkode-main-block__title "><?php echo $title; ?></h2>
