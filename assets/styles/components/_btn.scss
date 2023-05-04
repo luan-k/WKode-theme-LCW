@@ -47,9 +47,46 @@
         @apply hover:bg-lcw-primary-red hover:text-white bg-white text-lcw-primary-red border-white hover:border-lcw-primary-red;
       }
     }
+    &-main-red {
+      position: relative;
+      font-size: 1.4rem;
+
+      margin: auto;
+      color: white;
+      transition: all 0.5s;
+      font-weight: bold;
+      letter-spacing: 0.3rem;
+      font-family: "Rubik", sans-serif;
+      text-transform: uppercase;
+      &::after {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: inherit;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all 0.4s;
+        background-color: inherit;
+      }
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0px 47px 46px 10px rgb(0 0 0 / 71%);
+        &::after {
+          transform: scaleX(1.4) scaleY(1.6);
+          opacity: 0;
+        }
+      }
+      padding-top: 1.5rem !important;
+      padding-bottom: 1.5rem !important;
+      padding-left: 2.25rem !important;
+      padding-right: 2.25rem !important;
+      @apply flex items-center justify-center bg-lcw-primary-red rounded-full text-center;
+    }
   }
 }
-
 /* 
 wkode-btn wkode-btn--outline-blue
 wkode-btn wkode-btn--outline-red

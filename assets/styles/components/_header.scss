@@ -1,4 +1,6 @@
 .wkode-header {
+  z-index: 999;
+  position: relative;
   &__nav {
     display: flex;
     flex-direction: row;
@@ -34,7 +36,7 @@
 
   &__menu-container {
     width: 70%;
-    ul {
+    ul.nav.navbar-nav {
       display: flex;
       flex-direction: row;
       align-items: center;
