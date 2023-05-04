@@ -41,7 +41,7 @@
   }
 
    
- function add_megamenu_wrapper($args) {
+  function add_megamenu_wrapper($args) {
     if($args['theme_location'] === 'main_menu') { 
         $args['walker'] = new Megamenu_Walker();
     }
@@ -62,41 +62,43 @@ class Megamenu_Walker extends Walker_Nav_Menu {
     }
 
     function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
-    $indent = ($depth) ? str_repeat("\t", $depth) : '';
-    $li_attributes = '';
-    $class_names = $value = '';
+        $indent = ($depth) ? str_repeat("\t", $depth) : '';
+        $li_attributes = '';
+        $class_names = $value = '';
+        
+        $classes = empty($item->classes) ? array() : (array) $item->classes;
+        if ( $args->walker->has_children ) {
+            $classes[] = 'menu-item-has-children';
+        }
+        $classes[] = 'menu-item-' . $item->ID;
+        if($depth && $args->walker->has_children) {
+            $classes[] = 'dropdown-submenu';
+        }
+        $class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args));
+        $class_names = ' class="' . esc_attr($class_names) . '"';
+        $id = apply_filters('nav_menu_item_id', 'menu-item-'.$item->ID, $item, $args);
+        $id = strlen($id) ? ' id="' . esc_attr($id) . '"' : '';
+        $output .= $indent . '<li' . $id . $value . $class_names . $li_attributes . '>';
+        $attributes = ! empty($item->attr_title) ? ' title="' . esc_attr($item->attr_title) . '"' : '';
+        $attributes .= ! empty($item->target) ? ' target="' . esc_attr($item->target) . '"' : '';
+        $attributes .= ! empty($item->xfn) ? ' rel="' . esc_attr($item->xfn) . '"' : '';
+        $attributes .= ! empty($item->url) ? ' href="' . esc_attr($item->url) . '"' : '';
+        $item_output = $args->before;
+        $item_output .= '<a' . $attributes . '>';
+        $item_output .= $args->link_before . apply_filters('the_title', $item->title, $item->ID) . $args->link_after;
+        $item_output .= '</a>';
     
-    $classes = empty($item->classes) ? array() : (array) $item->classes;
-    $classes[] = ($args->has_children) ? 'menu-item-has-children' : '';
-    $classes[] = 'menu-item-' . $item->ID;
-    if($depth && $args->has_children) {
-        $classes[] = 'dropdown-submenu';
+        // If this is a linked post type, add the featured image in a nested div with an <a> tag
+        if (get_post_type($item->object_id) == 'motos-novas') {
+            $image_url = get_the_post_thumbnail_url($item->object_id, 'full');
+            $item_output .= '<div class="menu-item-image">';
+            $item_output .= '<img src="' . esc_url($image_url) . '" />' . '<a class="wkode-btn--solid-main-red w-1/3" href="' . esc_url(get_permalink($item->object_id)) . '">Ver Mais</a>';
+            $item_output .= '</div>';
+        }
+    
+        $item_output .= $args->after;
+        $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
     }
-    $class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args));
-    $class_names = ' class="' . esc_attr($class_names) . '"';
-    $id = apply_filters('nav_menu_item_id', 'menu-item-'.$item->ID, $item, $args);
-    $id = strlen($id) ? ' id="' . esc_attr($id) . '"' : '';
-    $output .= $indent . '<li' . $id . $value . $class_names . $li_attributes . '>';
-    $attributes = ! empty($item->attr_title) ? ' title="' . esc_attr($item->attr_title) . '"' : '';
-    $attributes .= ! empty($item->target) ? ' target="' . esc_attr($item->target) . '"' : '';
-    $attributes .= ! empty($item->xfn) ? ' rel="' . esc_attr($item->xfn) . '"' : '';
-    $attributes .= ! empty($item->url) ? ' href="' . esc_attr($item->url) . '"' : '';
-    $item_output = $args->before;
-    $item_output .= '<a' . $attributes . '>';
-    $item_output .= $args->link_before . apply_filters('the_title', $item->title, $item->ID) . $args->link_after;
-    $item_output .= '</a>';
-
-    // If this is a linked post type, add the featured image in a nested div with an <a> tag
-    if (get_post_type($item->object_id) == 'motos-novas') {
-        $image_url = get_the_post_thumbnail_url($item->object_id, 'full');
-        $item_output .= '<div class="menu-item-image">';
-        $item_output .= '<img src="' . esc_url($image_url) . '" />' . '<a class="wkode-btn--solid-main-red w-1/3" href="' . esc_url(get_permalink($item->object_id)) . '">Ver Mais</a>';
-        $item_output .= '</div>';
-    }
-
-    $item_output .= $args->after;
-    $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
-}
 
 }
 
