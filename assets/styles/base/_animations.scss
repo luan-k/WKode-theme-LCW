@@ -1,0 +1,46 @@
+/*This is the initial state before animating */
+[data-entrance="from-top-left"] {
+  transform: translate(-15rem, -15rem);
+  opacity: 0.3;
+}
+/*This is the state after animating */
+[data-entrance="from-top-left"].has-animated {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+[data-entrance="from-bottom-left"] {
+  transform: translate(-15rem, 15rem);
+  opacity: 0.3;
+}
+[data-entrance="from-bottom-left"].has-animated {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+[data-entrance="from-top-right"] {
+  transform: translate(15rem, -15rem);
+  opacity: 0.3;
+}
+[data-entrance="from-top-right"].has-animated {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+[data-entrance="from-bottom-right"] {
+  transform: translate(15rem, 15rem);
+  opacity: 0.3;
+}
+[data-entrance="from-bottom-right"].has-animated {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+[data-entrance="grow"] {
+  transform: scale(25%);
+  opacity: 0.3;
+}
+[data-entrance="grow"].has-animated {
+  transform: scale(100%);
+  opacity: 1;
+}

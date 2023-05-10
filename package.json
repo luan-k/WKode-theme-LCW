@@ -24,6 +24,7 @@
     "postcss-preset-env": "^8.2.0",
     "sass": "^1.53.0",
     "sass-loader": "^13.0.2",
+    "scroll-entrance": "^1.0.0",
     "tailwindcss": "^3.3.0",
     "webpack": "^5.73.0",
     "webpack-cli": "^4.10.0",
