@@ -18,23 +18,30 @@
       height: 100%;
     }
     .sub-menu {
-      display: none;
+      /* display: none; */
+      width: 0;
+      visibility: hidden;
       position: absolute;
       left: 16.3%;
       top: 0;
-      width: 15%;
+      /* width: 15%; */
       height: 90%;
       flex-direction: column;
       align-items: stretch;
       justify-content: center;
+      transition: all 0.3s;
+      opacity: 0;
       ul,
       li {
         width: 100%;
       }
       .sub-menu {
         left: 99%;
-        width: 100%;
+        width: 0;
         height: 100%;
+        transition: all 0.3s;
+        visibility: hidden;
+        opacity: 0;
       }
     }
     li.menu-item {
@@ -62,7 +69,15 @@
       }
       &:hover {
         & > .sub-menu {
-          display: flex;
+          /* display: flex; */
+          width: 15%;
+          visibility: visible;
+          opacity: 1;
+          li.menu-item:hover .sub-menu {
+            width: 100%;
+            visibility: visible;
+            opacity: 1;
+          }
         }
         & > .menu-item-image {
           display: block;

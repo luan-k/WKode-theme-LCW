@@ -33,7 +33,7 @@ $logo_alt = sprintf('%s logo', $site_name);
           </a>
         </nav>
       </div>
-      <div class="wkode-header__nav" id="navbarNavAltMarkup">
+      <div class="wkode-header__nav wkode-header__nav--bottom" id="navbarNavAltMarkup">
         <?php 
         wp_nav_menu(
           array(
@@ -48,40 +48,5 @@ $logo_alt = sprintf('%s logo', $site_name);
         <div class="menu-hover-line"></div>
 
       </div>
-      <!-- <div class="wkode-header__megamenu">
-        <ul class="megamenu__menu-wrapper">
-          <li class="megamenu__parent">
-            <a href="" class="">street</a>
-            <ul class="megamenu__child">
-              <li class="">
-                <a href="" class="">City</a>
-              </li>
-              <li class="">
-                <a href="" class="">Scooter</a>
-              </li>
-              <li class="">
-                <a href="" class="">Naked</a>
-                <ul class="">
-                  <li class="">
-                    <a href="" class="">CB 500 Twister</a>
-                  </li>
-                  <li class="">
-                    <a href="" class="">CB 500 F</a>
-                  </li>
-                  <li class="">
-                    <a href="" class="">CB 650R</a>
-                  </li>
-                  <li class="">
-                    <a href="" class="">CB 1000R</a>
-                  </li>
-                  <li class="">
-                    <a href="" class="">CB 1000R Black Edition</a>
-                  </li>
-                </ul>
-              </li>
-              
-            </ul>
-          </li>
-        </ul>
-      </div> -->
+    
     </header>

@@ -12,6 +12,10 @@
     &--top {
       border-bottom: 0.1rem #d6d6d6 solid;
     }
+    &--bottom {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
   }
   &__logo-wraper {
     img {
@@ -50,6 +54,9 @@
         padding-right: 1rem;
         padding-left: 1rem;
         white-space: nowrap;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+        z-index: 9999;
       }
     }
   }
