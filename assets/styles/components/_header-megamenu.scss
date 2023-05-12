@@ -13,7 +13,7 @@
     border-radius: 0 0 2.1rem 2.1rem;
     visibility: hidden;
     ul {
-      width: 15%;
+      width: 15vw;
       border-left: white 3px solid;
       border-right: white 3px solid;
       height: 100%;
@@ -30,7 +30,7 @@
       visibility: hidden;
       pointer-events: all;
       position: absolute;
-      left: 16.3%;
+      left: calc(3.9rem + 15vw);
       top: 0;
       /* width: 15%; */
       height: 100%;
@@ -45,7 +45,7 @@
         width: 100%;
       }
       .sub-menu {
-        left: 99%;
+        left: 15vw;
         width: 0;
         height: 100%;
         transition: all 0.3s;
@@ -78,6 +78,7 @@
         top: 0;
         height: 100%;
         border-radius: 0 0 2.1rem 0;
+        border-left: white 3px solid;
         img {
           width: 70%;
           margin: auto;
@@ -85,12 +86,9 @@
         }
       }
       &:hover {
-        li {
-          visibility: visible;
-        }
         & > .sub-menu {
           /* display: flex; */
-          width: 15%;
+          width: 15vw;
           visibility: visible;
           opacity: 1;
           li.menu-item:hover .sub-menu {
