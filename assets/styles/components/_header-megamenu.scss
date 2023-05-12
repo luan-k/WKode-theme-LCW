@@ -11,21 +11,30 @@
     padding: 0;
     @apply bg-lcw-primary-gray;
     border-radius: 0 0 2.1rem 2.1rem;
+    visibility: hidden;
     ul {
       width: 15%;
       border-left: white 3px solid;
       border-right: white 3px solid;
       height: 100%;
+      ul {
+        border-left: 0;
+        ul {
+          border-right: 0;
+        }
+      }
     }
     .sub-menu {
       /* display: none; */
       width: 0;
       visibility: hidden;
+      pointer-events: all;
       position: absolute;
       left: 16.3%;
       top: 0;
       /* width: 15%; */
-      height: 90%;
+      height: 100%;
+      padding-bottom: 3.9rem;
       flex-direction: column;
       align-items: stretch;
       justify-content: center;
@@ -41,6 +50,7 @@
         height: 100%;
         transition: all 0.3s;
         visibility: hidden;
+        pointer-events: all;
         opacity: 0;
       }
     }
@@ -48,6 +58,7 @@
       margin: 0;
       padding: 0;
       font-size: 1.4rem;
+
       a {
         padding: 1.5rem 3rem;
         /* width: 100%; */
@@ -59,8 +70,14 @@
         width: 100rem;
         top: 0;
         height: 100%;
-        display: none;
+        visibility: hidden;
         background-color: white;
+        opacity: 0;
+        transition: all 0.1s;
+        width: 360%;
+        top: 0;
+        height: 100%;
+        border-radius: 0 0 2.1rem 0;
         img {
           width: 70%;
           margin: auto;
@@ -68,6 +85,9 @@
         }
       }
       &:hover {
+        li {
+          visibility: visible;
+        }
         & > .sub-menu {
           /* display: flex; */
           width: 15%;
@@ -80,8 +100,9 @@
           }
         }
         & > .menu-item-image {
-          display: block;
+          visibility: visible;
           z-index: 9999;
+          opacity: 1;
         }
         & > a {
           @apply bg-lcw-primary-red text-white font-medium;
@@ -103,6 +124,11 @@
       height: 50rem;
       opacity: 1;
       padding: 0 3.9rem 3.9rem 3.9rem;
+      visibility: visible;
     }
   }
+}
+.menu-item-image.menu-item-image--active {
+  display: block;
+  z-index: 9999;
 }
