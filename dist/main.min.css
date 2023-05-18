@@ -995,6 +995,12 @@ body {
   z-index: 999;
   position: relative;
 }
+.wkode-header--desktop {
+  display: block;
+}
+.wkode-header--mobile {
+  display: none;
+}
 .wkode-header__nav {
   display: flex;
   flex-direction: row;
@@ -1028,7 +1034,7 @@ body {
   opacity: 0.9;
 }
 .wkode-header__menu-container {
-  width: 70%;
+  /* width: 70%; */
 }
 .wkode-header__menu-container ul.nav.navbar-nav {
   display: flex;
@@ -1060,6 +1066,53 @@ body {
   background-color: rgb(215 40 24 / var(--tw-bg-opacity));
 }
 
+@media (max-width: 1200px) {
+  .wkode-header__menu-container ul.nav.navbar-nav .menu-item {
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 1000px) {
+  .wkode-header--desktop {
+    display: none;
+  }
+  .wkode-header--mobile {
+    display: block;
+  }
+  .wkode-header--mobile #navbarNavAltMarkup {
+    position: absolute;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 9999;
+    background-color: white;
+    width: 90%;
+    height: 100vh;
+  }
+  .wkode-header--mobile #navbarNavAltMarkup nav.wkode-header__menu-container {
+    width: 100%;
+  }
+  .wkode-header--mobile #navbarNavAltMarkup nav.wkode-header__menu-container ul.nav.navbar-nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .wkode-header--mobile #navbarNavAltMarkup nav.wkode-header__menu-container ul.nav.navbar-nav .menu-item {
+    z-index: 9999;
+    font-size: 1.5rem;
+    margin-right: 0;
+  }
+  .wkode-header--mobile #navbarNavAltMarkup .wkode-header__icons-wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+  .wkode-header--mobile #navbarNavAltMarkup .wkode-header__icons-wrapper .wkode-header__social-media-icon {
+    margin-left: 0;
+  }
+  .wkode-header--mobile #navbarNavAltMarkup .wkode-header__icons-wrapper .wkode-header__social-media-icon:not(:last-of-type) {
+    margin-right: 1rem;
+  }
+}
 .wkode-header__menu-container .sub-menu.megamenu {
   height: 0;
   opacity: 0;
@@ -1450,6 +1503,13 @@ body.admin-bar .search-overlay {
   justify-content: center;
 }
 
+@media (max-width: 1000px) {
+  .search-trigger {
+    margin-left: 0;
+    right: 1rem;
+    top: 50%;
+  }
+}
 .wkode-btn {
   transition: all 0.3s;
   position: relative;

@@ -288,3 +288,10 @@
   align-items: center;
   justify-content: center;
 }
+@media (max-width: 1000px) {
+  .search-trigger {
+    margin-left: 0;
+    right: 1rem;
+    top: 50%;
+  }
+}
