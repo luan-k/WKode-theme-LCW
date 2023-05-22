@@ -54,7 +54,7 @@ $logo_alt = sprintf('%s logo', $site_name);
     <!-- header mobile -->
     <header class="wkode-header wkode-header--mobile">
       <div class="wkode-header__nav wkode-header__nav--top">
-        <a class="" href="<?php echo esc_url(site_url()); ?>">
+        <a id="wkode-header__megamenu-btn" href="<?php echo esc_url(site_url()); ?>">
 					<img class="" src="<?php echo get_theme_file_uri('/assets/img/svg/hamburguer.svg')?>" alt="<?php  ?>">
 				</a>
         <div class="wkode-header__logo-wraper">
