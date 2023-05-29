@@ -22,6 +22,25 @@
             "button_label": "",
             "sub_fields": [
                 {
+                    "key": "field_6474e6647253e",
+                    "label": "nome",
+                    "name": "wkode_motorcycles_post_name",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
                     "key": "field_6433facdb80b7",
                     "label": "Cor",
                     "name": "wkode_motorcycles_post_color",
@@ -41,7 +60,7 @@
                 {
                     "key": "field_6433fd6671514",
                     "label": "Bicolor ou Tricolor",
-                    "name": "bicolor_ou_tricolor",
+                    "name": "wkode_motorcycles_bicolor_ou_tricolor",
                     "type": "radio",
                     "instructions": "",
                     "required": 0,
@@ -118,6 +137,30 @@
                     "default_value": "",
                     "enable_opacity": 0,
                     "return_format": "string"
+                },
+                {
+                    "key": "field_6474e6e07253f",
+                    "label": "Imagem",
+                    "name": "wkode_motorcycles_post_img",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
                 }
             ]
         }
@@ -140,5 +183,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 1,
-    "modified": 1681147155
+    "modified": 1685383638
 }

@@ -15,6 +15,7 @@
     align-items: center;
     padding: 1.5rem 3.9rem;
     position: relative;
+    background-color: white;
     &--top {
       border-bottom: 0.1rem #d6d6d6 solid;
     }
@@ -95,6 +96,7 @@
     }
     &--mobile {
       display: block;
+      z-index: 9999;
       .wkode-header__nav--top {
         border: 0;
       }
@@ -110,6 +112,7 @@
         background-color: white;
         height: 100vh;
         top: 6.9rem;
+        transition: all 0.3s;
         &.wkode-header__nav--bottom {
           justify-content: flex-start;
           padding-top: 3.3rem;
@@ -155,8 +158,27 @@
       }
     }
   }
+  .wkode-header--mobile {
+    #navbarNavAltMarkup.wkode-header__nav--bottom.wkode-header__nav--active {
+      width: 90%;
+      left: 0;
+    }
+  }
 }
-.wkode-header__nav--active {
-  width: 90%;
-  left: 0;
+body {
+  transition: all 0.3s;
+  &.body-megamenu-active {
+    overflow-y: hidden;
+    &::before {
+      content: "";
+      position: absolute;
+      transition: all 0.3s;
+      left: 0;
+      top: 0;
+      background-color: #0000007d;
+      width: 100vw;
+      height: 100vh;
+      z-index: 9998;
+    }
+  }
 }
