@@ -30,38 +30,114 @@ window.addEventListener("load", () => {
     console.log(menu);
   });
 
-  // Get all color span elements
-  var colorSpans = document.getElementsByClassName(
-    "wkode-new-bikes__card-color"
-  );
+  // Get all card elements
+  var cards = document.getElementsByClassName("wkode-new-bikes__card");
 
-  // Get all image elements
-  var imageElements = document.getElementsByClassName(
-    "wkode-new-bikes__card-img"
-  );
+  // Iterate over each card
+  for (var i = 0; i < cards.length; i++) {
+    var card = cards[i];
 
-  // Add click event listener to each color span
-  for (var i = 0; i < colorSpans.length; i++) {
-    colorSpans[i].addEventListener("click", function () {
+    // Get color span elements within the current card
+    var colorSpans = card.getElementsByClassName("wkode-new-bikes__card-color");
+
+    // Get image elements within the current card
+    var imageElements = card.getElementsByClassName(
+      "wkode-new-bikes__card-img"
+    );
+
+    // Add click event listener to each color span within the current card
+    for (var j = 0; j < colorSpans.length; j++) {
+      colorSpans[j].addEventListener(
+        "click",
+        createColorClickListener(colorSpans, imageElements, j)
+      );
+    }
+  }
+
+  // Function to create a click event listener for a specific color span
+  function createColorClickListener(colorSpans, imageElements, index) {
+    return function () {
       // Remove the active class from all color spans
-      for (var j = 0; j < colorSpans.length; j++) {
-        colorSpans[j].classList.remove("active-color");
+      for (var k = 0; k < colorSpans.length; k++) {
+        colorSpans[k].classList.remove("active-color");
       }
 
       // Add the active class to the clicked color span
-      this.classList.add("active-color");
-
-      // Get the index of the clicked color span
-      var colorIndex = Array.prototype.indexOf.call(colorSpans, this);
+      colorSpans[index].classList.add("active-color");
 
       // Show the corresponding image based on the color index
-      for (var k = 0; k < imageElements.length; k++) {
-        if (k === colorIndex) {
-          imageElements[k].classList.add("active-color-image");
+      for (var l = 0; l < imageElements.length; l++) {
+        if (l === index) {
+          imageElements[l].classList.add("active-color-image");
         } else {
-          imageElements[k].classList.remove("active-color-image");
+          imageElements[l].classList.remove("active-color-image");
         }
       }
-    });
+    };
   }
 });
+
+const state = {};
+const carouselItems = document.querySelectorAll(".wkode-carousel__item");
+const elems = Array.from(carouselItems);
+const prevBtn = document.querySelector(".wkode-carousel__arrow_prev");
+const nextBtn = document.querySelector(".wkode-carousel__arrow_next");
+
+prevBtn.addEventListener("click", function () {
+  const current = elems.find((elem) => elem.dataset.pos == 0);
+  const prev = elems.find((elem) => elem.dataset.pos == -1);
+
+  if (!prev) {
+    return;
+  }
+
+  update(prev);
+});
+
+nextBtn.addEventListener("click", function () {
+  const current = elems.find((elem) => elem.dataset.pos == 0);
+  const next = elems.find((elem) => elem.dataset.pos == 1);
+
+  if (!next) {
+    return;
+  }
+
+  update(next);
+});
+
+carouselItems.forEach((item) => {
+  item.addEventListener("click", function (event) {
+    const newActive = this;
+    const isItem = newActive.classList.contains("wkode-carousel__item");
+
+    if (
+      !isItem ||
+      newActive.classList.contains("wkode-carousel__item_active")
+    ) {
+      return;
+    }
+
+    update(newActive);
+  });
+});
+
+const update = function (newActive) {
+  const newActivePos = parseInt(newActive.dataset.pos);
+
+  elems.forEach((item) => {
+    const itemPos = parseInt(item.dataset.pos);
+    item.dataset.pos = getPos(itemPos, newActivePos);
+  });
+
+  newActive.classList.add("wkode-carousel__item_active");
+};
+
+const getPos = function (current, active) {
+  const diff = current - active;
+
+  if (Math.abs(diff) > 3) {
+    return -current;
+  }
+
+  return diff;
+};

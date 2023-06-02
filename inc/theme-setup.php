@@ -221,6 +221,25 @@ if ( function_exists( 'acf_register_block_type' ) ) {
 					)
 				)
 			);
+			acf_register_block_type(
+				array(
+					'name'            => 'wkode-new-bikes-block',
+					'title'           => __( 'Motos novas carrocel bloco' ),
+					'description'     => __( 'O bloco principal usado para mostrar as novas motos em um carrocel' ),
+					'render_template' => 'template-parts/blocks/posts/wkode-new-bikes.php',
+					'category'        => 'wkode',
+					'icon'            => 'align-pull-right',
+					'keywords'        => array( 'wkode Bloco principal', 'wkode', 'Principal', 'Moto', 'nova', 'moto nova', 'home', 'carrocel' ),
+					/* 'example'  => array(
+						'attributes' => array(
+							'mode' => 'preview',
+							'data' => array(
+								'preview' => '/template-parts/blocks/preview/wkode-main-block.png',
+							)
+						)
+					) */
+				)
+			);
 
 		}
 	);

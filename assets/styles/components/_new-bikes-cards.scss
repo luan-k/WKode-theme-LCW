@@ -1,0 +1,104 @@
+.wkode-new-bikes {
+  a {
+    width: 100%;
+  }
+  &__title {
+    @apply text-center font-rubik text-white text-7xl font-semibold uppercase mb-36;
+  }
+  &__section {
+    @apply bg-lcw-primary-blue py-40;
+  }
+  &__carousel {
+    @apply grid grid-cols-1 mt-20 gap-12 grid grid-cols-3;
+  }
+  &__category {
+    @apply container my-20 text-white;
+    .category-filter {
+      @apply bg-white text-lcw-primary-blue grid grid-cols-6 rounded-full p-2 font-rubik text-2xl uppercase;
+      .category {
+        @apply px-5 py-4 text-center;
+        &--current {
+          @apply bg-lcw-primary-red text-white rounded-full font-semibold;
+        }
+      }
+    }
+  }
+  &__card {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    border-radius: 21px;
+    min-height: 55rem;
+    position: relative;
+    overflow: hidden;
+    padding-right: 3rem;
+    padding-left: 3rem;
+    @apply py-12;
+    &-title {
+      letter-spacing: 0.3rem;
+      font-weight: 800;
+      font-size: 2.7rem;
+      position: absolute;
+      top: 7rem;
+      @apply text-center font-rubik text-lcw-primary-blue text-4xl font-bold uppercase;
+    }
+
+    &-img {
+      display: none;
+      width: 100%;
+      &.active-color-image {
+        display: block;
+      }
+    }
+    &-colors {
+      width: 100%;
+      height: 9%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      flex-wrap: nowrap;
+      flex-direction: row;
+      align-content: flex-end;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 1rem;
+    }
+    &-color {
+      height: 80%;
+      width: 13%;
+      background: transparent;
+      overflow: hidden;
+      border-radius: 0.7rem 0.7rem 0 0;
+      transition: all 0.3s;
+      -webkit-box-shadow: 0px -9px 25px 9px rgba(0, 0, 0, 0.13);
+      -moz-box-shadow: 0px -9px 25px 9px rgba(0, 0, 0, 0.13);
+      box-shadow: 0px -9px 25px 9px rgba(0, 0, 0, 0.13);
+      display: flex;
+      &--unique {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+      &--bicolor {
+        width: 50%;
+        height: 100%;
+        display: block;
+      }
+      &--tricolor {
+        width: 33.3%;
+        height: 100%;
+        display: block;
+      }
+      &:hover {
+        height: 99%;
+      }
+      &.active-color {
+        height: 100%;
+      }
+    }
+  }
+}
