@@ -1,0 +1,202 @@
+.carousel-container {
+  /* overflow: hidden; */
+  position: relative;
+}
+.carousel-image {
+  transition: all 0.1s;
+  &.wkode-new-bikes__card {
+    min-width: calc((100vw / 5) - 1rem);
+    opacity: 0.7;
+    transform: scale(0.7);
+    transition: all 0.1s;
+    .wkode-new-bikes__card-title {
+      transition: all 0.3s;
+    }
+  }
+  &:nth-of-type(2) {
+    transform: scale(0.7);
+  }
+  &:nth-of-type(3) {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 9998;
+  }
+  &:nth-of-type(4) {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 9998;
+  }
+  &:nth-of-type(5) {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 9998;
+  }
+  &:nth-of-type(6) {
+    transform: scale(0.7);
+  }
+}
+@media (min-width: 1200px) and (max-width: 1600px) {
+  .carousel-image {
+    &:nth-of-type(1),
+    &:nth-of-type(2),
+    &:nth-of-type(6),
+    &:nth-of-type(7) {
+      .wkode-new-bikes__card-title {
+        font-size: 1rem;
+        letter-spacing: 0.1rem;
+
+        line-height: 1.5rem;
+        top: 3rem;
+      }
+    }
+  }
+}
+@media (max-width: 1600px) {
+  .carousel-image {
+    &.wkode-new-bikes__card {
+      margin: auto;
+      min-width: 25vw;
+    }
+    &:nth-of-type(1),
+    &:nth-of-type(2) {
+      max-height: 27rem;
+      min-height: 27rem;
+      min-width: calc(25vw / 2);
+      transform: scale(1);
+    }
+    &:nth-of-type(3) {
+      min-width: 25vw;
+    }
+    &:nth-of-type(4) {
+      min-width: 25vw;
+    }
+    &:nth-of-type(5) {
+      min-width: 25vw;
+    }
+    &:nth-of-type(6),
+    &:nth-of-type(7) {
+      max-height: 27rem;
+      min-height: 27rem;
+      min-width: calc(25vw / 2);
+      transform: scale(1);
+    }
+  }
+}
+@media (max-width: 1200px) {
+  .carousel-container {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+  .carousel-image {
+    &.wkode-new-bikes__card {
+      margin: auto;
+      min-width: calc((100vw / 3) - 3rem);
+
+      .wkode-new-bikes__card-title {
+        font-size: 2.25rem;
+        top: 7rem;
+      }
+    }
+
+    &:nth-of-type(1),
+    &:nth-of-type(2) {
+      max-height: 48rem;
+      min-height: 48rem;
+      opacity: 1;
+      transform: scale(1) translateX(0);
+    }
+    &:nth-of-type(3) {
+    }
+    &:nth-of-type(4) {
+    }
+    &:nth-of-type(5) {
+    }
+    &:nth-of-type(6),
+    &:nth-of-type(7) {
+      max-height: 48rem;
+      min-height: 48rem;
+      opacity: 1;
+      transform: scale(1) translateX(0);
+    }
+  }
+}
+@media (max-width: 900px) {
+  .carousel-container {
+  }
+  .carousel-image {
+    &.wkode-new-bikes__card {
+      margin: auto;
+      min-width: 36rem;
+    }
+  }
+}
+@media (max-width: 400px) {
+  .carousel-container {
+  }
+  .carousel-image {
+    &.wkode-new-bikes__card {
+      margin: auto;
+      min-width: 27rem;
+    }
+  }
+}
+
+.carousel {
+  display: flex;
+  gap: 3rem;
+  max-width: 100%;
+}
+@media (max-width: 1600px) {
+  .carousel {
+    gap: 2rem;
+  }
+}
+.carousel.sliding-transition {
+  transition: transform 0.3s ease-in-out;
+}
+
+.carousel-image {
+  -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+.arrow-button {
+  align-items: center;
+  aspect-ratio: 1;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: none;
+  border-radius: 50%;
+  -webkit-box-shadow: 5px 5px 5px -2px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 5px 5px 5px -2px rgba(0, 0, 0, 0.5);
+  box-shadow: 5px 5px 5px -2px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  height: 4.6rem;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4.6rem;
+}
+
+.left-arrow {
+  left: 20px;
+  z-index: 9999;
+}
+
+.right-arrow {
+  right: 20px;
+  z-index: 9999;
+}
+.wkode-new-bikes__card {
+  transition: all 0.2s;
+}
+.wkode-new-bikes__card--active {
+  .wkode-new-bikes__card {
+    opacity: 1;
+    transform: scale(1) translateX(0px);
+    transition: all 0.2s;
+  }
+}
