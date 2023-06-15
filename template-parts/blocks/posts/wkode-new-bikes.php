@@ -2,24 +2,21 @@
 
 $posts = get_field( 'new_bikes_posts' );
 $final_posts;
-var_dump($posts);
 
 $standart_posts = new WP_Query([
     'post_type' => 'motos-novas',
     'orderby' => 'date',
     'order' => 'ASC',
-    'posts_per_page' => 7,
+    'posts_per_page' => 9,
 ]);
 
-echo '<br><br><br><br><br>';
-var_dump($standart_posts);
-echo '<br><br><br><br><br>';
-if(count($posts) > 6){
-    $final_posts = 1;
+if($posts){
+    if(count($posts) > 6){
+        $final_posts = 1;
+    }
 }else{
     $final_posts = 0;
 }
-var_dump($posts);
 
 ?>
 
@@ -123,7 +120,7 @@ var_dump($posts);
                                 while($standart_posts->have_posts()){
                                     $standart_posts->the_post();
                                     
-                                    get_template_part('./template-parts/cards/new-bikes-carousel');
+                                    get_template_part('./template-parts/cards/new-bikes');
                                     
                                 } wp_reset_postdata();
                             }?>
@@ -133,8 +130,20 @@ var_dump($posts);
                     <button class="arrow-button left-arrow" style="background-image: url(<?php echo get_theme_file_uri('assets/img/svg/new-carrousel-left.svg'); ?>);"></button>
                     <button class="arrow-button right-arrow" style="background-image: url(<?php echo get_theme_file_uri('assets/img/svg/new-carrousel-right.svg'); ?>);"></button>
                 </div>
+                <!-- <div class="trial-slider">
+                    <?php
+                        // while($standart_posts->have_posts()){
+                        //    $standart_posts->the_post();
+                        //    
+                        //    get_template_part('./template-parts/cards/new-bikes');
+                        //    
+                        //} wp_reset_postdata();
+                    ?>
+                </div> -->
             </div>
 
         </div>
-        <div class="btn"></div>
+        <div class="btn flex justify-center mt-36">
+            <a href="" class="wkode-btn wkode-btn--outline-red m-auto">Ver Todos</a>
+        </div>
     </section>

@@ -1,11 +1,11 @@
 {
-    "key": "group_6488e196d7ac0",
-    "title": "Motos novas seleçao de motos blocks",
+    "key": "group_648b2f660935d",
+    "title": "Motos usadas seleçao de motos blocks",
     "fields": [
         {
-            "key": "field_6488e1b5273f1",
+            "key": "field_648b2f66102b8",
             "label": "Motos",
-            "name": "new_bikes_posts",
+            "name": "used_bikes_posts",
             "type": "relationship",
             "instructions": "",
             "required": 1,
@@ -16,7 +16,7 @@
                 "id": ""
             },
             "post_type": [
-                "motos-novas"
+                "motos-seminovas"
             ],
             "taxonomy": "",
             "filters": [
@@ -36,7 +36,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/wkode-new-bikes-block"
+                "value": "acf\/wkode-used-bikes-block"
             }
         ]
     ],
@@ -49,5 +49,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1686843276
+    "modified": 1686843315
 }
