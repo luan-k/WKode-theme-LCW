@@ -2,7 +2,7 @@
   /* overflow: hidden; */
   position: relative;
 }
-.carousel-image {
+/* .carousel-image {
   transition: all 0.1s;
   &.wkode-new-bikes__card {
     min-width: calc((100vw / 5) - 1rem);
@@ -33,6 +33,41 @@
   }
   &:nth-of-type(6) {
     transform: scale(0.7);
+  }
+}
+@media (min-width: 1600px) {
+  .carousel-image {
+    transition: all 0.1s;
+    &.wkode-new-bikes__card {
+      min-width: calc((100vw / 5) - 1rem);
+      opacity: 0.7;
+      transform: translateX(0rem) scale(0.7);
+      transition: all 0.1s;
+      .wkode-new-bikes__card-title {
+        transition: all 0.3s;
+      }
+    }
+    &:nth-of-type(2) {
+      transform: translateX(6rem) scale(0.7);
+    }
+    &:nth-of-type(3) {
+      opacity: 1;
+      transform: translateX(0rem) scale(1);
+      z-index: 9998;
+    }
+    &:nth-of-type(4) {
+      opacity: 1;
+      transform: translateX(0rem) scale(1);
+      z-index: 9998;
+    }
+    &:nth-of-type(5) {
+      opacity: 1;
+      transform: translateX(0rem) scale(1);
+      z-index: 9998;
+    }
+    &:nth-of-type(6) {
+      transform: translateX(-6rem) scale(0.7);
+    }
   }
 }
 @media (min-width: 1200px) and (max-width: 1600px) {
@@ -161,6 +196,19 @@
   box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.5);
 }
 
+
+.wkode-new-bikes__card {
+  transition: all 0.2s;
+}
+.wkode-new-bikes__card--active {
+  .wkode-new-bikes__card {
+    opacity: 1;
+    transform: scale(1) translateX(0px);
+    transition: all 0.2s;
+  }
+}
+ */
+
 .arrow-button {
   align-items: center;
   aspect-ratio: 1;
@@ -190,13 +238,32 @@
   right: 20px;
   z-index: 9999;
 }
-.wkode-new-bikes__card {
-  transition: all 0.2s;
-}
-.wkode-new-bikes__card--active {
+
+@media (min-width: 1600px) {
   .wkode-new-bikes__card {
-    opacity: 1;
-    transform: scale(1) translateX(0px);
-    transition: all 0.2s;
+    opacity: 0.7;
+    transform: scale(0.7);
+    transition: all 0.1s;
+    @apply mx-3;
   }
+  .slick-center,
+  .slick-center + .slick-active,
+  .slick-active:has(+ .slick-center) {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@media (min-width: 1300px) and (max-width: 1600px) {
+  .carousel.slick-slider {
+    @apply container;
+  }
+}
+@media (min-width: 1000px) and (max-width: 1300px) {
+  .carousel.slick-slider {
+    @apply px-12;
+  }
+}
+
+.wkode-new-bikes__card {
+  @apply mx-3;
 }

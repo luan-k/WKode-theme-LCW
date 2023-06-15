@@ -51,9 +51,18 @@ $(".trial-slider").slick({
   arrows: true,
   prevArrow: `<button class="arrow-button left-arrow" style="background-image: url('../../wp-content/themes/WKode-theme-LCW/assets/img/svg/new-carrousel-left.svg')"></button>`,
   nextArrow: `<button class="arrow-button right-arrow" style="background-image: url('../../wp-content/themes/WKode-theme-LCW/assets/img/svg/new-carrousel-right.svg')"></button>`,
-  slidesToShow: 7,
+  /* slidesToShow: 3,
+  centerPadding: "400px", */
+  slidesToShow: 5,
   slidesToScroll: 1,
   responsive: [
+    {
+      breakpoint: 1600,
+      settings: {
+        slidesToShow: 3,
+        centerMode: false,
+      },
+    },
     {
       breakpoint: 1000,
       settings: {
@@ -61,15 +70,16 @@ $(".trial-slider").slick({
       },
     },
     {
-      breakpoint: 768,
+      breakpoint: 800,
       settings: {
         slidesToShow: 1,
       },
     },
     {
-      breakpoint: 520,
+      breakpoint: 500,
       settings: {
         slidesToShow: 1,
+        centerMode: false,
       },
     },
   ],

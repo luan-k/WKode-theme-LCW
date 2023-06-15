@@ -5,7 +5,7 @@ import "../slick/slick.min.js";
 import "./slick-config/product-slider";
 
 import "./blocks/slider";
-import "./blocks/new-bikes-block";
+//import "./blocks/new-bikes-block";
 
 import "./header/navbar-line";
 import "./header/add-btn-and-divider";

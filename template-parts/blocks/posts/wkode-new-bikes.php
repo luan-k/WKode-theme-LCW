@@ -38,7 +38,7 @@ if($posts){
             <div class="wkode-new-bikes__carousel">
                 <div class="carousel-container">
                     <div class="carousel-wrapper">
-                        <div class="carousel">
+                        <div class="carousel trial-slider">
                             <?php 
                             if($final_posts){
                                 foreach ($posts as $post) {
@@ -127,8 +127,8 @@ if($posts){
                         </div>
                     </div>
                     
-                    <button class="arrow-button left-arrow" style="background-image: url(<?php echo get_theme_file_uri('assets/img/svg/new-carrousel-left.svg'); ?>);"></button>
-                    <button class="arrow-button right-arrow" style="background-image: url(<?php echo get_theme_file_uri('assets/img/svg/new-carrousel-right.svg'); ?>);"></button>
+                    <!-- <button class="arrow-button left-arrow" style="background-image: url(<?php //echo get_theme_file_uri('assets/img/svg/new-carrousel-left.svg'); ?>);"></button>
+                    <button class="arrow-button right-arrow" style="background-image: url(<?php //echo get_theme_file_uri('assets/img/svg/new-carrousel-right.svg'); ?>);"></button> -->
                 </div>
                 <!-- <div class="trial-slider">
                     <?php

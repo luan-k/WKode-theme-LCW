@@ -33,6 +33,10 @@ if (screenWidth <= 340) {
   // Do something for screens smaller than 1024 pixels
   fuckimage = imageWidth + 40;
   carouselWrapper.style.transform = `translateX(-${fuckimage}px)`;
+} else if (screenWidth > 1600) {
+  // Do something for screens smaller than 1024 pixels
+  fuckimage = imageWidth - 80;
+  carouselWrapper.style.transform = `translateX(-${fuckimage}px)`;
 }
 
 //const imageWidth = 333;

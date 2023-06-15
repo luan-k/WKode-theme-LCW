@@ -662,73 +662,119 @@ body .wraper {
   position: relative;
 }
 
-.carousel-image {
+/* .carousel-image {
   transition: all 0.1s;
+  &.wkode-new-bikes__card {
+    min-width: calc((100vw / 5) - 1rem);
+    opacity: 0.7;
+    transform: scale(0.7);
+    transition: all 0.1s;
+    .wkode-new-bikes__card-title {
+      transition: all 0.3s;
+    }
+  }
+  &:nth-of-type(2) {
+    transform: scale(0.7);
+  }
+  &:nth-of-type(3) {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 9998;
+  }
+  &:nth-of-type(4) {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 9998;
+  }
+  &:nth-of-type(5) {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 9998;
+  }
+  &:nth-of-type(6) {
+    transform: scale(0.7);
+  }
 }
-.carousel-image.wkode-new-bikes__card {
-  min-width: calc(20vw - 1rem);
-  opacity: 0.7;
-  transform: scale(0.7);
-  transition: all 0.1s;
+@media (min-width: 1600px) {
+  .carousel-image {
+    transition: all 0.1s;
+    &.wkode-new-bikes__card {
+      min-width: calc((100vw / 5) - 1rem);
+      opacity: 0.7;
+      transform: translateX(0rem) scale(0.7);
+      transition: all 0.1s;
+      .wkode-new-bikes__card-title {
+        transition: all 0.3s;
+      }
+    }
+    &:nth-of-type(2) {
+      transform: translateX(6rem) scale(0.7);
+    }
+    &:nth-of-type(3) {
+      opacity: 1;
+      transform: translateX(0rem) scale(1);
+      z-index: 9998;
+    }
+    &:nth-of-type(4) {
+      opacity: 1;
+      transform: translateX(0rem) scale(1);
+      z-index: 9998;
+    }
+    &:nth-of-type(5) {
+      opacity: 1;
+      transform: translateX(0rem) scale(1);
+      z-index: 9998;
+    }
+    &:nth-of-type(6) {
+      transform: translateX(-6rem) scale(0.7);
+    }
+  }
 }
-.carousel-image.wkode-new-bikes__card .wkode-new-bikes__card-title {
-  transition: all 0.3s;
-}
-.carousel-image:nth-of-type(2) {
-  transform: scale(0.7);
-}
-.carousel-image:nth-of-type(3) {
-  opacity: 1;
-  transform: scale(1);
-  z-index: 9998;
-}
-.carousel-image:nth-of-type(4) {
-  opacity: 1;
-  transform: scale(1);
-  z-index: 9998;
-}
-.carousel-image:nth-of-type(5) {
-  opacity: 1;
-  transform: scale(1);
-  z-index: 9998;
-}
-.carousel-image:nth-of-type(6) {
-  transform: scale(0.7);
-}
-
 @media (min-width: 1200px) and (max-width: 1600px) {
-  .carousel-image:nth-of-type(1) .wkode-new-bikes__card-title, .carousel-image:nth-of-type(2) .wkode-new-bikes__card-title, .carousel-image:nth-of-type(6) .wkode-new-bikes__card-title, .carousel-image:nth-of-type(7) .wkode-new-bikes__card-title {
-    font-size: 1rem;
-    letter-spacing: 0.1rem;
-    line-height: 1.5rem;
-    top: 3rem;
+  .carousel-image {
+    &:nth-of-type(1),
+    &:nth-of-type(2),
+    &:nth-of-type(6),
+    &:nth-of-type(7) {
+      .wkode-new-bikes__card-title {
+        font-size: 1rem;
+        letter-spacing: 0.1rem;
+
+        line-height: 1.5rem;
+        top: 3rem;
+      }
+    }
   }
 }
 @media (max-width: 1600px) {
-  .carousel-image.wkode-new-bikes__card {
-    margin: auto;
-    min-width: 25vw;
-  }
-  .carousel-image:nth-of-type(1), .carousel-image:nth-of-type(2) {
-    max-height: 27rem;
-    min-height: 27rem;
-    min-width: 12.5vw;
-    transform: scale(1);
-  }
-  .carousel-image:nth-of-type(3) {
-    min-width: 25vw;
-  }
-  .carousel-image:nth-of-type(4) {
-    min-width: 25vw;
-  }
-  .carousel-image:nth-of-type(5) {
-    min-width: 25vw;
-  }
-  .carousel-image:nth-of-type(6), .carousel-image:nth-of-type(7) {
-    max-height: 27rem;
-    min-height: 27rem;
-    min-width: 12.5vw;
-    transform: scale(1);
+  .carousel-image {
+    &.wkode-new-bikes__card {
+      margin: auto;
+      min-width: 25vw;
+    }
+    &:nth-of-type(1),
+    &:nth-of-type(2) {
+      max-height: 27rem;
+      min-height: 27rem;
+      min-width: calc(25vw / 2);
+      transform: scale(1);
+    }
+    &:nth-of-type(3) {
+      min-width: 25vw;
+    }
+    &:nth-of-type(4) {
+      min-width: 25vw;
+    }
+    &:nth-of-type(5) {
+      min-width: 25vw;
+    }
+    &:nth-of-type(6),
+    &:nth-of-type(7) {
+      max-height: 27rem;
+      min-height: 27rem;
+      min-width: calc(25vw / 2);
+      transform: scale(1);
+    }
   }
 }
 @media (max-width: 1200px) {
@@ -736,45 +782,65 @@ body .wraper {
     padding-left: 4rem;
     padding-right: 4rem;
   }
-  .carousel-image.wkode-new-bikes__card {
-    margin: auto;
-    min-width: calc(33.3333333333vw - 3rem);
-  }
-  .carousel-image.wkode-new-bikes__card .wkode-new-bikes__card-title {
-    font-size: 2.25rem;
-    top: 7rem;
-  }
-  .carousel-image:nth-of-type(1), .carousel-image:nth-of-type(2) {
-    max-height: 48rem;
-    min-height: 48rem;
-    opacity: 1;
-    transform: scale(1) translateX(0);
-  }
-  .carousel-image:nth-of-type(6), .carousel-image:nth-of-type(7) {
-    max-height: 48rem;
-    min-height: 48rem;
-    opacity: 1;
-    transform: scale(1) translateX(0);
+  .carousel-image {
+    &.wkode-new-bikes__card {
+      margin: auto;
+      min-width: calc((100vw / 3) - 3rem);
+
+      .wkode-new-bikes__card-title {
+        font-size: 2.25rem;
+        top: 7rem;
+      }
+    }
+
+    &:nth-of-type(1),
+    &:nth-of-type(2) {
+      max-height: 48rem;
+      min-height: 48rem;
+      opacity: 1;
+      transform: scale(1) translateX(0);
+    }
+    &:nth-of-type(3) {
+    }
+    &:nth-of-type(4) {
+    }
+    &:nth-of-type(5) {
+    }
+    &:nth-of-type(6),
+    &:nth-of-type(7) {
+      max-height: 48rem;
+      min-height: 48rem;
+      opacity: 1;
+      transform: scale(1) translateX(0);
+    }
   }
 }
 @media (max-width: 900px) {
-  .carousel-image.wkode-new-bikes__card {
-    margin: auto;
-    min-width: 36rem;
+  .carousel-container {
+  }
+  .carousel-image {
+    &.wkode-new-bikes__card {
+      margin: auto;
+      min-width: 36rem;
+    }
   }
 }
 @media (max-width: 400px) {
-  .carousel-image.wkode-new-bikes__card {
-    margin: auto;
-    min-width: 27rem;
+  .carousel-container {
+  }
+  .carousel-image {
+    &.wkode-new-bikes__card {
+      margin: auto;
+      min-width: 27rem;
+    }
   }
 }
+
 .carousel {
   display: flex;
   gap: 3rem;
   max-width: 100%;
 }
-
 @media (max-width: 1600px) {
   .carousel {
     gap: 2rem;
@@ -785,9 +851,23 @@ body .wraper {
 }
 
 .carousel-image {
+  -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.5);
   box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.5);
 }
 
+
+.wkode-new-bikes__card {
+  transition: all 0.2s;
+}
+.wkode-new-bikes__card--active {
+  .wkode-new-bikes__card {
+    opacity: 1;
+    transform: scale(1) translateX(0px);
+    transition: all 0.2s;
+  }
+}
+ */
 .arrow-button {
   align-items: center;
   aspect-ratio: 1;
@@ -816,14 +896,72 @@ body .wraper {
   z-index: 9999;
 }
 
-.wkode-new-bikes__card {
-  transition: all 0.2s;
+@media (min-width: 1600px) {
+  .wkode-new-bikes__card {
+    opacity: 0.7;
+    transform: scale(0.7);
+    transition: all 0.1s;
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+  }
+  .slick-center,
+.slick-center + .slick-active,
+.slick-active:has(+ .slick-center) {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
-
-.wkode-new-bikes__card--active .wkode-new-bikes__card {
-  opacity: 1;
-  transform: scale(1) translateX(0px);
-  transition: all 0.2s;
+@media (min-width: 1300px) and (max-width: 1600px) {
+  .carousel.slick-slider{
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+  @media (min-width: 640px){
+    .carousel.slick-slider{
+      max-width: 640px;
+      padding-right: 2rem;
+      padding-left: 2rem;
+    }
+  }
+  @media (min-width: 768px){
+    .carousel.slick-slider{
+      max-width: 768px;
+    }
+  }
+  @media (min-width: 1024px){
+    .carousel.slick-slider{
+      max-width: 1024px;
+      padding-right: 7%;
+      padding-left: 7%;
+    }
+  }
+  @media (min-width: 1280px){
+    .carousel.slick-slider{
+      max-width: 1280px;
+      padding-right: 8%;
+      padding-left: 8%;
+    }
+  }
+  @media (min-width: 1685px){
+    .carousel.slick-slider{
+      max-width: 1685px;
+      padding-right: 10%;
+      padding-left: 10%;
+    }
+  }
+}
+@media (min-width: 1000px) and (max-width: 1300px) {
+  .carousel.slick-slider{
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+.wkode-new-bikes__card{
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
 }
 
 .wkode-slider {
@@ -2025,103 +2163,6 @@ wkode-btn wkode-btn--solid-white-red
   height: 100%;
 }
 
-/* .slick-active:has(~ .slick-center) {
-  background-color: red !important;
-}
-.slick-center,
-.slick-center + .slick-active,
-.slick-center + .slick-active + .slick-active,
-.slick-center + .slick-active + .slick-active + .slick-active {
-  background-color: red !important;
-}
-.wkode-new-bikes__card {
-  opacity: 0.7;
-  transform: scale(0.7);
-  transition: all 0.1s;
-}
-.slick-center,
-.slick-center + .slick-active,
-.slick-active:has(+ .slick-center) {
-  opacity: 1;
-  transform: scale(1);
-} */
-/* .slick-center,
-.slick-center ~ .slick-active,
-.slick-active ~ .slick-center {
-  background-color: red !important;
-} */
-/* .slick-slide {
-  transition: all 0.1s;
-  &.wkode-new-bikes__card {
-
-    opacity: 0.7;
-    transform: scale(0.7);
-    transition: all 0.1s;
-    &.slick-active {
-
-      &:nth-child(4) {
-        opacity: 1 !important;
-        transform: scale(1) !important;
-      }
-      &:nth-child(5) {
-        opacity: 1 !important;
-        transform: scale(1) !important;
-      }
-      &:nth-child(6) {
-        opacity: 1 !important;
-        transform: scale(1) !important;
-      }
-    }
-  } */
-/* &:nth-of-type(1) {
-    transform: scale(0.7);
-  }
-  &:nth-of-type(2) {
-    opacity: 1;
-    transform: scale(1);
-    z-index: 9998;
-  }
-  &:nth-of-type(3) {
-    opacity: 1;
-    transform: scale(1);
-    z-index: 9998;
-  }
-  &:nth-of-type(5) {
-    opacity: 1;
-    transform: scale(1);
-    z-index: 9998;
-  }
-  &:nth-of-type(6) {
-    transform: scale(0.7);
-  } */
-/* .slick-active {
-
-  &:nth-of-type(8) {
-    opacity: 1 !important;
-    transform: scale(1) !important;
-  }
-  &:nth-of-type(7) {
-    opacity: 1 !important;
-    transform: scale(1) !important;
-  }
-  &:nth-of-type(6) {
-    opacity: 1 !important;
-    transform: scale(1) !important;
-  }
-  &:nth-child(9) {
-    opacity: 1 !important;
-    transform: scale(1) !important;
-  }
-  &:nth-child(10) {
-    opacity: 1 !important;
-    transform: scale(1) !important;
-  }
-  &:nth-child(11) {
-    opacity: 1 !important;
-    transform: scale(1) !important;
-  }
-}
- */
 .wkode-used-bikes {
   /* a {
     width: 100%;
