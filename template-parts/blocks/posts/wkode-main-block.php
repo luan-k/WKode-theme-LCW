@@ -35,14 +35,14 @@ if( isset( $block['data']['preview'] )  ) {    /* rendering in inserter preview 
                 <a href="<?php echo $btn["wkode_main_block_btn_url"]; ?>" class="<?php echo $btn["wkode_main_block_btn_style"]; ?>"><?php echo $btn["wkode_main_block_btn_text"]; ?></a>
             </div>
             <div class="wkode-main-block__image ">
-                <img src="<?php echo $img['sizes']['wkode_main_block']; ?>" alt="" srcset="">
+                <img class="wkode-main-block__img" src="<?php echo !empty($img['sizes']['wkode_main_block']) ? $img['sizes']['wkode_main_block'] : get_theme_file_uri('./assets/img/main-fallback.jpg'); ?>" alt="" srcset="">
             </div>
         </div>
     </section>
     <style>
         @media (max-width: 1080px) {
             .wkode-main-block__image{
-                background-image: url(<?php echo $img['sizes']['wkode_main_block_mobile']; ?>);
+                background-image: url(<?php echo !empty($img['sizes']['wkode_main_block_mobile']) ? $img['sizes']['wkode_main_block_mobile'] : get_theme_file_uri('./assets/img/main-fallback-mob.jpg'); ?>);
             }
         }
     </style>

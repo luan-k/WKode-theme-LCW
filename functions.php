@@ -2,6 +2,7 @@
 
   /** Theme setup */
   require_once( 'inc/theme-setup.php' );
+  require_once( 'inc/custom-post-types.php' );
   require get_theme_file_path('/inc/search-route.php');
 
   function enqueue_wkode_scripts() {
@@ -29,19 +30,19 @@
       return $path;
   }
 
-  // Load ACF JSON
-  add_filter('acf/settings/load_json', 'my_acf_json_load_point');
-  function my_acf_json_load_point( $paths ) {
+// Load ACF JSON
+add_filter('acf/settings/load_json', 'my_acf_json_load_point');
+function my_acf_json_load_point( $paths ) {
       // remove original path (optional)
       unset($paths[0]);
       // append path
       $paths[] = get_stylesheet_directory() . '/acf-json';
       // return
       return $paths;
-  }
+}
 
-   
-  function add_megamenu_wrapper($args) {
+//megamenu styles config   
+function add_megamenu_wrapper($args) {
     if($args['theme_location'] === 'main_menu') { 
         $args['walker'] = new Megamenu_Walker();
     }

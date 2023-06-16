@@ -140,6 +140,25 @@
             ]
         },
         {
+            "key": "field_6431f1c628a1b",
+            "label": "Direção",
+            "name": "wkode_main_block_direction",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "texto na esquerda e imagem na direita",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Invertido",
+            "ui_off_text": "Normal"
+        },
+        {
             "key": "field_6431e0f45542d",
             "label": "Imagem",
             "name": "wkode_main_block_img",
@@ -162,25 +181,6 @@
             "max_height": "",
             "max_size": "",
             "mime_types": ""
-        },
-        {
-            "key": "field_6431f1c628a1b",
-            "label": "Direção",
-            "name": "wkode_main_block_direction",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "texto na esquerda e imagem na direita",
-            "default_value": 0,
-            "ui": 1,
-            "ui_on_text": "Invertido",
-            "ui_off_text": "Normal"
         }
     ],
     "location": [
@@ -189,6 +189,13 @@
                 "param": "block",
                 "operator": "==",
                 "value": "acf\/wkode-main-block"
+            }
+        ],
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/wkode-multiple-image-consorcio-block"
             }
         ]
     ],
@@ -201,5 +208,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1681000889
+    "modified": 1686940578
 }

@@ -1,9 +1,9 @@
 *,
 *::after,
 *::before {
+  box-sizing: inherit;
   margin: 0;
   padding: 0;
-  box-sizing: inherit;
 }
 
 /* ================scroolbar=================== */
@@ -50,10 +50,10 @@ html {
 /* @apply bg-unitermi-primary-gray */
 body {
   box-sizing: border-box; /* Padding and Margin are no longer part of the width and height of the element */
-  overflow-x: hidden;
   min-height: 100vh;
+  overflow-x: hidden;
   //background-color: var(--lightPrimary);
   .wraper {
-    overflow-x: hidden;
+    overflow: hidden;
   }
 }
