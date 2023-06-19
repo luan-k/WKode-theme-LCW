@@ -490,6 +490,9 @@ video {
 .grid{
   display: grid;
 }
+.h-24{
+  height: 6rem;
+}
 .h-full{
   height: 100%;
 }
@@ -521,6 +524,10 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(20 21 27 / var(--tw-bg-opacity));
 }
+.bg-white{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
 .px-12{
   padding-left: 3rem;
   padding-right: 3rem;
@@ -528,6 +535,10 @@ video {
 .py-48{
   padding-top: 12rem;
   padding-bottom: 12rem;
+}
+.py-60{
+  padding-top: 15rem;
+  padding-bottom: 15rem;
 }
 .text-center{
   text-align: center;
@@ -539,6 +550,9 @@ video {
 .text-black{
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+.filter{
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 .transition{
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
@@ -668,212 +682,6 @@ body .wraper {
   position: relative;
 }
 
-/* .carousel-image {
-  transition: all 0.1s;
-  &.wkode-new-bikes__card {
-    min-width: calc((100vw / 5) - 1rem);
-    opacity: 0.7;
-    transform: scale(0.7);
-    transition: all 0.1s;
-    .wkode-new-bikes__card-title {
-      transition: all 0.3s;
-    }
-  }
-  &:nth-of-type(2) {
-    transform: scale(0.7);
-  }
-  &:nth-of-type(3) {
-    opacity: 1;
-    transform: scale(1);
-    z-index: 9998;
-  }
-  &:nth-of-type(4) {
-    opacity: 1;
-    transform: scale(1);
-    z-index: 9998;
-  }
-  &:nth-of-type(5) {
-    opacity: 1;
-    transform: scale(1);
-    z-index: 9998;
-  }
-  &:nth-of-type(6) {
-    transform: scale(0.7);
-  }
-}
-@media (min-width: 1600px) {
-  .carousel-image {
-    transition: all 0.1s;
-    &.wkode-new-bikes__card {
-      min-width: calc((100vw / 5) - 1rem);
-      opacity: 0.7;
-      transform: translateX(0rem) scale(0.7);
-      transition: all 0.1s;
-      .wkode-new-bikes__card-title {
-        transition: all 0.3s;
-      }
-    }
-    &:nth-of-type(2) {
-      transform: translateX(6rem) scale(0.7);
-    }
-    &:nth-of-type(3) {
-      opacity: 1;
-      transform: translateX(0rem) scale(1);
-      z-index: 9998;
-    }
-    &:nth-of-type(4) {
-      opacity: 1;
-      transform: translateX(0rem) scale(1);
-      z-index: 9998;
-    }
-    &:nth-of-type(5) {
-      opacity: 1;
-      transform: translateX(0rem) scale(1);
-      z-index: 9998;
-    }
-    &:nth-of-type(6) {
-      transform: translateX(-6rem) scale(0.7);
-    }
-  }
-}
-@media (min-width: 1200px) and (max-width: 1600px) {
-  .carousel-image {
-    &:nth-of-type(1),
-    &:nth-of-type(2),
-    &:nth-of-type(6),
-    &:nth-of-type(7) {
-      .wkode-new-bikes__card-title {
-        font-size: 1rem;
-        letter-spacing: 0.1rem;
-
-        line-height: 1.5rem;
-        top: 3rem;
-      }
-    }
-  }
-}
-@media (max-width: 1600px) {
-  .carousel-image {
-    &.wkode-new-bikes__card {
-      margin: auto;
-      min-width: 25vw;
-    }
-    &:nth-of-type(1),
-    &:nth-of-type(2) {
-      max-height: 27rem;
-      min-height: 27rem;
-      min-width: calc(25vw / 2);
-      transform: scale(1);
-    }
-    &:nth-of-type(3) {
-      min-width: 25vw;
-    }
-    &:nth-of-type(4) {
-      min-width: 25vw;
-    }
-    &:nth-of-type(5) {
-      min-width: 25vw;
-    }
-    &:nth-of-type(6),
-    &:nth-of-type(7) {
-      max-height: 27rem;
-      min-height: 27rem;
-      min-width: calc(25vw / 2);
-      transform: scale(1);
-    }
-  }
-}
-@media (max-width: 1200px) {
-  .carousel-container {
-    padding-left: 4rem;
-    padding-right: 4rem;
-  }
-  .carousel-image {
-    &.wkode-new-bikes__card {
-      margin: auto;
-      min-width: calc((100vw / 3) - 3rem);
-
-      .wkode-new-bikes__card-title {
-        font-size: 2.25rem;
-        top: 7rem;
-      }
-    }
-
-    &:nth-of-type(1),
-    &:nth-of-type(2) {
-      max-height: 48rem;
-      min-height: 48rem;
-      opacity: 1;
-      transform: scale(1) translateX(0);
-    }
-    &:nth-of-type(3) {
-    }
-    &:nth-of-type(4) {
-    }
-    &:nth-of-type(5) {
-    }
-    &:nth-of-type(6),
-    &:nth-of-type(7) {
-      max-height: 48rem;
-      min-height: 48rem;
-      opacity: 1;
-      transform: scale(1) translateX(0);
-    }
-  }
-}
-@media (max-width: 900px) {
-  .carousel-container {
-  }
-  .carousel-image {
-    &.wkode-new-bikes__card {
-      margin: auto;
-      min-width: 36rem;
-    }
-  }
-}
-@media (max-width: 400px) {
-  .carousel-container {
-  }
-  .carousel-image {
-    &.wkode-new-bikes__card {
-      margin: auto;
-      min-width: 27rem;
-    }
-  }
-}
-
-.carousel {
-  display: flex;
-  gap: 3rem;
-  max-width: 100%;
-}
-@media (max-width: 1600px) {
-  .carousel {
-    gap: 2rem;
-  }
-}
-.carousel.sliding-transition {
-  transition: transform 0.3s ease-in-out;
-}
-
-.carousel-image {
-  -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.5);
-  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.5);
-}
-
-
-.wkode-new-bikes__card {
-  transition: all 0.2s;
-}
-.wkode-new-bikes__card--active {
-  .wkode-new-bikes__card {
-    opacity: 1;
-    transform: scale(1) translateX(0px);
-    transition: all 0.2s;
-  }
-}
- */
 .arrow-button {
   align-items: center;
   aspect-ratio: 1;
@@ -903,16 +711,16 @@ body .wraper {
 }
 
 @media (min-width: 1600px) {
-  .wkode-new-bikes__card {
+  .wkode-new-bikes__carousel .wkode-new-bikes__card {
     opacity: 0.7;
     transform: scale(0.7);
     transition: all 0.1s;
     margin-left: 0.75rem;
     margin-right: 0.75rem;
   }
-  .slick-center,
-.slick-center + .slick-active,
-.slick-active:has(+ .slick-center) {
+  .wkode-new-bikes__carousel .slick-center,
+.wkode-new-bikes__carousel .slick-center + .slick-active,
+.wkode-new-bikes__carousel .slick-active:has(+ .slick-center) {
     opacity: 1;
     transform: scale(1);
   }
@@ -2897,6 +2705,77 @@ wkode-btn wkode-btn--solid-white-red
   margin-top: -15rem;
   position: relative;
   z-index: 9999;
+}
+
+.wkode-archive{
+  --tw-bg-opacity: 1;
+  background-color: rgb(20 21 27 / var(--tw-bg-opacity));
+}
+.wkode-archive__main{
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+@media (min-width: 640px){
+  .wkode-archive__main{
+    max-width: 640px;
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
+}
+@media (min-width: 768px){
+  .wkode-archive__main{
+    max-width: 768px;
+  }
+}
+@media (min-width: 1024px){
+  .wkode-archive__main{
+    max-width: 1024px;
+    padding-right: 7%;
+    padding-left: 7%;
+  }
+}
+@media (min-width: 1280px){
+  .wkode-archive__main{
+    max-width: 1280px;
+    padding-right: 8%;
+    padding-left: 8%;
+  }
+}
+@media (min-width: 1685px){
+  .wkode-archive__main{
+    max-width: 1685px;
+    padding-right: 10%;
+    padding-left: 10%;
+  }
+}
+.wkode-archive__main{
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+.wkode-archive__grid{
+  grid-column: span 10 / span 10;
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1.75rem;
+}
+@media (min-width: 768px){
+  .wkode-archive__grid{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+.wkode-archive .filter{
+  grid-column: span 2 / span 2;
+}
+.wkode-archive .wkode-new-bikes__card {
+  margin: 0;
+}
+.wkode-archive .wkode-products__card{
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
 }
 
 /* @import "../slick/slick-theme.scss"; */

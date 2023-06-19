@@ -1,0 +1,18 @@
+.wkode-archive {
+  @apply bg-lcw-primary-blue;
+  &__main {
+    @apply grid grid-cols-12 container gap-3;
+  }
+  &__grid {
+    @apply col-span-10 grid grid-cols-1 md:grid-cols-3 gap-7;
+  }
+  .filter {
+    @apply col-span-2;
+  }
+  .wkode-new-bikes__card {
+    margin: 0;
+  }
+  .wkode-products__card {
+    @apply mx-3;
+  }
+}

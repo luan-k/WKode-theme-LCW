@@ -41,6 +41,47 @@ $(".wkode-used-bikes__slider").slick({
     },
   ],
 });
+$(".wkode-archive__related").slick({
+  centerMode: true,
+  autoplay: false,
+  autoplaySpeed: 2000,
+  dots: false,
+  infinite: true,
+  speed: 500,
+  arrows: true,
+  prevArrow: `<button class="arrow-button left-arrow" style="background-image: url('../../wp-content/themes/WKode-theme-LCW/assets/img/svg/new-carrousel-left.svg')"></button>`,
+  nextArrow: `<button class="arrow-button right-arrow" style="background-image: url('../../wp-content/themes/WKode-theme-LCW/assets/img/svg/new-carrousel-right.svg')"></button>`,
+  slidesToShow: 5,
+  slidesToScroll: 1,
+  responsive: [
+    {
+      breakpoint: 1600,
+      settings: {
+        slidesToShow: 3,
+        centerMode: false,
+      },
+    },
+    {
+      breakpoint: 1000,
+      settings: {
+        slidesToShow: 2,
+      },
+    },
+    {
+      breakpoint: 800,
+      settings: {
+        slidesToShow: 1,
+      },
+    },
+    {
+      breakpoint: 500,
+      settings: {
+        slidesToShow: 1,
+        centerMode: false,
+      },
+    },
+  ],
+});
 $(".trial-slider").slick({
   centerMode: true,
   autoplay: false,
