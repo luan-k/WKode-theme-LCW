@@ -1,5 +1,6 @@
 window.addEventListener("load", () => {
-  let allParents = document.getElementsByClassName("menu-item-has-children");
+  const header = document.getElementById("navbarNavAltMarkup");
+  let allParents = header.getElementsByClassName("menu-item-has-children");
 
   let aTag;
   let correctUrl;

@@ -1,5 +1,6 @@
+const headerOnly = document.getElementById("navbarNavAltMarkup");
 const menuLine = document.querySelector(".menu-hover-line");
-const menuItems = document.querySelectorAll(".menu-item");
+const menuItems = headerOnly.querySelectorAll(".menu-item");
 const lineWidth = 4;
 
 // Get the initial position of the active menu item

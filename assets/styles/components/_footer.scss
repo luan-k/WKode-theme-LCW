@@ -1,7 +1,59 @@
 .wkode-footer {
+  font-size: 15px;
+  padding-bottom: 6rem;
   padding-top: 12rem;
-  @apply bg-lcw-primary-blue text-white font-rubik;
+  @apply bg-lcw-primary-blue text-white font-rubik font-light;
   &__wrapper {
     @apply container;
+  }
+  &__menu-class {
+    .menu-item {
+      &:not(:last-of-type) {
+        margin-bottom: 1rem;
+      }
+    }
+    .sub-menu {
+      margin-top: 1.5rem;
+    }
+    .menu-item-has-children > a,
+    .wkode-footer__menu-class-title {
+      @apply font-semibold;
+      font-size: 16px;
+    }
+    &-1 {
+      @apply grid grid-cols-1 md:grid-cols-3 col-span-1 md:col-span-7 gap-16;
+    }
+    &-2 {
+      @apply col-span-1 md:col-span-2;
+    }
+    &-3 {
+      @apply col-span-1 md:col-span-3;
+    }
+  }
+  &__logo-wrapper {
+    img {
+      width: 13rem;
+    }
+  }
+  &__horizontal-footer {
+    border-top: 3px #1b1c25 solid;
+    margin-bottom: 6rem;
+    margin-top: 6rem;
+    width: 100%;
+  }
+  &__logo {
+    align-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+@media (max-width: 768px) {
+  .wkode-footer__logo {
+    flex-direction: column;
+    h5 {
+      margin-bottom: 1rem;
+    }
   }
 }

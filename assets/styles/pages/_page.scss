@@ -1,0 +1,38 @@
+.wkode-single-page-template {
+  @apply bg-lcw-primary-blue text-white font-rubik;
+  font-size: 15px;
+
+  &__image {
+    min-height: 80vh;
+    overflow: hidden;
+    position: relative;
+    img {
+      height: auto;
+      left: 50%;
+      max-width: none;
+
+      min-width: 100%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  &__content {
+    & > p {
+      @apply container;
+      margin-bottom: 3rem;
+    }
+  }
+  &__title {
+    @apply text-center container text-white text-7xl font-semibold uppercase mb-36 bg-lcw-primary-blue py-36 mx-auto;
+    border-radius: 12px 12px 0 0;
+    &-header {
+      @apply text-center container;
+
+      margin-top: -15rem;
+      position: relative;
+
+      z-index: 9999;
+    }
+  }
+}
