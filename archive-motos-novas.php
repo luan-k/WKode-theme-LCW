@@ -1,13 +1,14 @@
 <?php get_header(); ?>
 
-<section id="primary" class="wkode-archive content-area">
-    <main id="main" class="wkode-archive__main site-main py-60" role="main">
+<section id="primary" class="wkode-archive content-area py-60">
+    <h1 class="page-title text-left font-rubik text-white text-6xl font-semibold uppercase mb-36 container">
+        Motos novas
+    </h1>
+    <main id="main" class="wkode-archive__main site-main mb-60" role="main">
 
         <?php if (have_posts()) : ?>
             <!-- <header class="page-header">
-                <h1 class="page-title">
-                   Motos novas
-                </h1>
+                
             </header> -->
             <div class="filter bg-white h-24 text-black text-3xl">Filter</div>
 
@@ -31,6 +32,7 @@
             'posts_per_page' => 12,
         ]);        
     ?>
+    <h3 class="text-center font-rubik text-white text-5xl font-semibold uppercase mb-36">ACESSÓRIOS</h3>
     <div class="wkode-archive__related">
         <?php
             if ($random_posts->have_posts()) {
@@ -40,6 +42,9 @@
                 }
             }
         ?>
+    </div>
+    <div class="btn flex justify-center mt-36">
+        <a href="" class="wkode-btn wkode-btn--solid-red m-auto">Ver Todos</a>
     </div>
 </section>
 
