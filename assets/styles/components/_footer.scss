@@ -1,0 +1,7 @@
+.wkode-footer {
+  padding-top: 12rem;
+  @apply bg-lcw-primary-blue text-white font-rubik;
+  &__wrapper {
+    @apply container;
+  }
+}

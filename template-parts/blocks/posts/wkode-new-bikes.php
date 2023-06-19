@@ -1,7 +1,7 @@
 <?php 
 
 $posts = get_field( 'new_bikes_posts' );
-$final_posts;
+$final_posts = false;
 
 $standart_posts = new WP_Query([
     'post_type' => 'motos-novas',
@@ -12,10 +12,10 @@ $standart_posts = new WP_Query([
 
 if($posts){
     if(count($posts) > 6){
-        $final_posts = 1;
+        $final_posts = true;
     }
 }else{
-    $final_posts = 0;
+    $final_posts = false;
 }
 
 ?>

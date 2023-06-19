@@ -47,6 +47,10 @@ if ( ! function_exists( 'wkode_theme_setup' ) ) :
 
 		add_image_size( 'motos_seminovas_card', 397, 350, true, array( 'center', 'center' ) );
 
+		add_image_size( 'products_card', 250, 250, true, array( 'center', 'center' ) );
+
+		add_image_size( 'wkode_main_block_card_overlay', 1115, 830, true, array( 'center', 'center' ) );
+
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments
@@ -93,6 +97,8 @@ if ( ! function_exists( 'wkode_theme_setup' ) ) :
 		register_nav_menus(
 			array(
 				'main_menu' 	=> 'Main Menu',
+				'footer_menu_1' => 'Footer Menu 1',
+				'footer_menu_2' => 'Footer Menu 2'
 			)
 		);
 
@@ -275,6 +281,44 @@ if ( function_exists( 'acf_register_block_type' ) ) {
 							'mode' => 'preview',
 							'data' => array(
 								'preview' => '/template-parts/blocks/preview/wkode-multiple-image-consorcio-block.png',
+							)
+						)
+					) */
+				)
+			);
+			acf_register_block_type(
+				array(
+					'name'            => 'wkode-products',
+					'title'           => __( 'Produtos' ),
+					'description'     => __( 'Bloco usado para mostrar produtos na home page' ),
+					'render_template' => 'template-parts/blocks/posts/wkode-products.php',
+					'category'        => 'wkode',
+					'icon'            => 'align-pull-right',
+					'keywords'        => array( 'wkode Bloco principal', 'wkode', 'Principal', 'acessorio', 'produto', 'moto seminova', 'home', 'carrocel' ),
+					/* 'example'  => array(
+						'attributes' => array(
+							'mode' => 'preview',
+							'data' => array(
+								'preview' => '/template-parts/blocks/preview/wkode-main-block.png',
+							)
+						)
+					) */
+				)
+			);
+			acf_register_block_type(
+				array(
+					'name'            => 'wkode-main-block-card-revisao-geral',
+					'title'           => __( 'Revisão Geral' ),
+					'description'     => __( 'Bloco usado para mostrar os serviços' ),
+					'render_template' => 'template-parts/blocks/posts/wkode-main-block-card-revisao-geral.php',
+					'category'        => 'wkode',
+					'icon'            => 'align-pull-right',
+					'keywords'        => array( 'wkode Bloco principal', 'wkode', 'Principal', 'Revisão Geral'),
+					/* 'example'  => array(
+						'attributes' => array(
+							'mode' => 'preview',
+							'data' => array(
+								'preview' => '/template-parts/blocks/preview/wkode-main-block.png',
 							)
 						)
 					) */

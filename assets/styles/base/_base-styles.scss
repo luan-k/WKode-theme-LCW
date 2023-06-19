@@ -57,3 +57,10 @@ body {
     overflow: hidden;
   }
 }
+
+.wkode-maps {
+  min-height: 30rem;
+  iframe {
+    height: 40rem;
+  }
+}

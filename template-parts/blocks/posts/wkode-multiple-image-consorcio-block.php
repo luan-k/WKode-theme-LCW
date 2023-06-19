@@ -30,13 +30,13 @@ if($block_direction){
 <?php
 //}else{ ?>
 <section class="wkode-main-block <?php echo $current_mode; echo " " . $current_direction; ?> wkode-multiple-image">
-        <div class="wkode-main-block__wrapper">
-            <div class="wkode-main-block__content">
+        <div class="wkode-main-block__wrapper ">
+            <div class="wkode-main-block__content col-span-1">
                 <h2 class="wkode-main-block__title "><?php echo $title; ?></h2>
                 <div class="wkode-main-block__text"><?php echo $description; ?></div>
                 <a href="<?php echo $btn["wkode_main_block_btn_url"]; ?>" class="<?php echo $btn["wkode_main_block_btn_style"]; ?>"><?php echo $btn["wkode_main_block_btn_text"]; ?></a>
             </div>
-            <div class="wkode-main-block__image ">
+            <div class="wkode-main-block__image col-span-1">
                 <div class="composition h-full">
                     <img srcset="<?php echo !empty($img['sizes']['wkode_main_block']) ? $img['sizes']['wkode_main_block'] : get_theme_file_uri('./assets/img/main-fallback_first.jpg'); ?> 300w, <?php echo !empty($img['sizes']['wkode_main_block']) ? $img['sizes']['wkode_main_block'] : get_theme_file_uri('./assets/img/main-fallback_first.jpg'); ?>1000w"
                         sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px"

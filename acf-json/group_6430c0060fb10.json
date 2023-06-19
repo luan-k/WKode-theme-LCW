@@ -197,6 +197,13 @@
                 "operator": "==",
                 "value": "acf\/wkode-multiple-image-consorcio-block"
             }
+        ],
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/wkode-main-block-card-revisao-geral"
+            }
         ]
     ],
     "menu_order": 0,
@@ -208,5 +215,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1686940578
+    "modified": 1687027366
 }

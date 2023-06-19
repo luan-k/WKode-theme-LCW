@@ -29,6 +29,13 @@
     }
   }
   .wkode-main-block__wrapper {
+    @apply container grid grid-cols-2;
+    .wkode-main-block__content {
+      @apply col-span-1;
+    }
+    .wkode-main-block__image {
+      @apply col-span-1;
+    }
     @media (max-width: 1080px) {
       display: block;
     }
@@ -49,6 +56,9 @@
     transition: all 0.2s;
     width: 50%;
     z-index: 10;
+    @media (min-width: 1080px) and (max-width: 1700px) {
+      width: 70%;
+    }
 
     /* @include respond(tab-port) {
         float: left;
@@ -60,7 +70,7 @@
     &--p1 {
       left: -2rem;
       top: -2rem;
-      @media (max-width: 1080px) {
+      @media (max-width: 1700px) {
         left: 0rem;
       }
 
@@ -73,6 +83,9 @@
     &--p2 {
       right: 2rem;
       top: 2rem;
+      @media (max-width: 1700px) {
+        top: 25%;
+      }
 
       /* @include respond(tab-port) {
           top: -1rem;
@@ -84,6 +97,9 @@
     &--p3 {
       bottom: 0rem;
       left: 20%;
+      @media (min-width: 1080px) and (max-width: 1700px) {
+        left: 0;
+      }
 
       /* @include respond(tab-port) {
           top: 1rem;
@@ -94,7 +110,7 @@
 
     &:hover {
       box-shadow: 0 2.5rem 4rem rgba(black, 0.5);
-      outline: 1.5rem solid red;
+      outline: 1.5rem solid rgb(215 40 24);
       transform: scale(1.05) translateY(-0.5rem);
       z-index: 20;
     }

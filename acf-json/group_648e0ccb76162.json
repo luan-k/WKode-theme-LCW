@@ -1,0 +1,44 @@
+{
+    "key": "group_648e0ccb76162",
+    "title": "Revisão Geral Block",
+    "fields": [
+        {
+            "key": "field_648e0ccb7d38f",
+            "label": "Cor de Fundo",
+            "name": "wkode_overlay_card_bg",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Azul Escuro",
+            "ui_off_text": "Branco"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/wkode-main-block-card-revisao-geral"
+            }
+        ]
+    ],
+    "menu_order": 1,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1687031168
+}

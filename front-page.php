@@ -1,6 +1,7 @@
 <?php get_header();?>
 
-    <?php echo the_content(); ?>   
+    <?php echo the_content(); 
 
+    get_template_part('./template-parts/maps');
 
-<?php get_footer(); ?>
+get_footer(); ?>

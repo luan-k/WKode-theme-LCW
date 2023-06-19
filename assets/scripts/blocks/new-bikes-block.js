@@ -40,7 +40,7 @@ if (screenWidth <= 340) {
 }
 
 //const imageWidth = 333;
-console.log("getbounding1", images[1].getBoundingClientRect());
+/* console.log("getbounding1", images[1].getBoundingClientRect()); */
 /* carousel.insertBefore(images[6], carousel.firstChild); */
 
 leftArrow.addEventListener("click", () => {
