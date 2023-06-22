@@ -41,6 +41,9 @@ function my_acf_json_load_point( $paths ) {
       return $paths;
 }
 
+
+
+
 //megamenu styles config   
 function add_megamenu_wrapper($args) {
     if($args['theme_location'] === 'main_menu') { 
@@ -66,40 +69,71 @@ class Megamenu_Walker extends Walker_Nav_Menu {
         $indent = ($depth) ? str_repeat("\t", $depth) : '';
         $li_attributes = '';
         $class_names = $value = '';
-        
+    
         $classes = empty($item->classes) ? array() : (array) $item->classes;
-        if ( $args->walker->has_children ) {
+        if ($args->walker->has_children) {
             $classes[] = 'menu-item-has-children';
         }
         $classes[] = 'menu-item-' . $item->ID;
-        if($depth && $args->walker->has_children) {
+        if ($depth && $args->walker->has_children) {
             $classes[] = 'dropdown-submenu';
+        }
+        if ($depth === 0) {
+            $classes[] = 'top-level-menu-item megamenu-custom-top-level-class';
         }
         $class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args));
         $class_names = ' class="' . esc_attr($class_names) . '"';
-        $id = apply_filters('nav_menu_item_id', 'menu-item-'.$item->ID, $item, $args);
+        $id = apply_filters('nav_menu_item_id', 'menu-item-' . $item->ID, $item, $args);
         $id = strlen($id) ? ' id="' . esc_attr($id) . '"' : '';
         $output .= $indent . '<li' . $id . $value . $class_names . $li_attributes . '>';
-        $attributes = ! empty($item->attr_title) ? ' title="' . esc_attr($item->attr_title) . '"' : '';
-        $attributes .= ! empty($item->target) ? ' target="' . esc_attr($item->target) . '"' : '';
-        $attributes .= ! empty($item->xfn) ? ' rel="' . esc_attr($item->xfn) . '"' : '';
-        $attributes .= ! empty($item->url) ? ' href="' . esc_attr($item->url) . '"' : '';
+    
+        $attributes = !empty($item->attr_title) ? ' title="' . esc_attr($item->attr_title) . '"' : '';
+        $attributes .= !empty($item->target) ? ' target="' . esc_attr($item->target) . '"' : '';
+        $attributes .= !empty($item->xfn) ? ' rel="' . esc_attr($item->xfn) . '"' : '';
+        $attributes .= !empty($item->url) ? ' href="' . esc_attr($item->url) . '"' : '';
         $item_output = $args->before;
         $item_output .= '<a' . $attributes . '>';
+    
+        // Add SVG arrow icon to top-level menu items
+        if ($depth === 0 && $args->walker->has_children) {
+            $item_output .= '<span class="menu-item-arrow">' . $this->get_svg_arrow() . '</span>';
+        }
+    
         $item_output .= $args->link_before . apply_filters('the_title', $item->title, $item->ID) . $args->link_after;
         $item_output .= '</a>';
     
         // If this is a linked post type, add the featured image in a nested div with an <a> tag
         if (get_post_type($item->object_id) == 'motos-novas') {
-            $image_url = get_the_post_thumbnail_url($item->object_id, 'full');
+            $custom_field_value = get_field('wkode_motorcycles_post_colors', $item->object_id);
+            $first_custom_field = $custom_field_value[0];
+            $postImg = $first_custom_field['wkode_motorcycles_post_img'];
+            $image_url = get_the_post_thumbnail_url($item->object_id, 'full'); 
+            if($postImg){
+                $actual_image = $postImg;
+            }else{
+                $actual_image = $image_url;
+            }
             $item_output .= '<div class="menu-item-image">';
-            $item_output .= '<img src="' . esc_url($image_url) . '" />' . '<a class="wkode-btn--solid-main-red w-1/3" href="' . esc_url(get_permalink($item->object_id)) . '">Ver Mais</a>';
+            $item_output .= '<img src="' . esc_url($actual_image) . '" />' . '<a class="wkode-btn--solid-main-red w-1/3" href="' . esc_url(get_permalink($item->object_id)) . '">Ver Mais</a>';
             $item_output .= '</div>';
         }
     
         $item_output .= $args->after;
         $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
     }
+    
+    // Helper function to get SVG arrow icon from file
+    function get_svg_arrow() {
+        $svg_file_path = get_template_directory() . './assets/img/svg/megamenu-arrow-light.svg';
+
+        if (file_exists($svg_file_path)) {
+            $svg_content = file_get_contents($svg_file_path);
+            return $svg_content;
+        }
+
+        return ''; // Return an empty string if the SVG file doesn't exist or cannot be read
+    }
+    
 
 }
 

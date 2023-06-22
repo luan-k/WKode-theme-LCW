@@ -1,0 +1,164 @@
+.wkode-header--blurred {
+  backdrop-filter: blur(12px);
+  background: rgba(20, 21, 27, 0.33);
+  color: white;
+  position: fixed;
+  width: 100%;
+  .wkode-header__nav {
+    background-color: #ffffff00;
+  }
+  .wkode-header__nav--top {
+    border-bottom: 0.1rem #d6d6d600 solid;
+  }
+  .sub-menu.megamenu {
+    color: black;
+  }
+}
+.wkode-single-new-bikes-template {
+  @apply bg-lcw-primary-blue text-white font-rubik;
+  font-size: 15px;
+
+  &__image {
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+    img {
+      height: auto;
+      left: 50%;
+      max-width: none;
+
+      min-width: 100%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  &__form {
+    backdrop-filter: blur(12px);
+    background: linear-gradient(
+      180deg,
+      rgba(20, 21, 27, 0.267) 0%,
+      rgba(20, 21, 27, 0.781) 100%
+    );
+    border-radius: 12px 0px 0px 12px;
+    min-height: 50rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    padding-top: 2rem;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 25%;
+    z-index: 99;
+    &-title {
+      font-family: "Rubik";
+      font-size: 2.1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .wpforms-container form .wpforms-field-container {
+      input,
+      textarea {
+        background-color: transparent !important;
+        border: 1.8px solid #fff !important;
+        border-radius: 67px !important;
+        color: white !important;
+        font-family: "Rubik" !important;
+        font-size: 1.4rem !important;
+        font-weight: 300 !important;
+        min-width: 100% !important;
+        text-transform: capitalize !important;
+        &::placeholder {
+          color: white !important;
+          font-family: "Rubik" !important;
+          font-size: 1.4rem !important;
+          font-weight: 300 !important;
+          min-width: 100% !important;
+          text-transform: capitalize !important;
+        }
+      }
+      .wpforms-field {
+        padding: 5px 0 !important;
+        &.wpforms-field-number,
+        &.wpforms-field-phone {
+          display: inline-block;
+          width: 49%;
+        }
+        &.wpforms-field-number {
+          margin-right: 2%;
+        }
+      }
+      textarea.wpforms-field-medium.wpforms-field-required {
+        border-radius: 12px !important;
+        height: 70px;
+        margin-bottom: 1.5rem;
+      }
+      .wpforms-field.wpforms-field-checkbox {
+        font-size: 1.2rem !important;
+        label {
+          font-size: 1.2rem !important;
+        }
+        li.choice-1 {
+          align-content: center;
+          align-items: center;
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+        }
+        input {
+          min-width: auto !important;
+        }
+        label,
+        ul,
+        li {
+          display: inline !important;
+        }
+        label {
+          margin-right: 7px;
+        }
+      }
+    }
+    .wpforms-submit-container {
+      button {
+        background-color: rgb(215 40 24 / var(--tw-bg-opacity)) !important;
+        border-color: rgb(215 40 24 / var(--tw-border-opacity)) !important;
+        border-radius: 9999px !important;
+        border-width: 4px !important;
+        color: rgb(255 255 255 / var(--tw-text-opacity)) !important;
+        font-family: Rubik, sans-serif !important;
+        font-size: 1.5rem !important;
+        font-weight: 700 !important;
+        line-height: 2rem !important;
+        margin-top: 3rem !important;
+        overflow: hidden !important;
+        padding-bottom: 1rem !important;
+        padding-left: 8rem !important;
+        padding-right: 8rem !important;
+        padding-top: 1rem !important;
+        position: relative !important;
+        text-transform: uppercase !important;
+        transition: all 0.3s !important;
+        width: 100% !important;
+        --tw-border-opacity: 1 !important;
+        --tw-bg-opacity: 1 !important;
+        --tw-text-opacity: 1 !important;
+        &:hover {
+          background-color: transparent !important;
+          color: rgb(215 40 24 / var(--tw-text-opacity)) !important;
+          --tw-text-opacity: 1 !important;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1500px) {
+  .wkode-single-new-bikes-template__form {
+    width: 30%;
+  }
+}
+@media (max-width: 1200px) {
+  .wkode-single-new-bikes-template__form {
+    width: 36%;
+  }
+}

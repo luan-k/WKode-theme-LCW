@@ -1,6 +1,6 @@
 {
     "key": "group_6433f653bad9e",
-    "title": "Motos Novas custom theme",
+    "title": "Motos Novas",
     "fields": [
         {
             "key": "field_6433f689b80b6",
@@ -163,6 +163,30 @@
                     "return_format": "string"
                 }
             ]
+        },
+        {
+            "key": "field_649206333ac64",
+            "label": "Imagem Hero",
+            "name": "wkode_motorcycles_hero_image",
+            "type": "image",
+            "instructions": "Imagem usada para mostrar o formulario",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
         }
     ],
     "location": [
@@ -183,5 +207,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 1,
-    "modified": 1685535903
+    "modified": 1687291579
 }

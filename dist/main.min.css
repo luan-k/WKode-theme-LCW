@@ -475,17 +475,17 @@ video {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
 }
-.mb-6{
-  margin-bottom: 1.5rem;
-}
-.mt-36{
-  margin-top: 9rem;
-}
 .mb-36{
   margin-bottom: 9rem;
 }
+.mb-6{
+  margin-bottom: 1.5rem;
+}
 .mb-60{
   margin-bottom: 15rem;
+}
+.mt-36{
+  margin-top: 9rem;
 }
 .block{
   display: block;
@@ -559,16 +559,12 @@ video {
   font-size: 1.875rem;
   line-height: 2.25rem;
 }
-.text-7xl{
-  font-size: 4.5rem;
+.text-5xl{
+  font-size: 3rem;
   line-height: 1;
 }
 .text-6xl{
   font-size: 3.75rem;
-  line-height: 1;
-}
-.text-5xl{
-  font-size: 3rem;
   line-height: 1;
 }
 .font-semibold{
@@ -1732,7 +1728,15 @@ body.body-megamenu-active::before {
   width: 80%;
 }
 
-.menu-item-301:hover .megamenu {
+.megamenu-custom-top-level-class > a {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 1rem;
+  justify-content: space-between;
+}
+.megamenu-custom-top-level-class:hover .megamenu {
   height: 50rem;
   opacity: 1;
   padding: 0 3.9rem 3.9rem 3.9rem;
@@ -2812,6 +2816,176 @@ wkode-btn wkode-btn--solid-white-red
   margin-right: 0.75rem;
 }
 
+.wkode-header--blurred {
+  -webkit-backdrop-filter: blur(12px);
+          backdrop-filter: blur(12px);
+  background: rgba(20, 21, 27, 0.33);
+  color: white;
+  position: fixed;
+  width: 100%;
+}
+.wkode-header--blurred .wkode-header__nav {
+  background-color: rgba(255, 255, 255, 0);
+}
+.wkode-header--blurred .wkode-header__nav--top {
+  border-bottom: 0.1rem rgba(214, 214, 214, 0) solid;
+}
+.wkode-header--blurred .sub-menu.megamenu {
+  color: black;
+}
+
+.wkode-single-new-bikes-template{
+  --tw-bg-opacity: 1;
+  background-color: rgb(20 21 27 / var(--tw-bg-opacity));
+  font-family: Rubik, sans-serif;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+  font-size: 15px;
+}
+.wkode-single-new-bikes-template__image {
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+.wkode-single-new-bikes-template__image img {
+  height: auto;
+  left: 50%;
+  max-width: none;
+  min-width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.wkode-single-new-bikes-template__form {
+  -webkit-backdrop-filter: blur(12px);
+          backdrop-filter: blur(12px);
+  background: linear-gradient(180deg, rgba(20, 21, 27, 0.267) 0%, rgba(20, 21, 27, 0.781) 100%);
+  border-radius: 12px 0px 0px 12px;
+  min-height: 50rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  padding-top: 2rem;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 25%;
+  z-index: 99;
+}
+.wkode-single-new-bikes-template__form-title {
+  font-family: "Rubik";
+  font-size: 2.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.wkode-single-new-bikes-template__form .wpforms-container form .wpforms-field-container input,
+.wkode-single-new-bikes-template__form .wpforms-container form .wpforms-field-container textarea {
+  background-color: transparent !important;
+  border: 1.8px solid #fff !important;
+  border-radius: 67px !important;
+  color: white !important;
+  font-family: "Rubik" !important;
+  font-size: 1.4rem !important;
+  font-weight: 300 !important;
+  min-width: 100% !important;
+  text-transform: capitalize !important;
+}
+.wkode-single-new-bikes-template__form .wpforms-container form .wpforms-field-container input::-moz-placeholder, .wkode-single-new-bikes-template__form .wpforms-container form .wpforms-field-container textarea::-moz-placeholder {
+  color: white !important;
+  font-family: "Rubik" !important;
+  font-size: 1.4rem !important;
+  font-weight: 300 !important;
+  min-width: 100% !important;
+  text-transform: capitalize !important;
+}
+.wkode-single-new-bikes-template__form .wpforms-container form .wpforms-field-container input::placeholder,
+.wkode-single-new-bikes-template__form .wpforms-container form .wpforms-field-container textarea::placeholder {
+  color: white !important;
+  font-family: "Rubik" !important;
+  font-size: 1.4rem !important;
+  font-weight: 300 !important;
+  min-width: 100% !important;
+  text-transform: capitalize !important;
+}
+.wkode-single-new-bikes-template__form .wpforms-container form .wpforms-field-container .wpforms-field {
+  padding: 5px 0 !important;
+}
+.wkode-single-new-bikes-template__form .wpforms-container form .wpforms-field-container .wpforms-field.wpforms-field-number, .wkode-single-new-bikes-template__form .wpforms-container form .wpforms-field-container .wpforms-field.wpforms-field-phone {
+  display: inline-block;
+  width: 49%;
+}
+.wkode-single-new-bikes-template__form .wpforms-container form .wpforms-field-container .wpforms-field.wpforms-field-number {
+  margin-right: 2%;
+}
+.wkode-single-new-bikes-template__form .wpforms-container form .wpforms-field-container textarea.wpforms-field-medium.wpforms-field-required {
+  border-radius: 12px !important;
+  height: 70px;
+  margin-bottom: 1.5rem;
+}
+.wkode-single-new-bikes-template__form .wpforms-container form .wpforms-field-container .wpforms-field.wpforms-field-checkbox {
+  font-size: 1.2rem !important;
+}
+.wkode-single-new-bikes-template__form .wpforms-container form .wpforms-field-container .wpforms-field.wpforms-field-checkbox label {
+  font-size: 1.2rem !important;
+}
+.wkode-single-new-bikes-template__form .wpforms-container form .wpforms-field-container .wpforms-field.wpforms-field-checkbox li.choice-1 {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.wkode-single-new-bikes-template__form .wpforms-container form .wpforms-field-container .wpforms-field.wpforms-field-checkbox input {
+  min-width: auto !important;
+}
+.wkode-single-new-bikes-template__form .wpforms-container form .wpforms-field-container .wpforms-field.wpforms-field-checkbox label,
+.wkode-single-new-bikes-template__form .wpforms-container form .wpforms-field-container .wpforms-field.wpforms-field-checkbox ul,
+.wkode-single-new-bikes-template__form .wpforms-container form .wpforms-field-container .wpforms-field.wpforms-field-checkbox li {
+  display: inline !important;
+}
+.wkode-single-new-bikes-template__form .wpforms-container form .wpforms-field-container .wpforms-field.wpforms-field-checkbox label {
+  margin-right: 7px;
+}
+.wkode-single-new-bikes-template__form .wpforms-submit-container button {
+  background-color: rgb(215 40 24/var(--tw-bg-opacity)) !important;
+  border-color: rgb(215 40 24/var(--tw-border-opacity)) !important;
+  border-radius: 9999px !important;
+  border-width: 4px !important;
+  color: rgb(255 255 255/var(--tw-text-opacity)) !important;
+  font-family: Rubik, sans-serif !important;
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  line-height: 2rem !important;
+  margin-top: 3rem !important;
+  overflow: hidden !important;
+  padding-bottom: 1rem !important;
+  padding-left: 8rem !important;
+  padding-right: 8rem !important;
+  padding-top: 1rem !important;
+  position: relative !important;
+  text-transform: uppercase !important;
+  transition: all 0.3s !important;
+  width: 100% !important;
+  --tw-border-opacity: 1 !important;
+  --tw-bg-opacity: 1 !important;
+  --tw-text-opacity: 1 !important;
+}
+.wkode-single-new-bikes-template__form .wpforms-submit-container button:hover {
+  background-color: transparent !important;
+  color: rgb(215 40 24/var(--tw-text-opacity)) !important;
+  --tw-text-opacity: 1 !important;
+}
+
+@media (max-width: 1500px) {
+  .wkode-single-new-bikes-template__form {
+    width: 30%;
+  }
+}
+@media (max-width: 1200px) {
+  .wkode-single-new-bikes-template__form {
+    width: 36%;
+  }
+}
 /* @import "../slick/slick-theme.scss"; */
 /* Slider */
 .slick-slider {

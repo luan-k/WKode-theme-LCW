@@ -58,7 +58,7 @@ if($posts){
                                                     $postImg = $field['wkode_motorcycles_post_img'];
                                                     if ($index == 0) {
                                                         ?>
-                                                        <img class="wkode-new-bikes__card-img active-color-image" src="<?php echo has_post_thumbnail($post->ID) ? get_the_post_thumbnail_url($post->ID, 'full') : get_theme_file_uri('/images/standard.png'); ?>" alt="" srcset="">
+                                                        <img class="wkode-new-bikes__card-img active-color-image" src="<?php echo $postImg; ?>" alt="" srcset="">
                                                         <?php
                                                     } else {
                                                         ?>

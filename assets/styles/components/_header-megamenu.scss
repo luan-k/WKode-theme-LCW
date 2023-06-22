@@ -117,7 +117,15 @@
   }
 }
 //CHANGE LATER here is the menu item menu-item
-.menu-item-301 {
+.megamenu-custom-top-level-class {
+  & > a {
+    align-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 1rem;
+    justify-content: space-between;
+  }
   &:hover {
     & .megamenu {
       height: 50rem;

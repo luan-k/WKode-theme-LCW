@@ -53,6 +53,8 @@ if ( ! function_exists( 'wkode_theme_setup' ) ) :
 
 		add_image_size( 'single_page_featured_image', 1870, 752, true, array( 'center', 'center' ) );
 
+		add_image_size( 'wkode_single_new_bikes', 1870, 1248, true, array( 'center', 'center' ) );
+
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments

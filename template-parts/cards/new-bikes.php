@@ -13,7 +13,8 @@ $custom_field_value = get_field('wkode_motorcycles_post_colors', get_the_ID()); 
         foreach ($custom_field_value as $index => $field) {
             $postImg = $field['wkode_motorcycles_post_img'];
             if($index == 0){ ?>
-                <img class="wkode-new-bikes__card-img active-color-image" src="<?php if(has_post_thumbnail()){ the_post_thumbnail_url('full'); } else {/*  echo get_theme_file_uri('/images/standard.png'); */ }  ?>" alt="" srcset=""> <?php
+                
+                <img class="wkode-new-bikes__card-img active-color-image" src="<?php echo $postImg; ?>" alt="" srcset=""><?php
             }else{  ?>
                 <img class="wkode-new-bikes__card-img" src="<?php echo $postImg; ?>" alt="" srcset=""> <?php
             }
