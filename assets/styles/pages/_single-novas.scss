@@ -42,6 +42,7 @@
     );
     border-radius: 12px 0px 0px 12px;
     min-height: 50rem;
+    opacity: 1;
     padding-left: 4rem;
     padding-right: 4rem;
     padding-top: 2rem;
@@ -49,8 +50,10 @@
     right: 0;
     top: 50%;
     transform: translateY(-50%);
+    transition: all 0.3s;
     width: 25%;
     z-index: 99;
+
     &-title {
       font-family: "Rubik";
       font-size: 2.1rem;
@@ -151,6 +154,96 @@
       }
     }
   }
+
+  &__title {
+    color: #fff;
+    font-family: "Rubik";
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    margin-top: 15rem;
+    text-transform: uppercase;
+  }
+}
+
+.wkode-single-new-bikes-template-block {
+  &__dark-mode {
+    @apply bg-lcw-primary-blue;
+    .wkode-single-new-bikes-template-block__title {
+      @apply text-white;
+    }
+    .wkode-single-new-bikes-template-block__text {
+      @apply text-white;
+    }
+  }
+  &__light-mode {
+    @apply bg-lcw-primary-white;
+    .wkode-single-new-bikes-template-block__title {
+      @apply text-lcw-primary-blue;
+    }
+    .wkode-single-new-bikes-template-block__text {
+      @apply text-black;
+    }
+  }
+
+  &__normal-direction {
+    .wkode-single-new-bikes-template-block__content {
+      @apply col-span-6;
+    }
+    .wkode-single-new-bikes-template-block__image {
+      border-radius: 12px;
+      @apply col-span-6;
+      .wkode-single-new-bikes-template-block__img {
+        border-radius: 12px;
+      }
+    }
+  }
+  &__inverted-direction {
+    .wkode-single-new-bikes-template-block__content {
+      @apply col-span-6 order-2 pl-12;
+    }
+    .wkode-single-new-bikes-template-block__image {
+      border-radius: 12px;
+      @apply col-span-6 col-start-1 order-1 block;
+      .wkode-single-new-bikes-template-block__img {
+        border-radius: 12px;
+      }
+    }
+  }
+
+  &__wrapper {
+    @apply grid grid-cols-1 lg:grid-cols-12 py-60 gap-12 container;
+  }
+  &__content {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  &__title {
+    color: #fff;
+    font-family: "Rubik";
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 2.1rem;
+    text-transform: uppercase;
+  }
+  &__text {
+    color: #fff;
+    font-family: "Inter";
+    font-size: 1.6rem;
+
+    @apply pr-0 xl:pr-40 mb-12;
+  }
+  &__image {
+    overflow: hidden;
+    position: relative;
+
+    .wkode-single-new-bikes-template-block__img {
+      height: auto;
+      width: 100%;
+    }
+  }
 }
 @media (max-width: 1500px) {
   .wkode-single-new-bikes-template__form {
@@ -160,5 +253,209 @@
 @media (max-width: 1200px) {
   .wkode-single-new-bikes-template__form {
     width: 36%;
+  }
+}
+@media (max-width: 1000px) {
+  .wkode-single-new-bikes-template__form {
+    border-radius: 12px;
+    right: 50%;
+    transform: translate(50%, -50%);
+    width: 50%;
+    &--hidden {
+      opacity: 0;
+      top: 44%;
+      visibility: hidden;
+    }
+  }
+  .wkode-header__single-new-trigger__title {
+    transition: all 0.5s;
+  }
+  .wkode-header__single-new-trigger__arrow {
+    transition: all 0.3s;
+    &--inverted {
+      transform: rotate(-180deg);
+    }
+  }
+}
+@media (max-width: 800px) {
+  .wkode-single-new-bikes-template__form {
+    width: 70%;
+  }
+}
+@media (max-width: 600px) {
+  .wkode-single-new-bikes-template__form {
+    padding-left: 2.1rem;
+    padding-right: 2.1rem;
+    width: 97%;
+    .wpforms-field {
+      &.wpforms-field-number,
+      &.wpforms-field-phone {
+        display: block !important;
+        width: 100% !important;
+      }
+      &.wpforms-field-number {
+        margin-right: 0 !important;
+      }
+    }
+  }
+}
+
+.wkode-header__single-new-trigger {
+  align-content: center;
+  align-items: center;
+  border-top: #ffffff31 solid 1px;
+  display: flex;
+  font-family: "Rubik";
+  font-size: 1.8rem;
+  font-weight: 600;
+  height: 5rem;
+  justify-content: center;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.wkode-single-new-bikes-template__bikes-colors-wrapper {
+  .wkode-new-bikes__card {
+    &-colors {
+      align-content: flex-end;
+      align-items: flex-end;
+      bottom: 0;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      gap: 1rem;
+      height: 6rem;
+      justify-content: flex-end;
+      left: auto;
+      position: absolute;
+      right: 15rem;
+      width: 100%;
+      @media (max-width: 500px) {
+        justify-content: center;
+        right: 0;
+      }
+    }
+    &-color {
+      background: transparent;
+      border-radius: 0.7rem 0.7rem 0 0;
+      -webkit-box-shadow: 0px -9px 25px 9px rgba(0, 0, 0, 0.13);
+      -moz-box-shadow: 0px -9px 25px 9px rgba(0, 0, 0, 0.13);
+      box-shadow: 0px -9px 25px 9px rgba(0, 0, 0, 0.13);
+      display: flex;
+      height: 80%;
+      overflow: hidden;
+      transition: all 0.3s;
+      width: 7rem;
+      &--unique {
+        display: block;
+        height: 100%;
+        width: 100%;
+      }
+      &--bicolor {
+        display: block;
+        height: 100%;
+        width: 50%;
+      }
+      &--tricolor {
+        display: block;
+        height: 100%;
+        width: 33.3%;
+      }
+      &:hover {
+        height: 99%;
+      }
+      &.active-color {
+        height: 100%;
+      }
+    }
+  }
+}
+.wkode-single-new-bikes__slides {
+  overflow: hidden;
+  position: relative;
+  .wkode-single-new-bikes-template-block__wrapper {
+    overflow: hidden;
+  }
+  .wkode-single-new-bikes-template-block__content {
+    @apply col-span-7;
+    z-index: 9;
+  }
+  .wkode-single-new-bikes-template-block__image {
+    border-radius: 0;
+    height: 100%;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    &::after {
+      @apply bg-lcw-primary-blue;
+      content: "";
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: 2;
+    }
+  }
+  .wkode-single-new-bikes-template-block__text {
+    display: none;
+    line-height: 1.88;
+    min-height: 21rem;
+    &.active-description {
+      display: block;
+    }
+  }
+  .wkode-single-new-bikes-template-block__img {
+    border-radius: 0 !important;
+    height: auto;
+    left: 50%;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -150%);
+    transition: all 0.7s;
+    /* visibility: hidden; */
+    width: 100%;
+    z-index: 1;
+
+    &.active-image {
+      /* visibility: visible; */
+      opacity: 0.3;
+      transform: translate(-50%, -50%);
+      z-index: 3;
+    }
+  }
+  .wkode-single-new-bikes-template-block__title-wrapper {
+    align-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: 3.9rem;
+    justify-content: flex-start;
+    margin-bottom: 2.1rem;
+    .wkode-single-new-bikes-template-block__title {
+      border-bottom-style: solid;
+      border-bottom-width: 7px;
+      border-color: transparent;
+      cursor: pointer;
+      padding-bottom: 1rem;
+      transition: all 0.3s;
+      &:hover {
+        @apply border-lcw-primary-red;
+      }
+      &.active-title {
+        @apply border-lcw-primary-red;
+      }
+    }
+  }
+  .wkode-single-new-bikes-template-block__title--main {
+    color: #fff;
+    font-family: "Rubik";
+    font-size: 3.7rem;
+    font-weight: 700;
+    margin-bottom: 7rem;
+    text-transform: uppercase;
   }
 }

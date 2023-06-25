@@ -7,7 +7,6 @@ module.exports = {
     "./safelist.txt",
     "./**/*.php", // recursive search for *.php (be aware on every file change it will go even through /node_modules which can be slow, read doc)
   ],
-  purge: false, // ["./**/*.html", "./**/*.js", "./**/*.php"],
   darkMode: "media", // or 'media' or 'class'
   theme: {
     extend: {

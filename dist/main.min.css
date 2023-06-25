@@ -465,6 +465,9 @@ video {
 /* .my-obj {
     @apply bg-brand-primary text-center text-brand-tertiary font-customFontName;
   } */
+.relative{
+  position: relative;
+}
 .col-span-1{
   grid-column: span 1 / span 1;
 }
@@ -483,6 +486,9 @@ video {
 }
 .mb-60{
   margin-bottom: 15rem;
+}
+.ml-6{
+  margin-left: 1.5rem;
 }
 .mt-36{
   margin-top: 9rem;
@@ -576,6 +582,10 @@ video {
 .text-black{
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+.text-lcw-primary-red{
+  --tw-text-opacity: 1;
+  color: rgb(215 40 24 / var(--tw-text-opacity));
 }
 .text-white{
   --tw-text-opacity: 1;
@@ -2862,6 +2872,7 @@ wkode-btn wkode-btn--solid-white-red
   background: linear-gradient(180deg, rgba(20, 21, 27, 0.267) 0%, rgba(20, 21, 27, 0.781) 100%);
   border-radius: 12px 0px 0px 12px;
   min-height: 50rem;
+  opacity: 1;
   padding-left: 4rem;
   padding-right: 4rem;
   padding-top: 2rem;
@@ -2869,6 +2880,7 @@ wkode-btn wkode-btn--solid-white-red
   right: 0;
   top: 50%;
   transform: translateY(-50%);
+  transition: all 0.3s;
   width: 25%;
   z-index: 99;
 }
@@ -2975,6 +2987,151 @@ wkode-btn wkode-btn--solid-white-red
   color: rgb(215 40 24/var(--tw-text-opacity)) !important;
   --tw-text-opacity: 1 !important;
 }
+.wkode-single-new-bikes-template__title {
+  color: #fff;
+  font-family: "Rubik";
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  margin-top: 15rem;
+  text-transform: uppercase;
+}
+
+.wkode-single-new-bikes-template-block__dark-mode{
+  --tw-bg-opacity: 1;
+  background-color: rgb(20 21 27 / var(--tw-bg-opacity));
+}
+.wkode-single-new-bikes-template-block__dark-mode .wkode-single-new-bikes-template-block__title{
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.wkode-single-new-bikes-template-block__dark-mode .wkode-single-new-bikes-template-block__text{
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.wkode-single-new-bikes-template-block__light-mode{
+  --tw-bg-opacity: 1;
+  background-color: rgb(214 214 214 / var(--tw-bg-opacity));
+}
+.wkode-single-new-bikes-template-block__light-mode .wkode-single-new-bikes-template-block__title{
+  --tw-text-opacity: 1;
+  color: rgb(20 21 27 / var(--tw-text-opacity));
+}
+.wkode-single-new-bikes-template-block__light-mode .wkode-single-new-bikes-template-block__text{
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+.wkode-single-new-bikes-template-block__normal-direction .wkode-single-new-bikes-template-block__content{
+  grid-column: span 6 / span 6;
+}
+.wkode-single-new-bikes-template-block__normal-direction .wkode-single-new-bikes-template-block__image {
+  border-radius: 12px;
+  grid-column: span 6 / span 6;
+}
+.wkode-single-new-bikes-template-block__normal-direction .wkode-single-new-bikes-template-block__image .wkode-single-new-bikes-template-block__img {
+  border-radius: 12px;
+}
+.wkode-single-new-bikes-template-block__inverted-direction .wkode-single-new-bikes-template-block__content{
+  order: 2;
+  grid-column: span 6 / span 6;
+  padding-left: 3rem;
+}
+.wkode-single-new-bikes-template-block__inverted-direction .wkode-single-new-bikes-template-block__image {
+  border-radius: 12px;
+  order: 1;
+  grid-column: span 6 / span 6;
+  grid-column-start: 1;
+  display: block;
+}
+.wkode-single-new-bikes-template-block__inverted-direction .wkode-single-new-bikes-template-block__image .wkode-single-new-bikes-template-block__img {
+  border-radius: 12px;
+}
+.wkode-single-new-bikes-template-block__wrapper{
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+@media (min-width: 640px){
+  .wkode-single-new-bikes-template-block__wrapper{
+    max-width: 640px;
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
+}
+@media (min-width: 768px){
+  .wkode-single-new-bikes-template-block__wrapper{
+    max-width: 768px;
+  }
+}
+@media (min-width: 1024px){
+  .wkode-single-new-bikes-template-block__wrapper{
+    max-width: 1024px;
+    padding-right: 7%;
+    padding-left: 7%;
+  }
+}
+@media (min-width: 1280px){
+  .wkode-single-new-bikes-template-block__wrapper{
+    max-width: 1280px;
+    padding-right: 8%;
+    padding-left: 8%;
+  }
+}
+@media (min-width: 1685px){
+  .wkode-single-new-bikes-template-block__wrapper{
+    max-width: 1685px;
+    padding-right: 10%;
+    padding-left: 10%;
+  }
+}
+.wkode-single-new-bikes-template-block__wrapper{
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 3rem;
+  padding-top: 15rem;
+  padding-bottom: 15rem;
+}
+@media (min-width: 1024px){
+  .wkode-single-new-bikes-template-block__wrapper{
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+}
+.wkode-single-new-bikes-template-block__content {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.wkode-single-new-bikes-template-block__title {
+  color: #fff;
+  font-family: "Rubik";
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 2.1rem;
+  text-transform: uppercase;
+}
+.wkode-single-new-bikes-template-block__text {
+  color: #fff;
+  font-family: "Inter";
+  font-size: 1.6rem;
+  margin-bottom: 3rem;
+  padding-right: 0px;
+}
+@media (min-width: 1280px){
+  .wkode-single-new-bikes-template-block__text{
+    padding-right: 10rem;
+  }
+}
+.wkode-single-new-bikes-template-block__image {
+  overflow: hidden;
+  position: relative;
+}
+.wkode-single-new-bikes-template-block__image .wkode-single-new-bikes-template-block__img {
+  height: auto;
+  width: 100%;
+}
 
 @media (max-width: 1500px) {
   .wkode-single-new-bikes-template__form {
@@ -2986,6 +3143,206 @@ wkode-btn wkode-btn--solid-white-red
     width: 36%;
   }
 }
+@media (max-width: 1000px) {
+  .wkode-single-new-bikes-template__form {
+    border-radius: 12px;
+    right: 50%;
+    transform: translate(50%, -50%);
+    width: 50%;
+  }
+  .wkode-single-new-bikes-template__form--hidden {
+    opacity: 0;
+    top: 44%;
+    visibility: hidden;
+  }
+  .wkode-header__single-new-trigger__title {
+    transition: all 0.5s;
+  }
+  .wkode-header__single-new-trigger__arrow {
+    transition: all 0.3s;
+  }
+  .wkode-header__single-new-trigger__arrow--inverted {
+    transform: rotate(-180deg);
+  }
+}
+@media (max-width: 800px) {
+  .wkode-single-new-bikes-template__form {
+    width: 70%;
+  }
+}
+@media (max-width: 600px) {
+  .wkode-single-new-bikes-template__form {
+    padding-left: 2.1rem;
+    padding-right: 2.1rem;
+    width: 97%;
+  }
+  .wkode-single-new-bikes-template__form .wpforms-field.wpforms-field-number, .wkode-single-new-bikes-template__form .wpforms-field.wpforms-field-phone {
+    display: block !important;
+    width: 100% !important;
+  }
+  .wkode-single-new-bikes-template__form .wpforms-field.wpforms-field-number {
+    margin-right: 0 !important;
+  }
+}
+.wkode-header__single-new-trigger {
+  align-content: center;
+  align-items: center;
+  border-top: rgba(255, 255, 255, 0.1921568627) solid 1px;
+  display: flex;
+  font-family: "Rubik";
+  font-size: 1.8rem;
+  font-weight: 600;
+  height: 5rem;
+  justify-content: center;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.wkode-single-new-bikes-template__bikes-colors-wrapper .wkode-new-bikes__card-colors {
+  align-content: flex-end;
+  align-items: flex-end;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  height: 6rem;
+  justify-content: flex-end;
+  left: auto;
+  position: absolute;
+  right: 15rem;
+  width: 100%;
+}
+@media (max-width: 500px) {
+  .wkode-single-new-bikes-template__bikes-colors-wrapper .wkode-new-bikes__card-colors {
+    justify-content: center;
+    right: 0;
+  }
+}
+.wkode-single-new-bikes-template__bikes-colors-wrapper .wkode-new-bikes__card-color {
+  background: transparent;
+  border-radius: 0.7rem 0.7rem 0 0;
+  box-shadow: 0px -9px 25px 9px rgba(0, 0, 0, 0.13);
+  display: flex;
+  height: 80%;
+  overflow: hidden;
+  transition: all 0.3s;
+  width: 7rem;
+}
+.wkode-single-new-bikes-template__bikes-colors-wrapper .wkode-new-bikes__card-color--unique {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+.wkode-single-new-bikes-template__bikes-colors-wrapper .wkode-new-bikes__card-color--bicolor {
+  display: block;
+  height: 100%;
+  width: 50%;
+}
+.wkode-single-new-bikes-template__bikes-colors-wrapper .wkode-new-bikes__card-color--tricolor {
+  display: block;
+  height: 100%;
+  width: 33.3%;
+}
+.wkode-single-new-bikes-template__bikes-colors-wrapper .wkode-new-bikes__card-color:hover {
+  height: 99%;
+}
+.wkode-single-new-bikes-template__bikes-colors-wrapper .wkode-new-bikes__card-color.active-color {
+  height: 100%;
+}
+
+.wkode-single-new-bikes__slides {
+  overflow: hidden;
+  position: relative;
+}
+.wkode-single-new-bikes__slides .wkode-single-new-bikes-template-block__wrapper {
+  overflow: hidden;
+}
+.wkode-single-new-bikes__slides .wkode-single-new-bikes-template-block__content{
+  grid-column: span 7 / span 7;
+  z-index: 9;
+}
+.wkode-single-new-bikes__slides .wkode-single-new-bikes-template-block__image {
+  border-radius: 0;
+  height: 100%;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+.wkode-single-new-bikes__slides .wkode-single-new-bikes-template-block__image::after{
+  --tw-bg-opacity: 1;
+  background-color: rgb(20 21 27 / var(--tw-bg-opacity));
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+.wkode-single-new-bikes__slides .wkode-single-new-bikes-template-block__text {
+  display: none;
+  line-height: 1.88;
+  min-height: 21rem;
+}
+.wkode-single-new-bikes__slides .wkode-single-new-bikes-template-block__text.active-description {
+  display: block;
+}
+.wkode-single-new-bikes__slides .wkode-single-new-bikes-template-block__img {
+  border-radius: 0 !important;
+  height: auto;
+  left: 50%;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -150%);
+  transition: all 0.7s;
+  /* visibility: hidden; */
+  width: 100%;
+  z-index: 1;
+}
+.wkode-single-new-bikes__slides .wkode-single-new-bikes-template-block__img.active-image {
+  /* visibility: visible; */
+  opacity: 0.3;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+.wkode-single-new-bikes__slides .wkode-single-new-bikes-template-block__title-wrapper {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 3.9rem;
+  justify-content: flex-start;
+  margin-bottom: 2.1rem;
+}
+.wkode-single-new-bikes__slides .wkode-single-new-bikes-template-block__title-wrapper .wkode-single-new-bikes-template-block__title {
+  border-bottom-style: solid;
+  border-bottom-width: 7px;
+  border-color: transparent;
+  cursor: pointer;
+  padding-bottom: 1rem;
+  transition: all 0.3s;
+}
+.wkode-single-new-bikes__slides .wkode-single-new-bikes-template-block__title-wrapper .wkode-single-new-bikes-template-block__title:hover{
+  --tw-border-opacity: 1;
+  border-color: rgb(215 40 24 / var(--tw-border-opacity));
+}
+.wkode-single-new-bikes__slides .wkode-single-new-bikes-template-block__title-wrapper .wkode-single-new-bikes-template-block__title.active-title{
+  --tw-border-opacity: 1;
+  border-color: rgb(215 40 24 / var(--tw-border-opacity));
+}
+.wkode-single-new-bikes__slides .wkode-single-new-bikes-template-block__title--main {
+  color: #fff;
+  font-family: "Rubik";
+  font-size: 3.7rem;
+  font-weight: 700;
+  margin-bottom: 7rem;
+  text-transform: uppercase;
+}
+
 /* @import "../slick/slick-theme.scss"; */
 /* Slider */
 .slick-slider {
@@ -3128,6 +3485,10 @@ wkode-btn wkode-btn--solid-white-red
   }
   .md\:grid-cols-3{
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .md\:px-0{
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 

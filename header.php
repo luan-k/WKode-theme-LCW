@@ -75,6 +75,15 @@ if (is_single() && $post_type === 'motos-novas') {
 				</div>
         <a href="<?php echo esc_url(site_url('/search')); ?>" class="search-trigger js-search-trigger nav-item nav-link text-3xl"><i class="fa fa-search" aria-hidden="true"></i></a>
       </div>
+      <?php if($is_blurred){ ?>
+        <div class="wkode-header__single-new-trigger" id="wkode-header__single-new-trigger">
+          <h4 class="wkode-header__single-new-trigger__title">
+            Solicitar uma Cotação
+          </h4>
+          <img class="ml-6 wkode-header__single-new-trigger__arrow" src="<?php echo get_theme_file_uri('/assets/img/svg/megamenu-arrow.svg'); ?>" alt="">
+          
+        </div>
+      <?php } else{ } ?>
       <div class="wkode-header__nav wkode-header__nav--bottom" id="navbarNavAltMarkup">
         <nav class="wkode-header__icons-wrapper">
           <a target="_blank" class="wkode-header__social-media-icon" href="#" style="background-image: url(<?php echo get_theme_file_uri('/assets/img/svg/location-pin.svg'); ?>);">

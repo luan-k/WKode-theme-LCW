@@ -40,7 +40,9 @@ if($block_direction){
             <div class="wkode-overlay-card__content">
                 <h2 class="wkode-overlay-card__title "><?php echo $title; ?></h2>
                 <div class="wkode-overlay-card__text"><?php echo $description; ?></div>
-                <a href="<?php echo $btn["wkode_main_block_btn_url"]; ?>" class="<?php echo $btn["wkode_main_block_btn_style"]; ?>"><?php echo $btn["wkode_main_block_btn_text"]; ?></a>
+                <?php if($btn["wkode_main_block_btn_url"] || $btn["wkode_main_block_btn_text"]){ ?>
+                    <a href="<?php echo $btn["wkode_main_block_btn_url"]; ?>" class="<?php echo $btn["wkode_main_block_btn_style"]; ?>"><?php if($btn["wkode_main_block_btn_text"]){echo $btn["wkode_main_block_btn_text"]; }else{ echo 'Ver Mais';} ?></a>
+                <?php } ?>
             </div>
             <div class="wkode-overlay-card__image ">
                 <img class="wkode-overlay-card__img" src="<?php echo !empty($img['sizes']['wkode_main_block_card_overlay']) ? $img['sizes']['wkode_main_block_card_overlay'] : get_theme_file_uri('./assets/img/revisao-geral-fallback.png'); ?>" alt="" srcset="">

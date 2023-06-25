@@ -34,7 +34,9 @@ if($block_direction){
             <div class="wkode-main-block__content col-span-1">
                 <h2 class="wkode-main-block__title "><?php echo $title; ?></h2>
                 <div class="wkode-main-block__text"><?php echo $description; ?></div>
-                <a href="<?php echo $btn["wkode_main_block_btn_url"]; ?>" class="<?php echo $btn["wkode_main_block_btn_style"]; ?>"><?php echo $btn["wkode_main_block_btn_text"]; ?></a>
+                <?php if($btn["wkode_main_block_btn_url"] || $btn["wkode_main_block_btn_text"]){ ?>
+                    <a href="<?php echo $btn["wkode_main_block_btn_url"]; ?>" class="<?php echo $btn["wkode_main_block_btn_style"]; ?>"><?php if($btn["wkode_main_block_btn_text"]){echo $btn["wkode_main_block_btn_text"]; }else{ echo 'Ver Mais';} ?></a>
+                <?php } ?>
             </div>
             <div class="wkode-main-block__image col-span-1">
                 <div class="composition h-full">

@@ -55,6 +55,11 @@ if ( ! function_exists( 'wkode_theme_setup' ) ) :
 
 		add_image_size( 'wkode_single_new_bikes', 1870, 1248, true, array( 'center', 'center' ) );
 
+		add_image_size( 'wkode_single_image_blocks', 640, 313, true, array( 'center', 'center' ) );
+
+		add_image_size( 'wkode_single_image_standart_block', 640, 501, true, array( 'center', 'center' ) );
+
+		add_image_size( 'wkode_single_new_slide_bg', 1920, 768, true, array( 'center', 'center' ) );
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments
