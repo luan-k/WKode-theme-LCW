@@ -14,6 +14,11 @@ if (window.innerWidth <= 1000) {
       arrow.classList.toggle(
         "wkode-header__single-new-trigger__arrow--inverted"
       );
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
     });
   window.addEventListener("load", function () {
     setTimeout(function () {

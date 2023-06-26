@@ -31,6 +31,8 @@
     "webpack-dev-server": "^4.13.1"
   },
   "dependencies": {
+    "@fancyapps/fancybox": "^3.5.7",
+    "@fancyapps/ui": "^5.0.19",
     "slick-carousel": "^1.8.1"
   }
 }

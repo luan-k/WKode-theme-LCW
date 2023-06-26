@@ -61,6 +61,11 @@ if ( ! function_exists( 'wkode_theme_setup' ) ) :
 
 		add_image_size( 'wkode_single_new_slide_bg', 1920, 768, true, array( 'center', 'center' ) );
 
+		add_image_size( 'wkode_new_bikes_single__gallery_two_cols', 275, 458, true, array( 'center', 'center' ) );
+		add_image_size( 'wkode_new_bikes_single__gallery_six_cols', 845, 458, true, array( 'center', 'center' ) );
+		add_image_size( 'wkode_new_bikes_single__gallery_four_cols', 560, 458, true, array( 'center', 'center' ) );
+		add_image_size( 'wkode_new_bikes_single__gallery_one_by_one', 768, 768, true, array( 'center', 'center' ) );
+
 		/*
 		 * Switch default core markup for search form, comment form, and comments
 		 * to output valid HTML5.

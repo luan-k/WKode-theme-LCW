@@ -201,7 +201,7 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "block",
+            "layout": "row",
             "sub_fields": [
                 {
                     "key": "field_6494a4ee52bf4",
@@ -318,7 +318,7 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "block",
+            "layout": "row",
             "sub_fields": [
                 {
                     "key": "field_6495a603b5db5",
@@ -435,7 +435,7 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "block",
+            "layout": "row",
             "sub_fields": [
                 {
                     "key": "field_6495af38dddea",
@@ -588,7 +588,7 @@
                     },
                     "collapsed": "",
                     "min": 0,
-                    "max": 0,
+                    "max": 3,
                     "layout": "table",
                     "button_label": "",
                     "sub_fields": [
@@ -693,7 +693,7 @@
             "insert": "append",
             "library": "all",
             "min": "",
-            "max": "",
+            "max": 8,
             "min_width": "",
             "min_height": "",
             "min_size": "",
@@ -701,6 +701,105 @@
             "max_height": "",
             "max_size": "",
             "mime_types": ""
+        },
+        {
+            "key": "field_6499a49bf13de",
+            "label": "ESPECIFICAÇÕES",
+            "name": "wkode_new_motorcycles_accordion",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_6499a6e0ec195",
+                    "label": "Titulo",
+                    "name": "wkode_new_motorcycles_accordion_title",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_6499a6fbec196",
+                    "label": "Conteudo",
+                    "name": "wkode_new_motorcycles_accordion_repeater",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "collapsed": "",
+                    "min": 0,
+                    "max": 0,
+                    "layout": "table",
+                    "button_label": "",
+                    "sub_fields": [
+                        {
+                            "key": "field_6499a737ec197",
+                            "label": "Titulo",
+                            "name": "wkode_new_motorcycles_accordion_inner_title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_6499a80dec198",
+                            "label": "Texto",
+                            "name": "wkode_new_motorcycles_accordion_inner_text",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        }
+                    ]
+                }
+            ]
         }
     ],
     "location": [
@@ -721,5 +820,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 1,
-    "modified": 1687726343
+    "modified": 1687801392
 }

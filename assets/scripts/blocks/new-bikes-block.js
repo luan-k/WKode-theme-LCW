@@ -1,4 +1,4 @@
-const carousel = document.querySelector(".carousel");
+/* const carousel = document.querySelector(".carousel");
 const carouselWrapper = document.querySelector(".carousel-wrapper");
 
 const leftArrow = document.querySelector(".left-arrow");
@@ -40,8 +40,8 @@ if (screenWidth <= 340) {
 }
 
 //const imageWidth = 333;
-/* console.log("getbounding1", images[1].getBoundingClientRect()); */
-/* carousel.insertBefore(images[6], carousel.firstChild); */
+/* console.log("getbounding1", images[1].getBoundingClientRect()); 
+/* carousel.insertBefore(images[6], carousel.firstChild); 
 
 leftArrow.addEventListener("click", () => {
   prevIndex = currentIndex;
@@ -74,3 +74,4 @@ rightArrow.addEventListener("click", () => {
     carousel.classList.remove("sliding-transition");
   }, 490);
 });
+ */
