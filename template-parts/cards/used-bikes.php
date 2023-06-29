@@ -1,8 +1,14 @@
 <?php
 // Get the value of the custom field for the current post 
-$year = get_field('used_model_year', get_the_ID());
-$km = get_field('used_km', get_the_ID());
-$price = get_field('used_price', get_the_ID()); ?>
+$table = get_field('wkode_single_used_table', get_the_ID());
+$year = '';
+$km = '';
+if($table){
+    $year = $table['wkode_single_used_table_year'];
+    $km = $table['wkode_single_used_table_km'];
+}
+$price = get_field('wkode_single_used_price', get_the_ID());
+?>
 <div class="wkode-used-bikes__card mx-2">
     
     <a class="wkode-used-bikes__card-link" href="<?php the_permalink(); ?>">

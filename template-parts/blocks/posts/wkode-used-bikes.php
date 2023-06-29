@@ -30,9 +30,14 @@ if($posts){
             if($final_posts){
                 foreach ($posts as $post) {
                     setup_postdata($post);
-                    $year = get_field('used_model_year', $post->ID);
-                    $km = get_field('used_km', $post->ID);
-                    $price = get_field('used_price', $post->ID); ?>
+                    $table = get_field('wkode_single_used_table', $post->ID);
+                    $year = '';
+                    $km = '';
+                    if($table){
+                        $year = $table['wkode_single_used_table_year'];
+                        $km = $table['wkode_single_used_table_km'];
+                    }
+                    $price = get_field('wkode_single_used_price', $post->ID);?>
                     <div class="wkode-used-bikes__card mx-2">
                         
                         <a class="wkode-used-bikes__card-link" href="<?php echo get_permalink($post->ID); ?>">

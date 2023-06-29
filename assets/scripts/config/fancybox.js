@@ -2,6 +2,124 @@ import { Fancybox } from "@fancyapps/ui";
 import "../../../node_modules/@fancyapps/ui/dist/fancybox/fancybox.css";
 import { pt } from "@fancyapps/ui/dist/fancybox/l10n/pt.esm.js";
 
+import { Thumbs } from "@fancyapps/ui/dist/carousel/carousel.thumbs.esm.js";
+import "@fancyapps/ui/dist/carousel/carousel.thumbs.css";
+
+import { Carousel } from "@fancyapps/ui/dist/carousel/carousel.esm.js";
+import "@fancyapps/ui/dist/carousel/carousel.css";
+
+import { Panzoom } from "@fancyapps/ui/dist/panzoom/panzoom.esm.js";
+import "@fancyapps/ui/dist/panzoom/panzoom.css";
+
 Fancybox.bind('[data-fancybox="gallery"]', {
   l10n: pt,
+});
+
+const container = document.getElementById("myCarousel");
+
+if (container) {
+  const options = {
+    Dots: false,
+    Thumbs: {
+      type: "classic",
+    },
+    Navigation: {
+      prevEl: ".custom-prev-button",
+      nextEl: ".custom-next-button",
+    },
+  };
+
+  new Carousel(container, options, { Thumbs });
+}
+
+/* document.addEventListener("DOMContentLoaded", function () {
+  setTimeout(function () {
+    const pzContainer = document.querySelectorAll(".f-carousel__slide");
+    let config = {
+      panMode: "mousemove",
+      mouseMoveFactor: 1.25,
+      click: false,
+      wheel: false,
+      scaleFactor: 3,
+    };
+    let instance = [];
+    console.log(pzContainer);
+
+    pzContainer.forEach(function (item, i) {
+      console.log(item);
+      instance[i] = new Panzoom(item, config);
+      item.addEventListener("mouseenter", (event) => {
+        if (!event.buttons) {
+          instance[i].zoomToMax(event);
+        }
+      });
+
+      item.addEventListener("mouseleave", () => {
+        instance[i].zoomToFit();
+      });
+    });
+  }, 7000);
+});
+ */
+
+document.addEventListener("DOMContentLoaded", function () {
+  const pzContainer = document.querySelectorAll(".f-carousel__slide");
+  const middleIndex = Math.floor(pzContainer.length / 2);
+  let navs = document.querySelectorAll(".f-thumbs__slide");
+  let instance = [];
+  console.log(pzContainer);
+  let config = {
+    panMode: "mousemove",
+    mouseMoveFactor: 1.25,
+    click: false,
+    wheel: false,
+    scaleFactor: 3,
+  };
+
+  async function firstChunk() {
+    // Code of the first chunk
+    // ...
+    navs.forEach(function (item, i) {
+      if (i === middleIndex) {
+        console.log(i + "  ----  " + middleIndex);
+        console.log(item);
+        item.click();
+      }
+    });
+    // Return a resolved promise
+    return Promise.resolve();
+  }
+
+  function secondChunk() {
+    // Code of the second chunk
+    // ...
+    setTimeout(function () {
+      pzContainer.forEach(function (item, i) {
+        console.log(item);
+        instance[i] = new Panzoom(item, config);
+        item.addEventListener("mouseenter", (event) => {
+          if (!event.buttons) {
+            instance[i].zoomToMax(event);
+          }
+        });
+
+        item.addEventListener("mouseleave", () => {
+          instance[i].zoomToFit();
+        });
+      });
+
+      navs.forEach(function (item, i) {
+        if (i === 0) {
+          item.click();
+        }
+      });
+    }, 100);
+  }
+
+  // Usage
+  (async function () {
+    await firstChunk(); // Wait for the first chunk to complete
+    // This code will run only after the first chunk has completed
+    secondChunk();
+  })();
 });

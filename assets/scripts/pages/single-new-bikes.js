@@ -1,7 +1,8 @@
 if (window.innerWidth <= 1000) {
-  document
-    .getElementById("wkode-header__single-new-trigger")
-    .addEventListener("click", function () {
+  let newTrigger = document.getElementById("wkode-header__single-new-trigger");
+
+  if (newTrigger) {
+    newTrigger.addEventListener("click", function () {
       const hiddenElement = document.getElementById(
         "wkode-single-new-bikes-template__form"
       );
@@ -20,6 +21,7 @@ if (window.innerWidth <= 1000) {
         behavior: "smooth",
       });
     });
+  }
   window.addEventListener("load", function () {
     setTimeout(function () {
       const hiddenElement = document.getElementById(
@@ -31,17 +33,21 @@ if (window.innerWidth <= 1000) {
       const arrow = document.querySelector(
         ".wkode-header__single-new-trigger__arrow"
       );
-      titleHighlight.classList.add("text-lcw-primary-red");
-      arrow.classList.add("wkode-header__single-new-trigger__arrow--inverted");
-      setTimeout(function () {
-        titleHighlight.classList.remove("text-lcw-primary-red");
-        arrow.classList.remove(
+      if (arrow && titleHighlight && arrow) {
+        titleHighlight.classList.add("text-lcw-primary-red");
+        arrow.classList.add(
           "wkode-header__single-new-trigger__arrow--inverted"
         );
-      }, 1000);
-      hiddenElement.classList.add(
-        "wkode-single-new-bikes-template__form--hidden"
-      );
+        setTimeout(function () {
+          titleHighlight.classList.remove("text-lcw-primary-red");
+          arrow.classList.remove(
+            "wkode-header__single-new-trigger__arrow--inverted"
+          );
+        }, 1000);
+        hiddenElement.classList.add(
+          "wkode-single-new-bikes-template__form--hidden"
+        );
+      }
     }, 3000);
   });
 }

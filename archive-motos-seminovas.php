@@ -7,15 +7,13 @@
     <main id="main" class="wkode-archive__main site-main mb-60" role="main">
 
         <?php if (have_posts()) : ?>
-            <!-- <header class="page-header">
-                
-            </header> -->
+            
             <div class="filter bg-white h-24 text-black text-3xl">Filter</div>
 
             <div class="wkode-archive__grid">
 
                 <?php while (have_posts()) : the_post(); 
-                    get_template_part('./template-parts/cards/new-bikes');
+                    get_template_part('./template-parts/cards/used-bikes');
                 endwhile; ?>
             </div>
 

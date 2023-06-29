@@ -14,7 +14,7 @@ if (menuAncestor) {
     activeMenuItem = currentMenu;
   }
 }
-console.log(activeMenuItem);
+
 if (activeMenuItem) {
   let activeMenuItemRect = activeMenuItem.getBoundingClientRect();
   let initialX = activeMenuItemRect.left - menuLine.offsetLeft;

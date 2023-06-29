@@ -1,0 +1,325 @@
+.wkode-single-used-bikes-template {
+  &__body {
+    @apply container pb-44;
+    color: #2c2c2c;
+    font-family: "Inter", "Rubik", "sans-serif";
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.6;
+    p {
+      @apply py-3;
+    }
+  }
+  &__description-title {
+    font-family: "Inter", "Rubik", "sans-serif";
+    font-size: 2.4rem;
+    font-weight: 500;
+    line-height: 1.6;
+    margin-bottom: 2.1rem;
+  }
+  &__wrapper {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-12 container pt-44 pb-24;
+    .f-carousel__slide {
+      overflow: hidden;
+    }
+    .f-button {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      border: none;
+      border-radius: 50%;
+      -webkit-box-shadow: 5px 5px 5px -2px rgba(0, 0, 0, 0.5);
+      -moz-box-shadow: 5px 5px 5px -2px rgba(0, 0, 0, 0.5);
+      box-shadow: 5px 5px 5px -2px rgba(0, 0, 0, 0.5);
+      svg {
+        display: none;
+      }
+      &.is-next {
+        background-image: url("../../assets/img/svg/new-carrousel-right.svg");
+      }
+      &.is-prev {
+        background-image: url("../../assets/img/svg/new-carrousel-left.svg");
+      }
+    }
+  }
+  &__title {
+    color: #14151b;
+    font-family: "Rubik", "sans-serif";
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 3.3rem;
+    text-align: left;
+    text-transform: uppercase;
+    &--desktop {
+      display: block;
+    }
+    &--mobile {
+      display: none;
+    }
+    @media (max-width: 768px) {
+      &--desktop {
+        display: none;
+      }
+      &--mobile {
+        display: block;
+      }
+    }
+  }
+  &__entry-content {
+    @apply pl-0 md:pl-16;
+    .table-container {
+      border-radius: 12px;
+      box-shadow: 0px 12px 30px -10px rgba(0, 0, 0, 0.51);
+      color: #000;
+      font-family: "Rubik", "sans-serif";
+      font-size: 1.5rem;
+      font-weight: 600;
+      width: 100%;
+      .table-row {
+        display: flex;
+        flex-direction: row;
+        min-width: 100%;
+        padding: 2rem 4.2rem;
+        &--dark {
+          background-color: #ececec;
+        }
+        &:first-of-type {
+          border-radius: 12px 12px 0 0;
+        }
+        &:last-of-type {
+          border-radius: 0 0 12px 12px;
+        }
+        .table-cell {
+          width: 50%;
+          &--content {
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
+  &__price {
+    color: #888888;
+    font-family: "Rubik", "sans-serif";
+    font-size: 1.6rem;
+    margin-bottom: 3.3rem;
+    margin-top: 7rem;
+    text-align: left;
+    h3 {
+      color: #14151b;
+      font-size: 4rem;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+  }
+
+  &__btn {
+    .wkode-btn {
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  &__random-products {
+    .wkode-products__card {
+      box-shadow: 0px 12px 30px -10px rgba(0, 0, 0, 0.349);
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+    .slick-list {
+      overflow: visible;
+    }
+    @media (max-width: 500px) {
+      .wkode-btn.wkode-btn--solid-red {
+        padding-left: 3.9rem;
+        padding-right: 3.9rem;
+      }
+    }
+  }
+  &__random-used {
+    .wkode-used-bikes__card {
+      box-shadow: 0px 0px 16px 2px rgba(0, 0, 0, 0.09);
+      margin-left: 1.5rem;
+      margin-right: 1.5rem;
+    }
+    .slick-list {
+      overflow-y: visible;
+      padding-bottom: 3rem;
+      padding-top: 3rem;
+    }
+    @media (max-width: 500px) {
+      .wkode-btn.wkode-btn--solid-red {
+        padding-left: 3.9rem;
+        padding-right: 3.9rem;
+      }
+    }
+  }
+
+  &__article {
+  }
+}
+
+body.modal-open {
+  overflow-y: hidden;
+  padding-right: 1rem;
+  &::after {
+    background-color: black;
+    content: "";
+    height: 100vh;
+    left: 0;
+    opacity: 0.3;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 98;
+  }
+}
+.wkode-single-used-bikes-template__form {
+  &.modal-active {
+    min-height: 60rem;
+    top: 50%;
+    visibility: visible;
+    z-index: 99;
+  }
+  .wpforms-container {
+    min-height: 50rem;
+    form.wpforms-validate.wpforms-form {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 50rem;
+    }
+  }
+  backdrop-filter: blur(12px);
+  background: linear-gradient(
+    180deg,
+    rgba(20, 21, 27, 0.267) 0%,
+    rgba(20, 21, 27, 0.781) 100%
+  );
+  border-radius: 12px;
+  min-height: 0.1rem;
+  opacity: 0.1rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  padding-top: 2rem;
+  position: fixed;
+  right: 50%;
+  top: 200vh;
+  transform: translate(50%, -50%);
+  transition: all 0.3s;
+  visibility: hidden;
+  width: 37%;
+  z-index: -1;
+
+  &-title {
+    align-items: center;
+    color: white !important;
+    display: flex;
+    font-family: "Rubik", "sans-serif";
+    font-size: 2.1rem;
+    font-weight: 600;
+    justify-content: space-between;
+    text-transform: uppercase;
+    span.close {
+      cursor: pointer;
+    }
+  }
+  .wpforms-container form .wpforms-field-container {
+    input,
+    textarea {
+      background-color: transparent !important;
+      border: 1.8px solid #fff !important;
+      border-radius: 67px !important;
+      color: white !important;
+      font-family: "Rubik" !important;
+      font-size: 1.4rem !important;
+      font-weight: 300 !important;
+      height: 4.2rem !important;
+      min-width: 100% !important;
+      text-transform: capitalize !important;
+      &::placeholder {
+        color: white !important;
+        font-family: "Rubik" !important;
+        font-size: 1.4rem !important;
+        font-weight: 300 !important;
+        min-width: 100% !important;
+        text-transform: capitalize !important;
+      }
+    }
+    .wpforms-field {
+      padding: 10px 0 !important;
+      &.wpforms-field-number,
+      &.wpforms-field-phone {
+        display: inline-block;
+        width: 49%;
+      }
+      &.wpforms-field-number {
+        margin-right: 2%;
+      }
+    }
+    textarea.wpforms-field-medium.wpforms-field-required {
+      border-radius: 12px !important;
+      height: 9rem !important;
+      margin-bottom: 1.5rem;
+    }
+    .wpforms-field.wpforms-field-checkbox {
+      font-size: 1.2rem !important;
+      label {
+        color: white !important;
+        font-size: 1.2rem !important;
+      }
+      li.choice-1 {
+        align-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+      }
+      input {
+        height: 14px !important;
+        min-width: auto !important;
+      }
+      label,
+      ul,
+      li {
+        display: inline !important;
+      }
+      label {
+        color: white !important;
+        margin-right: 7px;
+      }
+    }
+  }
+  .wpforms-submit-container {
+    button {
+      background-color: rgb(215 40 24 / var(--tw-bg-opacity)) !important;
+      border-color: rgb(215 40 24 / var(--tw-border-opacity)) !important;
+      border-radius: 9999px !important;
+      border-width: 4px !important;
+      color: rgb(255 255 255 / var(--tw-text-opacity)) !important;
+      font-family: "Rubik", "sans-serif" !important;
+      font-size: 1.5rem !important;
+      font-weight: 700 !important;
+      line-height: 2rem !important;
+      margin-top: 3rem !important;
+      overflow: hidden !important;
+      padding-bottom: 1rem !important;
+      padding-left: 8rem !important;
+      padding-right: 8rem !important;
+      padding-top: 1rem !important;
+      position: relative !important;
+      text-transform: uppercase !important;
+      transition: all 0.3s !important;
+      width: 100% !important;
+      --tw-border-opacity: 1 !important;
+      --tw-bg-opacity: 1 !important;
+      --tw-text-opacity: 1 !important;
+      &:hover {
+        background-color: transparent !important;
+        color: rgb(215 40 24 / var(--tw-text-opacity)) !important;
+        --tw-text-opacity: 1 !important;
+      }
+    }
+  }
+}

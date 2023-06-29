@@ -18,6 +18,8 @@ module.exports = [
       filename: "./dist/[name].min.js",
       //filename: "./dist/[name].min.[fullhash].js",
       path: path.resolve(__dirname),
+      assetModuleFilename: "img/[name][ext]",
+      publicPath: "/wp-content/themes/WKode-theme-LCW/",
     },
     module: {
       rules: [
@@ -33,7 +35,7 @@ module.exports = [
           use: [
             {
               loader: MiniCssExtractPlugin.loader,
-              options: { publicPath: "" },
+              options: { publicPath: "../" },
             },
 
             "css-loader",
@@ -56,10 +58,10 @@ module.exports = [
         },
         // loader for images and icons (only required if css references image files)
         {
-          test: /\.(png|jpg|gif)$/,
+          test: /\.(png|jpg|gif|svg)$/,
           type: "asset/resource",
           generator: {
-            filename: "./css/build/img/[name][ext]",
+            filename: "./dist/img/[name][ext]",
           },
         },
       ],
@@ -72,6 +74,15 @@ module.exports = [
       // css extraction into dedicated file
       new MiniCssExtractPlugin({
         filename: "./dist/main.min.css",
+        chunkFilename: "./dist/[id].css",
+        insert: function (linkTag) {
+          var preloadLinkTag = document.createElement("link");
+          preloadLinkTag.rel = "preload";
+          preloadLinkTag.href = linkTag.href;
+          preloadLinkTag.as = "style";
+          document.head.appendChild(preloadLinkTag);
+          document.head.appendChild(linkTag);
+        },
       }),
       new BrowserSyncPlugin({
         proxy: "lcw.local",
