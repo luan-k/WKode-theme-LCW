@@ -8,6 +8,7 @@
 @use "blocks/main-block";
 @use "blocks/wkode-multiple-image-consorcio-block";
 @use "blocks/main-block-card-revisao-geral";
+@use "blocks/contact-form";
 
 @use "components/header";
 @use "components/header-megamenu";
@@ -22,6 +23,7 @@
 @use "pages/archive";
 @use "pages/single-novas";
 @use "pages/single-used";
+@use "pages/servicos";
 
 /* @import "../slick/slick-theme.scss"; */
 @import "../slick/slick.scss";

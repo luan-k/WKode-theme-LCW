@@ -66,6 +66,8 @@ if ( ! function_exists( 'wkode_theme_setup' ) ) :
 		add_image_size( 'wkode_new_bikes_single__gallery_four_cols', 560, 458, true, array( 'center', 'center' ) );
 		add_image_size( 'wkode_new_bikes_single__gallery_one_by_one', 768, 768, true, array( 'center', 'center' ) );
 
+		add_image_size( 'wkode_servicos_archive', 435, 342, true, array( 'center', 'center' ) );
+
 		/*
 		 * Switch default core markup for search form, comment form, and comments
 		 * to output valid HTML5.
@@ -325,6 +327,25 @@ if ( function_exists( 'acf_register_block_type' ) ) {
 					'title'           => __( 'Revisão Geral' ),
 					'description'     => __( 'Bloco usado para mostrar os serviços' ),
 					'render_template' => 'template-parts/blocks/posts/wkode-main-block-card-revisao-geral.php',
+					'category'        => 'wkode',
+					'icon'            => 'align-pull-right',
+					'keywords'        => array( 'wkode Bloco principal', 'wkode', 'Principal', 'Revisão Geral'),
+					/* 'example'  => array(
+						'attributes' => array(
+							'mode' => 'preview',
+							'data' => array(
+								'preview' => '/template-parts/blocks/preview/wkode-main-block.png',
+							)
+						)
+					) */
+				)
+			);
+			acf_register_block_type(
+				array(
+					'name'            => 'wkode-contact-form',
+					'title'           => __( 'Bloco de Formulario de contato' ),
+					'description'     => __( 'Bloco para o formulario de contato' ),
+					'render_template' => 'template-parts/blocks/posts/wkode-contact-form.php',
 					'category'        => 'wkode',
 					'icon'            => 'align-pull-right',
 					'keywords'        => array( 'wkode Bloco principal', 'wkode', 'Principal', 'Revisão Geral'),

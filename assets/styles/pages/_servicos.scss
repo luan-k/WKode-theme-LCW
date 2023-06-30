@@ -1,0 +1,75 @@
+.wkode-archive--servicos {
+  .wkode-archive__main {
+    @apply grid-cols-1;
+    .wkode-archive__grid {
+      @apply gap-y-12 grid-cols-1;
+    }
+  }
+}
+.wkode-single-services {
+  .wkode-single-used-bikes-template__wrapper {
+    @apply grid-cols-1;
+  }
+}
+.f-carousel__slide {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  .wkode-single-used-bikes__img {
+    margin: auto;
+  }
+}
+
+.wkode-services__card {
+  @apply grid grid-cols-1 md:grid-cols-3 text-white;
+  border: 3px solid white;
+  border-radius: 2.1rem;
+  font-family: "Rubik", "sans-serif";
+  overflow: hidden;
+  &-body {
+    @apply col-span-2;
+    align-content: flex-start;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    justify-content: space-between;
+    padding: 3.6rem;
+  }
+  &-title {
+    color: #fff;
+    font-size: 2.1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.6;
+  }
+  &-content {
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+  &-img {
+    height: auto;
+    left: 50%;
+    max-width: none;
+    min-height: 100%;
+    min-width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    &-wrapper {
+      min-height: 30rem;
+      overflow: hidden;
+      position: relative;
+    }
+  }
+  &-btn {
+    &.wkode-btn.wkode-btn--solid-red {
+      padding-left: 3.9rem;
+      padding-right: 3.9rem;
+    }
+  }
+}

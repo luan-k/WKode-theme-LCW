@@ -10,7 +10,7 @@ $images = get_field('wkode_single_product_imgs', get_the_ID());
     <main id="main" class="wkode-single-used-bikes-template__main site-main" role="main">
 
         <?php while (have_posts()) : the_post(); ?>
-            <article id="post-<?php the_ID(); ?>" <?php post_class('wkode-single-used-bikes-template__article'); ?>>
+            <article id="post-<?php the_ID(); ?>" <?php post_class('wkode-single-used-bikes-template__article wkode-single-panzoom-reference'); ?>>
 
                 <div class="wkode-single-used-bikes-template__wrapper">
                     <h1 class="wkode-single-used-bikes-template__title wkode-single-used-bikes-template__title--mobile"><?php the_title(); ?></h1>
