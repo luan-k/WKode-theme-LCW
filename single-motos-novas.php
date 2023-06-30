@@ -4,7 +4,7 @@ $hero_image = get_field( 'wkode_motorcycles_hero_image' );
 
 ?>
 
-<div id="primary" class="wkode-single-new-bikes-template content-area">
+<div id="primary" class="wkode-single-new-bikes-template content-area wkode-single-new-bikes-template--check">
     <main id="main" class="wkode-single-new-bikes-template__main site-main" role="main">
 
         <?php while (have_posts()) : the_post(); ?>

@@ -13,6 +13,7 @@ import "./blocks/slider";
 import "./header/navbar-line";
 import "./header/add-btn-and-divider";
 import "./header/megamenu-logic";
+import "./header/header-scroll-logic";
 
 import "./pages/single-new-bikes";
 import "./pages/single-new-bikes-accordion";

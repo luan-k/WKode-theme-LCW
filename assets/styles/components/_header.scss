@@ -1,6 +1,15 @@
 .wkode-header {
   position: relative;
+  transition: all 0.3s ease;
+  width: 100%;
   z-index: 999;
+  &.hide {
+    top: -125px;
+  }
+  &.fixed {
+    position: fixed;
+    top: 0;
+  }
   &--desktop {
     display: block;
   }
@@ -166,7 +175,7 @@
   }
 }
 body {
-  transition: all 0.3s;
+  transition: all 0.1s ease;
   &.body-megamenu-active {
     overflow-y: hidden;
     &::before {
