@@ -1,22 +1,22 @@
 .search-overlay {
-  overflow-y: hidden;
-  overflow-x: hidden;
-  z-index: 9999;
-  position: absolute;
-  top: 0;
-  right: 0;
-  /*   bottom: 0; */
-
-  visibility: hidden;
-  opacity: 0;
-  transform: scale(1.09);
-  transition: all /* opacity 0.3s, transform 0.3s, visibility*/ 0.3s;
   box-sizing: border-box;
   height: 0;
   min-height: 0rem;
+  opacity: 0;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  padding-bottom: 10%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: scale(1.09);
+  transition: all /* opacity 0.3s, transform 0.3s, visibility*/ 0.3s;
+  /*   bottom: 0; */
+
+  visibility: hidden;
   /* border-radius: 1rem; */
   width: 0;
-  padding-bottom: 10%;
+  z-index: 89;
   p {
     padding-top: 15px;
   }
@@ -37,56 +37,56 @@
   &__top {
     background-color: rgb(250, 250, 250);
     & > div {
-      padding: 0 0 0 2%;
+      align-items: center;
       display: flex;
       flex-direction: row;
-      align-items: center;
+      padding: 0 0 0 2%;
     }
   }
 
   &__icon {
-    margin-right: 10px;
-    font-size: 1.8rem;
     color: var(--greenPrimary);
+    font-size: 1.8rem;
+    margin-right: 10px;
     @mixin atMedium {
       font-size: 2.5rem;
     }
   }
 
   &--active {
-    visibility: visible;
+    margin: 0;
     opacity: 1;
     transform: scale(1);
-    margin: 0;
+    visibility: visible;
     width: 100%;
   }
 
   &__section-title {
-    margin: 30px 0 1px 0;
-    font-weight: 400;
+    border-bottom: 1px solid #ccc;
     color: var(--darkPrimary);
     font-size: 2rem;
+    font-weight: 400;
+    margin: 30px 0 1px 0;
     padding: 15px 0;
-    border-bottom: 1px solid #ccc;
   }
 
   &__close {
-    position: absolute;
-    top: 13px;
-    right: 16px;
-    font-size: 2.1rem;
-    cursor: pointer;
-    transition: all 0.3s;
     background-color: #fff;
     color: var(--greenPrimary);
+    cursor: pointer;
+    font-size: 2.1rem;
     line-height: 0.7;
+    position: absolute;
+    right: 16px;
+    top: 13px;
+    transition: all 0.3s;
     @mixin atSmall {
-      top: 18px;
       font-size: 2.1rem;
+      top: 18px;
     }
     @mixin atMedium {
-      top: 26px;
       font-size: 2.8rem;
+      top: 26px;
     }
   }
 
@@ -125,8 +125,8 @@
         margin: 1rem 0;
         min-height: 15rem;
         &.servico {
-          border-radius: 0;
           border-color: var(--lightPrimary);
+          border-radius: 0;
           & > .search-product-wraper {
             border-radius: 0;
             & > .row > .col-img-search > .img-wraper-search {
@@ -137,10 +137,10 @@
         & > .search-product-wraper {
           background-color: var(--greenPrimary);
           color: white;
+          height: 100%;
           /* border-radius: 1rem; */
           padding-left: 0;
           transition: all 0.3s;
-          height: 100%;
           &.servico {
             border-radius: 0;
           }
@@ -151,17 +151,17 @@
           & > .row {
             height: 100%;
             & > .col-img-search > .img-wraper-search {
-              background: white;
-              height: 100%;
-              width: 100%;
-              display: flex;
-              justify-content: center;
               align-items: center;
+              background: white;
+              display: flex;
+              height: 100%;
+              justify-content: center;
               overflow: hidden;
+              width: 100%;
               /* border-radius: 1rem 0 0 1rem; */
               & > img {
-                width: 100%;
                 height: auto;
+                width: 100%;
               }
             }
             & > .col-text-search {
@@ -178,8 +178,8 @@
                 }
               }
               & > .text-search {
-                margin-top: 2rem;
                 height: auto;
+                margin-top: 2rem;
                 max-height: 70%;
               }
             }
@@ -191,23 +191,23 @@
 }
 
 .search-term {
-  width: 75%;
-  box-sizing: border-box;
-  border: none;
-  padding: 10px 0;
-  margin: 0;
-  font-family: Montserrat, "sans-serif";
   background-color: transparent;
+  border: none;
+  box-sizing: border-box;
+  color: var(--greenPrimary);
+  font-family: Montserrat, "sans-serif";
   font-size: 1vw;
   font-weight: 300;
+  margin: 0;
   outline: none;
-  color: var(--greenPrimary);
+  padding: 12px 0;
+  width: 75%;
   @mixin atSmall {
     font-size: 1.5rem;
   }
   @mixin atMedium {
-    width: 80%;
     font-size: 3rem;
+    width: 80%;
   }
 }
 
@@ -215,15 +215,15 @@
   overflow: hidden;
 }
 .spinner-loader {
-  margin: auto;
-  margin-top: 45px;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  border: 0.25rem solid rgb(255 255 255 / 20%);
-  border-top-color: #fff;
   -webkit-animation: spin 1s infinite linear;
   animation: spin 1s infinite linear;
+  border: 0.25rem solid rgb(255 255 255 / 20%);
+  border-radius: 50%;
+  border-top-color: #fff;
+  height: 24px;
+  margin: auto;
+  margin-top: 45px;
+  width: 24px;
 }
 @keyframes spin {
   0% {
@@ -236,11 +236,14 @@
   }
 }
 .active-bottom {
-  @apply bg-red-900;
-  height: 60vh;
+  background-color: white;
+  height: 100vh;
   min-height: 37rem;
 
   overflow-y: scroll;
+}
+#search-overlay__results {
+  max-width: 100%;
 }
 #navbarNavAltMarkup {
   position: relative;
@@ -258,9 +261,9 @@
     width: 100%;
   }
   .search-overlay {
-    right: 0;
     height: 100%;
     padding: 0;
+    right: 0;
   }
   /* .search-overlay__top {
     height: 100%;
@@ -273,8 +276,8 @@
 #search-overlay__results {
   .products-banner-carousel-card {
     &__body {
-      display: flex;
       align-items: center;
+      display: flex;
       justify-content: center;
       &--title {
         font-size: 1.8rem;
@@ -284,8 +287,8 @@
   }
 }
 #search-results-bottom {
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: center;
 }
 @media (max-width: 1000px) {
@@ -293,5 +296,16 @@
     margin-left: 0;
     right: 1rem;
     top: 50%;
+  }
+}
+
+/* ------ custom --------- */
+
+.wkode-search-carousel {
+  .slick-slide {
+    margin: 1.5rem 3rem;
+    .wkode-new-bikes__card {
+      box-shadow: 0px 0px 16px 2px rgba(0, 0, 0, 0.09);
+    }
   }
 }

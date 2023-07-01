@@ -1711,6 +1711,7 @@ body .wraper {
 }
 .wkode-header__menu-container {
   /* width: 70%; */
+  z-index: 9;
 }
 .wkode-header__menu-container ul.nav.navbar-nav {
   align-items: center;
@@ -2190,9 +2191,13 @@ body.admin-bar .search-overlay {
 }
 .active-bottom {
   background-color: white;
-  height: 60vh;
+  height: 100vh;
   min-height: 37rem;
   overflow-y: scroll;
+}
+
+#search-overlay__results {
+  max-width: 100%;
 }
 
 #navbarNavAltMarkup {
@@ -2247,6 +2252,14 @@ body.admin-bar .search-overlay {
     top: 50%;
   }
 }
+/* ------ custom --------- */
+.wkode-search-carousel .slick-slide {
+  margin: 1.5rem 3rem;
+}
+.wkode-search-carousel .slick-slide .wkode-new-bikes__card {
+  box-shadow: 0px 0px 16px 2px rgba(0, 0, 0, 0.09);
+}
+
 .wkode-btn {
   transition: all 0.3s;
   position: relative;

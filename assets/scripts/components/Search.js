@@ -1,4 +1,5 @@
 import $ from "jquery";
+import "slick-carousel";
 
 class Search {
   /* 1. describe and create/initiate our object */
@@ -14,6 +15,7 @@ class Search {
     this.isSpinnerVisible = false;
     this.previousValue;
     this.typingTimer;
+    this.initializeCarousel();
   }
   /*  2. events */
   events() {
@@ -50,9 +52,108 @@ class Search {
         this.resultsDiv.html(`
         <div class="" >
               ${
+                results.newBikes.length
+                  ? '<div class="container"> <h3 class="title-3 mt-5 mb-3 text-black font-montserrat"> NEW </h3> <div class="wkode-search-carousel"> '
+                  : '<h3 class="title-4 text-black mt-12 mb-3 text-center font-montserrat">nenhum produto corresponde a sua pesquisa NEW</h3>'
+              }
+                ${results.newBikes
+                  .map(
+                    (item) =>
+                      `
+                        <div class="wkode-new-bikes__card">
+                            <h3 class="wkode-new-bikes__card-title">
+                                <a href="${item.permalink}">
+                                    ${item.title}
+                                </a>
+                            </h3>
+                            <a href="${item.permalink}">
+                                ${item.images
+                                  .map(
+                                    (image, index) => `
+                                            <img class="wkode-new-bikes__card-img${image.isActiveColor}" src="${image.src}" alt="" srcset="">
+                                        `
+                                  )
+                                  .join("")}
+                            </a>
+                            <div class="wkode-new-bikes__card-colors text-black">
+                                ${item.colors
+                                  .map(
+                                    (color, index) => `
+                                            <span class="wkode-new-bikes__card-color">
+                                                <span class="${color.colorClass}" style="${color.colorStyles}"></span>
+                                            </span>
+                                        `
+                                  )
+                                  .join("")}
+                            </div>
+                        </div>
+                      `
+                  )
+                  .join("")}
+									</div><div class='btn-wraper justify-center search my-5 px-9 py-6'> <a href="${
+                    WKodeData.root_url
+                  }/produtos" class='btn-input items-center justify-center py-12 px-12 text-center border-2 border-unitermi-primary-redDark text-black font-montserrat font-bold text-3xl'> ver todos os Produtos </a> </div>
+              ${results.newBikes.length ? "</div>" : ""}
+          </div>
+
+
+      </div>
+      <div class="" >
+              ${
+                results.usedBikes.length
+                  ? '<div class="row"> <h3 class="title-3 mt-5 mb-3 text-black font-montserrat"> USED </h3> <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12"> '
+                  : '<h3 class="title-4 text-black mt-12 mb-3 text-center font-montserrat">nenhum produto corresponde a sua pesquisa USED</h3>'
+              }
+                ${results.usedBikes
+                  .map(
+                    (item) =>
+                      `
+                      <a href="${item.permalink}" class="wkode-used-bikes__card mx-2">
+                          <div class="wkode-used-bikes__card-link">
+                              <img class="wkode-used-bikes__card-img" src="${item.image}" alt="imagem produto">
+                          </div>
+                          <div class="wkode-used-bikes__card-body">
+                              <h3 class="wkode-used-bikes__card-title">
+                                  <a href="${item.permalink}">
+                                      ${item.title}
+                                  </a>
+                              </h3>
+                              <div class="wkode-used-bikes__card-info">
+                                  <div class="wkode-used-bikes__card-info-date">
+                                      <img class="wkode-used-bikes__card-img" src="<?php echo get_theme_file_uri('./assets/img/svg/calendar-used.svg'); ?>" alt="" srcset=""> 
+                                      ${item.year}
+                                  </div>
+                                  <div class="wkode-used-bikes__card-info-km">
+                                      <img class="wkode-used-bikes__card-img" src="<?php echo get_theme_file_uri('./assets/img/svg/km.svg'); ?>" alt="" srcset=""> 
+                                      ${item.km}
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="wkode-used-bikes__card-footer">
+                              <div class="wkode-used-bikes__card-footer-price">
+                                  R$ ${item.price}
+                              </div>
+                              <div class="wkode-used-bikes__card-footer-btn">
+                                  <a href="${item.permalink}" class="wkode-btn wkode-btn--outline-red">Ver Mais</a>
+                              </div>
+                          </div>
+                      </a>
+                      `
+                  )
+                  .join("")}
+									</div><div class='btn-wraper justify-center search my-5 px-9 py-6'> <a href="${
+                    WKodeData.root_url
+                  }/produtos" class='btn-input items-center justify-center py-12 px-12 text-center border-2 border-unitermi-primary-redDark text-black font-montserrat font-bold text-3xl'> ver todos os Produtos </a> </div>
+              ${results.usedBikes.length ? "</div>" : ""}
+          </div>
+
+
+      </div>
+      <div class="" >
+              ${
                 results.products.length
-                  ? '<div class="row"> <h3 class="title-3 mt-5 mb-3 text-white font-montserrat"> Produtos </h3> <hr class="white"> <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12"> '
-                  : '<h3 class="title-4 text-white mt-12 mb-3 text-center font-montserrat">nenhum produto corresponde a sua pesquisa</h3>'
+                  ? '<div class="container"> <h3 class="title-3 mt-5 mb-3 text-black font-montserrat"> USED </h3> <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12"> '
+                  : '<h3 class="title-4 text-black mt-12 mb-3 text-center font-montserrat">nenhum produto corresponde a sua pesquisa USED</h3>'
               }
                 ${results.products
                   .map(
@@ -74,7 +175,7 @@ class Search {
                   .join("")}
 									</div><div class='btn-wraper justify-center search my-5 px-9 py-6'> <a href="${
                     WKodeData.root_url
-                  }/produtos" class='btn-input items-center justify-center py-12 px-12 text-center border-2 border-unitermi-primary-redDark text-white font-montserrat font-bold text-3xl'> ver todos os Produtos </a> </div>
+                  }/produtos" class='btn-input items-center justify-center py-12 px-12 text-center border-2 border-unitermi-primary-redDark text-black font-montserrat font-bold text-3xl'> ver todos os Produtos </a> </div>
               ${results.products.length ? "</div>" : ""}
           </div>
 
@@ -82,62 +183,46 @@ class Search {
       </div>
       `);
         this.isSpinnerVisible = false;
+        this.initializeCarousel();
       }
-    ); /* asynchronous */
-    /* =========================================================== */
-    /* =================old code, might be useful================== */
-    /* =========================================================== */
-    /* $.when(
-      $.getJSON(
-        universityData.root_url +
-          "/wp-json/wp/v2/posts?search=" +
-          this.searchField.val()
-      ),
-      $.getJSON(
-        universityData.root_url +
-          "/wp-json/wp/v2/pages?search=" +
-          this.searchField.val()
-      )
-    ).then(
-      (posts, pages) => {
-        var combinedResults = posts[0].concat(pages[0]);
-        this.resultsDiv.html(`
-          <h2 class="search-overlay__section-title">General Information</h2>
-          ${
-            combinedResults.length
-              ? '<ul class="link-list min-list">'
-              : "<p>No Gerenal information</p>"
-          }
-            ${combinedResults
-              .map(
-                (item) =>
-                  `<li><a href="${item.link}">${item.title.rendered}</a> ${
-                    item.type == "post" ? `by ${item.authorName}` : ""
-                  } </li>`
-              )
-              .join("")}
-          ${combinedResults.length ? "</ul>" : ""}
-
-        `);
-        this.isSpinnerVisible = false;
-      },
-      () => {
-        this.resultsDiv.html("<h4>Unexpected error</h4>");
-      }
-    ); */
-
-    /* this.resultsDiv.html("niggas");
-    this.isSpinnerVisible = false; */
+    );
   }
 
-  /* keyPressDispatcher(e) {
-    if (e.keyCode == 83 && $("input, textarea").is(":focus")) {
-      this.openOverlay();
-    }
-    if (e.keyCode == 27) {
-      this.closeOverlay();
-    }
-  } */
+  initializeCarousel() {
+    $(".wkode-search-carousel").slick({
+      autoplay: false,
+      autoplaySpeed: 2000,
+      dots: false,
+      infinite: true,
+      speed: 500,
+      arrows: true,
+      prevArrow: `<button class="arrow-button left-arrow" style="background-image: url('../../wp-content/themes/WKode-theme-LCW/assets/img/svg/new-carrousel-left.svg')"></button>`,
+      nextArrow: `<button class="arrow-button right-arrow" style="background-image: url('../../wp-content/themes/WKode-theme-LCW/assets/img/svg/new-carrousel-right.svg')"></button>`,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      responsive: [
+        {
+          breakpoint: 1000,
+          settings: {
+            slidesToShow: 2,
+          },
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1,
+          },
+        },
+        {
+          breakpoint: 520,
+          settings: {
+            slidesToShow: 1,
+          },
+        },
+      ],
+    });
+  }
+
   openOverlay() {
     this.searchOverlay.addClass("search-overlay--active");
     /* $("body").addClass("body-no-scroll"); */
