@@ -60,16 +60,17 @@ function WkodeSearchResults($data){
     
                 $colorData = array(
                     'colorClass' => '',
-                    'colorStyles' => 'background-color: ' . $postColor,
+                    'colorStyles' => array('background-color: ' . $postColor), // Initialize as an array
+                    'isActiveColor' => ($index == 0) ? ' active-color' : '',
                 );
     
                 if ($biOrTri == 'bicolor') {
                     $colorData['colorClass'] = 'wkode-new-bikes__card-color--bicolor';
-                    $colorData['colorStyles'] .= '; background-color: ' . $secondColor;
+                    $colorData['colorStyles'][] = 'background-color: ' . $secondColor; // Add the second color
                 } elseif ($biOrTri == 'tricolor') {
                     $colorData['colorClass'] = 'wkode-new-bikes__card-color--tricolor';
-                    $colorData['colorStyles'] .= '; background-color: ' . $secondColor;
-                    $colorData['colorStyles'] .= '; background-color: ' . $thirdColor;
+                    $colorData['colorStyles'][] = 'background-color: ' . $secondColor; // Add the second color
+                    $colorData['colorStyles'][] = 'background-color: ' . $thirdColor; // Add the third color
                 } else {
                     $colorData['colorClass'] = 'wkode-new-bikes__card-color--unique';
                 }
@@ -113,11 +114,9 @@ function WkodeSearchResults($data){
 
         if(get_post_type() == 'produtos'){
             array_push($results['products'], array(
-
                 'title' => wp_trim_words( get_the_title(), 4),
                 'permalink' => get_the_permalink(),
-                'image' => get_the_post_thumbnail_url(0, 'medium'),
-                'descricao' => wp_trim_words(get_the_content(), 24)
+                'image' => get_the_post_thumbnail_url(0, 'products_card'),
             ));
         }
     }

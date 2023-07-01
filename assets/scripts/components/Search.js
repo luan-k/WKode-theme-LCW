@@ -1,5 +1,6 @@
 import $ from "jquery";
 import "slick-carousel";
+import { newCardColorLogic } from "./new-card";
 
 class Search {
   /* 1. describe and create/initiate our object */
@@ -60,33 +61,41 @@ class Search {
                   .map(
                     (item) =>
                       `
-                        <div class="wkode-new-bikes__card">
-                            <h3 class="wkode-new-bikes__card-title">
-                                <a href="${item.permalink}">
-                                    ${item.title}
-                                </a>
-                            </h3>
-                            <a href="${item.permalink}">
-                                ${item.images
-                                  .map(
-                                    (image, index) => `
-                                            <img class="wkode-new-bikes__card-img${image.isActiveColor}" src="${image.src}" alt="" srcset="">
-                                        `
-                                  )
-                                  .join("")}
-                            </a>
-                            <div class="wkode-new-bikes__card-colors text-black">
-                                ${item.colors
-                                  .map(
-                                    (color, index) => `
-                                            <span class="wkode-new-bikes__card-color">
-                                                <span class="${color.colorClass}" style="${color.colorStyles}"></span>
-                                            </span>
-                                        `
-                                  )
-                                  .join("")}
-                            </div>
-                        </div>
+                      <div class="wkode-new-bikes__card">
+                      <h3 class="wkode-new-bikes__card-title">
+                          <a href="${item.permalink}">
+                              ${item.title}
+                          </a>
+                      </h3>
+                      <a href="${item.permalink}">
+                          ${item.images
+                            .map(
+                              (image, index) => `
+                                      <img class="wkode-new-bikes__card-img${image.isActiveColor}" src="${image.src}" alt="" srcset="">
+                                  `
+                            )
+                            .join("")}
+                      </a>
+                      <div class="wkode-new-bikes__card-colors text-black">
+                          ${item.colors
+                            .map(
+                              (color, index) => `
+                                      <span class="wkode-new-bikes__card-color${
+                                        color.isActiveColor
+                                      }">
+                                          ${color.colorStyles
+                                            .map(
+                                              (style) => `
+                                                      <span class="${color.colorClass}" style="${style}"></span>
+                                                  `
+                                            )
+                                            .join("")}
+                                      </span>
+                                  `
+                            )
+                            .join("")}
+                      </div>
+                  </div>
                       `
                   )
                   .join("")}
@@ -152,24 +161,24 @@ class Search {
       <div class="" >
               ${
                 results.products.length
-                  ? '<div class="container"> <h3 class="title-3 mt-5 mb-3 text-black font-montserrat"> USED </h3> <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12"> '
+                  ? '<div class="container"> <h3 class="title-3 mt-5 mb-3 text-black font-montserrat"> USED </h3> <div class="wkode-search-carousel"> '
                   : '<h3 class="title-4 text-black mt-12 mb-3 text-center font-montserrat">nenhum produto corresponde a sua pesquisa USED</h3>'
               }
                 ${results.products
                   .map(
                     (item) =>
                       `
-											<a href="${item.permalink}" class="products-banner-carousel-card underline-hover relative bg-white">
-											<div class="products-banner-carousel-card__img-wrapper">
-												<img class="products-banner-carousel-card__img-wrapper--img"  src="${item.image}" alt="imagem produto">
-											</div>
-											<div class="products-banner-carousel-card__body pt-12 px-9 pb-6">
-												<h3 class="products-banner-carousel-card__body--title title-bland text-gray-600 text-2xl">
-													${item.title}
-												</h3>
-											</div>
-
-										</a>
+                      <div class="wkode-products__card">
+                          <a href="${item.permalink}">
+                              <img class="wkode-products__card-img active-color-image" src="${item.image}" alt="" srcset=""> 
+                          </a>
+                          <h3 class="wkode-products__card-title ">
+                              <a href="${item.permalink}">
+                                ${item.title}
+                              </a>
+                          </h3>
+                      </div>
+                      
                       `
                   )
                   .join("")}
@@ -184,6 +193,7 @@ class Search {
       `);
         this.isSpinnerVisible = false;
         this.initializeCarousel();
+        newCardColorLogic();
       }
     );
   }
