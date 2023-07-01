@@ -1,1 +1,6 @@
 text-lcw-primary-red
+text-4xl
+pt-32
+mt-28
+p-12
+capitalize

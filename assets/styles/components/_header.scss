@@ -114,7 +114,7 @@
         left: -100%;
         width: 30%;
       }
-      #navbarNavAltMarkup {
+      #controlIdForMobileNav {
         background-color: white;
         flex-direction: column;
         height: 100vh;
@@ -169,7 +169,7 @@
     }
   }
   .wkode-header--mobile {
-    #navbarNavAltMarkup.wkode-header__nav--bottom.wkode-header__nav--active {
+    #controlIdForMobileNav.wkode-header__nav--bottom.wkode-header__nav--active {
       left: 0;
       width: 90%;
     }

@@ -51,11 +51,11 @@ class Search {
         this.searchField.val(),
       (results) => {
         this.resultsDiv.html(`
-        <div class="" >
+        <div class="p-12" >
               ${
                 results.newBikes.length
-                  ? '<div class="container"> <h3 class="title-3 mt-5 mb-3 text-black font-montserrat"> NEW </h3> <div class="wkode-search-carousel"> '
-                  : '<h3 class="title-4 text-black mt-12 mb-3 text-center font-montserrat">nenhum produto corresponde a sua pesquisa NEW</h3>'
+                  ? '<div class="container pt-32"> <h3 class="uppercase font-rubik font-extrabold text-5xl mb-28"> Motos Novas </h3> <div class="wkode-search-carousel"> '
+                  : '<h3 class="font-rubik font-extrabold text-4xl mt-28 capitalize text-center">Nenhuma moto nova corresponde a sua pesquisa</h3>'
               }
                 ${results.newBikes
                   .map(
@@ -99,19 +99,19 @@ class Search {
                       `
                   )
                   .join("")}
-									</div><div class='btn-wraper justify-center search my-5 px-9 py-6'> <a href="${
+									</div><div class='flex justify-center search mt-28 px-9 py-6'> <a href="${
                     WKodeData.root_url
-                  }/produtos" class='btn-input items-center justify-center py-12 px-12 text-center border-2 border-unitermi-primary-redDark text-black font-montserrat font-bold text-3xl'> ver todos os Produtos </a> </div>
+                  }/motos-novas" class='wkode-btn wkode-btn--outline-red'> ver todos as Motos Novas</a> </div>
               ${results.newBikes.length ? "</div>" : ""}
           </div>
 
 
       </div>
-      <div class="" >
+      <div class="p-12" >
               ${
                 results.usedBikes.length
-                  ? '<div class="container"> <h3 class="title-3 mt-5 mb-3 text-black font-montserrat"> USED </h3> <div class="wkode-search-carousel"> '
-                  : '<h3 class="title-4 text-black mt-12 mb-3 text-center font-montserrat">nenhum produto corresponde a sua pesquisa USED</h3>'
+                  ? '<div class="container pt-32"> <h3 class="uppercase font-rubik font-extrabold text-5xl mb-28"> Motos Seminovas </h3> <div class="wkode-search-carousel"> '
+                  : '<h3 class="font-rubik font-extrabold text-4xl mt-28 capitalize text-center">nenhuma moto seminova corresponde a sua pesquisa</h3>'
               }
                 ${results.usedBikes
                   .map(
@@ -150,19 +150,19 @@ class Search {
                       `
                   )
                   .join("")}
-									</div><div class='btn-wraper justify-center search my-5 px-9 py-6'> <a href="${
+                  </div><div class='flex justify-center search mt-28 px-9 py-6'> <a href="${
                     WKodeData.root_url
-                  }/produtos" class='btn-input items-center justify-center py-12 px-12 text-center border-2 border-unitermi-primary-redDark text-black font-montserrat font-bold text-3xl'> ver todos os Produtos </a> </div>
+                  }/motos-seminovas" class='wkode-btn wkode-btn--outline-red'> ver todos as Motos Seminovas</a> </div>
               ${results.usedBikes.length ? "</div>" : ""}
           </div>
 
 
       </div>
-      <div class="" >
+      <div class="p-12" >
               ${
                 results.products.length
-                  ? '<div class="container"> <h3 class="title-3 mt-5 mb-3 text-black font-montserrat"> USED </h3> <div class="wkode-search-carousel"> '
-                  : '<h3 class="title-4 text-black mt-12 mb-3 text-center font-montserrat">nenhum produto corresponde a sua pesquisa USED</h3>'
+                  ? '<div class="container pt-32"> <h3 class="uppercase font-rubik font-extrabold text-5xl mb-28"> Produtos </h3> <div class="wkode-search-carousel"> '
+                  : '<h3 class="font-rubik font-extrabold text-4xl mt-28 capitalize text-center">Nenhum produto corresponde a sua pesquisa</h3>'
               }
                 ${results.products
                   .map(
@@ -182,9 +182,9 @@ class Search {
                       `
                   )
                   .join("")}
-									</div><div class='btn-wraper justify-center search my-5 px-9 py-6'> <a href="${
+                  </div><div class='flex justify-center search mt-28 px-9 py-6'> <a href="${
                     WKodeData.root_url
-                  }/produtos" class='btn-input items-center justify-center py-12 px-12 text-center border-2 border-unitermi-primary-redDark text-black font-montserrat font-bold text-3xl'> ver todos os Produtos </a> </div>
+                  }/produtos" class='wkode-btn wkode-btn--outline-red'> ver todos os Produtos</a> </div>
               ${results.products.length ? "</div>" : ""}
           </div>
 
@@ -235,7 +235,7 @@ class Search {
 
   openOverlay() {
     this.searchOverlay.addClass("search-overlay--active");
-    /* $("body").addClass("body-no-scroll"); */
+    $("body").addClass("body-no-scroll");
     this.searchField.val("");
     setTimeout(() => this.searchField.focus(), 301);
     return false;
@@ -244,11 +244,17 @@ class Search {
   closeOverlay() {
     this.searchOverlay.removeClass("search-overlay--active");
     this.searchOverlay.removeClass("active-bottom ");
-    /* $("body").removeClass("body-no-scroll"); */
+    $("body").removeClass("body-no-scroll");
   }
 
   addSearchHtml() {
-    $("#navbarNavAltMarkup").append(`
+    let menuCurrent;
+    if (window.innerWidth <= 1000) {
+      menuCurrent = $(".wkode-header--mobile > #navbarNavAltMarkup");
+    } else {
+      menuCurrent = $(".wkode-header--desktop > #navbarNavAltMarkup");
+    }
+    menuCurrent.append(`
     <div class="search-overlay">
       <div class="search-overlay__top px-6">
         <div class="">

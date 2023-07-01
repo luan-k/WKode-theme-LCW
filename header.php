@@ -63,8 +63,8 @@ if (is_single() && $post_type === 'motos-novas') {
     </header>
 
     <!-- header mobile -->
-    <header class="wkode-header wkode-header--mobile <?php if($is_blurred){ echo 'wkode-header--blurred';}?>"" >
-      <div class="wkode-header__nav wkode-header__nav--top">
+    <header class="wkode-header wkode-header--mobile <?php if($is_blurred){ echo 'wkode-header--blurred';}?>">
+      <div class="wkode-header__nav wkode-header__nav--top" id="navbarNavAltMarkup">
         <a id="wkode-header__megamenu-btn" href="<?php echo esc_url(site_url()); ?>">
 					<img class="" src="<?php if($is_blurred){ echo get_theme_file_uri('/assets/img/svg/hamburguer-white.svg'); } else{ echo get_theme_file_uri('/assets/img/svg/hamburguer.svg');} ?>" alt="<?php  ?>">
 				</a>
@@ -84,7 +84,7 @@ if (is_single() && $post_type === 'motos-novas') {
           
         </div>
       <?php } else{ } ?>
-      <div class="wkode-header__nav wkode-header__nav--bottom" id="navbarNavAltMarkup">
+      <div class="wkode-header__nav wkode-header__nav--bottom" id="controlIdForMobileNav">
         <nav class="wkode-header__icons-wrapper">
           <a target="_blank" class="wkode-header__social-media-icon" href="#" style="background-image: url(<?php echo get_theme_file_uri('/assets/img/svg/location-pin.svg'); ?>);">
           </a>
