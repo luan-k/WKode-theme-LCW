@@ -101,17 +101,17 @@ class Search {
       <div class="" >
               ${
                 results.usedBikes.length
-                  ? '<div class="row"> <h3 class="title-3 mt-5 mb-3 text-black font-montserrat"> USED </h3> <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12"> '
+                  ? '<div class="container"> <h3 class="title-3 mt-5 mb-3 text-black font-montserrat"> USED </h3> <div class="wkode-search-carousel"> '
                   : '<h3 class="title-4 text-black mt-12 mb-3 text-center font-montserrat">nenhum produto corresponde a sua pesquisa USED</h3>'
               }
                 ${results.usedBikes
                   .map(
                     (item) =>
                       `
-                      <a href="${item.permalink}" class="wkode-used-bikes__card mx-2">
-                          <div class="wkode-used-bikes__card-link">
+                      <div class="wkode-used-bikes__card mx-2">
+                          <a href="${item.permalink}" class="wkode-used-bikes__card-link">
                               <img class="wkode-used-bikes__card-img" src="${item.image}" alt="imagem produto">
-                          </div>
+                          </a>
                           <div class="wkode-used-bikes__card-body">
                               <h3 class="wkode-used-bikes__card-title">
                                   <a href="${item.permalink}">
@@ -119,25 +119,25 @@ class Search {
                                   </a>
                               </h3>
                               <div class="wkode-used-bikes__card-info">
-                                  <div class="wkode-used-bikes__card-info-date">
-                                      <img class="wkode-used-bikes__card-img" src="<?php echo get_theme_file_uri('./assets/img/svg/calendar-used.svg'); ?>" alt="" srcset=""> 
-                                      ${item.year}
-                                  </div>
-                                  <div class="wkode-used-bikes__card-info-km">
-                                      <img class="wkode-used-bikes__card-img" src="<?php echo get_theme_file_uri('./assets/img/svg/km.svg'); ?>" alt="" srcset=""> 
-                                      ${item.km}
-                                  </div>
+                                <div class="wkode-used-bikes__card-info-date">
+                                    <img class="wkode-used-bikes__card-img" src="${item.calendarSvg}" alt="" srcset=""> 
+                                    ${item.year}
+                                </div>
+                                <div class="wkode-used-bikes__card-info-km">
+                                    <img class="wkode-used-bikes__card-img" src="${item.kmSvg}" alt="" srcset=""> 
+                                    ${item.km}
+                                </div>
                               </div>
                           </div>
                           <div class="wkode-used-bikes__card-footer">
                               <div class="wkode-used-bikes__card-footer-price">
-                                  R$ ${item.price}
+                                  ${item.price}
                               </div>
                               <div class="wkode-used-bikes__card-footer-btn">
                                   <a href="${item.permalink}" class="wkode-btn wkode-btn--outline-red">Ver Mais</a>
                               </div>
                           </div>
-                      </a>
+                      </div>
                       `
                   )
                   .join("")}

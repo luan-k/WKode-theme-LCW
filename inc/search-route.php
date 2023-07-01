@@ -96,11 +96,13 @@ function WkodeSearchResults($data){
             $usedBike = array(
                 'title' => wp_trim_words(get_the_title(), 4),
                 'permalink' => get_the_permalink(),
-                'image' => get_the_post_thumbnail_url(0, 'medium'),
+                'image' => get_the_post_thumbnail_url(0, 'motos_seminovas_card'),
                 'descricao' => wp_trim_words(get_the_content(), 24),
                 'year' => $year ? $year : '23/23',
                 'km' => $km ? $km : '1000',
                 'price' => $price ? 'R$ ' . $price : 'consulte',
+                'calendarSvg' => get_theme_file_uri('./assets/img/svg/calendar-used.svg'),
+                'kmSvg' => get_theme_file_uri('./assets/img/svg/km.svg'),
             );
     
             array_push($results['usedBikes'], $usedBike);
