@@ -1,20 +1,47 @@
-<?php get_header(); ?>
+<?php get_header();
+$categories = get_terms(array(
+    'taxonomy' => 'moto_nova_categoria',
+    'hide_empty' => false,
+));
+
+$bikes = new WP_Query([
+    'post_type' => 'motos-novas',
+    'posts_per_page' => -1,
+    'order_by' => 'date',
+    'order' => 'desc',
+  ]);
+
+?>
 
 <section id="primary" class="wkode-archive content-area py-60">
     <h1 class="page-title text-left font-rubik text-white text-6xl font-semibold uppercase mb-36 container">
         Motos novas
     </h1>
+    <div class="cat-wrapper text-white text-3xl container my-12">
+        
+    </div>
     <main id="main" class="wkode-archive__main site-main mb-60" role="main">
 
-        <?php if (have_posts()) : ?>
+        <?php if ($bikes->have_posts()) : ?>
             <!-- <header class="page-header">
                 
             </header> -->
-            <div class="filter bg-white h-24 text-black text-3xl">Filter</div>
+            <div class="filter bg-white text-black text-3xl">
+                <ul class="cat-list">
+                    <?php foreach($categories as $category) : ?>
+                        <li class="">
+                            <input  class='cat-list_item' data-slug="<?= $category->slug; ?>" type='checkbox' value='<?php $category->slug ?>' id='<?php echo $category->term_taxonomy_id ?>' name='<?php echo $category->name; ?>'>
+                            <label for="<?php echo $category->term_taxonomy_id ?>">
+                                <?= $category->name; ?>
+                            </label>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
 
-            <div class="wkode-archive__grid">
+            <div class="wkode-archive__grid project-tiles">
 
-                <?php while (have_posts()) : the_post(); 
+                <?php while ($bikes->have_posts()) : $bikes->the_post(); 
                     get_template_part('./template-parts/cards/new-bikes');
                 endwhile; ?>
             </div>

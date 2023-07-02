@@ -21,5 +21,42 @@ import "./pages/single-modal-logic";
 
 import Search from "./components/Search";
 import "./components/new-card";
+import { newCardColorLogic } from "./components/new-card";
 
 const search = new Search();
+
+import $ from "jquery";
+
+let termsArray = [];
+console.log(termsArray);
+$(".cat-list_item").on("change", function () {
+  let currentClickedCheckbox = $(this);
+  let slug = currentClickedCheckbox.data("slug");
+
+  if (currentClickedCheckbox.is(":checked")) {
+    console.log("chekc");
+    termsArray.push(currentClickedCheckbox.data("slug"));
+  } else {
+    console.log("nah");
+    let index = termsArray.indexOf(slug);
+    if (index !== -1) {
+      termsArray.splice(index, 1);
+    }
+  }
+
+  console.log(termsArray);
+
+  $.ajax({
+    type: "POST",
+    url: "/wp-admin/admin-ajax.php",
+    dataType: "html",
+    data: {
+      action: "filter_projects",
+      category: termsArray,
+    },
+    success: function (res) {
+      $(".project-tiles").html(res);
+    },
+    complete: newCardColorLogic,
+  });
+});
