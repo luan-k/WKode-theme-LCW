@@ -123,20 +123,27 @@
         top: 6.9rem;
         transition: all 0.3s;
         z-index: 9999;
+
         &.wkode-header__nav--bottom {
+          
           justify-content: flex-start;
-          padding-left: 2.1rem;
-          padding-right: 2.1rem;
-          padding-top: 3.3rem;
+          overflow-y: auto!important;
+          padding: 3.3rem 2.1rem;
+
         }
         nav.wkode-header__menu-container {
           width: 100%;
+
           ul.nav.navbar-nav {
+
             align-items: flex-start;
             flex-direction: column;
+            gap: .5rem;
+
             .menu-item {
+
+              @apply bg-lcw-primary-gray text-lcw-primary-blue font-medium;
               border-radius: 99rem;
-              color: white;
               font-size: 1.5rem;
               margin-right: 0;
               padding-bottom: 1.2rem;
@@ -144,10 +151,71 @@
               padding-top: 1.2rem;
               width: 100%;
               z-index: 9999;
-              @apply bg-lcw-primary-blue;
+
+              &.current_page_item {
+                @apply bg-lcw-primary-blue text-lcw-primary-white;
+              }
+
               &:not(:last-of-type) {
                 margin-bottom: 1.5rem;
               }
+              
+              .menu-item-arrow svg path {
+                @apply stroke-lcw-primary-red;
+              }
+
+              &.menu-item-has-children {
+
+                & > a {
+                  width: fit-content;
+                }
+
+                .sub-menu.megamenu {
+                  display: none;
+                }
+                
+              }
+
+              &.menu-item-has-children {
+
+                @apply bg-transparent rounded-none px-0;
+
+                & > a {
+                  @apply bg-lcw-primary-red text-white font-medium flex;
+                  border-radius: 99rem;
+                  margin-bottom: 1rem;
+                  padding: 1.2rem 2.4rem;
+                  position: relative;
+                  width: 100%;
+
+                  & .menu-item-arrow {
+                    transform: translateY(-50%) scale(1.4) rotate(180deg);
+
+                    & path {
+                      @apply stroke-white;
+                    }
+                  }
+                }
+
+                .sub-menu.megamenu {
+                  
+                  @apply px-5;
+                  
+                  display: block;
+
+                  & ul > .menu-item {
+                    margin-bottom: 1rem;
+                    padding: 0;
+                  }
+
+                  & .sub-menu {
+                    display: none;
+                  }
+
+                }
+                
+              }
+
             }
           }
         }
