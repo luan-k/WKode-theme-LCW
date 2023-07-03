@@ -509,6 +509,9 @@ video {
 .mt-52{
   margin-top: 13rem;
 }
+.mt-20{
+  margin-top: 5rem;
+}
 .block{
   display: block;
 }
@@ -595,6 +598,9 @@ video {
 .font-rubik{
   font-family: "Rubik", "sans-serif";
 }
+.font-montserrat{
+  font-family: montserrat, sans-serif;
+}
 .text-3xl{
   font-size: 1.875rem;
   line-height: 2.25rem;
@@ -638,6 +644,10 @@ video {
 .text-white{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.text-gray-600{
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity));
 }
 .filter{
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
@@ -4499,6 +4509,15 @@ body.modal-open::after {
   }
   .md\:col-span-6{
     grid-column: span 6 / span 6;
+  }
+  .md\:col-span-3{
+    grid-column: span 3 / span 3;
+  }
+  .md\:mt-0{
+    margin-top: 0px;
+  }
+  .md\:mt-20{
+    margin-top: 5rem;
   }
   .md\:grid-cols-12{
     grid-template-columns: repeat(12, minmax(0, 1fr));

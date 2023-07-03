@@ -139,32 +139,50 @@ class Megamenu_Walker extends Walker_Nav_Menu {
 
 function filter_projects() {
     $catSlug = $_POST['category'];
-  
-    $ajaxposts = new WP_Query([
-      'post_type' => 'motos-novas',
-      'posts_per_page' => -1,
-      'tax_query' => [
-            [
-                'taxonomy' => 'moto_nova_categoria',
-                'field' => 'slug', // Change 'slug' to 'term_id' if you are passing term IDs instead of slugs
-                'terms' => $catSlug,
-                //'operator' => 'IN'
-            ],
-        ],
-      'orderby' => 'menu_order', 
-      'order' => 'desc',
-    ]);
-    $response = '';
-  
-    if($ajaxposts->have_posts()) {
-      while($ajaxposts->have_posts()) : $ajaxposts->the_post();
-        $response .= get_template_part('./template-parts/cards/new-bikes');
-      endwhile;
-    } else {
-      $response = 'empty';
+
+    $query_args = [
+        'post_type' => 'motos-novas',
+        'posts_per_page' => -1,
+        'order_by' => 'date',
+        'order' => 'desc',
+    ];
+
+    if (!empty($catSlug)) {
+        $query_args['tax_query'] = [
+          [
+            'taxonomy' => 'moto_nova_categoria',
+            'field' => 'slug', // Change 'slug' to 'term_id' if you are passing term IDs instead of slugs
+            'terms' => $catSlug,
+            //'operator' => 'IN'
+          ],
+        ];
     }
   
-    echo $response;
+    $ajaxposts = new WP_Query($query_args);
+    $response = '';
+
+
+    if($ajaxposts->have_posts()) {
+		ob_start();
+			while($ajaxposts->have_posts()) : $ajaxposts->the_post();
+                $response .= get_template_part('./template-parts/cards/new-bikes');
+			endwhile;
+		$output = ob_get_contents();
+		ob_end_clean();
+    } else {
+		$output = "<h1 class='md:col-span-3 text-center  mt-20 md:mt-20 text-4xl font-montserrat font-semibold text-gray-600'>Não existe nenhum produto com essas características</h1>
+			<h2 class='md:col-span-3 text-center  mt-20 md:mt-0 text-3xl font-montserrat font-semibold text-gray-600'>Por favor, selecione uma nova combinação de filtros ao lado</h1>";
+    }
+    $result = [
+        //'max' => $max_pages,
+        //'current_number_posts' => $ajaxposts->post_count,
+        //'total_number_posts' => $count->post_count,
+        'html' => $output,
+        'test' => 'test',
+    ];
+
+  
+    echo json_encode($result);
     exit;
   }
   add_action('wp_ajax_filter_projects', 'filter_projects');

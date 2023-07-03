@@ -49,13 +49,15 @@ $(".cat-list_item").on("change", function () {
   $.ajax({
     type: "POST",
     url: "/wp-admin/admin-ajax.php",
-    dataType: "html",
+    dataType: "json",
     data: {
       action: "filter_projects",
       category: termsArray,
     },
     success: function (res) {
-      $(".project-tiles").html(res);
+      console.log(res);
+      console.log(res.html);
+      $(".project-tiles").html(res.html);
     },
     complete: newCardColorLogic,
   });
