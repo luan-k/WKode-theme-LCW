@@ -16,3 +16,16 @@
     @apply mx-3;
   }
 }
+
+.wkode-new-bikes {
+  .wkode-archive__main {
+    @apply grid grid-cols-1;
+    gap: 0;
+    .category-filter {
+      @apply col-span-1;
+      margin-bottom: 6rem;
+      .category {
+      }
+    }
+  }
+}

@@ -17,15 +17,6 @@
   }
   &__category {
     @apply my-20 text-white;
-    .category-filter {
-      @apply bg-white text-lcw-primary-blue grid grid-cols-6 rounded-full p-2 font-rubik text-2xl uppercase;
-      .category {
-        @apply px-5 py-4 text-center;
-        &--current {
-          @apply bg-lcw-primary-red text-white rounded-full font-semibold;
-        }
-      }
-    }
   }
   &__card {
     align-content: center;
@@ -111,6 +102,23 @@
       &.active-color {
         height: 100%;
       }
+    }
+  }
+}
+.category-filter {
+  @apply bg-white text-lcw-primary-blue grid grid-cols-6 rounded-full p-2 font-rubik text-2xl uppercase;
+  .category {
+    cursor: pointer;
+    transition: all 0.3s;
+    @apply px-3 py-4 text-center rounded-full;
+    &--current {
+      @apply bg-lcw-primary-red text-white rounded-full font-semibold;
+    }
+    &:hover {
+      @apply bg-lcw-primary-red text-white  font-semibold;
+    }
+    &:not(:last-of-type) {
+      margin-right: 2.1rem;
     }
   }
 }

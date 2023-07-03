@@ -500,6 +500,9 @@ video {
 .ml-6{
   margin-left: 1.5rem;
 }
+.mt-20{
+  margin-top: 5rem;
+}
 .mt-28{
   margin-top: 7rem;
 }
@@ -508,9 +511,6 @@ video {
 }
 .mt-52{
   margin-top: 13rem;
-}
-.mt-20{
-  margin-top: 5rem;
 }
 .block{
   display: block;
@@ -595,11 +595,11 @@ video {
 .text-center{
   text-align: center;
 }
-.font-rubik{
-  font-family: "Rubik", "sans-serif";
-}
 .font-montserrat{
   font-family: montserrat, sans-serif;
+}
+.font-rubik{
+  font-family: "Rubik", "sans-serif";
 }
 .text-3xl{
   font-size: 1.875rem;
@@ -633,6 +633,10 @@ video {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
+.text-gray-600{
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity));
+}
 .text-lcw-primary-blue{
   --tw-text-opacity: 1;
   color: rgb(20 21 27 / var(--tw-text-opacity));
@@ -644,10 +648,6 @@ video {
 .text-white{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-.text-gray-600{
-  --tw-text-opacity: 1;
-  color: rgb(75 85 99 / var(--tw-text-opacity));
 }
 .filter{
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
@@ -2517,35 +2517,6 @@ wkode-btn wkode-btn--solid-white-red
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
-.wkode-new-bikes__category .category-filter{
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  border-radius: 9999px;
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-  padding: 0.5rem;
-  font-family: "Rubik", "sans-serif";
-  font-size: 1.5rem;
-  line-height: 2rem;
-  text-transform: uppercase;
-  --tw-text-opacity: 1;
-  color: rgb(20 21 27 / var(--tw-text-opacity));
-}
-.wkode-new-bikes__category .category-filter .category{
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  text-align: center;
-}
-.wkode-new-bikes__category .category-filter .category--current{
-  border-radius: 9999px;
-  --tw-bg-opacity: 1;
-  background-color: rgb(215 40 24 / var(--tw-bg-opacity));
-  font-weight: 600;
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-}
 .wkode-new-bikes__card {
   align-content: center;
   align-items: center;
@@ -2631,6 +2602,49 @@ wkode-btn wkode-btn--solid-white-red
 }
 .wkode-new-bikes__card-color.active-color {
   height: 100%;
+}
+
+.category-filter{
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  border-radius: 9999px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  padding: 0.5rem;
+  font-family: "Rubik", "sans-serif";
+  font-size: 1.5rem;
+  line-height: 2rem;
+  text-transform: uppercase;
+  --tw-text-opacity: 1;
+  color: rgb(20 21 27 / var(--tw-text-opacity));
+}
+.category-filter .category {
+  cursor: pointer;
+  transition: all 0.3s;
+  border-radius: 9999px;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  text-align: center;
+}
+.category-filter .category--current{
+  border-radius: 9999px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(215 40 24 / var(--tw-bg-opacity));
+  font-weight: 600;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.category-filter .category:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(215 40 24 / var(--tw-bg-opacity));
+  font-weight: 600;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.category-filter .category:not(:last-of-type) {
+  margin-right: 2.1rem;
 }
 
 .wkode-used-bikes {
@@ -3123,6 +3137,15 @@ wkode-btn wkode-btn--solid-white-red
   margin-right: 0.75rem;
 }
 
+.wkode-new-bikes .wkode-archive__main{
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 0;
+}
+.wkode-new-bikes .wkode-archive__main .category-filter{
+  grid-column: span 1 / span 1;
+  margin-bottom: 6rem;
+}
 .wkode-header--blurred {
   -webkit-backdrop-filter: blur(12px);
           backdrop-filter: blur(12px);
@@ -4504,20 +4527,23 @@ body.modal-open::after {
   .md\:col-span-2{
     grid-column: span 2 / span 2;
   }
+  .md\:col-span-3{
+    grid-column: span 3 / span 3;
+  }
   .md\:col-span-4{
     grid-column: span 4 / span 4;
   }
   .md\:col-span-6{
     grid-column: span 6 / span 6;
   }
-  .md\:col-span-3{
-    grid-column: span 3 / span 3;
-  }
   .md\:mt-0{
     margin-top: 0px;
   }
   .md\:mt-20{
     margin-top: 5rem;
+  }
+  .md\:w-2\/4{
+    width: 50%;
   }
   .md\:grid-cols-12{
     grid-template-columns: repeat(12, minmax(0, 1fr));

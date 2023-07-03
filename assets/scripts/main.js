@@ -27,24 +27,54 @@ const search = new Search();
 
 import $ from "jquery";
 
+// define variables and get all categories
 let termsArray = [];
-console.log(termsArray);
-$(".cat-list_item").on("change", function () {
-  let currentClickedCheckbox = $(this);
-  let slug = currentClickedCheckbox.data("slug");
+let listOfCategories = $(".cat-list_item");
+let typeOfElement = {};
 
-  if (currentClickedCheckbox.is(":checked")) {
-    console.log("chekc");
-    termsArray.push(currentClickedCheckbox.data("slug"));
-  } else {
-    console.log("nah");
-    let index = termsArray.indexOf(slug);
-    if (index !== -1) {
-      termsArray.splice(index, 1);
-    }
+Array.from(listOfCategories).forEach((category) => {
+  if (category.tagName === "INPUT") {
+    typeOfElement = {
+      isAnArray: true,
+      typeOfClick: "change",
+      complete: "",
+    };
+  }
+  if (category.tagName === "DIV") {
+    typeOfElement = {
+      isAnArray: false,
+      typeOfClick: "click",
+      complete: newCardColorLogic,
+    };
+  }
+});
+
+listOfCategories.on(typeOfElement.typeOfClick, function () {
+  let currentClickedCheckbox = $(this);
+  termsArray = currentClickedCheckbox.data("slug");
+
+  function newBikesCurrentSelection() {
+    $(".category--current").removeClass("category--current");
+    currentClickedCheckbox.addClass("category--current");
   }
 
-  console.log(termsArray);
+  if (currentClickedCheckbox.hasClass("remove-filters")) {
+    termsArray = [];
+    newBikesCurrentSelection();
+  } else {
+    if (typeOfElement.isAnArray) {
+      if (currentClickedCheckbox.is(":checked")) {
+        termsArray.push(currentClickedCheckbox.data("slug"));
+      } else {
+        let index = termsArray.indexOf(slug);
+        if (index !== -1) {
+          termsArray.splice(index, 1);
+        }
+      }
+    } else {
+      newBikesCurrentSelection();
+    }
+  }
 
   $.ajax({
     type: "POST",
@@ -55,10 +85,8 @@ $(".cat-list_item").on("change", function () {
       category: termsArray,
     },
     success: function (res) {
-      console.log(res);
-      console.log(res.html);
       $(".project-tiles").html(res.html);
     },
-    complete: newCardColorLogic,
+    complete: typeOfElement.complete,
   });
 });

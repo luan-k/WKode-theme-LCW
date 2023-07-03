@@ -2,6 +2,8 @@
 $categories = get_terms(array(
     'taxonomy' => 'moto_nova_categoria',
     'hide_empty' => false,
+    'parent' => 0, // Retrieve only parent terms
+    'number' => 7, // Limit the number of terms to 7
 ));
 
 $bikes = new WP_Query([
@@ -13,7 +15,7 @@ $bikes = new WP_Query([
 
 ?>
 
-<section id="primary" class="wkode-archive content-area py-60">
+<section id="primary" class="wkode-archive content-area py-60 wkode-new-bikes">
     <h1 class="page-title text-left font-rubik text-white text-6xl font-semibold uppercase mb-36 container">
         Motos novas
     </h1>
@@ -23,20 +25,13 @@ $bikes = new WP_Query([
     <main id="main" class="wkode-archive__main site-main mb-60" role="main">
 
         <?php if ($bikes->have_posts()) : ?>
-            <!-- <header class="page-header">
-                
-            </header> -->
-            <div class="filter bg-white text-black text-3xl">
-                <ul class="cat-list">
-                    <?php foreach($categories as $category) : ?>
-                        <li class="">
-                            <input  class='cat-list_item' data-slug="<?= $category->slug; ?>" type='checkbox' value='<?php $category->slug ?>' id='<?php echo $category->term_taxonomy_id ?>' name='<?php echo $category->name; ?>'>
-                            <label for="<?php echo $category->term_taxonomy_id ?>">
-                                <?= $category->name; ?>
-                            </label>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
+            <div class="category-filter">
+                <div class="category cat-list_item category--current remove-filters">Todas</div>
+                <?php foreach($categories as $index => $category) : ?>
+                    <div data-slug="<?= $category->slug; ?>" class="category cat-list_item">
+                        <?= $category->name; ?>
+                    </div>
+                <?php endforeach; ?>
             </div>
 
             <div class="wkode-archive__grid project-tiles">
@@ -70,8 +65,8 @@ $bikes = new WP_Query([
             }
         ?>
     </div>
-    <div class="btn flex justify-center mt-36">
-        <a href="" class="wkode-btn wkode-btn--solid-red m-auto">Ver Todos</a>
+    <div class="btn flex justify-center mt-36 w-full md:w-2/4 m-auto">
+        <a href="" class="wkode-btn wkode-btn--solid-red m-auto text-center">Ver Todos</a>
     </div>
 </section>
 
