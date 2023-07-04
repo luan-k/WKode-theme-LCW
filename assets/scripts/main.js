@@ -27,20 +27,22 @@ const search = new Search();
 
 import $ from "jquery";
 
-// define variables and get all categories
+// Define variables and get all categories
 let termsArray = [];
 let listOfCategories = $(".cat-list_item");
 let typeOfElement = {};
 
-Array.from(listOfCategories).forEach((category) => {
-  if (category.tagName === "INPUT") {
+// Iterate over the categories to determine the type of element and the type of click event
+listOfCategories.each(function () {
+  let category = $(this);
+  if (category.is("input")) {
     typeOfElement = {
       isAnArray: true,
       typeOfClick: "change",
       complete: "",
     };
   }
-  if (category.tagName === "DIV") {
+  if (category.is("div")) {
     typeOfElement = {
       isAnArray: false,
       typeOfClick: "click",
@@ -49,33 +51,39 @@ Array.from(listOfCategories).forEach((category) => {
   }
 });
 
+// Helper function to handle adding the "category--current" class
+function newBikesCurrentSelection(currentClickedItem) {
+  $(".category--current").removeClass("category--current");
+  currentClickedItem.addClass("category--current");
+}
+
+// Event handler for the click/change event on the categories
 listOfCategories.on(typeOfElement.typeOfClick, function () {
   let currentClickedCheckbox = $(this);
   termsArray = currentClickedCheckbox.data("slug");
 
-  function newBikesCurrentSelection() {
-    $(".category--current").removeClass("category--current");
-    currentClickedCheckbox.addClass("category--current");
-  }
-
+  // Check if the "remove-filters" category is clicked
   if (currentClickedCheckbox.hasClass("remove-filters")) {
-    termsArray = [];
-    newBikesCurrentSelection();
+    termsArray = []; // Clear the termsArray
+    newBikesCurrentSelection(currentClickedCheckbox); // Update the current selection UI
   } else {
     if (typeOfElement.isAnArray) {
+      // Handle checkbox-type categories
       if (currentClickedCheckbox.is(":checked")) {
-        termsArray.push(currentClickedCheckbox.data("slug"));
+        termsArray.push(currentClickedCheckbox.data("slug")); // Add the slug to the termsArray
       } else {
         let index = termsArray.indexOf(slug);
         if (index !== -1) {
-          termsArray.splice(index, 1);
+          termsArray.splice(index, 1); // Remove the slug from the termsArray
         }
       }
     } else {
-      newBikesCurrentSelection();
+      // Handle non-checkbox-type categories
+      newBikesCurrentSelection(currentClickedCheckbox); // Update the current selection UI
     }
   }
 
+  // Perform an AJAX request to update the project tiles
   $.ajax({
     type: "POST",
     url: "/wp-admin/admin-ajax.php",
