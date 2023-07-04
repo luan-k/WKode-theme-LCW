@@ -1,54 +1,28 @@
 <?php get_header();
-$currentURL = $_SERVER['REQUEST_URI'];
-$queryString = $_SERVER['QUERY_STRING'];
-$filterValue = null;
 
-if (strpos($queryString, 'filtro=') !== false) {
-    parse_str($queryString, $params);
-    if (isset($params['filtro'])) {
-        $filterValue = $params['filtro'];
-    }
-}
+$taxonomy = 'moto_nova_categoria';
+$post_type = 'motos-novas';
+
+// Include the file containing the desired function
+require_once 'filter/filter-front.php';
+
+// Call the function from the included file
+$filterResult = filter_function($post_type, $taxonomy );
 
 $categories = get_terms(array(
-    'taxonomy' => 'moto_nova_categoria',
+    'taxonomy' => $taxonomy,
     'hide_empty' => false,
     'parent' => 0, // Retrieve only parent terms
     'number' => 7, // Limit the number of terms to 7
 ));
 
 $bikes = [
-    'post_type' => 'motos-novas',
+    'post_type' => $post_type,
     'posts_per_page' => -1,
     'order_by' => 'date',
     'order' => 'desc',
     'paged' => 1
 ];
-$countArgs = [
-	'post_type' => 'motos-novas',
-	'posts_per_page' => -1,
-];
-
-
-if (!empty($filterValue)) {
-    $bikes['tax_query'] = [
-      [
-        'taxonomy' => 'moto_nova_categoria',
-        'field' => 'slug', // Change 'slug' to 'term_id' if you are passing term IDs instead of slugs
-        'terms' => $filterValue,
-        //'operator' => 'IN'
-      ],
-    ];
-     $countArgs['tax_query'] = [
-          [
-            'taxonomy' => 'moto_nova_categoria',
-            'field' => 'slug', // Change 'slug' to 'term_id' if you are passing term IDs instead of slugs
-            'terms' => $filterValue,
-            //'relation' => 'AND',
-            //'operator' => 'IN'
-          ],
-        ];
-}
 
 $bikes = new WP_Query($bikes);
 $count = new WP_Query($countArgs);
