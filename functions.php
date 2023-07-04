@@ -149,13 +149,19 @@ add_action('init', 'custom_rewrite_tag', 10, 0);
 
 function filter_projects() {
     $catSlug = $_POST['category'];
+    $paged = $_POST['currentPage'];
 
     $query_args = [
         'post_type' => 'motos-novas',
-        'posts_per_page' => -1,
+        'posts_per_page' => 3,
+        'paged' => $paged,
         'order_by' => 'date',
         'order' => 'desc',
     ];
+    $countArgs = [
+		'post_type' => 'motos-novas',
+		'posts_per_page' => -1,
+	];
 
     if (!empty($catSlug)) {
         $query_args['tax_query'] = [
@@ -163,13 +169,27 @@ function filter_projects() {
             'taxonomy' => 'moto_nova_categoria',
             'field' => 'slug', // Change 'slug' to 'term_id' if you are passing term IDs instead of slugs
             'terms' => $catSlug,
+            'relation' => 'AND',
+            //'operator' => 'IN'
+          ],
+        ];
+        $countArgs['tax_query'] = [
+          [
+            'taxonomy' => 'moto_nova_categoria',
+            'field' => 'slug', // Change 'slug' to 'term_id' if you are passing term IDs instead of slugs
+            'terms' => $catSlug,
+            //'relation' => 'AND',
             //'operator' => 'IN'
           ],
         ];
     }
+    
   
     $ajaxposts = new WP_Query($query_args);
+    $count = new WP_Query($countArgs);
+    $max_pages = $ajaxposts->max_num_pages;
     $response = '';
+    
 
 
     if($ajaxposts->have_posts()) {
@@ -184,11 +204,12 @@ function filter_projects() {
 			<h3 class='md:col-span-3 text-center  mt-20 md:mt-0 text-3xl font-rubik font-semibold text-white'>Por favor, selecione uma nova combinação de filtros ao lado</h3>";
     }
     $result = [
-        //'max' => $max_pages,
-        //'current_number_posts' => $ajaxposts->post_count,
-        //'total_number_posts' => $count->post_count,
+        'max' => $max_pages,
+        'current_number_posts' => $ajaxposts->post_count,
+        'total_number_posts' => $count->post_count,
         'html' => $output,
-        'test' => 'test',
+        'fuck' => $paged,
+        'cat' => $catSlug
     ];
 
   

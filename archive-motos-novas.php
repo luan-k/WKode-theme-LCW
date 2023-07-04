@@ -10,10 +10,6 @@ if (strpos($queryString, 'filtro=') !== false) {
     }
 }
 
-echo $currentURL; // Output: '/motos-novas/?filtro=adventure'
-echo "<br>"; // Output: '/motos-novas/?filtro=adventure'
-echo $filterValue; // Output: 'adventure' (if the URL contains '?filtro=adventure')
-
 $categories = get_terms(array(
     'taxonomy' => 'moto_nova_categoria',
     'hide_empty' => false,
@@ -26,7 +22,13 @@ $bikes = [
     'posts_per_page' => -1,
     'order_by' => 'date',
     'order' => 'desc',
+    'paged' => 1
 ];
+$countArgs = [
+	'post_type' => 'motos-novas',
+	'posts_per_page' => -1,
+];
+
 
 if (!empty($filterValue)) {
     $bikes['tax_query'] = [
@@ -37,9 +39,19 @@ if (!empty($filterValue)) {
         //'operator' => 'IN'
       ],
     ];
+     $countArgs['tax_query'] = [
+          [
+            'taxonomy' => 'moto_nova_categoria',
+            'field' => 'slug', // Change 'slug' to 'term_id' if you are passing term IDs instead of slugs
+            'terms' => $filterValue,
+            //'relation' => 'AND',
+            //'operator' => 'IN'
+          ],
+        ];
 }
 
 $bikes = new WP_Query($bikes);
+$count = new WP_Query($countArgs);
 
 
 ?>
@@ -54,15 +66,15 @@ $bikes = new WP_Query($bikes);
     <main id="main" class="wkode-archive__main site-main mb-60" role="main">
 
         <div class="category-filter">
-            <div class="category cat-list_item remove-filters  <?php if(!$filterValue): echo 'category--current'; endif; ?>">Todas</div>
+            <div class="category taxonomies-list_item remove-filters  <?php if(!$filterValue): echo 'category--current'; endif; ?>">Todas</div>
             <?php foreach($categories as $index => $category) : ?>
-                <div data-slug="<?= $category->slug; ?>" class="category cat-list_item <?php if($filterValue == $category->slug): echo 'category--current'; endif; ?>">
+                <div data-slug="<?= $category->slug; ?>" class="category taxonomies-list_item <?php if($filterValue == $category->slug): echo 'category--current'; endif; ?>">
                     <?= $category->name; ?>
                 </div>
             <?php endforeach; ?>
         </div>
 
-        <div class="wkode-archive__grid project-tiles">
+        <div class="wkode-archive__grid filter-tiles">
             <?php if ($bikes->have_posts()) : ?>
 
                 <?php while ($bikes->have_posts()) : $bikes->the_post(); 
@@ -73,6 +85,9 @@ $bikes = new WP_Query($bikes);
                 <h2 class='md:col-span-3 text-center  mt-20 md:mt-20 text-4xl font-rubik font-semibold text-white mb-9'>Não existe nenhum produto com essas características</h2>
                 <h3 class='md:col-span-3 text-center  mt-20 md:mt-0 text-3xl font-rubik font-semibold text-white'>Por favor, selecione uma nova combinação de filtros acima</h3>
             <?php endif; ?>
+        </div>
+        <div class="btn flex justify-center mt-36 w-full md:w-2/4 m-auto">
+            <a style="<?php if($count->post_count < 6){ echo ' display: none; '; } ?> " href="#!" class="wkode-btn wkode-btn--solid-red text-center" id="load-more">Carregar Mais</a>
         </div>
 
     </main>
@@ -96,7 +111,7 @@ $bikes = new WP_Query($bikes);
         ?>
     </div>
     <div class="btn flex justify-center mt-36 w-full md:w-2/4 m-auto">
-        <a href="" class="wkode-btn wkode-btn--solid-red m-auto text-center">Ver Todos</a>
+        <a href="" class="wkode-btn wkode-btn--solid-red m-auto text-center" id="load-more">Ver Todos</a>
     </div>
 </section>
 

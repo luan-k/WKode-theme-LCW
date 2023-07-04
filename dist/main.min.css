@@ -598,9 +598,6 @@ video {
 .text-center{
   text-align: center;
 }
-.font-montserrat{
-  font-family: montserrat, sans-serif;
-}
 .font-rubik{
   font-family: "Rubik", "sans-serif";
 }
@@ -635,10 +632,6 @@ video {
 .text-black{
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
-}
-.text-gray-600{
-  --tw-text-opacity: 1;
-  color: rgb(75 85 99 / var(--tw-text-opacity));
 }
 .text-lcw-primary-blue{
   --tw-text-opacity: 1;
@@ -1702,6 +1695,19 @@ body .wraper {
 .wkode-header.fixed {
   position: fixed;
   top: 0;
+}
+.wkode-header.header-with-adminbar {
+  top: 32px;
+}
+@media (max-width: 782px) {
+  .wkode-header.header-with-adminbar {
+    top: 46px;
+  }
+}
+@media (max-width: 600px) {
+  .wkode-header.header-with-adminbar {
+    top: 0;
+  }
 }
 .wkode-header--desktop {
   display: block;

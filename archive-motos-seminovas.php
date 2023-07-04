@@ -26,7 +26,7 @@ $bikes = new WP_Query([
                 <ul class="cat-list">
                     <?php foreach($categories as $category) : ?>
                         <li class="">
-                            <input  class='cat-list_item' data-slug="<?= $category->slug; ?>" type='checkbox' value='<?php $category->slug ?>' id='<?php echo $category->term_taxonomy_id ?>' name='<?php echo $category->name; ?>'>
+                            <input  class='taxonomies-list_item' data-slug="<?= $category->slug; ?>" type='checkbox' value='<?php $category->slug ?>' id='<?php echo $category->term_taxonomy_id ?>' name='<?php echo $category->name; ?>'>
                             <label for="<?php echo $category->term_taxonomy_id ?>">
                                 <?= $category->name; ?>
                             </label>
@@ -35,7 +35,7 @@ $bikes = new WP_Query([
                 </ul>
             </div>
 
-            <div class="wkode-archive__grid project-tiles">
+            <div class="wkode-archive__grid filter-tiles">
 
                 <?php while ($bikes->have_posts()) : $bikes->the_post(); 
                     get_template_part('./template-parts/cards/used-bikes');
