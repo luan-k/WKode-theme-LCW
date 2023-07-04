@@ -51,12 +51,6 @@ listOfCategories.each(function () {
   }
 });
 
-// Helper function to handle adding the "category--current" class
-function newBikesCurrentSelection(currentClickedItem) {
-  $(".category--current").removeClass("category--current");
-  currentClickedItem.addClass("category--current");
-}
-
 // Event handler for the click/change event on the categories
 listOfCategories.on(typeOfElement.typeOfClick, function () {
   let currentClickedCheckbox = $(this);
@@ -66,6 +60,7 @@ listOfCategories.on(typeOfElement.typeOfClick, function () {
   if (currentClickedCheckbox.hasClass("remove-filters")) {
     termsArray = []; // Clear the termsArray
     newBikesCurrentSelection(currentClickedCheckbox); // Update the current selection UI
+    updateURL("/motos-novas/"); // Clear the filter URL
   } else {
     if (typeOfElement.isAnArray) {
       // Handle checkbox-type categories
@@ -80,6 +75,7 @@ listOfCategories.on(typeOfElement.typeOfClick, function () {
     } else {
       // Handle non-checkbox-type categories
       newBikesCurrentSelection(currentClickedCheckbox); // Update the current selection UI
+      updateURL("/motos-novas/?filtro=" + termsArray); // Update the filter URL
     }
   }
 
@@ -98,3 +94,13 @@ listOfCategories.on(typeOfElement.typeOfClick, function () {
     complete: typeOfElement.complete,
   });
 });
+
+// Helper function to handle adding the "category--current" class
+function newBikesCurrentSelection(currentClickedItem) {
+  $(".category--current").removeClass("category--current");
+  currentClickedItem.addClass("category--current");
+}
+// Function to update the URL using pushState
+function updateURL(url) {
+  window.history.pushState(null, "", url);
+}

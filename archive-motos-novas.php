@@ -1,4 +1,19 @@
 <?php get_header();
+$currentURL = $_SERVER['REQUEST_URI'];
+$queryString = $_SERVER['QUERY_STRING'];
+$filterValue = null;
+
+if (strpos($queryString, 'filtro=') !== false) {
+    parse_str($queryString, $params);
+    if (isset($params['filtro'])) {
+        $filterValue = $params['filtro'];
+    }
+}
+
+echo $currentURL; // Output: '/motos-novas/?filtro=adventure'
+echo "<br>"; // Output: '/motos-novas/?filtro=adventure'
+echo $filterValue; // Output: 'adventure' (if the URL contains '?filtro=adventure')
+
 $categories = get_terms(array(
     'taxonomy' => 'moto_nova_categoria',
     'hide_empty' => false,
@@ -6,12 +21,26 @@ $categories = get_terms(array(
     'number' => 7, // Limit the number of terms to 7
 ));
 
-$bikes = new WP_Query([
+$bikes = [
     'post_type' => 'motos-novas',
     'posts_per_page' => -1,
     'order_by' => 'date',
     'order' => 'desc',
-  ]);
+];
+
+if (!empty($filterValue)) {
+    $bikes['tax_query'] = [
+      [
+        'taxonomy' => 'moto_nova_categoria',
+        'field' => 'slug', // Change 'slug' to 'term_id' if you are passing term IDs instead of slugs
+        'terms' => $filterValue,
+        //'operator' => 'IN'
+      ],
+    ];
+}
+
+$bikes = new WP_Query($bikes);
+
 
 ?>
 
@@ -24,26 +53,27 @@ $bikes = new WP_Query([
     </div>
     <main id="main" class="wkode-archive__main site-main mb-60" role="main">
 
-        <?php if ($bikes->have_posts()) : ?>
-            <div class="category-filter">
-                <div class="category cat-list_item category--current remove-filters">Todas</div>
-                <?php foreach($categories as $index => $category) : ?>
-                    <div data-slug="<?= $category->slug; ?>" class="category cat-list_item">
-                        <?= $category->name; ?>
-                    </div>
-                <?php endforeach; ?>
-            </div>
+        <div class="category-filter">
+            <div class="category cat-list_item remove-filters  <?php if(!$filterValue): echo 'category--current'; endif; ?>">Todas</div>
+            <?php foreach($categories as $index => $category) : ?>
+                <div data-slug="<?= $category->slug; ?>" class="category cat-list_item <?php if($filterValue == $category->slug): echo 'category--current'; endif; ?>">
+                    <?= $category->name; ?>
+                </div>
+            <?php endforeach; ?>
+        </div>
 
-            <div class="wkode-archive__grid project-tiles">
+        <div class="wkode-archive__grid project-tiles">
+            <?php if ($bikes->have_posts()) : ?>
 
                 <?php while ($bikes->have_posts()) : $bikes->the_post(); 
                     get_template_part('./template-parts/cards/new-bikes');
                 endwhile; ?>
-            </div>
 
-        <?php else : ?>
-            <p><?php esc_html_e('No posts found.', 'text-domain'); ?></p>
-        <?php endif; ?>
+            <?php else : ?>
+                <h2 class='md:col-span-3 text-center  mt-20 md:mt-20 text-4xl font-rubik font-semibold text-white mb-9'>Não existe nenhum produto com essas características</h2>
+                <h3 class='md:col-span-3 text-center  mt-20 md:mt-0 text-3xl font-rubik font-semibold text-white'>Por favor, selecione uma nova combinação de filtros acima</h3>
+            <?php endif; ?>
+        </div>
 
     </main>
 

@@ -137,6 +137,16 @@ class Megamenu_Walker extends Walker_Nav_Menu {
 
 }
 
+function custom_rewrite_rule() {
+    add_rewrite_rule('^motos-novas/?$', 'index.php?post_type=motos-novas', 'top');
+  }
+add_action('init', 'custom_rewrite_rule', 10, 0);
+
+function custom_rewrite_tag() {
+    add_rewrite_tag('%filtro%', '([^&]+)');
+}
+add_action('init', 'custom_rewrite_tag', 10, 0);
+
 function filter_projects() {
     $catSlug = $_POST['category'];
 
@@ -170,8 +180,8 @@ function filter_projects() {
 		$output = ob_get_contents();
 		ob_end_clean();
     } else {
-		$output = "<h1 class='md:col-span-3 text-center  mt-20 md:mt-20 text-4xl font-montserrat font-semibold text-gray-600'>Não existe nenhum produto com essas características</h1>
-			<h2 class='md:col-span-3 text-center  mt-20 md:mt-0 text-3xl font-montserrat font-semibold text-gray-600'>Por favor, selecione uma nova combinação de filtros ao lado</h1>";
+		$output = "<h2 class='md:col-span-3 text-center  mt-20 md:mt-20 text-4xl font-rubik font-semibold text-white'>Não existe nenhum produto com essas características</h2>
+			<h3 class='md:col-span-3 text-center  mt-20 md:mt-0 text-3xl font-rubik font-semibold text-white'>Por favor, selecione uma nova combinação de filtros ao lado</h3>";
     }
     $result = [
         //'max' => $max_pages,
