@@ -85,7 +85,7 @@ if (filterTiles) {
       url: "/wp-admin/admin-ajax.php",
       dataType: "json",
       data: {
-        action: "filter_projects",
+        action: "filter_posts",
         category: categoryTerms,
         currentPage: currentPageNumber,
       },
