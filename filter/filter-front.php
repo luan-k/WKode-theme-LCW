@@ -1,6 +1,6 @@
 <?php
 
-function filter_function($post_type, $taxonomy){
+function filter_function($post_type, $taxonomy, $wp_object){
 
     $currentURL = $_SERVER['REQUEST_URI'];
     $queryString = $_SERVER['QUERY_STRING'];
@@ -20,7 +20,7 @@ function filter_function($post_type, $taxonomy){
 
 
     if (!empty($filterValue)) {
-        $bikes['tax_query'] = [
+        $wp_object['tax_query'] = [
         [
             'taxonomy' => $taxonomy,
             'field' => 'slug', // Change 'slug' to 'term_id' if you are passing term IDs instead of slugs
@@ -38,4 +38,12 @@ function filter_function($post_type, $taxonomy){
         ],
         ];
     }
+
+
+     // Return the filter result and count args
+     return [
+        'filterResult' => $filterValue,
+        'countArgs' => $countArgs,
+        'bikesArgs' => $wp_object,
+    ];
 }

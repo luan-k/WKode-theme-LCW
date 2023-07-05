@@ -2,20 +2,6 @@
 
 $taxonomy = 'moto_nova_categoria';
 $post_type = 'motos-novas';
-
-// Include the file containing the desired function
-require_once 'filter/filter-front.php';
-
-// Call the function from the included file
-$filterResult = filter_function($post_type, $taxonomy );
-
-$categories = get_terms(array(
-    'taxonomy' => $taxonomy,
-    'hide_empty' => false,
-    'parent' => 0, // Retrieve only parent terms
-    'number' => 7, // Limit the number of terms to 7
-));
-
 $bikes = [
     'post_type' => $post_type,
     'posts_per_page' => -1,
@@ -24,9 +10,25 @@ $bikes = [
     'paged' => 1
 ];
 
-$bikes = new WP_Query($bikes);
-$count = new WP_Query($countArgs);
+// Include the file containing the desired function
+require_once 'filter/filter-front.php';
 
+// Call the function from the included file
+$filterData = filter_function($post_type, $taxonomy, $bikes);
+
+$filterValue = $filterData['filterResult'];
+$countArgs = $filterData['countArgs'];
+$bikesArgs = $filterData['bikesArgs'];
+
+$categories = get_terms(array(
+    'taxonomy' => $taxonomy,
+    'hide_empty' => false,
+    'parent' => 0, // Retrieve only parent terms
+    'number' => 7, // Limit the number of terms to 7
+));
+
+$bikes = new WP_Query($bikesArgs);
+$count = new WP_Query($countArgs);
 
 ?>
 
