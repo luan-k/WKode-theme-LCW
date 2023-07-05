@@ -2,9 +2,10 @@
 
 $taxonomy = 'moto_nova_categoria';
 $post_type = 'motos-novas';
+$template_path = './template-parts/cards/new-bikes';
 $bikes = [
     'post_type' => $post_type,
-    'posts_per_page' => -1,
+    'posts_per_page' => 36,
     'order_by' => 'date',
     'order' => 'desc',
     'paged' => 1
@@ -50,11 +51,11 @@ $count = new WP_Query($countArgs);
             <?php endforeach; ?>
         </div>
 
-        <div class="wkode-archive__grid filter-tiles">
+        <div class="wkode-archive__grid filter-tiles" template-path="<?= $template_path ?>" post-type="<?= $post_type ?>" taxonomy="<?= $taxonomy ?>">
             <?php if ($bikes->have_posts()) : ?>
 
                 <?php while ($bikes->have_posts()) : $bikes->the_post(); 
-                    get_template_part('./template-parts/cards/new-bikes');
+                    get_template_part($template_path);
                 endwhile; ?>
 
             <?php else : ?>
@@ -63,7 +64,7 @@ $count = new WP_Query($countArgs);
             <?php endif; ?>
         </div>
         <div class="btn flex justify-center mt-36 w-full md:w-2/4 m-auto">
-            <a style="<?php if($count->post_count < 6){ echo ' display: none; '; } ?> " href="#!" class="wkode-btn wkode-btn--solid-red text-center" id="load-more">Carregar Mais</a>
+            <a style="<?php if($count->post_count < 36){ echo ' display: none; '; } ?> " href="#!" class="wkode-btn wkode-btn--solid-red text-center" id="load-more">Carregar Mais</a>
         </div>
 
     </main>

@@ -37,12 +37,12 @@ add_action( 'init', 'create_posttype' );
 function create_taxonomy() {
 
     $labels = array(
-        'name'                       => _x( 'Nome da Categoria', 'Taxonomy General Name', 'moto-nova-categoria' ),
-        'singular_name'              => _x( 'Categoria', 'Taxonomy Singular Name', 'moto-nova-categoria' ),
+        'name'                       => _x( 'Modelos', 'Taxonomy General Name', 'moto-nova-categoria' ),
+        'singular_name'              => _x( 'Modelo', 'Taxonomy Singular Name', 'moto-nova-categoria' ),
         'menu_name'                  => __( 'Modelos', 'moto-nova-categoria' ),
-        'all_items'                  => __( 'Todas as Categorias', 'moto-nova-categoria' ),
-        'parent_item'                => __( 'Categoria Parente', 'moto-nova-categoria' ),
-        'parent_item_colon'          => __( 'Categoria Parente:', 'moto-nova-categoria' ),
+        'all_items'                  => __( 'Todas os Modelos', 'moto-nova-categoria' ),
+        'parent_item'                => __( 'Modelo Parente', 'moto-nova-categoria' ),
+        'parent_item_colon'          => __( 'Modelo Parente:', 'moto-nova-categoria' ),
         'new_item_name'              => __( 'Novo Item', 'moto-nova-categoria' ),
         'add_new_item'               => __( 'Adicionar novo Item', 'moto-nova-categoria' ),
         'edit_item'                  => __( 'Editar Item', 'moto-nova-categoria' ),
@@ -111,12 +111,12 @@ add_action( 'init', 'create_used_posttype' );
 function create_used_taxonomy() {
 
     $labels = array(
-        'name'                       => _x( 'Modelo Moto Seminova', 'Taxonomy General Name', 'moto-seminova-categoria' ),
-        'singular_name'              => _x( 'Categoria', 'Taxonomy Singular Name', 'moto-seminova-categoria' ),
-        'menu_name'                  => __( 'Modelos', 'moto-seminova-categoria' ),
-        'all_items'                  => __( 'Todas as Categorias', 'moto-seminova-categoria' ),
-        'parent_item'                => __( 'Categoria Parente', 'moto-seminova-categoria' ),
-        'parent_item_colon'          => __( 'Categoria Parente:', 'moto-seminova-categoria' ),
+        'name'                       => _x( 'Marcas', 'Taxonomy General Name', 'moto-seminova-categoria' ),
+        'singular_name'              => _x( 'Marca', 'Taxonomy Singular Name', 'moto-seminova-categoria' ),
+        'menu_name'                  => __( 'Marcas', 'moto-seminova-categoria' ),
+        'all_items'                  => __( 'Todas as Marcas', 'moto-seminova-categoria' ),
+        'parent_item'                => __( 'Marca Parente', 'moto-seminova-categoria' ),
+        'parent_item_colon'          => __( 'Marca Parente:', 'moto-seminova-categoria' ),
         'new_item_name'              => __( 'Novo Item', 'moto-seminova-categoria' ),
         'add_new_item'               => __( 'Adicionar novo Item', 'moto-seminova-categoria' ),
         'edit_item'                  => __( 'Editar Item', 'moto-seminova-categoria' ),

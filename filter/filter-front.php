@@ -7,9 +7,9 @@ function filter_function($post_type, $taxonomy, $wp_object){
     $filterValue = null;
 
     if (strpos($queryString, 'filtro=') !== false) {
-        parse_str($queryString, $params);
+        parse_str(str_replace('?arg=', ',', $queryString), $params);
         if (isset($params['filtro'])) {
-            $filterValue = $params['filtro'];
+            $filterValue = explode(',', $params['filtro']);
         }
     }
 

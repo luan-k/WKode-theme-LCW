@@ -1,16 +1,37 @@
 <?php get_header(); 
 
-$categories = get_terms(array(
-    'taxonomy' => 'moto_seminova_categoria',
-    'hide_empty' => false,
-));
-
-$bikes = new WP_Query([
-    'post_type' => 'motos-seminovas',
-    'posts_per_page' => -1,
+$taxonomy = 'moto_seminova_categoria';
+$post_type = 'motos-seminovas';
+$template_path = './template-parts/cards/used-bikes';
+$bikes = [
+    'post_type' => $post_type,
+    'posts_per_page' => 36,
     'order_by' => 'date',
     'order' => 'desc',
-]);
+    'paged' => 1
+];
+
+// Include the file containing the desired function
+require_once 'filter/filter-front.php';
+
+// Call the function from the included file
+$filterData = filter_function($post_type, $taxonomy, $bikes);
+
+$filterValue = $filterData['filterResult'];
+$countArgs = $filterData['countArgs'];
+$bikesArgs = $filterData['bikesArgs'];
+
+var_dump($filterValue);
+
+$categories = get_terms(array(
+    'taxonomy' => $taxonomy,
+    'hide_empty' => false,
+    'parent' => 0, // Retrieve only parent terms
+    'number' => 7, // Limit the number of terms to 7
+));
+
+$bikes = new WP_Query($bikesArgs);
+$count = new WP_Query($countArgs);
 
 ?>
 
@@ -20,31 +41,41 @@ $bikes = new WP_Query([
     </h1>
     <main id="main" class="wkode-archive__main site-main mb-60" role="main">
 
-        <?php if ($bikes->have_posts()) : ?>
+        <div class="filter bg-white text-black text-3xl">
+            <div class="taxonomies-list_item remove-filters">Remover filtros</div>
+            <ul class="cat-list">
+                <?php foreach($categories as $category) : 
+                    ?>
+                    <li class="">
+                        <input <?php
+                         if($filterValue){
+                            foreach($filterValue as $filter){
+                                if($filter == $category->slug){
+                                    echo 'checked';
+                                }
+                            }
+                        }
+                        ?> class='taxonomies-list_item' data-slug="<?= $category->slug; ?>" type='checkbox' value='<?php $category->slug ?>' id='<?php echo $category->term_taxonomy_id ?>' name='<?php echo $category->name; ?>'>
+                        <label for="<?php echo $category->term_taxonomy_id ?>">
+                            <?= $category->name; ?>
+                        </label>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
 
-            <div class="filter bg-white text-black text-3xl">
-                <ul class="cat-list">
-                    <?php foreach($categories as $category) : ?>
-                        <li class="">
-                            <input  class='taxonomies-list_item' data-slug="<?= $category->slug; ?>" type='checkbox' value='<?php $category->slug ?>' id='<?php echo $category->term_taxonomy_id ?>' name='<?php echo $category->name; ?>'>
-                            <label for="<?php echo $category->term_taxonomy_id ?>">
-                                <?= $category->name; ?>
-                            </label>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
-
-            <div class="wkode-archive__grid filter-tiles">
+        <div class="wkode-archive__grid filter-tiles" template-path="<?= $template_path ?>" post-type="<?= $post_type ?>" taxonomy="<?= $taxonomy ?>">
+            <?php if ($bikes->have_posts()) : ?>
 
                 <?php while ($bikes->have_posts()) : $bikes->the_post(); 
-                    get_template_part('./template-parts/cards/used-bikes');
+                    get_template_part($template_path);
                 endwhile; ?>
-            </div>
 
-        <?php else : ?>
-            <p><?php esc_html_e('No posts found.', 'text-domain'); ?></p>
-        <?php endif; ?>
+            <?php else : ?>
+                <h2 class='md:col-span-3 text-center  mt-20 md:mt-20 text-4xl font-rubik font-semibold text-white mb-9'>Não existe nenhum produto com essas características</h2>
+                <h3 class='md:col-span-3 text-center  mt-20 md:mt-0 text-3xl font-rubik font-semibold text-white'>Por favor, selecione uma nova combinação de filtros acima</h3>
+            <?php endif; ?>
+        </div>
 
     </main>
 
