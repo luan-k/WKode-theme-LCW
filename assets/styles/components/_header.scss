@@ -106,7 +106,7 @@
     }
     &--mobile {
       display: block;
-      z-index: 90;
+      z-index: 1000;
       .wkode-header__nav--top {
         border: 0;
       }
@@ -117,12 +117,16 @@
       #controlIdForMobileNav {
         background-color: white;
         flex-direction: column;
-        height: 100vh;
+        height: calc(100vh - 70.25px);
         justify-content: center;
         position: absolute;
         top: 6.9rem;
         transition: all 0.3s;
         z-index: 9999;
+
+        &.full {
+          width: 100vw!important;
+        }
 
         &.wkode-header__nav--bottom {
           
@@ -138,58 +142,149 @@
 
             align-items: flex-start;
             flex-direction: column;
-            gap: .5rem;
+            gap: 1.2rem;
 
-            .menu-item {
+            //- Every Item inside the navbar ( Highest level )
+            & > .menu-item {
 
               @apply bg-lcw-primary-gray text-lcw-primary-blue font-medium;
               border-radius: 99rem;
               font-size: 1.5rem;
               margin-right: 0;
-              padding-bottom: 1.2rem;
               padding-left: 2.4rem;
-              padding-top: 1.2rem;
               width: 100%;
               z-index: 9999;
 
+              //- Current page menu item ( Highest level )
               &.current_page_item {
                 @apply bg-lcw-primary-blue text-lcw-primary-white;
               }
 
-              &:not(:last-of-type) {
-                margin-bottom: 1.5rem;
-              }
-              
-              .menu-item-arrow svg path {
-                @apply stroke-lcw-primary-red;
-              }
+              //- Every megamenu inside the navbar ( Highest Level )
+              &.menu-item-has-children.megamenu-custom-top-level-class {
+                @apply bg-transparent rounded-none px-0;
+                margin-bottom: 0!important;
+                padding-bottom: 0!important;
+                padding-top: 0!important;
 
-              &.menu-item-has-children {
+                //- Link wrapper 
+                .menu-link-wrapper {
+                  @apply bg-lcw-primary-gray text-lcw-primary-blue font-medium flex relative;
+                  border-radius: 99rem;
+                  font-size: 1.5rem;
+                  padding: 1.5rem 2.4rem;
+                  position: relative;
+                  transition: .2s;
+                  width: 100%;
 
-                & > a {
-                  width: fit-content;
+                  //- Link of the menu
+                  & > a {
+                    width: fit-content;
+                  }
+
+                  //- Arrow
+                  & .menu-item-arrow {
+                    @apply absolute;
+                    right: 2.4rem;
+                    top: 50%;
+                    transform: translateY(-50%) scale(1.4) rotate(-90deg);
+                    transition: .2s;
+
+                    & path {
+                      @apply stroke-lcw-primary-red;
+                    }
+                  }
+
                 }
 
-                .sub-menu.megamenu {
-                  display: none;
+                //- Sub-menu ( 2nd Level )
+                & > .sub-menu {
+                  height: auto;
+                  max-height: 0px;
+                  overflow: hidden;
+                  transition: .4s;
+                  @apply px-4;
+
+                  //- Sub-menu item ( 2nd Level )
+                  .menu-item {
+                    background: transparent!important;
+                    padding: 0;
+                    padding-top: 1.5rem;
+
+                    &:not(.menu-item-has-children) {
+                      .menu-link-wrapper a {
+                        width: 100%;
+                      }
+                    }
+  
+                    //- Sub-menu ( 3nd Level )
+                    & .sub-menu {
+                      height: auto;
+                      max-height: 0px;
+                      overflow: hidden;
+                      transition: .4s;
+                      
+                      //- Sub-menu item ( 3nd Level )
+                      .menu-item-object-motos-novas {
+  
+                        & > .menu-link-wrapper {
+                          background: transparent;
+                          box-sizing: border-box;
+                          color: #000000;
+                          font-size: 1.6rem;
+                          font-weight: 400;
+        
+                          a {
+                            max-width: 90%;
+                            overflow: hidden;
+                            text-align: left; 
+                            text-overflow: ellipsis;
+                            white-space:nowrap;
+                          }
+                        }
+        
+                        .menu-item-image a {
+                          font-size: 1.2rem;
+                          height: 4rem;
+                          letter-spacing: normal;
+                          margin-top: 2rem;
+                        }
+                      }
+
+                    }
+                    
+                    &.opened {
+                
+                      & > span.menu-link-wrapper {
+                        @apply bg-lcw-primary-red text-white;
+      
+                        & .menu-item-arrow {
+                          transform: translateY(-50%) scale(1.4) rotate(-180deg);
+      
+                          & path {
+                            @apply stroke-white;
+                          }
+                        }
+                      }
+      
+                      & > .sub-menu {
+                        max-height: 999vh;
+                      }
+      
+                    }
+                    
+                  }
                 }
                 
               }
 
-              &.menu-item-has-children {
-
-                @apply bg-transparent rounded-none px-0;
-
-                & > a {
-                  @apply bg-lcw-primary-red text-white font-medium flex;
-                  border-radius: 99rem;
-                  margin-bottom: 1rem;
-                  padding: 1.2rem 2.4rem;
-                  position: relative;
-                  width: 100%;
+              &.menu-item-type-post_type_archive.menu-item-object-motos-novas.opened {
+                
+                & > span.menu-link-wrapper {
+                  @apply bg-lcw-primary-red text-white;
 
                   & .menu-item-arrow {
-                    transform: translateY(-50%) scale(1.4) rotate(180deg);
+                    transform: translateY(-50%) scale(1.4) rotate(-180deg);
 
                     & path {
                       @apply stroke-white;
@@ -197,23 +292,10 @@
                   }
                 }
 
-                .sub-menu.megamenu {
-                  
-                  @apply px-5;
-                  
-                  display: block;
-
-                  & ul > .menu-item {
-                    margin-bottom: 1rem;
-                    padding: 0;
-                  }
-
-                  & .sub-menu {
-                    display: none;
-                  }
-
+                & > .sub-menu {
+                  max-height: 999vh;
                 }
-                
+
               }
 
             }
