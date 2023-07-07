@@ -51,7 +51,7 @@ $count = new WP_Query($countArgs);
             <?php endforeach; ?>
         </div>
 
-        <div class="wkode-archive__grid filter-tiles" template-path="<?= $template_path ?>" post-type="<?= $post_type ?>" taxonomy="<?= $taxonomy ?>">
+        <div class="wkode-archive__grid filter-tiles" id="filter-tiles" template-path="<?= $template_path ?>" post-type="<?= $post_type ?>" taxonomy="<?= $taxonomy ?>">
             <?php if ($bikes->have_posts()) : ?>
 
                 <?php while ($bikes->have_posts()) : $bikes->the_post(); 

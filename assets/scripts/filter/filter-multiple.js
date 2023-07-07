@@ -1,12 +1,10 @@
 import $ from "jquery";
-import { newCardColorLogic } from "../components/new-card";
 
-// this code works with a div filter, and a filter with only one
-// taxonomy with checkboxes. unfortunately the complexity grew while the time is short
+// this is the new super configured
 
 // Define variables and get all categories
-let filterTiles = $(".filter-tiles");
-const uniqueFilterTiles = document.getElementById("filter-tiles");
+let filterTiles = $(".filter-multiple-tiles");
+const uniqueFilterTiles = document.getElementById("multiple-filter-tiles");
 
 if (uniqueFilterTiles) {
   if (filterTiles) {
@@ -16,11 +14,10 @@ if (uniqueFilterTiles) {
     let taxonomy = filterTiles.attr("taxonomy");
     let childClass;
     let termsArray = [];
+    let modelsArray = [];
     let typeOfElement = {};
     let currentPage = 1;
-    const currentPath = window.location.pathname;
-    const parts = currentPath.split("/");
-    const currentUrl = `/${parts[1]}/`; // Retrieves the "/motos-novas/" part
+    const currentUrl = window.location.pathname;
 
     const currentHref = window.location.href;
     let filterValue = null;
@@ -57,12 +54,6 @@ if (uniqueFilterTiles) {
             });
           }
         }
-        if (category.is("div")) {
-          typeOfElement = {
-            isAnArray: false,
-            complete: newCardColorLogic,
-          };
-        }
       }
     });
 
@@ -90,78 +81,75 @@ if (uniqueFilterTiles) {
             });
           }
         } else {
-          if (typeOfElement.isAnArray) {
-            // Handle checkbox-type categories
-            if (currentClick.is(":checked")) {
+          // Handle checkbox-type categories
+          if (currentClick.is(":checked")) {
+            if (currentClick.hasClass("taxonomies-list_item--brand")) {
               termsArray.push(currentClick.data("slug")); // Add the slug to the termsArray
-              updateUrlArr(currentUrl + "?filtro=", termsArray);
-            } else {
-              // this is if unchecking the checkbox, super long due to href conditionals. see a way to shorten it later.
-              let clickHref = window.location.href;
-              let currentQueryString = clickHref.split("?");
-              console.log(currentQueryString);
-              console.log(
-                "this is the one !!!!!!!!!!!!!! ============= " + clickHref
-              );
+            }
+            if (currentClick.hasClass("taxonomies-list_item--models")) {
+              modelsArray.push(currentClick.data("slug"));
+            }
 
-              if (clickHref.includes(slug)) {
-                let removedUrlClick;
-                if (clickHref.includes("?arg=" + slug)) {
-                  removedUrlClick = clickHref.replace("?arg=" + slug, "");
-                  console.log(
-                    "this is the one !!!!!!!!!!!!!! ============= " +
-                      removedUrlClick
-                  );
+            updateUrlArr(currentUrl + "?filtro=", termsArray, modelsArray);
+          } else {
+            // this is if unchecking the checkbox, super long due to href conditionals. see a way to shorten it later.
+            let clickHref = window.location.href;
+            let currentQueryString = clickHref.split("?");
+            console.log(slug);
+
+            if (clickHref.includes(slug)) {
+              console.log(termsArray);
+              console.log(modelsArray);
+              let removedUrlClick;
+              if (clickHref.includes("?arg=" + slug)) {
+                removedUrlClick = clickHref.replace("?arg=" + slug, "");
+                updateURL(removedUrlClick);
+              } else if (clickHref.includes("?filtro=" + slug)) {
+                if (clickHref.includes(slug + "?arg=")) {
+                  removedUrlClick = clickHref.replace(slug + "?arg=", "");
                   updateURL(removedUrlClick);
-                } else if (clickHref.includes("?filtro=" + slug)) {
-                  if (clickHref.includes(slug + "?arg=")) {
-                    removedUrlClick = clickHref.replace(slug + "?arg=", "");
-                    console.log(
-                      "this is the one !!!!!!!!!!!!!! ============= " +
-                        removedUrlClick
-                    );
-                    updateURL(removedUrlClick);
-                  } else {
-                    removedUrlClick = clickHref.replace("?filtro=" + slug, "");
-                    console.log(
-                      "this is the one !!!!!!!!!!!!!! ============= " +
-                        removedUrlClick
-                    );
-                    updateURL(removedUrlClick);
-                  }
                 } else {
-                  removedUrlClick = clickHref.replace(slug, "");
-                  console.log(
-                    "this is the one !!!!!!!!!!!!!! ============= " +
-                      removedUrlClick
-                  );
+                  removedUrlClick = clickHref.replace("?filtro=" + slug, "");
                   updateURL(removedUrlClick);
                 }
-
-                /* if (clickHref.includes("?arg=")) {
-                removedUrlClick = clickHref.replace("?arg=", "");
-                console.log(
-                  "this is the one !!!!!!!!!!!!!! ============= " +
-                    removedUrlClick
-                );
-              } */
+              } else {
+                removedUrlClick = clickHref.replace(slug, "");
+                updateURL(removedUrlClick);
               }
+            }
 
+            if (currentClick.hasClass("taxonomies-list_item--brand")) {
               let index = termsArray.indexOf(slug);
               if (index !== -1) {
                 termsArray.splice(index, 1); // Remove the slug from the termsArray
               }
             }
-          } else {
-            // Handle non-checkbox-type categories
-            newBikesCurrentSelection(currentClick); // Update the current selection UI
-            termsArray = currentClick.data("slug");
-            updateURL(currentUrl + "?filtro=" + termsArray); // Update the filter URL
+            if (currentClick.hasClass("taxonomies-list_item--models")) {
+              let index = modelsArray.indexOf(slug);
+              if (index !== -1) {
+                modelsArray.splice(index, 1); // Remove the slug from the termsArray
+              }
+            }
+            if (termsArray.length < 1) {
+              let newClickHref = window.location.href;
+              let replaceUrl = newClickHref.replace("?taxbrand=", "");
+              updateURL(replaceUrl);
+            }
+            if (modelsArray.length < 1) {
+              let newClickHref = window.location.href;
+              let replaceUrl = newClickHref.replace("?taxmodel=", "");
+              updateURL(replaceUrl);
+            }
+            if (termsArray.length < 1 && modelsArray.length < 1) {
+              let newClickHref = window.location.href;
+              let replaceUrl = newClickHref.replace("?filtro=", "");
+              updateURL(replaceUrl);
+            }
           }
         }
       }
       // Perform an AJAX request to update the project tiles
-      $.ajax(ajaxObj(termsArray, currentPage, currentClick));
+      $.ajax(ajaxObj(termsArray, modelsArray, currentPage, currentClick));
     });
 
     // Helper function to handle adding the "category--current" class
@@ -173,22 +161,34 @@ if (uniqueFilterTiles) {
     function updateURL(url) {
       window.history.pushState(null, "", url);
     }
-    function updateUrlArr(url, arrayOfElements) {
-      url = url + arrayOfElements.join("?arg=");
+    function updateUrlArr(url, arrayOfElements, modelsElements) {
+      if (arrayOfElements.length > 0) {
+        arrayOfElements = "?taxbrand=" + arrayOfElements.join("?arg=");
+      }
+      if (modelsElements.length > 0) {
+        modelsElements = "?taxmodel=" + modelsElements.join("?arg=");
+      }
+      url = url + arrayOfElements + modelsElements;
       window.history.pushState(null, "", url);
     }
 
-    function ajaxObj(categoryTerms, currentPageNumber, currentClick) {
+    function ajaxObj(
+      categoryTerms,
+      modelTerms,
+      currentPageNumber,
+      currentClick
+    ) {
       return {
         type: "POST",
         url: "/wp-admin/admin-ajax.php",
         dataType: "json",
         data: {
-          action: "filter_posts",
+          action: "multiple_filter_posts",
           templatePath,
           postType,
           taxonomy,
           category: categoryTerms,
+          models: modelTerms,
           currentPage: currentPageNumber,
         },
         beforeSend: loadingStartAnimation,

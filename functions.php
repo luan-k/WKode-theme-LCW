@@ -5,6 +5,7 @@
   require_once( 'inc/custom-post-types.php' );
   require get_theme_file_path('/inc/search-route.php');
   require get_theme_file_path('/filter/filter-back-functions.php');
+  require get_theme_file_path('/filter/multiple-filter-back-functions.php');
 
   function enqueue_wkode_scripts() {
     wp_enqueue_style('wkode_main_styles', get_stylesheet_uri());

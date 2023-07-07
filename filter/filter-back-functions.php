@@ -72,7 +72,7 @@ function filter_posts() {
         'current_number_posts' => $ajaxposts->post_count,
         'total_number_posts' => $count->post_count,
         'html' => $output,
-        'fuck' => $paged,
+        'paged' => $paged,
         'cat' => $catSlug
     ];
 

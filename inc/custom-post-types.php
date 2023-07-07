@@ -146,6 +146,44 @@ function create_used_taxonomy() {
 
 }
 add_action( 'init', 'create_used_taxonomy', 0 );
+function create_models_used_taxonomy() {
+
+    $labels = array(
+        'name'                       => _x( 'Modelos', 'Taxonomy General Name', 'moto-seminova-modelo' ),
+        'singular_name'              => _x( 'Modelo', 'Taxonomy Singular Name', 'moto-seminova-modelo' ),
+        'menu_name'                  => __( 'Modelos', 'moto-seminova-modelo' ),
+        'all_items'                  => __( 'Todos os Modelos', 'moto-seminova-modelo' ),
+        'parent_item'                => __( 'Modelo Parente', 'moto-seminova-modelo' ),
+        'parent_item_colon'          => __( 'Modelo Parente:', 'moto-seminova-modelo' ),
+        'new_item_name'              => __( 'Novo Item', 'moto-seminova-modelo' ),
+        'add_new_item'               => __( 'Adicionar novo Item', 'moto-seminova-modelo' ),
+        'edit_item'                  => __( 'Editar Item', 'moto-seminova-modelo' ),
+        'update_item'                => __( 'Update Item', 'moto-seminova-modelo' ),
+        'view_item'                  => __( 'Ver Item', 'moto-seminova-modelo' ),
+        'separate_items_with_commas' => __( 'Separar Items com virgulas', 'moto-seminova-modelo' ),
+        'add_or_remove_items'        => __( 'Adiconar ou Remover Items', 'moto-seminova-modelo' ),
+        'choose_from_most_used'      => __( 'Escolher os Mais Usados', 'moto-seminova-modelo' ),
+        'popular_items'              => __( 'Items Populares', 'moto-seminova-modelo' ),
+        'search_items'               => __( 'Procurar Items', 'moto-seminova-modelo' ),
+        'not_found'                  => __( 'Não Encontrado', 'moto-seminova-modelo' ),
+        'no_terms'                   => __( 'Nenhum Item', 'moto-seminova-modelo' ),
+        'items_list'                 => __( 'Lista de Items', 'moto-seminova-modelo' ),
+        'items_list_navigation'      => __( 'Navegação de items de lista ', 'moto-seminova-modelo' ),
+    );
+    $args = array(
+        'labels'                     => $labels,
+        'hierarchical'               => true,
+        'public'                     => true,
+        'show_ui'                    => true,
+        'show_admin_column'          => true,
+		'show_in_rest'               => true,
+        'show_in_nav_menus'          => true,
+        'show_tagcloud'              => true,
+    );
+    register_taxonomy( 'moto_seminova_modelo', array( 'motos-seminovas' ), $args );
+
+}
+add_action( 'init', 'create_models_used_taxonomy', 0 );
 
 
 // Post type Products

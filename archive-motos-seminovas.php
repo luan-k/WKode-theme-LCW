@@ -1,6 +1,9 @@
 <?php get_header(); 
 
+require_once 'filter/multiple-filter-front.php';
+
 $taxonomy = 'moto_seminova_categoria';
+$taxonomyModelos = 'moto_seminova_modelo';
 $post_type = 'motos-seminovas';
 $template_path = './template-parts/cards/used-bikes';
 $bikes = [
@@ -11,11 +14,18 @@ $bikes = [
     'paged' => 1
 ];
 
-// Include the file containing the desired function
-require_once 'filter/filter-front.php';
+// get all of the taxonomies with this
+/* ==================================== */
+$taxonomies = get_object_taxonomies($post_type);
+
+// Loop through the taxonomies
+foreach ($taxonomies as $haha) {
+    echo $haha . '<br>';
+}
+/* =================================== */
 
 // Call the function from the included file
-$filterData = filter_function($post_type, $taxonomy, $bikes);
+$filterData = multiple_filter_function($post_type, $taxonomy, $bikes);
 
 $filterValue = $filterData['filterResult'];
 $countArgs = $filterData['countArgs'];
@@ -26,9 +36,23 @@ var_dump($filterValue);
 $categories = get_terms(array(
     'taxonomy' => $taxonomy,
     'hide_empty' => false,
-    'parent' => 0, // Retrieve only parent terms
-    'number' => 7, // Limit the number of terms to 7
 ));
+$models = get_terms(array(
+    'taxonomy' => $taxonomyModelos,
+    'hide_empty' => false,
+));
+
+
+
+$wow = array($taxonomy, $taxonomyModelos);
+
+var_dump($wow);
+
+echo "<br>";
+echo gettype($taxonomy);
+echo "<br>";
+echo gettype($wow);
+
 
 $bikes = new WP_Query($bikesArgs);
 $count = new WP_Query($countArgs);
@@ -55,7 +79,26 @@ $count = new WP_Query($countArgs);
                                 }
                             }
                         }
-                        ?> class='taxonomies-list_item' data-slug="<?= $category->slug; ?>" type='checkbox' value='<?php $category->slug ?>' id='<?php echo $category->term_taxonomy_id ?>' name='<?php echo $category->name; ?>'>
+                        ?> class='taxonomies-list_item taxonomies-list_item--brand' data-slug="<?= $category->slug; ?>" type='checkbox' value='<?php $category->slug ?>' id='<?php echo $category->term_taxonomy_id ?>' name='<?php echo $category->name; ?>'>
+                        <label for="<?php echo $category->term_taxonomy_id ?>">
+                            <?= $category->name; ?>
+                        </label>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+            <ul class="cat-list mt-7 ">
+                <?php foreach($models as $category) : 
+                    ?>
+                    <li class="">
+                        <input <?php
+                         if($filterValue){
+                            foreach($filterValue as $filter){
+                                if($filter == $category->slug){
+                                    echo 'checked';
+                                }
+                            }
+                        }
+                        ?> class='taxonomies-list_item taxonomies-list_item--models' data-slug="<?= $category->slug; ?>" type='checkbox' value='<?php $category->slug ?>' id='<?php echo $category->term_taxonomy_id ?>' name='<?php echo $category->name; ?>'>
                         <label for="<?php echo $category->term_taxonomy_id ?>">
                             <?= $category->name; ?>
                         </label>
@@ -64,7 +107,7 @@ $count = new WP_Query($countArgs);
             </ul>
         </div>
 
-        <div class="wkode-archive__grid filter-tiles" template-path="<?= $template_path ?>" post-type="<?= $post_type ?>" taxonomy="<?= $taxonomy ?>">
+        <div class="wkode-archive__grid filter-multiple-tiles" id="multiple-filter-tiles" template-path="<?= $template_path ?>" post-type="<?= $post_type ?>" taxonomy="<?= $taxonomy ?>">
             <?php if ($bikes->have_posts()) : ?>
 
                 <?php while ($bikes->have_posts()) : $bikes->the_post(); 

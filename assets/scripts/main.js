@@ -23,5 +23,6 @@ import Search from "./components/Search";
 import "./components/new-card";
 
 import "./filter/filter";
+import "./filter/filter-multiple";
 
 const search = new Search();
