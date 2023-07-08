@@ -32,3 +32,10 @@ window.addEventListener("scroll", function () {
 
   prevScrollPos = currentScrollPos;
 });
+
+window.addEventListener("load", function () {
+  const wpAdminBar = document.getElementById("wpadminbar");
+  if (wpAdminBar) {
+    header.classList.add("header-with-adminbar");
+  }
+});

@@ -10,6 +10,15 @@
     position: fixed;
     top: 0;
   }
+  &.header-with-adminbar {
+    top: 32px;
+    @media (max-width: 782px) {
+      top: 46px;
+    }
+    @media (max-width: 600px) {
+      top: 0;
+    }
+  }
   &--desktop {
     display: block;
   }
