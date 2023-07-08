@@ -32,36 +32,6 @@ if (container) {
   new Carousel(container, options, { Thumbs });
 }
 
-/* document.addEventListener("DOMContentLoaded", function () {
-  setTimeout(function () {
-    const pzContainer = document.querySelectorAll(".f-carousel__slide");
-    let config = {
-      panMode: "mousemove",
-      mouseMoveFactor: 1.25,
-      click: false,
-      wheel: false,
-      scaleFactor: 3,
-    };
-    let instance = [];
-    console.log(pzContainer);
-
-    pzContainer.forEach(function (item, i) {
-      console.log(item);
-      instance[i] = new Panzoom(item, config);
-      item.addEventListener("mouseenter", (event) => {
-        if (!event.buttons) {
-          instance[i].zoomToMax(event);
-        }
-      });
-
-      item.addEventListener("mouseleave", () => {
-        instance[i].zoomToFit();
-      });
-    });
-  }, 7000);
-});
- */
-
 document.addEventListener("DOMContentLoaded", function () {
   const panzoomReference = document.querySelector(
     ".wkode-single-panzoom-reference"
@@ -71,7 +41,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const middleIndex = Math.floor(pzContainer.length / 2);
     let navs = document.querySelectorAll(".f-thumbs__slide");
     let instance = [];
-    console.log(pzContainer);
     let config = {
       panMode: "mousemove",
       mouseMoveFactor: 1.25,
@@ -85,8 +54,6 @@ document.addEventListener("DOMContentLoaded", function () {
       // ...
       navs.forEach(function (item, i) {
         if (i === middleIndex) {
-          console.log(i + "  ----  " + middleIndex);
-          console.log(item);
           item.click();
         }
       });
@@ -99,7 +66,6 @@ document.addEventListener("DOMContentLoaded", function () {
       // ...
       setTimeout(function () {
         pzContainer.forEach(function (item, i) {
-          console.log(item);
           instance[i] = new Panzoom(item, config);
           item.addEventListener("mouseenter", (event) => {
             if (!event.buttons) {

@@ -34,8 +34,17 @@ if (uniqueFilterTiles) {
           const replaced = element.replace("arg=", "");
           arrayToSubstitute.push(replaced);
         }
+        if (element.includes("taxbrand=")) {
+          const replaced = element.replace("taxbrand=", "");
+          arrayToSubstitute.push(replaced);
+        }
+        if (element.includes("taxmodel=")) {
+          const replaced = element.replace("taxmodel=", "");
+          arrayToSubstitute.push(replaced);
+        }
       });
     }
+    console.log(arrayToSubstitute);
 
     // Iterate over the categories to determine the type of element and the type of click event
     clickableElements.each(function () {
@@ -47,22 +56,34 @@ if (uniqueFilterTiles) {
             complete: "",
           };
           if (category.attr("checked")) {
-            arrayToSubstitute.forEach(function (currentSub) {
-              if (category.data("slug") === currentSub) {
-                termsArray.push(currentSub);
-              }
-            });
+            if (category.hasClass("taxonomies-list_item--brand")) {
+              arrayToSubstitute.forEach(function (currentSub) {
+                if (category.data("slug") === currentSub) {
+                  termsArray.push(currentSub);
+                }
+              });
+            }
+            if (category.hasClass("taxonomies-list_item--models")) {
+              arrayToSubstitute.forEach(function (currentSub) {
+                if (category.data("slug") === currentSub) {
+                  modelsArray.push(currentSub);
+                }
+              });
+            }
           }
         }
       }
     });
+
+    console.log(termsArray);
+    console.log(modelsArray);
 
     // Event handler for the click/change event on the categories
     clickableElements.on("click", function (event) {
       let currentClick = $(this);
       let slug = currentClick.data("slug");
 
-      if (currentClick.hasClass("wkode-btn")) {
+      if (currentClick.hasClass("load-more-unique")) {
         currentPage++;
         event.preventDefault();
       }
@@ -200,7 +221,7 @@ if (uniqueFilterTiles) {
           }
           renderType(currentClick, res);
         },
-        complete: typeOfElement.complete,
+        complete: loadingEndAnimation,
       };
     }
 
@@ -224,6 +245,12 @@ if (uniqueFilterTiles) {
       filterTiles.each(function () {
         childClass = $(this).children().attr("class");
         $(this).children().addClass("skeleton-box");
+      });
+    }
+    function loadingEndAnimation() {
+      filterTiles.each(function () {
+        childClass = $(this).children().attr("class");
+        $(this).children().removeClass("skeleton-box");
       });
     }
   }
