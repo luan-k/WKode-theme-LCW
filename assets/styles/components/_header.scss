@@ -115,7 +115,7 @@
     }
     &--mobile {
       display: block;
-      z-index: 90;
+      z-index: 1000;
       .wkode-header__nav--top {
         border: 0;
       }
@@ -126,37 +126,187 @@
       #controlIdForMobileNav {
         background-color: white;
         flex-direction: column;
-        height: 100vh;
+        height: calc(100vh - 70.25px);
         justify-content: center;
         position: absolute;
         top: 6.9rem;
         transition: all 0.3s;
         z-index: 9999;
+
+        &.full {
+          width: 100vw!important;
+        }
+
         &.wkode-header__nav--bottom {
+          
           justify-content: flex-start;
-          padding-left: 2.1rem;
-          padding-right: 2.1rem;
-          padding-top: 3.3rem;
+          overflow-y: auto!important;
+          padding: 3.3rem 2.1rem;
+
         }
         nav.wkode-header__menu-container {
           width: 100%;
+
           ul.nav.navbar-nav {
+
             align-items: flex-start;
             flex-direction: column;
-            .menu-item {
+            gap: 1.2rem;
+
+            //- Every Item inside the navbar ( Highest level )
+            & > .menu-item {
+
+              @apply bg-lcw-primary-gray text-lcw-primary-blue font-medium;
               border-radius: 99rem;
-              color: white;
               font-size: 1.5rem;
               margin-right: 0;
-              padding-bottom: 1.2rem;
               padding-left: 2.4rem;
-              padding-top: 1.2rem;
               width: 100%;
               z-index: 9999;
-              @apply bg-lcw-primary-blue;
-              &:not(:last-of-type) {
-                margin-bottom: 1.5rem;
+
+              //- Current page menu item ( Highest level )
+              &.current_page_item {
+                @apply bg-lcw-primary-blue text-lcw-primary-white;
               }
+
+              //- Every megamenu inside the navbar ( Highest Level )
+              &.menu-item-has-children.megamenu-custom-top-level-class {
+                @apply bg-transparent rounded-none px-0;
+                margin-bottom: 0!important;
+                padding-bottom: 0!important;
+                padding-top: 0!important;
+
+                //- Link wrapper 
+                .menu-link-wrapper {
+                  @apply bg-lcw-primary-gray text-lcw-primary-blue font-medium flex relative;
+                  border-radius: 99rem;
+                  font-size: 1.5rem;
+                  padding: 1.5rem 2.4rem;
+                  position: relative;
+                  transition: .2s;
+                  width: 100%;
+
+                  //- Link of the menu
+                  & > a {
+                    width: fit-content;
+                  }
+
+                  //- Arrow
+                  & .menu-item-arrow {
+                    @apply absolute;
+                    right: 2.4rem;
+                    top: 50%;
+                    transform: translateY(-50%) scale(1.4) rotate(-90deg);
+                    transition: .2s;
+
+                    & path {
+                      @apply stroke-lcw-primary-red;
+                    }
+                  }
+
+                }
+
+                //- Sub-menu ( 2nd Level )
+                & > .sub-menu {
+                  height: auto;
+                  max-height: 0px;
+                  overflow: hidden;
+                  transition: .4s;
+                  @apply px-4;
+
+                  //- Sub-menu item ( 2nd Level )
+                  .menu-item {
+                    background: transparent!important;
+                    padding: 0;
+                    padding-top: 1.5rem;
+
+                    &:not(.menu-item-has-children) {
+                      .menu-link-wrapper a {
+                        width: 100%;
+                      }
+                    }
+  
+                    //- Sub-menu ( 3nd Level )
+                    & .sub-menu {
+                      height: auto;
+                      max-height: 0px;
+                      overflow: hidden;
+                      transition: .4s;
+                      
+                      //- Sub-menu item ( 3nd Level )
+                      .menu-item-object-motos-novas {
+  
+                        & > .menu-link-wrapper {
+                          background: transparent;
+                          box-sizing: border-box;
+                          color: #000000;
+                          font-size: 1.6rem;
+                          font-weight: 400;
+        
+                          a {
+                            max-width: 90%;
+                            overflow: hidden;
+                            text-align: left; 
+                            text-overflow: ellipsis;
+                            white-space:nowrap;
+                          }
+                        }
+        
+                        .menu-item-image a {
+                          font-size: 1.2rem;
+                          height: 4rem;
+                          letter-spacing: normal;
+                          margin-top: 2rem;
+                        }
+                      }
+
+                    }
+                    
+                    &.opened {
+                
+                      & > span.menu-link-wrapper {
+                        @apply bg-lcw-primary-red text-white;
+      
+                        & .menu-item-arrow {
+                          transform: translateY(-50%) scale(1.4) rotate(-180deg);
+      
+                          & path {
+                            @apply stroke-white;
+                          }
+                        }
+                      }
+      
+                      & > .sub-menu {
+                        max-height: 999vh;
+                      }
+      
+                    }
+                    
+                  }
+                }
+                
+              }
+
+              &.menu-item-type-post_type_archive.menu-item-object-motos-novas.opened {
+                
+                & > span.menu-link-wrapper {
+                  @apply bg-lcw-primary-red text-white;
+
+                  & .menu-item-arrow {
+                    transform: translateY(-50%) scale(1.4) rotate(-180deg);
+
+                    & path {
+                      @apply stroke-white;
+                    }
+                  }
+                }
+
+                & > .sub-menu {
+                  max-height: 999vh;
+                }
+
+              }
+
             }
           }
         }

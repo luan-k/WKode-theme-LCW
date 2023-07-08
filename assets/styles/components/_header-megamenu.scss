@@ -1,141 +1,155 @@
-.wkode-header__menu-container {
-  .sub-menu.megamenu {
-    border-radius: 0 0 2.1rem 2.1rem;
-    height: 0;
-    left: 0;
-    opacity: 0;
-    padding: 0;
-    position: absolute;
-    top: 54px;
-    transition: all 0.3s;
-    visibility: hidden;
-    width: 100%;
-    z-index: 99;
-    @apply bg-lcw-primary-gray;
-    ul {
-      border-left: white 3px solid;
-      border-right: white 3px solid;
-      height: 100%;
-      width: 15vw;
-      ul {
-        border-left: 0;
-        ul {
-          border-right: 0;
-        }
-      }
-    }
-    .sub-menu {
-      align-items: stretch;
-      flex-direction: column;
-      /* width: 15%; */
-      height: 100%;
-      justify-content: center;
-      left: calc(3.9rem + 15vw);
+//- Desktop Megamenu
+
+.wkode-header--desktop {
+  .wkode-header__menu-container {
+
+    .sub-menu.megamenu {
+      @apply bg-lcw-primary-gray;
+      border-radius: 0 0 2.1rem 2.1rem;
+      height: 0;
+      left: 0;
       opacity: 0;
-      padding-bottom: 3.9rem;
-      pointer-events: all;
+      padding: 0;
       position: absolute;
-      top: 0;
+      top: 54px;
       transition: all 0.3s;
       visibility: hidden;
-      /* display: none; */
-      width: 0;
-      ul,
-      li {
-        width: 100%;
-      }
-      .sub-menu {
-        height: 100%;
-        left: 15vw;
-        opacity: 0;
-        pointer-events: all;
-        transition: all 0.3s;
-        visibility: hidden;
-        width: 0;
-      }
-    }
-    li.menu-item {
-      font-size: 1.4rem;
-      margin: 0;
-      padding: 0;
+      width: 100%;
+      z-index: 99;
 
-      a {
-        /* width: 100%; */
-        display: flex;
-        padding: 1.5rem 3rem;
-      }
-      .menu-item-image {
-        background-color: white;
+      ul {
         border-left: white 3px solid;
-        border-radius: 0 0 2.1rem 0;
+        border-right: white 3px solid;
         height: 100%;
-        height: 100%;
-        left: 100%;
-        opacity: 0;
-        position: absolute;
-        top: 0;
-        top: 0;
-        transition: all 0.1s;
-        visibility: hidden;
-        width: 100rem;
-        width: 360%;
-        img {
-          margin: auto;
-          margin-top: 3rem;
-          width: 70%;
-        }
-      }
-      &:hover {
-        & > .sub-menu {
-          opacity: 1;
-          visibility: visible;
-          /* display: flex; */
-          width: 15vw;
-          li.menu-item:hover .sub-menu {
-            opacity: 1;
-            visibility: visible;
-            width: 100%;
+        width: 15vw;
+        ul {
+          border-left: 0;
+          ul {
+            border-right: 0;
           }
         }
-        & > .menu-item-image {
-          opacity: 1;
-          visibility: visible;
-          z-index: 9999;
+      }
+      
+      .sub-menu {
+        align-items: stretch;
+        flex-direction: column;
+        /* width: 15%; */
+        height: 100%;
+        justify-content: center;
+        left: calc(3.9rem + 15vw);
+        opacity: 0;
+        padding-bottom: 3.9rem;
+        pointer-events: all;
+        position: absolute;
+        top: 0;
+        transition: all 0.3s;
+        visibility: hidden;
+        /* display: none; */
+        width: 0;
+        ul,
+        li {
+          width: 100%;
         }
-        & > a {
-          @apply bg-lcw-primary-red text-white font-medium;
+        .sub-menu {
+          height: 100%;
+          left: 15vw;
+          opacity: 0;
+          pointer-events: all;
+          transition: all 0.3s;
+          visibility: hidden;
+          width: 0;
         }
       }
-    }
-    .wkode-megamenu-separator {
-      background: white;
-      border-radius: 9999px;
-      height: 3px;
-      margin: 1.5rem auto;
-      width: 80%;
+      li.menu-item {
+        font-size: 1.4rem;
+        margin: 0;
+        padding: 0;
+  
+        a {
+          /* width: 100%; */
+          display: flex;
+          padding: 1.5rem 3rem;
+        }
+        .menu-item-image {
+          background-color: white;
+          border-left: white 3px solid;
+          border-radius: 0 0 2.1rem 0;
+          height: 100%;
+          height: 100%;
+          left: 100%;
+          opacity: 0;
+          position: absolute;
+          top: 0;
+          top: 0;
+          transition: all 0.1s;
+          visibility: hidden;
+          width: 100rem;
+          width: 360%;
+          img {
+            margin: auto;
+            margin-top: 3rem;
+            width: 70%;
+          }
+        }
+        
+        &:hover {
+          & > .sub-menu {
+            opacity: 1;
+            visibility: visible;
+            /* display: flex; */
+            width: 15vw;
+            li.menu-item:hover .sub-menu {
+              opacity: 1;
+              visibility: visible;
+              width: 100%;
+            }
+          }
+          & > .menu-item-image {
+            opacity: 1;
+            visibility: visible;
+            z-index: 9999;
+          }
+          & > a {
+            @apply bg-lcw-primary-red text-white font-medium;
+          }
+        }
+      }
+      .wkode-megamenu-separator {
+        background: white;
+        border-radius: 9999px;
+        height: 3px;
+        margin: 1.5rem auto;
+        width: 80%;
+      }
     }
   }
-}
-//CHANGE LATER here is the menu item menu-item
-.megamenu-custom-top-level-class {
-  & > a {
-    align-content: center;
-    align-items: center;
-    display: flex;
-    flex-direction: row-reverse;
-    gap: 1rem;
-    justify-content: space-between;
-  }
-  &:hover {
-    & .megamenu {
-      height: 50rem;
-      opacity: 1;
-      padding: 0 3.9rem 3.9rem 3.9rem;
-      visibility: visible;
+
+  //CHANGE LATER here is the menu item menu-item
+  .megamenu-custom-top-level-class {
+    & > a {
+      align-content: center;
+      align-items: center;
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 1rem;
+      justify-content: space-between;
+    }
+    &:hover {
+      & .megamenu {
+        height: 50rem;
+        opacity: 1;
+        padding: 0 3.9rem 3.9rem 3.9rem;
+        visibility: visible;
+      }
     }
   }
+
+  .menu-item-image.menu-item-image--active {
+    display: block;
+    z-index: 9999;
+  }
+
 }
-.menu-item-image.menu-item-image--active {
-  display: block;
-  z-index: 9999;
-}
+
+
+//- Mobile Megamenu

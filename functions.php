@@ -94,15 +94,15 @@ class Megamenu_Walker extends Walker_Nav_Menu {
         $attributes .= !empty($item->xfn) ? ' rel="' . esc_attr($item->xfn) . '"' : '';
         $attributes .= !empty($item->url) ? ' href="' . esc_attr($item->url) . '"' : '';
         $item_output = $args->before;
-        $item_output .= '<a' . $attributes . '>';
+        $item_output .= (wp_is_mobile() ? '<span class="menu-link-wrapper">' : '') . '<a' . $attributes . '>';
     
         // Add SVG arrow icon to top-level menu items
-        if ($depth === 0 && $args->walker->has_children) {
+        if (( !wp_is_mobile() ? $depth === 0 : true) && $args->walker->has_children) {
             $item_output .= '<span class="menu-item-arrow">' . $this->get_svg_arrow() . '</span>';
         }
     
         $item_output .= $args->link_before . apply_filters('the_title', $item->title, $item->ID) . $args->link_after;
-        $item_output .= '</a>';
+        $item_output .= '</a>' . (wp_is_mobile() ? '</span>' : '');
     
         // If this is a linked post type, add the featured image in a nested div with an <a> tag
         if (get_post_type($item->object_id) == 'motos-novas') {
