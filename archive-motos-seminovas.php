@@ -18,10 +18,6 @@ $bikes = [
 /* ==================================== */
 $taxonomies = get_object_taxonomies($post_type);
 
-// Loop through the taxonomies
-foreach ($taxonomies as $haha) {
-    echo $haha . '<br>';
-}
 /* =================================== */
 
 // Call the function from the included file
@@ -44,7 +40,6 @@ $models = get_terms(array(
 
 $bikes = new WP_Query($bikesArgs);
 $count = new WP_Query($countArgs);
-var_dump($count);
 
 ?>
 
