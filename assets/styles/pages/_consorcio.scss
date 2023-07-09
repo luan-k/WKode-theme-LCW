@@ -1,0 +1,66 @@
+.wkode-used-bikes__card--consorcio {
+  .wkode-used-bikes__card-body {
+    border-bottom: 0;
+    height: 20rem;
+  }
+  .wkode-used-bikes__card-info {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .wkode-used-bike__card-prices:not(:last-of-type) {
+      margin-bottom: 1.8rem;
+    }
+    .wkode-used-bike__card-prices-quantity {
+      align-items: center;
+      border-radius: 3rem;
+      color: white;
+      display: flex;
+      height: 3rem;
+      justify-content: center;
+      text-align: center;
+      width: 6rem;
+      @apply bg-lcw-primary-blue;
+    }
+  }
+  .wkode-used-bike__card-prices {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .wkode-used-bikes__card-link {
+    height: 25rem;
+    overflow: hidden;
+    position: relative;
+    .wkode-used-bikes__card-img {
+      height: auto;
+      left: 50%;
+      max-height: 100%;
+      max-width: none;
+      min-height: 100%;
+      /* min-width: 100%; */
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: auto;
+      @media (max-width: 786px) {
+        max-width: 100%;
+        min-height: auto;
+      }
+    }
+  }
+}
+
+.wkode-single-page-template--consorcio {
+  .wkode-single-page-template__content {
+    @apply container grid grid-cols-1 md:grid-cols-3 gap-4;
+    @media (max-width: 1280px) {
+      @apply grid-cols-2;
+    }
+    @media (max-width: 786px) {
+      @apply grid-cols-1;
+    }
+  }
+}
