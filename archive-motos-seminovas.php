@@ -4,6 +4,7 @@ require_once 'filter/multiple-filter-front.php';
 
 $taxonomy = 'moto_seminova_categoria';
 $taxonomyModelos = 'moto_seminova_modelo';
+$taxonomyStyles = 'moto_seminova_estilos';
 $post_type = 'motos-seminovas';
 $template_path = './template-parts/cards/used-bikes';
 $bikes = [
@@ -25,6 +26,7 @@ $filterData = multiple_filter_function($post_type, $taxonomy, $bikes);
 
 $brandsValue = $filterData['brandsResult'];
 $modelsValue = $filterData['modelsResult'];
+$stylesValue = $filterData['stylesResult'];
 $minPrice = $filterData['minPrice'];
 $maxPrice = $filterData['maxPrice'];
 $countArgs = $filterData['countArgs'];
@@ -36,6 +38,10 @@ $categories = get_terms(array(
 ));
 $models = get_terms(array(
     'taxonomy' => $taxonomyModelos,
+    'hide_empty' => false,
+));
+$styles = get_terms(array(
+    'taxonomy' => $taxonomyStyles,
     'hide_empty' => false,
 ));
 
@@ -102,6 +108,31 @@ $count = new WP_Query($countArgs);
                                 }
                             }
                             ?> class='taxonomies-list_item taxonomies-list_item--models' data-slug="<?= $category->slug; ?>" type='checkbox' value='<?php $category->slug ?>' id='<?php echo $category->term_taxonomy_id ?>' name='<?php echo $category->name; ?>'>
+                            <label for="<?php echo $category->term_taxonomy_id ?>">
+                                <?= $category->name; ?>
+                            </label>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+            <div class="wrapper-cat-list">
+                <h4 class="title-taxonomy">
+                    Estilos
+                    <img class="title-taxonomy-arrow" src="<?php echo get_theme_file_uri('./assets/img/svg/filters-arrow.svg'); ?>" alt="" srcset=""> 
+                </h4>
+                <ul class="cat-list mt-7 ">
+                    <?php foreach($styles as $category) : 
+                        ?>
+                        <li class="">
+                            <input <?php
+                            if($stylesValue){
+                                foreach($stylesValue as $filter){
+                                    if($filter == $category->slug){
+                                        echo 'checked';
+                                    }
+                                }
+                            }
+                            ?> class='taxonomies-list_item taxonomies-list_item--styles' data-slug="<?= $category->slug; ?>" type='checkbox' value='<?php $category->slug ?>' id='<?php echo $category->term_taxonomy_id ?>' name='<?php echo $category->name; ?>'>
                             <label for="<?php echo $category->term_taxonomy_id ?>">
                                 <?= $category->name; ?>
                             </label>

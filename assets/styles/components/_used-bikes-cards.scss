@@ -23,10 +23,10 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    max-height: 51.8rem;
     min-height: 49rem !important;
     overflow: hidden;
     position: relative;
-
     &-link {
       background-color: white;
       /* @apply px-12 pb-11 pt-12; */

@@ -1,0 +1,13 @@
+.wkode-archive--electrics {
+  .wkode-archive__grid {
+    @apply col-span-12 gap-12;
+    .wkode-products__card {
+      overflow: hidden;
+      padding: 0 0 2rem 0;
+      .wkode-products__card-title {
+        padding-left: 3.6rem;
+        padding-right: 3.6rem;
+      }
+    }
+  }
+}

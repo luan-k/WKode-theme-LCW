@@ -11,6 +11,8 @@ function multiple_filter_posts() {
 
     $taxonomyModels = 'moto_seminova_modelo';
     $modelsTerms = $_POST['models'];
+    $taxonomyStyles = 'moto_seminova_estilos';
+    $stylesTerms = $_POST['styles'];
 
 /*     'meta_query' => [
       'relation' => 'AND',
@@ -46,6 +48,14 @@ function multiple_filter_posts() {
           'terms'    => $modelsTerms,
       );
       array_push($taxonomies, $modelsPosts);
+    }
+    if($stylesTerms){
+      $stylesPosts = array(
+          'taxonomy' => $taxonomyStyles,
+          'field'    => 'slug',
+          'terms'    => $stylesTerms,
+      );
+      array_push($taxonomies, $stylesPosts);
     }
     
     $acf_numbers = array(

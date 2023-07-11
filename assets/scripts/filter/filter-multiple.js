@@ -17,6 +17,7 @@ if (uniqueFilterTiles) {
     let childClass;
     let termsArray = [];
     let modelsArray = [];
+    let stylesArray = [];
     let minimumPriceValue = "";
     let maximumPriceValue = "";
     let typeOfElement = {};
@@ -104,6 +105,13 @@ if (uniqueFilterTiles) {
                 }
               });
             }
+            if (category.hasClass("taxonomies-list_item--styles")) {
+              arrayToSubstitute.forEach(function (currentSub) {
+                if (category.data("slug") === currentSub) {
+                  stylesArray.push(currentSub);
+                }
+              });
+            }
           }
         }
       }
@@ -111,6 +119,7 @@ if (uniqueFilterTiles) {
 
     console.log(termsArray);
     console.log(modelsArray);
+    console.log(stylesArray);
     let inputTimer;
     minimumPriceInput.on("input", (event) => {
       clearTimeout(inputTimer); // Clear previous timer if it exists
@@ -122,6 +131,7 @@ if (uniqueFilterTiles) {
           ajaxObj(
             termsArray,
             modelsArray,
+            stylesArray,
             currentPage,
             null,
             minimumPriceValue,
@@ -132,6 +142,7 @@ if (uniqueFilterTiles) {
           currentUrl + "?filtro=",
           termsArray,
           modelsArray,
+          stylesArray,
           minimumPriceValue,
           maximumPriceValue
         );
@@ -147,6 +158,7 @@ if (uniqueFilterTiles) {
           ajaxObj(
             termsArray,
             modelsArray,
+            stylesArray,
             currentPage,
             null,
             minimumPriceValue,
@@ -157,6 +169,7 @@ if (uniqueFilterTiles) {
           currentUrl + "?filtro=",
           termsArray,
           modelsArray,
+          stylesArray,
           minimumPriceValue,
           maximumPriceValue
         );
@@ -195,11 +208,15 @@ if (uniqueFilterTiles) {
             if (currentClick.hasClass("taxonomies-list_item--models")) {
               modelsArray.push(currentClick.data("slug"));
             }
+            if (currentClick.hasClass("taxonomies-list_item--styles")) {
+              stylesArray.push(currentClick.data("slug"));
+            }
 
             updateUrlArr(
               currentUrl + "?filtro=",
               termsArray,
               modelsArray,
+              stylesArray,
               minimumPriceValue,
               maximumPriceValue
             );
@@ -212,6 +229,7 @@ if (uniqueFilterTiles) {
             if (clickHref.includes(slug)) {
               console.log(termsArray);
               console.log(modelsArray);
+              console.log(stylesArray);
               let removedUrlClick;
               if (clickHref.includes("?arg=" + slug)) {
                 removedUrlClick = clickHref.replace("?arg=" + slug, "");
@@ -242,6 +260,12 @@ if (uniqueFilterTiles) {
                 modelsArray.splice(index, 1); // Remove the slug from the termsArray
               }
             }
+            if (currentClick.hasClass("taxonomies-list_item--styles")) {
+              let index = stylesArray.indexOf(slug);
+              if (index !== -1) {
+                stylesArray.splice(index, 1); // Remove the slug from the termsArray
+              }
+            }
             if (termsArray.length < 1) {
               let newClickHref = window.location.href;
               let replaceUrl = newClickHref.replace("?taxbrand=", "");
@@ -252,7 +276,16 @@ if (uniqueFilterTiles) {
               let replaceUrl = newClickHref.replace("?taxmodel=", "");
               updateURL(replaceUrl);
             }
-            if (termsArray.length < 1 && modelsArray.length < 1) {
+            if (stylesArray.length < 1) {
+              let newClickHref = window.location.href;
+              let replaceUrl = newClickHref.replace("?taxstyle=", "");
+              updateURL(replaceUrl);
+            }
+            if (
+              termsArray.length < 1 &&
+              modelsArray.length < 1 &&
+              stylesArray.length < 1
+            ) {
               let newClickHref = window.location.href;
               let replaceUrl = newClickHref.replace("?filtro=", "");
               updateURL(replaceUrl);
@@ -261,7 +294,9 @@ if (uniqueFilterTiles) {
         }
       }
       // Perform an AJAX request to update the project tiles
-      $.ajax(ajaxObj(termsArray, modelsArray, currentPage, currentClick));
+      $.ajax(
+        ajaxObj(termsArray, modelsArray, stylesArray, currentPage, currentClick)
+      );
     });
 
     // Helper function to handle adding the "category--current" class
@@ -277,6 +312,7 @@ if (uniqueFilterTiles) {
       url,
       arrayOfElements,
       modelsElements,
+      stylesElements,
       minPrice,
       maxPrice
     ) {
@@ -285,6 +321,9 @@ if (uniqueFilterTiles) {
       }
       if (modelsElements.length > 0) {
         modelsElements = "?taxmodel=" + modelsElements.join("?arg=");
+      }
+      if (stylesElements.length > 0) {
+        stylesElements = "?taxstyle=" + stylesElements.join("?arg=");
       }
       if (minPrice) {
         minPrice = "?minprice=" + minPrice;
@@ -296,13 +335,20 @@ if (uniqueFilterTiles) {
       } else {
         maxPrice = "";
       }
-      url = url + arrayOfElements + modelsElements + minPrice + maxPrice;
+      url =
+        url +
+        arrayOfElements +
+        modelsElements +
+        stylesElements +
+        minPrice +
+        maxPrice;
       window.history.pushState(null, "", url);
     }
 
     function ajaxObj(
       categoryTerms,
       modelTerms,
+      styleTerms,
       currentPageNumber,
       currentClick,
       minimumPrice,
@@ -319,6 +365,7 @@ if (uniqueFilterTiles) {
           taxonomy,
           category: categoryTerms,
           models: modelTerms,
+          styles: styleTerms,
           currentPage: currentPageNumber,
           minimumPrice,
           maximumPrice,

@@ -1,6 +1,6 @@
 {
     "key": "group_649de7ff84370",
-    "title": "Produtos Single",
+    "title": "Informações do Produto",
     "fields": [
         {
             "key": "field_649de7ff8a7cc",
@@ -187,6 +187,13 @@
                 "operator": "==",
                 "value": "produtos"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "eletricos"
+            }
         ]
     ],
     "menu_order": 0,
@@ -198,5 +205,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1688071454
+    "modified": 1689102240
 }

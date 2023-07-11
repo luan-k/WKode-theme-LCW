@@ -10,6 +10,7 @@ function multiple_filter_function($post_type, $taxonomy, $wp_object){
 
     $brandsValue = [];
     $modelsValue = [];
+    $stylesValue = [];
     $minimumPrice = null;
     $maximumPrice = null;
 
@@ -27,6 +28,10 @@ function multiple_filter_function($post_type, $taxonomy, $wp_object){
                     $modelValue = explode(',', substr($segment, strpos($segment, '=') + 1));
                     $modelsValue = array_merge($modelsValue, $modelValue);
                 }
+                if (strpos($segment, 'taxstyle=') !== false) {
+                    $styleValue = explode(',', substr($segment, strpos($segment, '=') + 1));
+                    $stylesValue = array_merge($stylesValue, $styleValue);
+                }
                 if (strpos($segment, 'minprice=') !== false) {
                   $minimumPrice = intval(substr($segment, strpos($segment, '=') + 1));
                 }
@@ -38,6 +43,7 @@ function multiple_filter_function($post_type, $taxonomy, $wp_object){
     }
 
     $taxonomyModels = 'moto_seminova_modelo';
+    $taxonomyStyles = 'moto_seminova_estilos';
 
     $taxonomies = array(
       'relation' => 'AND',
@@ -58,6 +64,14 @@ function multiple_filter_function($post_type, $taxonomy, $wp_object){
           'terms'    => $modelsValue,
       );
       array_push($taxonomies, $modelsPosts);
+    }
+    if($stylesValue){
+      $stylesPosts = array(
+          'taxonomy' => $taxonomyStyles,
+          'field'    => 'slug',
+          'terms'    => $stylesValue,
+      );
+      array_push($taxonomies, $stylesPosts);
     }
 
     $acf_numbers = array(
@@ -107,6 +121,7 @@ function multiple_filter_function($post_type, $taxonomy, $wp_object){
     return [
         'brandsResult' => $brandsValue,
         'modelsResult' => $modelsValue,
+        'stylesResult' => $stylesValue,
         'minPrice' => $minimumPrice,
         'maxPrice' => $maximumPrice,
         'countArgs' => $countArgs,

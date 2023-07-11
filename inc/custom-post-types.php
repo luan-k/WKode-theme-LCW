@@ -303,7 +303,7 @@ add_action( 'init', 'create_products_taxonomy', 0 );
 
 
 
-// Post type Products
+// Post type Services
 function create_services_posttype() {
 
     register_post_type( 'servicos',
@@ -337,4 +337,43 @@ function create_services_posttype() {
 // Hooking up our function to theme setup
 add_action( 'init', 'create_services_posttype' );
 
+
+
+
+
+
+
+// Post type Electrics
+function create_electrics_posttype() {
+
+    register_post_type( 'eletricos',
+    // CPT Options
+        array(
+            'labels' => array(
+                'name' => __( 'Elétricos' ),
+                'singular_name' => __( 'Elétrico' )
+            ),
+            'public'              => true,
+			'menu_icon'           => 'dashicons-media-default',
+            'has_archive'         => true,
+            'rewrite'             => array('slug' => 'eletricos'),
+            'show_in_rest'        => true,
+			'public'              => true,
+			'show_ui'             => true,
+			'show_in_menu'        => true,
+			'show_in_nav_menus'   => true,
+			'show_in_admin_bar'   => true,
+			'can_export'          => true,
+			'has_archive'         => true,
+			'exclude_from_search' => false,
+			'publicly_queryable'  => true,
+			//'taxonomies' => array( 'categoria_produto' ),
+			'capability_type'     => 'post',
+			'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail',  'revisions', 'custom-fields', ),
+
+        )
+    );
+}
+// Hooking up our function to theme setup
+add_action( 'init', 'create_electrics_posttype' );
 ?>

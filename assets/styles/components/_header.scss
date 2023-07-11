@@ -74,7 +74,7 @@
       justify-content: flex-start;
       .menu-item {
         font-family: "Rubik", sans-serif;
-        font-size: 1.6rem;
+        font-size: 1.5rem;
         font-weight: normal;
         padding-bottom: 1.5rem;
         padding-left: 1rem;
@@ -102,7 +102,7 @@
     &__menu-container {
       ul.nav.navbar-nav {
         .menu-item {
-          font-size: 1.2rem;
+          font-size: 1rem;
         }
       }
     }
@@ -134,28 +134,24 @@
         z-index: 9999;
 
         &.full {
-          width: 100vw!important;
+          width: 100vw !important;
         }
 
         &.wkode-header__nav--bottom {
-          
           justify-content: flex-start;
-          overflow-y: auto!important;
+          overflow-y: auto !important;
           padding: 3.3rem 2.1rem;
-
         }
         nav.wkode-header__menu-container {
           width: 100%;
 
           ul.nav.navbar-nav {
-
             align-items: flex-start;
             flex-direction: column;
             gap: 1.2rem;
 
             //- Every Item inside the navbar ( Highest level )
             & > .menu-item {
-
               @apply bg-lcw-primary-gray text-lcw-primary-blue font-medium;
               border-radius: 99rem;
               font-size: 1.5rem;
@@ -172,18 +168,18 @@
               //- Every megamenu inside the navbar ( Highest Level )
               &.menu-item-has-children.megamenu-custom-top-level-class {
                 @apply bg-transparent rounded-none px-0;
-                margin-bottom: 0!important;
-                padding-bottom: 0!important;
-                padding-top: 0!important;
+                margin-bottom: 0 !important;
+                padding-bottom: 0 !important;
+                padding-top: 0 !important;
 
-                //- Link wrapper 
+                //- Link wrapper
                 .menu-link-wrapper {
                   @apply bg-lcw-primary-gray text-lcw-primary-blue font-medium flex relative;
                   border-radius: 99rem;
                   font-size: 1.5rem;
                   padding: 1.5rem 2.4rem;
                   position: relative;
-                  transition: .2s;
+                  transition: 0.2s;
                   width: 100%;
 
                   //- Link of the menu
@@ -197,13 +193,12 @@
                     right: 2.4rem;
                     top: 50%;
                     transform: translateY(-50%) scale(1.4) rotate(-90deg);
-                    transition: .2s;
+                    transition: 0.2s;
 
                     & path {
                       @apply stroke-lcw-primary-red;
                     }
                   }
-
                 }
 
                 //- Sub-menu ( 2nd Level )
@@ -211,12 +206,12 @@
                   height: auto;
                   max-height: 0px;
                   overflow: hidden;
-                  transition: .4s;
+                  transition: 0.4s;
                   @apply px-4;
 
                   //- Sub-menu item ( 2nd Level )
                   .menu-item {
-                    background: transparent!important;
+                    background: transparent !important;
                     padding: 0;
                     padding-top: 1.5rem;
 
@@ -225,33 +220,32 @@
                         width: 100%;
                       }
                     }
-  
+
                     //- Sub-menu ( 3nd Level )
                     & .sub-menu {
                       height: auto;
                       max-height: 0px;
                       overflow: hidden;
-                      transition: .4s;
-                      
+                      transition: 0.4s;
+
                       //- Sub-menu item ( 3nd Level )
                       .menu-item-object-motos-novas {
-  
                         & > .menu-link-wrapper {
                           background: transparent;
                           box-sizing: border-box;
                           color: #000000;
                           font-size: 1.6rem;
                           font-weight: 400;
-        
+
                           a {
                             max-width: 90%;
                             overflow: hidden;
-                            text-align: left; 
+                            text-align: left;
                             text-overflow: ellipsis;
-                            white-space:nowrap;
+                            white-space: nowrap;
                           }
                         }
-        
+
                         .menu-item-image a {
                           font-size: 1.2rem;
                           height: 4rem;
@@ -259,36 +253,30 @@
                           margin-top: 2rem;
                         }
                       }
-
                     }
-                    
+
                     &.opened {
-                
                       & > span.menu-link-wrapper {
                         @apply bg-lcw-primary-red text-white;
-      
+
                         & .menu-item-arrow {
                           transform: translateY(-50%) scale(1.4) rotate(-180deg);
-      
+
                           & path {
                             @apply stroke-white;
                           }
                         }
                       }
-      
+
                       & > .sub-menu {
                         max-height: 999vh;
                       }
-      
                     }
-                    
                   }
                 }
-                
               }
 
               &.menu-item-type-post_type_archive.menu-item-object-motos-novas.opened {
-                
                 & > span.menu-link-wrapper {
                   @apply bg-lcw-primary-red text-white;
 
@@ -304,9 +292,7 @@
                 & > .sub-menu {
                   max-height: 999vh;
                 }
-
               }
-
             }
           }
         }
