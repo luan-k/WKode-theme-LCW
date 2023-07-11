@@ -25,6 +25,8 @@ $filterData = multiple_filter_function($post_type, $taxonomy, $bikes);
 
 $brandsValue = $filterData['brandsResult'];
 $modelsValue = $filterData['modelsResult'];
+$minPrice = $filterData['minPrice'];
+$maxPrice = $filterData['maxPrice'];
 $countArgs = $filterData['countArgs'];
 $bikesArgs = $filterData['bikesArgs'];
 
@@ -36,7 +38,6 @@ $models = get_terms(array(
     'taxonomy' => $taxonomyModelos,
     'hide_empty' => false,
 ));
-
 
 $bikes = new WP_Query($bikesArgs);
 $count = new WP_Query($countArgs);
@@ -106,6 +107,16 @@ $count = new WP_Query($countArgs);
                             </label>
                         </li>
                     <?php endforeach; ?>
+                </ul>
+            </div>
+            <div class="wrapper-cat-list">
+                <h4 class="title-taxonomy">
+                    Preço
+                    <img class="title-taxonomy-arrow" src="<?php echo get_theme_file_uri('./assets/img/svg/filters-arrow.svg'); ?>" alt="" srcset=""> 
+                </h4>
+                <ul class="cat-list mt-7 grid grid-cols-2 gap-4">
+                    <input class="taxonomy-number-field taxonomy-number-field--min-value" type="text" placeholder="de" data-type="currency" value="<?php if($minPrice): echo 'R$ ' . number_format($minPrice, 0, ',', '.'); endif; ?>" />
+                    <input class="taxonomy-number-field taxonomy-number-field--max-value" type="text" placeholder="até" data-type="currency" value="<?php if($maxPrice): echo 'R$ ' . number_format($maxPrice, 0, ',', '.'); endif; ?>" />
                 </ul>
             </div>
             <?php if(wp_is_mobile()){ ?>

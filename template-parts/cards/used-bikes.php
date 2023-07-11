@@ -45,7 +45,7 @@ $price = get_field('wkode_single_used_price', get_the_ID());
         <div class="wkode-used-bikes__card-footer-price">
             <?php
             if($price){
-                echo 'R$ '. $price;
+                echo 'R$ '. number_format($price, 0, ',', '.');
             }else{
                 echo "consulte";
             }

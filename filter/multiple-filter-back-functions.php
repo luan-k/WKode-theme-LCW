@@ -6,10 +6,27 @@ function multiple_filter_posts() {
     $taxonomy = $_POST['taxonomy'];
     $catSlug = $_POST['category'];
     $paged = $_POST['currentPage'];
+    $minimumPrice = $_POST['minimumPrice'];
+    $maximumPrice = $_POST['maximumPrice'];
 
     $taxonomyModels = 'moto_seminova_modelo';
     $modelsTerms = $_POST['models'];
 
+/*     'meta_query' => [
+      'relation' => 'AND',
+      [
+        'key' => 'wkode_single_used_price', // Subfield key
+        'value' => 10000,
+        'compare' => '<=',
+        'type' => 'NUMERIC',
+      ],
+      [
+        'key' => 'wkode_single_used_price',
+        'value' => 3000,
+        'compare' => '>=',
+        'type' => 'NUMERIC',
+      ],
+  ], */
     $taxonomies = array(
       'relation' => 'AND',
     );
@@ -30,6 +47,28 @@ function multiple_filter_posts() {
       );
       array_push($taxonomies, $modelsPosts);
     }
+    
+    $acf_numbers = array(
+      'relation' => 'AND',
+    );
+    if($minimumPrice){
+      $minimumPosts = array(
+        'key' => 'wkode_single_used_price',
+        'value' => $minimumPrice,
+        'compare' => '>=',
+        'type' => 'NUMERIC',
+      );
+      array_push($acf_numbers, $minimumPosts);
+    }
+    if($maximumPrice){
+      $maximumPosts = array(
+        'key' => 'wkode_single_used_price',
+        'value' => $maximumPrice,
+        'compare' => '<=',
+        'type' => 'NUMERIC',
+      );
+      array_push($acf_numbers, $maximumPosts);
+    }
 
     $query_args = [
       'post_type' => $post_type,
@@ -38,6 +77,7 @@ function multiple_filter_posts() {
       'order_by' => 'date',
       'order' => 'desc',
       'tax_query' => $taxonomies,
+      'meta_query' => $acf_numbers
     ];
     $countArgs = [
       'post_type' => $post_type,
@@ -67,7 +107,10 @@ function multiple_filter_posts() {
         'total_number_posts' => $count->post_count,
         'html' => $output,
         'paged' => $paged,
-        'cat' => $catSlug
+        'cat' => $catSlug,
+        'minPrice' => $minimumPrice,
+        'maxPrice' => $maximumPrice,
+        'acfNumber' => $acf_numbers,
     ];
 
   

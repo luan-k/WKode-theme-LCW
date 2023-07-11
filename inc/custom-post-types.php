@@ -185,6 +185,45 @@ function create_models_used_taxonomy() {
 }
 add_action( 'init', 'create_models_used_taxonomy', 0 );
 
+function create_styles_used_taxonomy() {
+
+    $labels = array(
+        'name'                       => _x( 'Estilos', 'Taxonomy General Name', 'moto-seminova-estilo' ),
+        'singular_name'              => _x( 'Estilo', 'Taxonomy Singular Name', 'moto-seminova-estilo' ),
+        'menu_name'                  => __( 'Estilos', 'moto-seminova-estilo' ),
+        'all_items'                  => __( 'Todos os Estilos', 'moto-seminova-estilo' ),
+        'parent_item'                => __( 'Estilo Parente', 'moto-seminova-estilo' ),
+        'parent_item_colon'          => __( 'Estilo Parente:', 'moto-seminova-estilo' ),
+        'new_item_name'              => __( 'Novo Item', 'moto-seminova-estilo' ),
+        'add_new_item'               => __( 'Adicionar novo Item', 'moto-seminova-estilo' ),
+        'edit_item'                  => __( 'Editar Item', 'moto-seminova-estilo' ),
+        'update_item'                => __( 'Update Item', 'moto-seminova-estilo' ),
+        'view_item'                  => __( 'Ver Item', 'moto-seminova-estilo' ),
+        'separate_items_with_commas' => __( 'Separar Items com virgulas', 'moto-seminova-estilo' ),
+        'add_or_remove_items'        => __( 'Adiconar ou Remover Items', 'moto-seminova-estilo' ),
+        'choose_from_most_used'      => __( 'Escolher os Mais Usados', 'moto-seminova-estilo' ),
+        'popular_items'              => __( 'Items Populares', 'moto-seminova-estilo' ),
+        'search_items'               => __( 'Procurar Items', 'moto-seminova-estilo' ),
+        'not_found'                  => __( 'Não Encontrado', 'moto-seminova-estilo' ),
+        'no_terms'                   => __( 'Nenhum Item', 'moto-seminova-estilo' ),
+        'items_list'                 => __( 'Lista de Items', 'moto-seminova-estilo' ),
+        'items_list_navigation'      => __( 'Navegação de items de lista ', 'moto-seminova-estilo' ),
+    );
+    $args = array(
+        'labels'                     => $labels,
+        'hierarchical'               => true,
+        'public'                     => true,
+        'show_ui'                    => true,
+        'show_admin_column'          => true,
+		'show_in_rest'               => true,
+        'show_in_nav_menus'          => true,
+        'show_tagcloud'              => true,
+    );
+    register_taxonomy( 'moto_seminova_estilos', array( 'motos-seminovas' ), $args );
+
+}
+add_action( 'init', 'create_styles_used_taxonomy', 0 );
+
 
 // Post type Products
 function create_products_posttype() {

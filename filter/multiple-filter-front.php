@@ -10,6 +10,8 @@ function multiple_filter_function($post_type, $taxonomy, $wp_object){
 
     $brandsValue = [];
     $modelsValue = [];
+    $minimumPrice = null;
+    $maximumPrice = null;
 
     if (strpos($queryString, 'filtro=') !== false) {
         parse_str(str_replace('?arg=', ',', $queryString), $params);
@@ -24,6 +26,12 @@ function multiple_filter_function($post_type, $taxonomy, $wp_object){
                 if (strpos($segment, 'taxmodel=') !== false) {
                     $modelValue = explode(',', substr($segment, strpos($segment, '=') + 1));
                     $modelsValue = array_merge($modelsValue, $modelValue);
+                }
+                if (strpos($segment, 'minprice=') !== false) {
+                  $minimumPrice = intval(substr($segment, strpos($segment, '=') + 1));
+                }
+                if (strpos($segment, 'maxprice=') !== false) {
+                  $maximumPrice = intval(substr($segment, strpos($segment, '=') + 1));
                 }
             }
         }
@@ -52,6 +60,28 @@ function multiple_filter_function($post_type, $taxonomy, $wp_object){
       array_push($taxonomies, $modelsPosts);
     }
 
+    $acf_numbers = array(
+      'relation' => 'AND',
+    );
+    if($minimumPrice){
+      $minimumPosts = array(
+        'key' => 'wkode_single_used_price',
+        'value' => $minimumPrice,
+        'compare' => '>=',
+        'type' => 'NUMERIC',
+      );
+      array_push($acf_numbers, $minimumPosts);
+    }
+    if($maximumPrice){
+      $maximumPosts = array(
+        'key' => 'wkode_single_used_price',
+        'value' => $maximumPrice,
+        'compare' => '<=',
+        'type' => 'NUMERIC',
+      );
+      array_push($acf_numbers, $maximumPosts);
+    }
+
     $wp_object = [
       'post_type' => $post_type,
       'posts_per_page' => 36,
@@ -59,6 +89,7 @@ function multiple_filter_function($post_type, $taxonomy, $wp_object){
       'order' => 'desc',
       'tax_query' => $taxonomies,
       'paged' => 1,
+      'meta_query' => $acf_numbers
     ];
     $countArgs = [
       'post_type' => $post_type,
@@ -66,6 +97,7 @@ function multiple_filter_function($post_type, $taxonomy, $wp_object){
       'order_by' => 'date',
       'order' => 'desc',
       'tax_query' => $taxonomies,
+      'meta_query' => $acf_numbers
 	  ];
 
 
@@ -75,6 +107,8 @@ function multiple_filter_function($post_type, $taxonomy, $wp_object){
     return [
         'brandsResult' => $brandsValue,
         'modelsResult' => $modelsValue,
+        'minPrice' => $minimumPrice,
+        'maxPrice' => $maximumPrice,
         'countArgs' => $countArgs,
         'bikesArgs' => $wp_object,
     ];

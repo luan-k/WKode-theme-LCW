@@ -12,9 +12,13 @@ if (uniqueFilterTiles) {
     let templatePath = filterTiles.attr("template-path");
     let postType = filterTiles.attr("post-type");
     let taxonomy = filterTiles.attr("taxonomy");
+    let minimumPriceInput = $(".taxonomy-number-field--min-value");
+    let maximumPriceInput = $(".taxonomy-number-field--max-value");
     let childClass;
     let termsArray = [];
     let modelsArray = [];
+    let minimumPriceValue = "";
+    let maximumPriceValue = "";
     let typeOfElement = {};
     let currentPage = 1;
     const currentUrl = window.location.pathname;
@@ -23,8 +27,28 @@ if (uniqueFilterTiles) {
     let filterValue = null;
     let arrayToSubstitute = [];
 
+    $(document).ready(function () {
+      minimumPriceInput.on({
+        input: function () {
+          minimumPriceValue = $(this)
+            .val()
+            .replace(/[^0-9]/g, ""); // Remove non-numeric characters
+          console.log(minimumPriceValue); // or store the value in a variable for further use
+        },
+      });
+      maximumPriceInput.on({
+        input: function () {
+          maximumPriceValue = $(this)
+            .val()
+            .replace(/[^0-9]/g, ""); // Remove non-numeric characters
+          console.log(maximumPriceValue); // or store the value in a variable for further use
+        },
+      });
+    });
+
     if (currentHref.includes("?filtro=")) {
       const queryString = currentHref.split("?");
+      console.log(queryString);
       queryString.forEach((element) => {
         if (element.includes("filtro=")) {
           const replaced = element.replace("filtro=", "");
@@ -42,9 +66,19 @@ if (uniqueFilterTiles) {
           const replaced = element.replace("taxmodel=", "");
           arrayToSubstitute.push(replaced);
         }
+        if (element.includes("minprice=")) {
+          const replaced = element.replace("minprice=", "");
+          minimumPriceValue = replaced;
+        }
+        if (element.includes("maxprice=")) {
+          const replaced = element.replace("maxprice=", "");
+          maximumPriceValue = replaced;
+        }
       });
     }
     console.log(arrayToSubstitute);
+    console.log(minimumPriceValue);
+    console.log(maximumPriceValue);
 
     // Iterate over the categories to determine the type of element and the type of click event
     clickableElements.each(function () {
@@ -77,6 +111,57 @@ if (uniqueFilterTiles) {
 
     console.log(termsArray);
     console.log(modelsArray);
+    let inputTimer;
+    minimumPriceInput.on("input", (event) => {
+      clearTimeout(inputTimer); // Clear previous timer if it exists
+
+      // Set a new timer to make the AJAX request after 1 second
+      inputTimer = setTimeout(() => {
+        let theUrl = window.location.href;
+        $.ajax(
+          ajaxObj(
+            termsArray,
+            modelsArray,
+            currentPage,
+            null,
+            minimumPriceValue,
+            maximumPriceValue
+          )
+        );
+        updateUrlArr(
+          currentUrl + "?filtro=",
+          termsArray,
+          modelsArray,
+          minimumPriceValue,
+          maximumPriceValue
+        );
+      }, 1500);
+    });
+    maximumPriceInput.on("input", (event) => {
+      clearTimeout(inputTimer); // Clear previous timer if it exists
+
+      // Set a new timer to make the AJAX request after 1 second
+      inputTimer = setTimeout(() => {
+        let theUrl = window.location.href;
+        $.ajax(
+          ajaxObj(
+            termsArray,
+            modelsArray,
+            currentPage,
+            null,
+            minimumPriceValue,
+            maximumPriceValue
+          )
+        );
+        updateUrlArr(
+          currentUrl + "?filtro=",
+          termsArray,
+          modelsArray,
+          minimumPriceValue,
+          maximumPriceValue
+        );
+      }, 1500);
+    });
 
     // Event handler for the click/change event on the categories
     clickableElements.on("click", function (event) {
@@ -111,7 +196,13 @@ if (uniqueFilterTiles) {
               modelsArray.push(currentClick.data("slug"));
             }
 
-            updateUrlArr(currentUrl + "?filtro=", termsArray, modelsArray);
+            updateUrlArr(
+              currentUrl + "?filtro=",
+              termsArray,
+              modelsArray,
+              minimumPriceValue,
+              maximumPriceValue
+            );
           } else {
             // this is if unchecking the checkbox, super long due to href conditionals. see a way to shorten it later.
             let clickHref = window.location.href;
@@ -182,14 +273,30 @@ if (uniqueFilterTiles) {
     function updateURL(url) {
       window.history.pushState(null, "", url);
     }
-    function updateUrlArr(url, arrayOfElements, modelsElements) {
+    function updateUrlArr(
+      url,
+      arrayOfElements,
+      modelsElements,
+      minPrice,
+      maxPrice
+    ) {
       if (arrayOfElements.length > 0) {
         arrayOfElements = "?taxbrand=" + arrayOfElements.join("?arg=");
       }
       if (modelsElements.length > 0) {
         modelsElements = "?taxmodel=" + modelsElements.join("?arg=");
       }
-      url = url + arrayOfElements + modelsElements;
+      if (minPrice) {
+        minPrice = "?minprice=" + minPrice;
+      } else {
+        minPrice = "";
+      }
+      if (maxPrice) {
+        maxPrice = "?maxprice=" + maxPrice;
+      } else {
+        maxPrice = "";
+      }
+      url = url + arrayOfElements + modelsElements + minPrice + maxPrice;
       window.history.pushState(null, "", url);
     }
 
@@ -197,7 +304,9 @@ if (uniqueFilterTiles) {
       categoryTerms,
       modelTerms,
       currentPageNumber,
-      currentClick
+      currentClick,
+      minimumPrice,
+      maximumPrice
     ) {
       return {
         type: "POST",
@@ -211,6 +320,8 @@ if (uniqueFilterTiles) {
           category: categoryTerms,
           models: modelTerms,
           currentPage: currentPageNumber,
+          minimumPrice,
+          maximumPrice,
         },
         beforeSend: loadingStartAnimation,
         success: function (res) {
@@ -233,11 +344,15 @@ if (uniqueFilterTiles) {
     }
 
     function renderType(typeOfClick, render) {
-      if (typeOfClick.hasClass("taxonomies-list_item")) {
+      if (typeOfClick) {
+        if (typeOfClick.hasClass("taxonomies-list_item")) {
+          filterTiles.html(render.html);
+        }
+        if (typeOfClick.hasClass("wkode-btn")) {
+          filterTiles.append(render.html);
+        }
+      } else {
         filterTiles.html(render.html);
-      }
-      if (typeOfClick.hasClass("wkode-btn")) {
-        filterTiles.append(render.html);
       }
     }
 

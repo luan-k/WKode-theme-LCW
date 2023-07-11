@@ -33,7 +33,7 @@
             "key": "field_649b9f4396cef",
             "label": "Preço",
             "name": "wkode_single_used_price",
-            "type": "text",
+            "type": "number",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -46,7 +46,9 @@
             "placeholder": "",
             "prepend": "",
             "append": "",
-            "maxlength": ""
+            "min": "",
+            "max": "",
+            "step": ""
         },
         {
             "key": "field_649b8017ebbcd",
@@ -86,7 +88,7 @@
                     "key": "field_649b83c0ebbcf",
                     "label": "Ano:",
                     "name": "wkode_single_used_table_year",
-                    "type": "text",
+                    "type": "number",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -99,13 +101,15 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "min": "",
+                    "max": "",
+                    "step": ""
                 },
                 {
                     "key": "field_649b83e6ebbd0",
                     "label": "Quilometragem",
                     "name": "wkode_single_used_table_km",
-                    "type": "text",
+                    "type": "number",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -118,7 +122,9 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "min": "",
+                    "max": "",
+                    "step": ""
                 },
                 {
                     "key": "field_649b84b1ebbd2",
@@ -293,5 +299,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1687974901
+    "modified": 1688940381
 }

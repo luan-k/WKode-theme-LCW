@@ -62,6 +62,19 @@
       justify-content: space-between;
     }
   }
+  .taxonomy-number-field {
+    @apply border-solid  border-2 text-lcw-primary-blue px-6 py-1;
+    border-color: #e7e7e7;
+    border-radius: 2.1rem;
+    transition: all 0.3s;
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+    }
+    &:focus {
+      @apply border-lcw-primary-blue;
+    }
+  }
   .wkode-new-bikes__card {
     margin: 0;
   }
