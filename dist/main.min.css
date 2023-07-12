@@ -546,9 +546,6 @@ video {
 .grid{
   display: grid;
 }
-.h-24{
-  height: 6rem;
-}
 .h-full{
   height: 100%;
 }

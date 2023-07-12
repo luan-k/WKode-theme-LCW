@@ -26,5 +26,6 @@ import "./components/input-numbers-formatter";
 
 import "./filter/filter";
 import "./filter/filter-multiple";
+import "./filter/filter-product";
 
 const search = new Search();
