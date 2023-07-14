@@ -99,7 +99,7 @@ $images = get_field('wkode_single_used_imgs', get_the_ID());
                                 Por apenas
                                 <h3>
                                     <?php
-                                        echo $price;
+                                        echo 'R$ '. number_format($price, 0, ',', '.');
                                     ?>
                                 </h3>
                                 à vista
