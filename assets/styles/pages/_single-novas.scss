@@ -13,13 +13,25 @@
   .sub-menu.megamenu {
     color: black;
   }
+  .menu-item-arrow {
+    @media (min-width: 1000px) {
+      svg {
+        color: white;
+        fill: white;
+        path {
+          stroke: white !important;
+        }
+      }
+    }
+  }
 }
 .wkode-single-new-bikes-template {
   @apply bg-lcw-primary-blue text-white font-rubik;
   font-size: 15px;
 
   &__image {
-    min-height: 100vh;
+    height: 100vh;
+    min-height: 108rem;
     overflow: hidden;
     position: relative;
     img {

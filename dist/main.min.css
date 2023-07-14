@@ -3518,6 +3518,15 @@ wkode-btn wkode-btn--solid-white-red
 .wkode-header--blurred .sub-menu.megamenu {
   color: black;
 }
+@media (min-width: 1000px) {
+  .wkode-header--blurred .menu-item-arrow svg {
+    color: white;
+    fill: white;
+  }
+  .wkode-header--blurred .menu-item-arrow svg path {
+    stroke: white !important;
+  }
+}
 
 .wkode-single-new-bikes-template{
   --tw-bg-opacity: 1;
@@ -3528,7 +3537,8 @@ wkode-btn wkode-btn--solid-white-red
   font-size: 15px;
 }
 .wkode-single-new-bikes-template__image {
-  min-height: 100vh;
+  height: 100vh;
+  min-height: 108rem;
   overflow: hidden;
   position: relative;
 }
