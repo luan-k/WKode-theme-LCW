@@ -11,7 +11,7 @@ function create_posttype() {
                 'singular_name' => __( 'Motos Novas' )
             ),
             'public'              => true,
-			'menu_icon'           => 'dashicons-media-default',
+			'menu_icon'           => 'dashicons-star-filled',
             'has_archive'         => true,
             'rewrite'             => array('slug' => 'motos-novas'),
             'show_in_rest'        => true,
@@ -85,7 +85,7 @@ function create_used_posttype() {
                 'singular_name' => __( 'Moto Seminova' )
             ),
             'public'              => true,
-			'menu_icon'           => 'dashicons-media-default',
+			'menu_icon'           => 'dashicons-star-half',
             'has_archive'         => true,
             'rewrite'             => array('slug' => 'motos-seminovas'),
             'show_in_rest'        => true,
@@ -236,7 +236,7 @@ function create_products_posttype() {
                 'singular_name' => __( 'Produto' )
             ),
             'public'              => true,
-			'menu_icon'           => 'dashicons-media-default',
+			'menu_icon'           => 'dashicons-archive',
             'has_archive'         => true,
             'rewrite'             => array('slug' => 'produtos'),
             'show_in_rest'        => true,
@@ -392,7 +392,7 @@ function create_services_posttype() {
                 'singular_name' => __( 'Serviço' )
             ),
             'public'              => true,
-			'menu_icon'           => 'dashicons-media-default',
+			'menu_icon'           => 'dashicons-admin-tools',
             'has_archive'         => true,
             'rewrite'             => array('slug' => 'servicos'),
             'show_in_rest'        => true,
@@ -432,7 +432,7 @@ function create_electrics_posttype() {
                 'singular_name' => __( 'Elétrico' )
             ),
             'public'              => true,
-			'menu_icon'           => 'dashicons-media-default',
+			'menu_icon'           => 'dashicons-admin-plugins',
             'has_archive'         => true,
             'rewrite'             => array('slug' => 'eletricos'),
             'show_in_rest'        => true,
