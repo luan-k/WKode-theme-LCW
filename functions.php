@@ -47,7 +47,7 @@ function my_acf_json_load_point( $paths ) {
 
 
 
-//megamenu styles config   
+// Megamenu styles config   
 function add_megamenu_wrapper($args) {
     if($args['theme_location'] === 'main_menu') { 
         $args['walker'] = new Megamenu_Walker();
@@ -72,7 +72,7 @@ class Megamenu_Walker extends Walker_Nav_Menu {
         $indent = ($depth) ? str_repeat("\t", $depth) : '';
         $li_attributes = '';
         $class_names = $value = '';
-    
+
         $classes = empty($item->classes) ? array() : (array) $item->classes;
         if ($args->walker->has_children) {
             $classes[] = 'menu-item-has-children';
@@ -89,22 +89,32 @@ class Megamenu_Walker extends Walker_Nav_Menu {
         $id = apply_filters('nav_menu_item_id', 'menu-item-' . $item->ID, $item, $args);
         $id = strlen($id) ? ' id="' . esc_attr($id) . '"' : '';
         $output .= $indent . '<li' . $id . $value . $class_names . $li_attributes . '>';
-    
+
         $attributes = !empty($item->attr_title) ? ' title="' . esc_attr($item->attr_title) . '"' : '';
         $attributes .= !empty($item->target) ? ' target="' . esc_attr($item->target) . '"' : '';
         $attributes .= !empty($item->xfn) ? ' rel="' . esc_attr($item->xfn) . '"' : '';
         $attributes .= !empty($item->url) ? ' href="' . esc_attr($item->url) . '"' : '';
         $item_output = $args->before;
+
+        // Get the title of the menu item
+        $title = apply_filters('the_title', $item->title, $item->ID);
+
+        // Limit the number of words in the title to 4
+        $words_limit = 4;
+        $title_words = explode(' ', $title);
+        $limited_title = implode(' ', array_slice($title_words, 0, $words_limit));
+
+        // Create the menu item output with the limited title
         $item_output .= (wp_is_mobile() ? '<span class="menu-link-wrapper">' : '') . '<a' . $attributes . '>';
-    
-        // Add SVG arrow icon to top-level menu items
-        if (( !wp_is_mobile() ? $depth === 0 : true) && $args->walker->has_children) {
+        $item_output .= $args->link_before . $limited_title . $args->link_after;
+
+        // Add SVG arrow to top-level menu items with children
+        if ($depth === 0 && $args->walker->has_children) {
             $item_output .= '<span class="menu-item-arrow">' . $this->get_svg_arrow() . '</span>';
         }
-    
-        $item_output .= $args->link_before . apply_filters('the_title', $item->title, $item->ID) . $args->link_after;
+
         $item_output .= '</a>' . (wp_is_mobile() ? '</span>' : '');
-    
+
         // If this is a linked post type, add the featured image in a nested div with an <a> tag
         if (get_post_type($item->object_id) == 'motos-novas') {
             $custom_field_value = get_field('wkode_motorcycles_post_colors', $item->object_id);
@@ -120,7 +130,7 @@ class Megamenu_Walker extends Walker_Nav_Menu {
             $item_output .= '<img src="' . esc_url($actual_image) . '" />' . '<a class="wkode-btn--solid-main-red w-1/3" href="' . esc_url(get_permalink($item->object_id)) . '">Ver Mais</a>';
             $item_output .= '</div>';
         }
-    
+
         $item_output .= $args->after;
         $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
     }
@@ -136,9 +146,6 @@ class Megamenu_Walker extends Walker_Nav_Menu {
 
         return ''; // Return an empty string if the SVG file doesn't exist or cannot be read
     }
-    
-
 }
-
 
 ?>
