@@ -218,3 +218,10 @@
     }
   }
 }
+
+/* card was stretching with the filterbox so we add this */
+.wkode-archive--seminovas {
+  .wkode-used-bikes__card {
+    max-height: 51.8rem;
+  }
+}

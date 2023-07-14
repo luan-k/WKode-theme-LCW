@@ -74,7 +74,7 @@ if($posts){
                             <div class="wkode-used-bikes__card-footer-price">
                                 <?php
                                 if($price){
-                                    echo 'R$ '. $price;
+                                    echo 'R$ '. number_format($price, 0, ',', '.');
                                 }else{
                                     echo "consulte";
                                 }

@@ -2839,7 +2839,6 @@ wkode-btn wkode-btn--solid-white-red
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  max-height: 51.8rem;
   min-height: 49rem !important;
   overflow: hidden;
   position: relative;
@@ -3494,6 +3493,11 @@ wkode-btn wkode-btn--solid-white-red
     z-index: 9998;
   }
 }
+/* card was stretching with the filterbox so we add this */
+.wkode-archive--seminovas .wkode-used-bikes__card {
+  max-height: 51.8rem;
+}
+
 .wkode-header--blurred {
   -webkit-backdrop-filter: blur(12px);
           backdrop-filter: blur(12px);
