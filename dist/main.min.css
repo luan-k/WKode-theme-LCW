@@ -1928,12 +1928,14 @@ body .wraper {
     max-height: 0px;
     overflow: hidden;
     transition: 0.4s;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
   .wkode-header--mobile #controlIdForMobileNav nav.wkode-header__menu-container ul.nav.navbar-nav > .menu-item.menu-item-has-children.megamenu-custom-top-level-class > .sub-menu .menu-item .sub-menu .menu-item-object-motos-novas > .menu-link-wrapper {
     background: transparent;
     box-sizing: border-box;
     color: #000000;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     font-weight: 400;
   }
   .wkode-header--mobile #controlIdForMobileNav nav.wkode-header__menu-container ul.nav.navbar-nav > .menu-item.menu-item-has-children.megamenu-custom-top-level-class > .sub-menu .menu-item .sub-menu .menu-item-object-motos-novas > .menu-link-wrapper a {

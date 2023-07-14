@@ -227,6 +227,7 @@
                       max-height: 0px;
                       overflow: hidden;
                       transition: 0.4s;
+                      @apply px-4;    
 
                       //- Sub-menu item ( 3nd Level )
                       .menu-item-object-motos-novas {
@@ -234,7 +235,7 @@
                           background: transparent;
                           box-sizing: border-box;
                           color: #000000;
-                          font-size: 1.6rem;
+                          font-size: 1.8rem;
                           font-weight: 400;
 
                           a {
