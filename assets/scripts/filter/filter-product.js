@@ -5,10 +5,8 @@ import $ from "jquery";
 // Define variables and get all categories
 let filterTiles = $(".filter-product-tiles");
 const uniqueFilterTiles = document.getElementById("product-filter-tiles");
-console.log("hiiiiii");
 if (uniqueFilterTiles) {
   if (filterTiles) {
-    console.log("yep");
     let clickableElements = $(".taxonomies-list_item, #load-more");
     let templatePath = filterTiles.attr("template-path");
     let postType = filterTiles.attr("post-type");
@@ -27,7 +25,6 @@ if (uniqueFilterTiles) {
 
     if (currentHref.includes("?filtro=")) {
       const queryString = currentHref.split("?");
-      console.log(queryString);
       queryString.forEach((element) => {
         if (element.includes("filtro=")) {
           const replaced = element.replace("filtro=", "");
@@ -51,7 +48,6 @@ if (uniqueFilterTiles) {
         }
       });
     }
-    console.log(arrayToSubstitute);
 
     // Iterate over the categories to determine the type of element and the type of click event
     clickableElements.each(function () {
@@ -88,10 +84,6 @@ if (uniqueFilterTiles) {
         }
       }
     });
-
-    console.log(termsArray);
-    console.log(modelsArray);
-    console.log(stylesArray);
 
     // Event handler for the click/change event on the categories
     clickableElements.on("click", function (event) {
@@ -139,12 +131,8 @@ if (uniqueFilterTiles) {
             // this is if unchecking the checkbox, super long due to href conditionals. see a way to shorten it later.
             let clickHref = window.location.href;
             let currentQueryString = clickHref.split("?");
-            console.log(slug);
 
             if (clickHref.includes(slug)) {
-              console.log(termsArray);
-              console.log(modelsArray);
-              console.log(stylesArray);
               let removedUrlClick;
               if (clickHref.includes("?arg=" + slug)) {
                 removedUrlClick = clickHref.replace("?arg=" + slug, "");

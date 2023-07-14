@@ -153,7 +153,7 @@ $images = get_field('wkode_single_used_imgs', get_the_ID());
                         ?>
                         </div>
                     <div class="btn flex justify-center mt-36">
-                        <a href="" class="wkode-btn wkode-btn--solid-red m-auto">Ver Todos</a>
+                        <a href="<?php echo esc_url(site_url('/motos-seminovas')); ?>" class="wkode-btn wkode-btn--solid-red m-auto">Ver Todos</a>
                     </div>
                 </div>
 
@@ -177,7 +177,7 @@ $images = get_field('wkode_single_used_imgs', get_the_ID());
                         ?>
                     </div>
                     <div class="btn flex justify-center mt-36">
-                        <a href="" class="wkode-btn wkode-btn--solid-red m-auto">Ver Todos</a>
+                        <a href="<?php echo esc_url(site_url('/produtos')); ?>" class="wkode-btn wkode-btn--solid-red m-auto">Ver Todos</a>
                     </div>
                 </div>
             </article>

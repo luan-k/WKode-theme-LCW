@@ -34,7 +34,6 @@ if (uniqueFilterTiles) {
           minimumPriceValue = $(this)
             .val()
             .replace(/[^0-9]/g, ""); // Remove non-numeric characters
-          console.log(minimumPriceValue); // or store the value in a variable for further use
         },
       });
       maximumPriceInput.on({
@@ -42,14 +41,12 @@ if (uniqueFilterTiles) {
           maximumPriceValue = $(this)
             .val()
             .replace(/[^0-9]/g, ""); // Remove non-numeric characters
-          console.log(maximumPriceValue); // or store the value in a variable for further use
         },
       });
     });
 
     if (currentHref.includes("?filtro=")) {
       const queryString = currentHref.split("?");
-      console.log(queryString);
       queryString.forEach((element) => {
         if (element.includes("filtro=")) {
           const replaced = element.replace("filtro=", "");
@@ -77,9 +74,6 @@ if (uniqueFilterTiles) {
         }
       });
     }
-    console.log(arrayToSubstitute);
-    console.log(minimumPriceValue);
-    console.log(maximumPriceValue);
 
     // Iterate over the categories to determine the type of element and the type of click event
     clickableElements.each(function () {
@@ -117,9 +111,6 @@ if (uniqueFilterTiles) {
       }
     });
 
-    console.log(termsArray);
-    console.log(modelsArray);
-    console.log(stylesArray);
     let inputTimer;
     minimumPriceInput.on("input", (event) => {
       clearTimeout(inputTimer); // Clear previous timer if it exists
@@ -224,12 +215,8 @@ if (uniqueFilterTiles) {
             // this is if unchecking the checkbox, super long due to href conditionals. see a way to shorten it later.
             let clickHref = window.location.href;
             let currentQueryString = clickHref.split("?");
-            console.log(slug);
 
             if (clickHref.includes(slug)) {
-              console.log(termsArray);
-              console.log(modelsArray);
-              console.log(stylesArray);
               let removedUrlClick;
               if (clickHref.includes("?arg=" + slug)) {
                 removedUrlClick = clickHref.replace("?arg=" + slug, "");

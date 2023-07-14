@@ -148,7 +148,7 @@ if( isset( $block['data']['preview'] )  ) {    /* rendering in inserter preview 
 
         </div>
         <div class="btn flex justify-center mt-36">
-            <a href="" class="wkode-btn wkode-btn--outline-red m-auto">Ver Todos</a>
+            <a href="<?php echo esc_url(site_url('/motos-novas')); ?>" class="wkode-btn wkode-btn--outline-red m-auto">Ver Todos</a>
         </div>
     </section>
 

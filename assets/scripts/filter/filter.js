@@ -99,52 +99,24 @@ if (uniqueFilterTiles) {
               // this is if unchecking the checkbox, super long due to href conditionals. see a way to shorten it later.
               let clickHref = window.location.href;
               let currentQueryString = clickHref.split("?");
-              console.log(currentQueryString);
-              console.log(
-                "this is the one !!!!!!!!!!!!!! ============= " + clickHref
-              );
 
               if (clickHref.includes(slug)) {
                 let removedUrlClick;
                 if (clickHref.includes("?arg=" + slug)) {
                   removedUrlClick = clickHref.replace("?arg=" + slug, "");
-                  console.log(
-                    "this is the one !!!!!!!!!!!!!! ============= " +
-                      removedUrlClick
-                  );
                   updateURL(removedUrlClick);
                 } else if (clickHref.includes("?filtro=" + slug)) {
                   if (clickHref.includes(slug + "?arg=")) {
                     removedUrlClick = clickHref.replace(slug + "?arg=", "");
-                    console.log(
-                      "this is the one !!!!!!!!!!!!!! ============= " +
-                        removedUrlClick
-                    );
                     updateURL(removedUrlClick);
                   } else {
                     removedUrlClick = clickHref.replace("?filtro=" + slug, "");
-                    console.log(
-                      "this is the one !!!!!!!!!!!!!! ============= " +
-                        removedUrlClick
-                    );
                     updateURL(removedUrlClick);
                   }
                 } else {
                   removedUrlClick = clickHref.replace(slug, "");
-                  console.log(
-                    "this is the one !!!!!!!!!!!!!! ============= " +
-                      removedUrlClick
-                  );
                   updateURL(removedUrlClick);
                 }
-
-                /* if (clickHref.includes("?arg=")) {
-                removedUrlClick = clickHref.replace("?arg=", "");
-                console.log(
-                  "this is the one !!!!!!!!!!!!!! ============= " +
-                    removedUrlClick
-                );
-              } */
               }
 
               let index = termsArray.indexOf(slug);

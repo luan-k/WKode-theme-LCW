@@ -15,7 +15,6 @@ if (window.innerWidth <= 1000) {
 
 if (!singleNewBikesCheck) {
   body.style.paddingTop = `${header.offsetHeight}px`;
-  console.log("thereisnot");
 }
 header.classList.add("fixed");
 

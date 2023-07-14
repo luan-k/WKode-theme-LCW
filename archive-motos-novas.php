@@ -45,7 +45,7 @@ $count = new WP_Query($countArgs);
         <div class="category-filter">
             <div class="category taxonomies-list_item remove-filters  <?php if(!$filterValue): echo 'category--current'; endif; ?>">Todas</div>
             <?php foreach($categories as $index => $category) : ?>
-                <div data-slug="<?= $category->slug; ?>" class="category taxonomies-list_item <?php if($filterValue == $category->slug): echo 'category--current'; endif; ?>">
+                <div data-slug="<?= $category->slug; ?>" class="category taxonomies-list_item <?php if($filterValue[0] == $category->slug): echo 'category--current'; endif; ?>">
                     <?= $category->name; ?>
                 </div>
             <?php endforeach; ?>
@@ -88,7 +88,7 @@ $count = new WP_Query($countArgs);
         ?>
     </div>
     <div class="btn flex justify-center mt-36 w-full md:w-2/4 m-auto">
-        <a href="" class="wkode-btn wkode-btn--solid-red m-auto text-center" id="load-more">Ver Todos</a>
+        <a href="<?php echo esc_url(site_url('/produtos')); ?>" class="wkode-btn wkode-btn--solid-red m-auto text-center">Ver Todos</a>
     </div>
 </section>
 
