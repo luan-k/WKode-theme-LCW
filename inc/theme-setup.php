@@ -252,16 +252,16 @@ if ( function_exists( 'acf_register_block_type' ) ) {
 					'description'     => __( 'O bloco principal usado para mostrar as novas motos em um carrocel' ),
 					'render_template' => 'template-parts/blocks/posts/wkode-new-bikes.php',
 					'category'        => 'wkode',
-					'icon'            => 'align-pull-right',
+					'icon'            => 'star-filled',
 					'keywords'        => array( 'wkode Bloco principal', 'wkode', 'Principal', 'Moto', 'nova', 'moto nova', 'home', 'carrocel' ),
-					/* 'example'  => array(
+					'example'  => array(
 						'attributes' => array(
 							'mode' => 'preview',
 							'data' => array(
-								'preview' => '/template-parts/blocks/preview/wkode-main-block.png',
+								'preview' => get_theme_file_uri('/template-parts/blocks/preview/wkode-new-bikes-block.png'),
 							)
 						)
-					) */
+					)
 				)
 			);
 			acf_register_block_type(
@@ -271,16 +271,16 @@ if ( function_exists( 'acf_register_block_type' ) ) {
 					'description'     => __( 'O bloco principal usado para mostrar as motos seminovas em um carrocel' ),
 					'render_template' => 'template-parts/blocks/posts/wkode-used-bikes.php',
 					'category'        => 'wkode',
-					'icon'            => 'align-pull-right',
+					'icon'            => 'star-half',
 					'keywords'        => array( 'wkode Bloco principal', 'wkode', 'Principal', 'Moto', 'seminova', 'moto seminova', 'home', 'carrocel' ),
-					/* 'example'  => array(
+					'example'  => array(
 						'attributes' => array(
 							'mode' => 'preview',
 							'data' => array(
-								'preview' => '/template-parts/blocks/preview/wkode-main-block.png',
+								'preview' => '/template-parts/blocks/preview/wkode-used-bikes-block.png',
 							)
 						)
-					) */
+					)
 				)
 			);
 			acf_register_block_type(
@@ -290,16 +290,16 @@ if ( function_exists( 'acf_register_block_type' ) ) {
 					'description'     => __( 'Um bloco com múltiplas imagens primariamente feito para o consórcio na home page. Mas pode ser usado para vários propósitos.' ),
 					'render_template' => 'template-parts/blocks/posts/wkode-multiple-image-consorcio-block.php',
 					'category'        => 'wkode',
-					'icon'            => 'align-pull-right',
+					'icon'            => 'align-left',
 					'keywords'        => array( 'wkode Bloco principal', 'Imagens', 'wkode', 'Principal', 'Moto', 'nova', 'moto nova', 'home' ),
-					/* 'example'  => array(
+					'example'  => array(
 						'attributes' => array(
 							'mode' => 'preview',
 							'data' => array(
 								'preview' => '/template-parts/blocks/preview/wkode-multiple-image-consorcio-block.png',
 							)
 						)
-					) */
+					)
 				)
 			);
 			acf_register_block_type(
@@ -309,16 +309,16 @@ if ( function_exists( 'acf_register_block_type' ) ) {
 					'description'     => __( 'Bloco usado para mostrar produtos na home page' ),
 					'render_template' => 'template-parts/blocks/posts/wkode-products.php',
 					'category'        => 'wkode',
-					'icon'            => 'align-pull-right',
+					'icon'            => 'archive',
 					'keywords'        => array( 'wkode Bloco principal', 'wkode', 'Principal', 'acessorio', 'produto', 'moto seminova', 'home', 'carrocel' ),
-					/* 'example'  => array(
+					'example'  => array(
 						'attributes' => array(
 							'mode' => 'preview',
 							'data' => array(
-								'preview' => '/template-parts/blocks/preview/wkode-main-block.png',
+								'preview' => '/template-parts/blocks/preview/wkode-products.png',
 							)
 						)
-					) */
+					)
 				)
 			);
 			acf_register_block_type(
@@ -328,16 +328,16 @@ if ( function_exists( 'acf_register_block_type' ) ) {
 					'description'     => __( 'Bloco usado para mostrar os serviços' ),
 					'render_template' => 'template-parts/blocks/posts/wkode-main-block-card-revisao-geral.php',
 					'category'        => 'wkode',
-					'icon'            => 'align-pull-right',
+					'icon'            => 'admin-tools',
 					'keywords'        => array( 'wkode Bloco principal', 'wkode', 'Principal', 'Revisão Geral'),
-					/* 'example'  => array(
+					'example'  => array(
 						'attributes' => array(
 							'mode' => 'preview',
 							'data' => array(
-								'preview' => '/template-parts/blocks/preview/wkode-main-block.png',
+								'preview' => '/template-parts/blocks/preview/wkode-main-block-card-revisao-geral.png',
 							)
 						)
-					) */
+					)
 				)
 			);
 			acf_register_block_type(
@@ -347,16 +347,16 @@ if ( function_exists( 'acf_register_block_type' ) ) {
 					'description'     => __( 'Bloco para o formulario de contato' ),
 					'render_template' => 'template-parts/blocks/posts/wkode-contact-form.php',
 					'category'        => 'wkode',
-					'icon'            => 'align-pull-right',
+					'icon'            => 'email-alt',
 					'keywords'        => array( 'wkode Bloco principal', 'wkode', 'Principal', 'Revisão Geral'),
-					/* 'example'  => array(
+					'example'  => array(
 						'attributes' => array(
 							'mode' => 'preview',
 							'data' => array(
-								'preview' => '/template-parts/blocks/preview/wkode-main-block.png',
+								'preview' => '/template-parts/blocks/preview/wkode-contact-form.png',
 							)
 						)
-					) */
+					)
 				)
 			);
 		}

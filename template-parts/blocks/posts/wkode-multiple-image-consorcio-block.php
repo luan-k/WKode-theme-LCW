@@ -23,12 +23,12 @@ if($block_direction){
     $current_direction = "wkode-main-block__normal-direction";
 }
 
-//if( isset( $block['data']['preview'] )  ) {    /* rendering in inserter preview  */ ?>
+if( isset( $block['data']['preview'] )  ) {    /* rendering in inserter preview  */ ?>
 
-	<!-- <img src="<?php echo get_theme_file_uri('template-parts/blocks/preview/wkode-main-block.png'); ?>" style="width:100%; height:auto;"> -->
+	<img src="<?php echo get_theme_file_uri('template-parts/blocks/preview/wkode-multiple-image-consorcio-block.png'); ?>" style="width:100%; height:auto;">
 
 <?php
-//}else{ ?>
+}else{ ?>
 <section class="wkode-main-block <?php echo $current_mode; echo " " . $current_direction; ?> wkode-multiple-image">
         <div class="wkode-main-block__wrapper ">
             <div class="wkode-main-block__content col-span-1">
@@ -62,5 +62,5 @@ if($block_direction){
         </div>
     </section>
    
-<?php
-//}
+<?php 
+} ?>

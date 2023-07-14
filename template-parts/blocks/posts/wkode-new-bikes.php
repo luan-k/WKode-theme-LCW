@@ -18,8 +18,12 @@ if($posts){
     $final_posts = false;
 }
 
-?>
+if( isset( $block['data']['preview'] )  ) {    /* rendering in inserter preview  */ ?>
 
+	<img src="<?php echo get_theme_file_uri('template-parts/blocks/preview/wkode-new-bikes-block.png'); ?>" style="width:100%; height:auto;">
+
+<?php
+}else{ ?>
 
 <section class="wkode-new-bikes__section">
         <h2 class="wkode-new-bikes__title title ">Modelos em destaque</h2>
@@ -147,3 +151,6 @@ if($posts){
             <a href="" class="wkode-btn wkode-btn--outline-red m-auto">Ver Todos</a>
         </div>
     </section>
+
+<?php 
+} ?>

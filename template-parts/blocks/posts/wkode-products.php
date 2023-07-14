@@ -17,7 +17,12 @@ if($posts){
     $final_posts = false;
 }
 
-?>
+if( isset( $block['data']['preview'] )  ) {    /* rendering in inserter preview  */ ?>
+
+	<img src="<?php echo get_theme_file_uri('template-parts/blocks/preview/wkode-products.png'); ?>" style="width:100%; height:auto;">
+
+<?php
+}else{ ?>
 
 
 <section class="wkode-products bg-lcw-primary-blue py-48">
@@ -55,3 +60,6 @@ if($posts){
         <a href="" class="wkode-btn wkode-btn--outline-red m-auto text-center">Ver Todos</a>
     </div>
 </section>
+
+<?php 
+} ?>

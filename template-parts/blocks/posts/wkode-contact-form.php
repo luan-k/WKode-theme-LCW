@@ -1,3 +1,12 @@
+<?php 
+
+if( isset( $block['data']['preview'] )  ) {    /* rendering in inserter preview  */ ?>
+
+	<img src="<?php echo get_theme_file_uri('template-parts/blocks/preview/wkode-contact-form.png'); ?>" style="width:100%; height:auto;">
+
+<?php
+}else{ ?>
+
 <section class="wkode-contact-block">
     <div class="wkode-contact-block__wrapper ">
         <header class="wkode-contact-block__title-header">
@@ -17,3 +26,6 @@
     </div>
 
 </section>
+
+<?php 
+} ?>

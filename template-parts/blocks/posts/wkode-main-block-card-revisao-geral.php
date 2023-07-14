@@ -29,12 +29,12 @@ if($block_direction){
     $current_direction = "wkode-overlay-card__normal-direction";
 }
 
-// if( isset( $block['data']['preview'] )  ) {    /* rendering in inserter preview  */ ?>
-<!-- 
-	<img src="<?php echo get_theme_file_uri('template-parts/blocks/preview/wkode-overlay-card.png'); ?>" style="width:100%; height:auto;">
-    -->
+if( isset( $block['data']['preview'] )  ) {    /* rendering in inserter preview  */ ?>
+
+	<img src="<?php echo get_theme_file_uri('template-parts/blocks/preview/wkode-main-block-card-revisao-geral.png'); ?>" style="width:100%; height:auto;">
+
 <?php
-//}else{ ?> 
+}else{ ?>
 <section class="wkode-overlay-card <?php echo $current_mode; echo " " . $current_direction; echo " " . $current_bg; ?>">
         <div class="wkode-overlay-card__wrapper container">
             <div class="wkode-overlay-card__content">
@@ -56,5 +56,5 @@ if($block_direction){
             }
         }
     </style>
-<?php
-/* } */
+<?php 
+} ?>
