@@ -33,6 +33,7 @@ window.addEventListener("load", () => {
   }
 
   function verifyIfOpened(menu) {
+    //- If menu is opened & is on first level
     return menu.getElementsByClassName("opened").length > 0;
   }
 
