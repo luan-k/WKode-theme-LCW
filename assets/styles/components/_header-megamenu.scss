@@ -2,7 +2,6 @@
 
 .wkode-header--desktop {
   .wkode-header__menu-container {
-
     .sub-menu.megamenu {
       @apply bg-lcw-primary-gray;
       border-radius: 0 0 2.1rem 2.1rem;
@@ -11,7 +10,7 @@
       opacity: 0;
       padding: 0;
       position: absolute;
-      top: 54px;
+      top: 52px;
       transition: all 0.3s;
       visibility: hidden;
       width: 100%;
@@ -29,7 +28,7 @@
           }
         }
       }
-      
+
       .sub-menu {
         align-items: stretch;
         flex-direction: column;
@@ -64,11 +63,11 @@
         font-size: 1.4rem;
         margin: 0;
         padding: 0;
-  
+
         a {
-          /* width: 100%; */
           display: flex;
           padding: 1.5rem 3rem;
+          /* white-space: normal; */
         }
         .menu-item-image {
           background-color: white;
@@ -86,12 +85,15 @@
           width: 100rem;
           width: 360%;
           img {
+            /* width: 70%; */
+            height: 70%;
             margin: auto;
-            margin-top: 3rem;
-            width: 70%;
+            margin-bottom: 3rem;
+            margin-top: 1.5rem;
+            width: auto;
           }
         }
-        
+
         &:hover {
           & > .sub-menu {
             opacity: 1;
@@ -148,8 +150,6 @@
     display: block;
     z-index: 9999;
   }
-
 }
-
 
 //- Mobile Megamenu
