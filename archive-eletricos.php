@@ -11,7 +11,7 @@
             <div class="wkode-archive__grid">
 
                 <?php while (have_posts()) : the_post(); 
-                    get_template_part('./template-parts/cards/products');
+                    get_template_part('./template-parts/cards/electrics');
                 endwhile; ?>
             </div>
 

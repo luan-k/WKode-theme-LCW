@@ -4883,11 +4883,11 @@ body.modal-open::after {
   grid-column: span 12 / span 12;
   gap: 3rem;
 }
-.wkode-archive--electrics .wkode-archive__grid .wkode-products__card {
+.wkode-archive--electrics .wkode-products__card {
   overflow: hidden;
   padding: 0 0 2rem 0;
 }
-.wkode-archive--electrics .wkode-archive__grid .wkode-products__card .wkode-products__card-title {
+.wkode-archive--electrics .wkode-products__card .wkode-products__card-title {
   padding-left: 3.6rem;
   padding-right: 3.6rem;
 }

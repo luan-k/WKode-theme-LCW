@@ -263,48 +263,48 @@ $hero_image = get_field( 'wkode_motorcycles_hero_image' );
                         <?php endif ?>
 
                     </section>
-                    
-                    <section class="wkode-new-bikes-single__gallery">
-                        
-                        <?php
-                        $gallery              = get_field('wkode_new_motorcycles_gallery');
-                        if($gallery){ ?>
-                            <div class="wkode-new-bikes-single__gallery-outer-wrapper grid grid-cols-1 md:grid-cols-12">
-                                <?php foreach ($gallery as $i => $image):
 
-                                    $current_class = "";
-                                    $image_url = "";
-                                    if($i == 0 || $i == 1 || $i == 3 || $i == 4 || $i == 6){
-                                        $current_class = "col-span-1 md:col-span-2";
-                                        $image_url = wp_get_attachment_image_src($image['ID'], 'wkode_new_bikes_single__gallery_two_cols');
-                                    }else if($i == 2){
-                                        $current_class = "col-span-1 md:col-span-6";
-                                        $image_url = wp_get_attachment_image_src($image['ID'], 'wkode_new_bikes_single__gallery_six_cols');
-                                    }else if($i == 5 || $i == 7){
-                                        $current_class = "col-span-1 md:col-span-4";
-                                        $image_url = wp_get_attachment_image_src($image['ID'], 'wkode_new_bikes_single__gallery_four_cols');
-                                    }if (wp_is_mobile()) { // Retrieve screen width from cookie
-                                        $current_class_second = " col-span-1";
-                                        $image_url = wp_get_attachment_image_src($image['ID'], 'wkode_new_bikes_single__gallery_one_by_one');
-                                    }
-                                    $image_alt = get_post_meta($image['ID'], '_wp_attachment_image_alt', true);
-                                    ?>
-                                    <div class="<?php echo $current_class . $current_class_second ?> wkode-new-bikes-single__gallery-wrapper">
-                                        <a href="<?php echo esc_url($image['url']); ?>" class="gallery-image wkode-new-bikes-single__gallery-link" data-fancybox="gallery">
-                                            <img src="<?php echo esc_url($image_url[0]); ?>" alt="<?php echo esc_attr($image_alt); ?>" class="wkode-new-bikes-single__gallery-img">
-                                        </a>
-                                    </div>
-                                <?php endforeach; ?>
-                            </div>
-                        <?php } ?>
-                    </section>
+                    <?php
+                    $gallery              = get_field('wkode_new_motorcycles_gallery');
+                    if($gallery){ ?>
+                        <section class="wkode-new-bikes-single__gallery">
 
-                    <section class="wkode-new-bikes-single__accordion" style="background-image: url( <?php if (has_post_thumbnail()) { echo get_the_post_thumbnail_url($post->ID, 'wkode_single_new_bikes'); } ?>)">
-                        <section class="wkode-new-bikes-single__accordion-wrapper">
-                            <?php
-                            $accordion = get_field('wkode_new_motorcycles_accordion');
-                            if ($accordion) {
-                                ?>
+                                <div class="wkode-new-bikes-single__gallery-outer-wrapper grid grid-cols-1 md:grid-cols-12">
+                                    <?php foreach ($gallery as $i => $image):
+
+                                        $current_class = "";
+                                        $image_url = "";
+                                        if($i == 0 || $i == 1 || $i == 3 || $i == 4 || $i == 6){
+                                            $current_class = "col-span-1 md:col-span-2";
+                                            $image_url = wp_get_attachment_image_src($image['ID'], 'wkode_new_bikes_single__gallery_two_cols');
+                                        }else if($i == 2){
+                                            $current_class = "col-span-1 md:col-span-6";
+                                            $image_url = wp_get_attachment_image_src($image['ID'], 'wkode_new_bikes_single__gallery_six_cols');
+                                        }else if($i == 5 || $i == 7){
+                                            $current_class = "col-span-1 md:col-span-4";
+                                            $image_url = wp_get_attachment_image_src($image['ID'], 'wkode_new_bikes_single__gallery_four_cols');
+                                        }if (wp_is_mobile()) { // Retrieve screen width from cookie
+                                            $current_class_second = " col-span-1";
+                                            $image_url = wp_get_attachment_image_src($image['ID'], 'wkode_new_bikes_single__gallery_one_by_one');
+                                        }
+                                        $image_alt = get_post_meta($image['ID'], '_wp_attachment_image_alt', true);
+                                        ?>
+                                        <div class="<?php echo $current_class . $current_class_second ?> wkode-new-bikes-single__gallery-wrapper">
+                                            <a href="<?php echo esc_url($image['url']); ?>" class="gallery-image wkode-new-bikes-single__gallery-link" data-fancybox="gallery">
+                                                <img src="<?php echo esc_url($image_url[0]); ?>" alt="<?php echo esc_attr($image_alt); ?>" class="wkode-new-bikes-single__gallery-img">
+                                            </a>
+                                        </div>
+                                    <?php endforeach; ?>
+                                </div>
+                        </section>
+                    <?php }
+
+                    $accordion = get_field('wkode_new_motorcycles_accordion');
+                    if ($accordion) {
+                        ?>
+                        <section class="wkode-new-bikes-single__accordion" style="background-image: url( <?php if (has_post_thumbnail()) { echo get_the_post_thumbnail_url($post->ID, 'wkode_single_new_bikes'); } ?>)">
+                            <section class="wkode-new-bikes-single__accordion-wrapper">
+
                                 <div class="accordion">
                                     <h2 class="wkode-new-bikes-single__accordion-title">Especificações</h2>
                                     <?php foreach ($accordion as $x => $accordion_item) : ?>
@@ -326,10 +326,10 @@ $hero_image = get_field( 'wkode_motorcycles_hero_image' );
                                         </div>
                                     <?php endforeach; ?>
                                 </div>
-                            <?php } ?>
-                        </section>
-                    </section>
 
+                            </section>
+                        </section>
+                    <?php } ?>
                     <div class="wkode-single-new-bikes-template__content entry-content">
                         <?php the_content(); ?>
                     </div>
