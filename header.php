@@ -25,7 +25,7 @@ if (is_single() && $post_type === 'motos-novas') {
 }
 ?>
 <body <?php body_class(); ?> >
-	<div class="wraper" >
+	<div class="wraper test-delete-me-later" >
     <header class="wkode-header wkode-header--desktop <?php if($is_blurred){ echo 'wkode-header--blurred';}?>">
       <div class="wkode-header__nav wkode-header__nav--top">
         <div class="wkode-header__logo-wraper">
