@@ -71,10 +71,31 @@
                     </section>
 
                     <section class="wkode-single-new-bikes-template__bikes-colors bg-white relative">
-                        <div class="wkode-single-new-bikes-template__bikes-colors-wrapper container py-48">
+                        <?php
+                        // Get the value of the custom field for the current post 
+                        $custom_field_value = get_field('wkode_motorcycles_post_colors', get_the_ID());
+                        $alt_version_repeater = get_field('wkode_new_motorcycles_version', get_the_ID());
+                        $main_version_title = get_field('wkode_new_motorcycles_main_version_title', get_the_ID()); ?>
+
+                        <div class="wkode-single-new-bikes-template__bikes-colors-title-wrapper">
+                            <h2 class="wkode-single-new-bikes-template__bikes-colors-main-title colors-title-active text-black">
+                                <?= $main_version_title ?>
+                            </h2>
+
                             <?php
-                            // Get the value of the custom field for the current post 
-                            $custom_field_value = get_field('wkode_motorcycles_post_colors', get_the_ID());
+                            if($alt_version_repeater){
+                                foreach ($alt_version_repeater as $index => $version) {
+                                    $version_title = $version['wkode_new_motorcycles_version_title']; ?>
+                                    <h2 class="wkode-single-new-bikes-template__bikes-colors-main-title text-black">
+                                        <?= $version_title ?>
+                                    </h2>
+                                <?php
+                                }
+                            }?>
+                        </div>
+
+                        <div class="wkode-single-new-bikes-template__bikes-colors-wrapper model-wrapper-container model-wrapper-container--active wkode-new-bikes__card container py-48">
+                            <?php
 
                             foreach ($custom_field_value as $index => $field) {
                                 $postImg = $field['wkode_motorcycles_post_img'];
@@ -123,6 +144,67 @@
                             ?>
                             </div>
                         </div>
+
+                        <?php
+                        if($alt_version_repeater){
+
+                            foreach ($alt_version_repeater as $index => $version) {
+                                $version_colors = $version['wkode_new_motorcycles_colors']; ?>
+
+                                <div class="wkode-single-new-bikes-template__bikes-colors-wrapper model-wrapper-container wkode-new-bikes__card container py-48">
+                                    <?php
+
+                                    foreach ($version_colors as $index => $field) {
+                                        $postImg = $field['wkode_motorcycles_post_img'];
+                                        if($index == 0){ ?>
+
+                                            <img class="wkode-new-bikes__card-img active-color-image" src="<?php echo $postImg; ?>" alt="" srcset=""><?php
+                                        }else{  ?>
+                                            <img class="wkode-new-bikes__card-img" src="<?php echo $postImg; ?>" alt="" srcset=""> <?php
+                                        }
+
+                                    }?>
+                                    <div class="wkode-new-bikes__card-colors text-black container">
+                                        <?php
+
+                                        foreach ($version_colors as $index => $field) {
+                                            $postColor = $field['wkode_motorcycles_post_color'];
+                                            $biOrTri = $field['wkode_motorcycles_bicolor_ou_tricolor'];
+                                            $secondColor = $field['wkode_motorcycles_post_color_two'];
+                                            $thirdColor = $field['wkode_motorcycles_post_color_three'];
+
+                                            if($biOrTri == 'bicolor'){
+                                                $biOrTriClass = "wkode-new-bikes__card-color--bicolor";
+                                            }elseif($biOrTri == 'tricolor'){
+                                                $biOrTriClass = "wkode-new-bikes__card-color--tricolor";
+                                            }else{
+                                                $biOrTriClass = "wkode-new-bikes__card-color--unique";
+                                            }
+                                            if($index == 0){ 
+                                                $active_color = "active-color";
+                                            }else{ 
+                                                $active_color = "";
+                                            } ?>
+                                            <span class="wkode-new-bikes__card-color <?php echo $active_color ?>">
+                                                <span class="<?php echo $biOrTriClass ?>" style="background-color: <?php echo $postColor; ?>"></span>
+                                                <?php
+                                                if($biOrTri == 'bicolor'){ ?>
+                                                    <span class="<?php echo $biOrTriClass ?>" style="background-color: <?php echo $secondColor; ?>"></span><?php 
+                                                }if($biOrTri == 'tricolor'){?>
+                                                    <span class="<?php echo $biOrTriClass ?>" style="background-color: <?php echo $secondColor; ?>"></span>
+                                                    <span class="<?php echo $biOrTriClass ?>" style="background-color: <?php echo $thirdColor; ?>"></span><?php 
+                                                }
+                                                ?>
+                                            </span> <?php
+                                        }
+                                    
+                                    ?>
+                                    </div>
+                                </div>
+                                <?php
+                            }
+                        }
+                       ?>
                     </section>
 
                     <?php 

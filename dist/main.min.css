@@ -2393,6 +2393,7 @@ body.admin-bar .search-overlay {
 
 #search-overlay__results {
   max-width: 100%;
+  min-width: 100%;
 }
 
 #navbarNavAltMarkup {
@@ -2888,9 +2889,9 @@ wkode-btn wkode-btn--solid-white-red
   justify-content: space-between;
 }
 .wkode-used-bikes__card-info {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-family: "Rubik", "sans-serif";
-  font-weight: 700;
+  font-weight: 500;
   --tw-text-opacity: 1;
   color: rgb(20 21 27 / var(--tw-text-opacity));
 }
@@ -2898,9 +2899,17 @@ wkode-btn wkode-btn--solid-white-red
   align-content: center;
   align-items: center;
   display: flex;
+  min-width: 50%;
 }
 .wkode-used-bikes__card-info-date img, .wkode-used-bikes__card-info-km img {
   margin-right: 1rem;
+  max-width: 2.7rem;
+}
+.wkode-used-bikes__card-info-date {
+  justify-content: flex-start;
+}
+.wkode-used-bikes__card-info-km {
+  justify-content: flex-end;
 }
 .wkode-used-bikes__card-footer{
   padding-left: 3rem;
@@ -2921,7 +2930,7 @@ wkode-btn wkode-btn--solid-white-red
   white-space: nowrap;
 }
 
-@media (min-width: 1000px) and (max-width: 1280px) {
+@media (min-width: 1000px) and (max-width: 1024px) {
   .wkode-used-bikes__card-footer {
     flex-direction: column;
   }
@@ -3501,7 +3510,13 @@ wkode-btn wkode-btn--solid-white-red
 }
 /* card was stretching with the filterbox so we add this */
 .wkode-archive--seminovas .wkode-used-bikes__card {
-  max-height: 51.8rem;
+  /* max-height: 51.8rem; */
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.wkode-archive--seminovas .wkode-archive__grid {
+  max-height: -moz-fit-content;
+  max-height: fit-content;
 }
 
 .wkode-header--blurred {
@@ -3930,6 +3945,83 @@ wkode-btn wkode-btn--solid-white-red
   justify-content: center;
   text-transform: uppercase;
   width: 100%;
+}
+
+.wkode-single-new-bikes-template__bikes-colors-title-wrapper {
+  display: flex;
+  left: 50%;
+  position: absolute;
+  top: -5rem;
+  transform: translateX(-50%);
+}
+@media (max-width: 1000px) {
+  .wkode-single-new-bikes-template__bikes-colors-title-wrapper {
+    flex-direction: column;
+    top: -8rem;
+    width: 91%;
+  }
+}
+.wkode-single-new-bikes-template__bikes-colors-title-wrapper .wkode-single-new-bikes-template__bikes-colors-main-title {
+  align-items: center;
+  background-color: white;
+  border-radius: 1.2rem 1.2rem 0 0;
+  cursor: pointer;
+  display: flex;
+  font-size: 1.8rem;
+  font-weight: 600;
+  height: 5rem;
+  opacity: 0.6;
+  padding-left: 4.7rem;
+  padding-right: 4.7rem;
+  transition: all 0.3s;
+  white-space: nowrap;
+}
+@media (max-width: 1000px) {
+  .wkode-single-new-bikes-template__bikes-colors-title-wrapper .wkode-single-new-bikes-template__bikes-colors-main-title {
+    border-radius: 0;
+    height: 9rem;
+    order: 2;
+    white-space: initial;
+  }
+}
+.wkode-single-new-bikes-template__bikes-colors-title-wrapper .wkode-single-new-bikes-template__bikes-colors-main-title.colors-title-active {
+  opacity: 1;
+}
+@media (max-width: 1000px) {
+  .wkode-single-new-bikes-template__bikes-colors-title-wrapper .wkode-single-new-bikes-template__bikes-colors-main-title.colors-title-active {
+    border-radius: 1.2rem 1.2rem 0 0;
+    order: 1;
+  }
+}
+
+.wkode-new-bikes__card.model-wrapper-container {
+  display: none !important;
+  margin: auto;
+  min-height: 54rem !important;
+  overflow: auto;
+  padding-bottom: 12rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 12rem;
+  position: initial !important;
+}
+@media (max-width: 1000px) {
+  .wkode-new-bikes__card.model-wrapper-container {
+    padding-top: 21rem;
+  }
+}
+.wkode-new-bikes__card.model-wrapper-container .wkode-new-bikes__card-img {
+  height: auto;
+  margin: auto;
+  width: 54%;
+}
+@media (max-width: 800px) {
+  .wkode-new-bikes__card.model-wrapper-container .wkode-new-bikes__card-img {
+    width: 80%;
+  }
+}
+.wkode-new-bikes__card.model-wrapper-container--active {
+  display: block !important;
 }
 
 .wkode-single-new-bikes-template__bikes-colors-wrapper .wkode-new-bikes__card-colors {

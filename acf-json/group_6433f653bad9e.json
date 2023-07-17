@@ -198,9 +198,9 @@
             },
             "collapsed": "",
             "min": 0,
-            "max": 0,
+            "max": 3,
             "layout": "block",
-            "button_label": "",
+            "button_label": "Versão Adicional",
             "sub_fields": [
                 {
                     "key": "field_64b43c7565dc6",
@@ -1073,5 +1073,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 1,
-    "modified": 1689549448
+    "modified": 1689625715
 }
