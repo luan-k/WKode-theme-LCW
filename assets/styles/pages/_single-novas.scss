@@ -38,7 +38,7 @@
       height: auto;
       left: 50%;
       max-width: none;
-
+      min-height: 100%;
       min-width: 100%;
       position: absolute;
       top: 50%;
@@ -172,16 +172,23 @@
     font-family: "Rubik";
     font-size: 4rem;
     font-weight: 700;
-    margin-bottom: 3rem;
-    margin-top: 15rem;
     text-transform: uppercase;
+
+    &-header {
+      padding-bottom: 3rem;
+      padding-top: 15rem;
+    }
+    &-wrapper {
+      @apply container;
+    }
   }
 }
 
 .wkode-single-new-bikes-template-block {
   &__dark-mode {
     @apply bg-lcw-primary-blue;
-    .wkode-single-new-bikes-template-block__title {
+    .wkode-single-new-bikes-template-block__title,
+    h1.wkode-single-new-bikes-template__title {
       @apply text-white;
     }
     .wkode-single-new-bikes-template-block__text {
@@ -190,7 +197,8 @@
   }
   &__light-mode {
     @apply bg-lcw-primary-white;
-    .wkode-single-new-bikes-template-block__title {
+    .wkode-single-new-bikes-template-block__title,
+    h1.wkode-single-new-bikes-template__title {
       @apply text-lcw-primary-blue;
     }
     .wkode-single-new-bikes-template-block__text {
@@ -390,7 +398,7 @@
     overflow: hidden;
   }
   .wkode-single-new-bikes-template-block__content {
-    @apply col-span-12 xl:col-span-7;
+    @apply col-span-12 xl:col-span-9;
     z-index: 9;
   }
   .wkode-single-new-bikes-template-block__image {
@@ -619,6 +627,19 @@
         padding-top: 0;
         transition: all 0.3s;
         visibility: hidden;
+        p {
+          color: #757575;
+          font-family: "Rubik";
+          font-size: 1.2rem;
+          margin-bottom: 1rem;
+          strong {
+            font-family: "Rubik";
+            font-size: 1.3rem;
+            font-weight: 600;
+            text-transform: capitalize;
+            @apply text-lcw-primary-red;
+          }
+        }
         .accordion-inner-item {
           max-height: 100%;
           .accordion-inner-title {
