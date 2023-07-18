@@ -64,7 +64,6 @@ $count = new WP_Query($countArgs);
                     <span class="close-mobile-filters">x</span>
                 <?php } ?>
             </h3>
-           <!--  <div class="taxonomies-list_item remove-filters">Remover filtros</div> -->
             <div class="wrapper-cat-list">
                 <h4 class="title-taxonomy">
                     Marcas
@@ -149,6 +148,9 @@ $count = new WP_Query($countArgs);
                     <input class="taxonomy-number-field taxonomy-number-field--min-value" type="text" placeholder="de" data-type="currency" value="<?php if($minPrice): echo 'R$ ' . number_format($minPrice, 0, ',', '.'); endif; ?>" />
                     <input class="taxonomy-number-field taxonomy-number-field--max-value" type="text" placeholder="até" data-type="currency" value="<?php if($maxPrice): echo 'R$ ' . number_format($maxPrice, 0, ',', '.'); endif; ?>" />
                 </ul>
+            </div>
+            <div class="btn__wrapper w-full px-7">                
+                <div class="taxonomies-list_item remove-filters wkode-btn wkode-btn--outline-blue">Remover filtros</div>
             </div>
             <?php if(wp_is_mobile()){ ?>
 			<h3 class="title-filters title-filters__footer-filters">

@@ -20,15 +20,15 @@ function product_filter_function($post_type, $taxonomy, $wp_object){
             $filtroValue = $params['filtro'];
             $filtroSegments = explode('?', $filtroValue);
             foreach ($filtroSegments as $segment) {
-                if (strpos($segment, 'taxbrand=') !== false) {
+                if (strpos($segment, 'taxaccess=') !== false) {
                     $brandValue = explode(',', substr($segment, strpos($segment, '=') + 1));
                     $brandsValue = array_merge($brandsValue, $brandValue);
                 }
-                if (strpos($segment, 'taxmodel=') !== false) {
+                if (strpos($segment, 'taxequip=') !== false) {
                     $modelValue = explode(',', substr($segment, strpos($segment, '=') + 1));
                     $modelsValue = array_merge($modelsValue, $modelValue);
                 }
-                if (strpos($segment, 'taxstyle=') !== false) {
+                if (strpos($segment, 'taxhelmet=') !== false) {
                     $styleValue = explode(',', substr($segment, strpos($segment, '=') + 1));
                     $stylesValue = array_merge($stylesValue, $styleValue);
                 }

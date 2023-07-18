@@ -100,6 +100,8 @@ if (uniqueFilterTiles) {
         if (currentClick.hasClass("remove-filters")) {
           // Check if the "remove-filters" category is clicked
           termsArray = []; // Clear the termsArray
+          modelsArray = [];
+          stylesArray = [];
           newBikesCurrentSelection(currentClick); // Update the current selection UI
           updateURL(currentUrl); // Clear the filter URL
           if (typeOfElement.isAnArray) {

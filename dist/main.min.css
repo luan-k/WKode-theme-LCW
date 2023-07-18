@@ -2938,6 +2938,8 @@ wkode-btn wkode-btn--solid-white-red
 .wkode-products__card {
   background-color: white;
   border-radius: 21px;
+  height: -moz-fit-content;
+  height: fit-content;
   padding: 2rem 3.6rem;
 }
 .wkode-products__card-title {
@@ -3517,6 +3519,16 @@ wkode-btn wkode-btn--solid-white-red
 .wkode-archive--seminovas .wkode-archive__grid {
   max-height: -moz-fit-content;
   max-height: fit-content;
+}
+
+.taxonomies-list_item.remove-filters.wkode-btn {
+  border-radius: 2.1rem;
+  cursor: pointer;
+  margin-top: 3rem;
+  padding-left: 0;
+  padding-right: 0;
+  text-align: center;
+  width: 100%;
 }
 
 .wkode-header--blurred {

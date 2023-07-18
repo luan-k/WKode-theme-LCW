@@ -2,7 +2,6 @@ export function newCardColorLogic() {
   // Get all card elements
   let cards = document.getElementsByClassName("wkode-new-bikes__card");
 
-  console.log(cards);
   if (!cards.length > 0) {
     cards = document.getElementsByClassName(
       "wkode-single-new-bikes-template__bikes-colors"
