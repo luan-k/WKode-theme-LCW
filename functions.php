@@ -137,7 +137,7 @@ class Megamenu_Walker extends Walker_Nav_Menu {
     
     // Helper function to get SVG arrow icon from file
     function get_svg_arrow() {
-        $svg_file_path = get_template_directory() . './assets/img/svg/megamenu-arrow-light.svg';
+        $svg_file_path = get_template_directory() . '/assets/img/svg/megamenu-arrow-light.svg';
 
         if (file_exists($svg_file_path)) {
             $svg_content = file_get_contents($svg_file_path);
