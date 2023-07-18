@@ -108,8 +108,8 @@ class Megamenu_Walker extends Walker_Nav_Menu {
         $item_output .= (wp_is_mobile() ? '<span class="menu-link-wrapper">' : '') . '<a' . $attributes . '>';
         $item_output .= $args->link_before . $limited_title . $args->link_after;
 
-        // Add SVG arrow to top-level menu items with children
-        if ($depth === 0 && $args->walker->has_children) {
+        // Add SVG arrow icon to top-level menu items
+        if (( !wp_is_mobile() ? $depth === 0 : true) && $args->walker->has_children) {
             $item_output .= '<span class="menu-item-arrow">' . $this->get_svg_arrow() . '</span>';
         }
 
