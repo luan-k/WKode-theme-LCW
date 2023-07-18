@@ -65,7 +65,7 @@ $count = new WP_Query($countArgs);
             <!--  <div class="taxonomies-list_item remove-filters">Remover filtros</div> -->
             <div class="wrapper-cat-list">
                 <h4 class="title-taxonomy">
-                    Marcas
+                    Acessórios Diversos
                     <img class="title-taxonomy-arrow" src="<?php echo get_theme_file_uri('./assets/img/svg/filters-arrow.svg'); ?>" alt="" srcset=""> 
                 </h4>
                 <ul class="cat-list">
@@ -90,7 +90,7 @@ $count = new WP_Query($countArgs);
             </div>
             <div class="wrapper-cat-list">
                 <h4 class="title-taxonomy">
-                    Modelos
+                    Roupas e Equipamentos
                     <img class="title-taxonomy-arrow" src="<?php echo get_theme_file_uri('./assets/img/svg/filters-arrow.svg'); ?>" alt="" srcset=""> 
                 </h4>
                 <ul class="cat-list mt-7 ">
@@ -115,7 +115,7 @@ $count = new WP_Query($countArgs);
             </div>
             <div class="wrapper-cat-list">
                 <h4 class="title-taxonomy">
-                    Estilos
+                    Capacetes
                     <img class="title-taxonomy-arrow" src="<?php echo get_theme_file_uri('./assets/img/svg/filters-arrow.svg'); ?>" alt="" srcset=""> 
                 </h4>
                 <ul class="cat-list mt-7 ">
@@ -137,6 +137,9 @@ $count = new WP_Query($countArgs);
                         </li>
                     <?php endforeach; ?>
                 </ul>
+            </div>
+            <div class="btn__wrapper w-full px-7">                
+                <div class="taxonomies-list_item remove-filters wkode-btn wkode-btn--outline-blue">Remover filtros</div>
             </div>
             <?php if(wp_is_mobile()){ ?>
             <h3 class="title-filters title-filters__footer-filters">

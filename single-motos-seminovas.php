@@ -1,5 +1,6 @@
 <?php get_header(); 
 
+require_once 'inc/format_prices.php';
 $table = get_field('wkode_single_used_table', get_the_ID());
 $price = get_field('wkode_single_used_price', get_the_ID());
 $images = get_field('wkode_single_used_imgs', get_the_ID());
@@ -99,7 +100,7 @@ $images = get_field('wkode_single_used_imgs', get_the_ID());
                                 Por apenas
                                 <h3>
                                     <?php
-                                        echo 'R$ '. number_format($price, 0, ',', '.');
+                                        echo 'R$ '. format_price($price);
                                     ?>
                                 </h3>
                                 à vista

@@ -115,24 +115,24 @@ $images = get_field('wkode_single_product_imgs', get_the_ID());
                 <div class="wkode-single-used-bikes-template__random-products pb-36">
                     <?php
                         $random_posts = new WP_Query([
-                            'post_type' => 'produtos',
+                            'post_type' => 'eletricos',
                             'orderby' => 'rand',
                             'posts_per_page' => 12,
                         ]);        
                     ?>
-                    <h3 class="text-center font-rubik text-lcw-primary-blue text-5xl font-semibold uppercase mb-36">Produtos Similares</h3>
-                    <div class="wkode-archive__related">
+                    <h3 class="text-center font-rubik text-lcw-primary-blue text-5xl font-semibold uppercase mb-36">Elétricos Similares</h3>
+                    <div class="wkode-archive__related wkode-archive--electrics">
                         <?php
                             if ($random_posts->have_posts()) {
                                 while ($random_posts->have_posts()) {
                                     $random_posts->the_post();
-                                    get_template_part('./template-parts/cards/products');
+                                    get_template_part('./template-parts/cards/electrics');
                                 }
                             }wp_reset_postdata();
                         ?>
                     </div>
                     <div class="btn flex justify-center mt-36">
-                        <a href="<?php echo esc_url(site_url('/produtos')); ?>" class="wkode-btn wkode-btn--solid-red m-auto">Ver Todos</a>
+                        <a href="<?php echo esc_url(site_url('/eletricos')); ?>" class="wkode-btn wkode-btn--solid-red m-auto">Ver Todos</a>
                     </div>
                 </div>
             </article>

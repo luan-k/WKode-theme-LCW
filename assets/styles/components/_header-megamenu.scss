@@ -66,8 +66,10 @@
 
         a {
           display: flex;
+          hyphens: auto;
+          overflow: hidden;
           padding: 1.5rem 3rem;
-          /* white-space: normal; */
+          text-overflow: ellipsis;
         }
         .menu-item-image {
           background-color: white;
@@ -132,7 +134,7 @@
       align-content: center;
       align-items: center;
       display: flex;
-      flex-direction: row-reverse;
+      flex-direction: row;
       gap: 1rem;
       justify-content: space-between;
     }

@@ -3,6 +3,7 @@
 $table = get_field('wkode_single_used_table', get_the_ID());
 $year = '';
 $km = '';
+require_once get_template_directory() . '/inc/format_prices.php';
 if($table){
     $year = $table['wkode_single_used_table_year'];
     $km = $table['wkode_single_used_table_km'];
@@ -45,7 +46,7 @@ $price = get_field('wkode_single_used_price', get_the_ID());
         <div class="wkode-used-bikes__card-footer-price">
             <?php
             if($price){
-                echo 'R$ '. number_format($price, 0, ',', '.');
+                echo 'R$ '. format_price($price);
             }else{
                 echo "consulte";
             }

@@ -49,6 +49,8 @@ if ( ! function_exists( 'wkode_theme_setup' ) ) :
 
 		add_image_size( 'products_card', 250, 250, true, array( 'center', 'center' ) );
 
+		add_image_size( 'electrics_card', 550, 550, true, array( 'center', 'center' ) );
+
 		add_image_size( 'wkode_main_block_card_overlay', 1115, 830, true, array( 'center', 'center' ) );
 
 		add_image_size( 'single_page_featured_image', 1870, 752, true, array( 'center', 'center' ) );

@@ -1,4 +1,6 @@
 <?php 
+
+require_once get_template_directory() . '/inc/format_prices.php';
 $posts = get_field( 'used_bikes_posts' );
 $final_posts = false;
 
@@ -79,7 +81,7 @@ if( isset( $block['data']['preview'] )  ) {    /* rendering in inserter preview 
                             <div class="wkode-used-bikes__card-footer-price">
                                 <?php
                                 if($price){
-                                    echo 'R$ '. number_format($price, 0, ',', '.');
+                                    echo 'R$ '. format_price($price);
                                 }else{
                                     echo "consulte";
                                 }
