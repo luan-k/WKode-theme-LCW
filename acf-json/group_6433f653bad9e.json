@@ -938,6 +938,52 @@
                     "maxlength": ""
                 },
                 {
+                    "key": "field_64b47730c282b",
+                    "label": "Complexo?",
+                    "name": "wkode_new_motorcycles_accordion_complex",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_64b477b1c282c",
+                    "label": "Conteudo",
+                    "name": "wkode_new_motorcycles_accordion_content",
+                    "type": "wysiwyg",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_64b47730c282b",
+                                "operator": "!=",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 1,
+                    "delay": 0
+                },
+                {
                     "key": "field_6499a6fbec196",
                     "label": "Conteudo",
                     "name": "wkode_new_motorcycles_accordion_repeater",
@@ -948,7 +994,8 @@
                         [
                             {
                                 "field": "field_64b47730c282b",
-                                "operator": "!=empty"
+                                "operator": "==",
+                                "value": "1"
                             }
                         ]
                     ],
@@ -1002,55 +1049,6 @@
                             "maxlength": ""
                         }
                     ]
-                },
-                {
-                    "key": "field_64b47730c282b",
-                    "label": "Complexo?",
-                    "name": "wkode_new_motorcycles_accordion_complex",
-                    "type": "checkbox",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "choices": {
-                        "complex": "Complexo?"
-                    },
-                    "allow_custom": 0,
-                    "default_value": [],
-                    "layout": "vertical",
-                    "toggle": 0,
-                    "return_format": "value",
-                    "save_custom": 0
-                },
-                {
-                    "key": "field_64b477b1c282c",
-                    "label": "Conteudo",
-                    "name": "wkode_new_motorcycles_accordion_content",
-                    "type": "wysiwyg",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_64b47730c282b",
-                                "operator": "==empty"
-                            }
-                        ]
-                    ],
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "tabs": "all",
-                    "toolbar": "full",
-                    "media_upload": 1,
-                    "delay": 0
                 }
             ]
         }
@@ -1073,5 +1071,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 1,
-    "modified": 1689625715
+    "modified": 1689695719
 }

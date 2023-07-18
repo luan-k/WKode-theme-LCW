@@ -407,7 +407,7 @@
                                             </h3>
                                             <div class="accordion-content">
                                                 <?php 
-                                                $checkbox = get_field('wkode_new_motorcycles_accordion_complex');
+                                                $checkbox = $accordion_item['wkode_new_motorcycles_accordion_complex'];
                                                 if($checkbox){
                                                     if($accordion_item['wkode_new_motorcycles_accordion_repeater']){
                                                         foreach ($accordion_item['wkode_new_motorcycles_accordion_repeater'] as $y => $inner_item) : ?>
