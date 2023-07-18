@@ -408,16 +408,19 @@
                                             <div class="accordion-content">
                                                 <?php 
                                                 $checkbox = get_field('wkode_new_motorcycles_accordion_complex');
-                                                if($accordion_item['wkode_new_motorcycles_accordion_content']){
-                                                    echo $accordion_item['wkode_new_motorcycles_accordion_content'];
-                                                }
-                                                if($accordion_item['wkode_new_motorcycles_accordion_repeater']){
-                                                    foreach ($accordion_item['wkode_new_motorcycles_accordion_repeater'] as $y => $inner_item) : ?>
-                                                    <div class="accordion-inner-item">
-                                                        <h4 class="accordion-inner-title"><?php echo $inner_item['wkode_new_motorcycles_accordion_inner_title']; ?></h4>
-                                                        <div class="accordion-inner-text"><?php echo $inner_item['wkode_new_motorcycles_accordion_inner_text']; ?></div>
-                                                    </div>
-                                                    <?php endforeach;
+                                                if($checkbox){
+                                                    if($accordion_item['wkode_new_motorcycles_accordion_repeater']){
+                                                        foreach ($accordion_item['wkode_new_motorcycles_accordion_repeater'] as $y => $inner_item) : ?>
+                                                        <div class="accordion-inner-item">
+                                                            <h4 class="accordion-inner-title"><?php echo $inner_item['wkode_new_motorcycles_accordion_inner_title']; ?></h4>
+                                                            <div class="accordion-inner-text"><?php echo $inner_item['wkode_new_motorcycles_accordion_inner_text']; ?></div>
+                                                        </div>
+                                                        <?php endforeach;
+                                                    }
+                                                }else{
+                                                    if($accordion_item['wkode_new_motorcycles_accordion_content']){
+                                                        echo $accordion_item['wkode_new_motorcycles_accordion_content'];
+                                                    }
                                                 }?>
                                             </div>
                                         </div>
