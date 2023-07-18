@@ -105,9 +105,8 @@ class Megamenu_Walker extends Walker_Nav_Menu {
         $limited_title = implode(' ', array_slice($title_words, 0, $words_limit));
 
         // Create the menu item output with the limited title
-        $item_output .= (wp_is_mobile() ? '<span class="menu-link-wrapper">' : '') . '<a' . $attributes . '>';
+        $item_output .= (wp_is_mobile() ? '<span class="menu-link-wrapper">' : '') . '<a' . $attributes . '>' . (wp_is_mobile() && $depth > 0 && $args->walker->has_children ? '<span class="menu-item-arrow">' . $this->get_svg_arrow() . '</span>' : '');
         $item_output .= $args->link_before . $limited_title . $args->link_after;
-
         // Add SVG arrow to top-level menu items with children
         if ($depth === 0 && $args->walker->has_children) {
             $item_output .= '<span class="menu-item-arrow">' . $this->get_svg_arrow() . '</span>';
