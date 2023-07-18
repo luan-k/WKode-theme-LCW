@@ -52,7 +52,7 @@ $count = new WP_Query($countArgs);
 
 <section id="primary" class="wkode-archive wkode-archive--seminovas content-area py-60">
     <h1 class="page-title text-left font-rubik text-white text-6xl font-semibold uppercase mb-0 lg:mb-36 container">
-        Motos novas
+        Motos seminovas
     </h1>
     <main id="main" class="wkode-archive__main site-main mb-60" role="main">
 
