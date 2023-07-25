@@ -36,11 +36,11 @@ if (is_single() && $post_type === 'motos-novas') {
         <nav class="wkode-header__icons-wrapper">
           <a target="_blank" class="wkode-header__social-media-icon" href="#" style="background-image: url(<?php if($is_blurred){ echo get_theme_file_uri('/assets/img/svg/linkedin-logo-footer.svg'); } else {echo get_theme_file_uri('/assets/img/svg/linkedin-logo.svg');} ?>);">
           </a>
-          <a target="_blank" class="wkode-header__social-media-icon" href="#" style="background-image: url(<?php if($is_blurred){ echo get_theme_file_uri('/assets/img/svg/facebook-logo-footer.svg'); } else {echo get_theme_file_uri('/assets/img/svg/facebook-logo.svg');} ?>);">
+          <a target="_blank" class="wkode-header__social-media-icon" href="https://www.facebook.com/LCWMotos" style="background-image: url(<?php if($is_blurred){ echo get_theme_file_uri('/assets/img/svg/facebook-logo-footer.svg'); } else {echo get_theme_file_uri('/assets/img/svg/facebook-logo.svg');} ?>);">
           </a>
           <a target="_blank" class="wkode-header__social-media-icon" href="#" style="background-image: url(<?php if($is_blurred){ echo get_theme_file_uri('/assets/img/svg/youtube-logo-footer.svg'); } else {echo get_theme_file_uri('/assets/img/svg/youtube-logo.svg');} ?>);">
           </a>
-          <a target="_blank" class="wkode-header__social-media-icon" href="#" style="background-image: url(<?php if($is_blurred){ echo get_theme_file_uri('/assets/img/svg/instagram-logo-footer.svg'); } else {echo get_theme_file_uri('/assets/img/svg/instagram-logo.svg');} ?>);">
+          <a target="_blank" class="wkode-header__social-media-icon" href="https://www.instagram.com/lcwmotos/" style="background-image: url(<?php if($is_blurred){ echo get_theme_file_uri('/assets/img/svg/instagram-logo-footer.svg'); } else {echo get_theme_file_uri('/assets/img/svg/instagram-logo.svg');} ?>);">
           </a>
         </nav>
       </div>
@@ -90,11 +90,11 @@ if (is_single() && $post_type === 'motos-novas') {
           </a>
           <a target="_blank" class="wkode-header__social-media-icon" href="#" style="background-image: url(<?php echo get_theme_file_uri('/assets/img/svg/linkedin-logo.svg'); ?>);">
           </a>
-          <a target="_blank" class="wkode-header__social-media-icon" href="#" style="background-image: url(<?php echo get_theme_file_uri('/assets/img/svg/facebook-logo.svg'); ?>);">
+          <a target="_blank" class="wkode-header__social-media-icon" href="https://www.facebook.com/LCWMotos" style="background-image: url(<?php echo get_theme_file_uri('/assets/img/svg/facebook-logo.svg'); ?>);">
           </a>
           <a target="_blank" class="wkode-header__social-media-icon" href="#" style="background-image: url(<?php echo get_theme_file_uri('/assets/img/svg/youtube-logo.svg'); ?>);">
           </a>
-          <a target="_blank" class="wkode-header__social-media-icon" href="#" style="background-image: url(<?php echo get_theme_file_uri('/assets/img/svg/instagram-logo.svg'); ?>);">
+          <a target="_blank" class="wkode-header__social-media-icon" href="https://www.instagram.com/lcwmotos/" style="background-image: url(<?php echo get_theme_file_uri('/assets/img/svg/instagram-logo.svg'); ?>);">
           </a>
         </nav>
         <?php 
