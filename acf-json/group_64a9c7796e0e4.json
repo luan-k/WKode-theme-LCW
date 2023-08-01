@@ -59,6 +59,25 @@
                             "ui": 1
                         },
                         {
+                            "key": "field_64c8faa584fee",
+                            "label": "Subtítulo",
+                            "name": "consorcio_subtitle",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
                             "key": "field_64a9c9ee9632e",
                             "label": "Parcelas",
                             "name": "consorcio_repeater_parcelas",
@@ -166,5 +185,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1688849198
+    "modified": 1690893033
 }

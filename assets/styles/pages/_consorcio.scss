@@ -1,7 +1,17 @@
 .wkode-used-bikes__card--consorcio {
   .wkode-used-bikes__card-body {
     border-bottom: 0;
-    height: 20rem;
+    height: 26rem;
+  }
+  .wkode-used-bikes__card-title {
+    margin-bottom: 1.5rem;
+    &--subtitle {
+      font-size: 1.4rem;
+      font-weight: 500;
+      letter-spacing: normal;
+      margin-bottom: 1.8rem;
+      @apply text-lcw-primary-blue;
+    }
   }
   .wkode-used-bikes__card-info {
     align-items: center;

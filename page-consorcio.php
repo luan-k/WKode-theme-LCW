@@ -21,6 +21,7 @@ $consorcioRepeater           = get_field('consorcio_repeater');
                             $consorcioGroup = $item['consorcio_group'];
                             $consorcioMoto = $consorcioGroup['consorcio_moto'];
                             $consorcioRepeaterParcelas = $consorcioGroup['consorcio_repeater_parcelas'];
+                            $subtitle = $consorcioGroup['consorcio_subtitle'];
 
                             // Accessing values for each item
                             $title = $consorcioMoto->post_title;
@@ -46,6 +47,9 @@ $consorcioRepeater           = get_field('consorcio_repeater');
                                             <?php echo wp_trim_words( $title , 15); ?>
                                         </a>
                                     </h3>
+                                    <h4 class="wkode-used-bikes__card-title wkode-used-bikes__card-title--subtitle">
+                                            <?php echo $subtitle; ?>
+                                    </h4>
                                     <div class="wkode-used-bikes__card-info">
                                         <?php
                                         // Iterating over consorcio_repeater_parcelas

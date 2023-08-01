@@ -26,12 +26,12 @@
                 Redes Sociais
               </h3>
               <nav class="wkode-header__icons-wrapper sub-menu mb-6">
-                <a target="_blank" class="wkode-header__social-media-icon" href="#" style="background-image: url(<?php echo get_theme_file_uri('/assets/img/svg/linkedin-logo-footer.svg'); ?>);">
-                </a>
+                <!-- <a target="_blank" class="wkode-header__social-media-icon" href="#" style="background-image: url(<?php echo get_theme_file_uri('/assets/img/svg/linkedin-logo-footer.svg'); ?>);">
+                </a> -->
                 <a target="_blank" class="wkode-header__social-media-icon" href="https://www.facebook.com/LCWMotos" style="background-image: url(<?php echo get_theme_file_uri('/assets/img/svg/facebook-logo-footer.svg'); ?>);">
                 </a>
-                <a target="_blank" class="wkode-header__social-media-icon" href="#" style="background-image: url(<?php echo get_theme_file_uri('/assets/img/svg/youtube-logo-footer.svg'); ?>);">
-                </a>
+               <!--  <a target="_blank" class="wkode-header__social-media-icon" href="#" style="background-image: url(<?php echo get_theme_file_uri('/assets/img/svg/youtube-logo-footer.svg'); ?>);">
+                </a> -->
                 <a target="_blank" class="wkode-header__social-media-icon" href="https://www.instagram.com/lcwmotos/" style="background-image: url(<?php echo get_theme_file_uri('/assets/img/svg/instagram-logo-footer.svg'); ?>);">
                 </a>
               </nav>
