@@ -37,10 +37,10 @@
                     "layout": "block",
                     "sub_fields": [
                         {
-                            "key": "field_64a9c8f49632d",
-                            "label": "Moto",
-                            "name": "consorcio_moto",
-                            "type": "post_object",
+                            "key": "field_64cd39b819764",
+                            "label": "Imagem",
+                            "name": "consorcio_image",
+                            "type": "image",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -49,14 +49,35 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "post_type": [
-                                "motos-novas"
-                            ],
-                            "taxonomy": "",
-                            "allow_null": 0,
-                            "multiple": 0,
-                            "return_format": "object",
-                            "ui": 1
+                            "return_format": "array",
+                            "preview_size": "medium",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
+                        },
+                        {
+                            "key": "field_64cd396e19763",
+                            "label": "Titulo",
+                            "name": "consorcio_title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
                         },
                         {
                             "key": "field_64c8faa584fee",
@@ -185,5 +206,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1690893033
+    "modified": 1691172115
 }

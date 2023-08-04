@@ -22,24 +22,14 @@ $consorcioRepeater           = get_field('consorcio_repeater');
                             $consorcioMoto = $consorcioGroup['consorcio_moto'];
                             $consorcioRepeaterParcelas = $consorcioGroup['consorcio_repeater_parcelas'];
                             $subtitle = $consorcioGroup['consorcio_subtitle'];
+                            $title = $consorcioGroup['consorcio_title'];
+                            $image = $consorcioGroup['consorcio_image'];
 
-                            // Accessing values for each item
-                            $title = $consorcioMoto->post_title;
-                            $image = get_the_post_thumbnail_url($consorcioMoto->ID);
-
-                            $custom_field_value = get_field('wkode_motorcycles_post_colors', $consorcioMoto->ID);
-                            foreach ($custom_field_value as $index => $field) {
-                                $postImg = $field['wkode_motorcycles_post_img'];
-                                if($index == 0){
-                                    $image = $postImg;
-                                }
-                            }
-                        
                             ?>
 
                             <div class="wkode-used-bikes__card wkode-used-bikes__card--consorcio">
                                 <a class="wkode-used-bikes__card-link" >
-                                    <img class="wkode-used-bikes__card-img" src="<?php echo $image; ?>" alt="" srcset=""> 
+                                    <img class="wkode-used-bikes__card-img" src="<?php echo $image['sizes']['motos_seminovas_card']; ?>" alt="" srcset=""> 
                                 </a>
                                 <div class="wkode-used-bikes__card-body">
                                     <h3 class="wkode-used-bikes__card-title ">
