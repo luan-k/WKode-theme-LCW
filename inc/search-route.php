@@ -1,6 +1,7 @@
 <?php
 
 add_action('rest_api_init', 'WkodeRegisterSearch');
+require_once get_template_directory() . '/inc/format_prices.php';
 
 function WkodeRegisterSearch(){
     register_rest_route('wk/v1', 'search', array(
@@ -101,7 +102,7 @@ function WkodeSearchResults($data){
                 'descricao' => wp_trim_words(get_the_content(), 24),
                 'year' => $year ? $year : '23/23',
                 'km' => $km ? $km : '1000',
-                'price' => $price ? 'R$ ' . $price : 'consulte',
+                'price' => $price ? 'R$ ' . format_price($price) : 'consulte',
                 'calendarSvg' => get_theme_file_uri('./assets/img/svg/calendar-used.svg'),
                 'kmSvg' => get_theme_file_uri('./assets/img/svg/km.svg'),
             );

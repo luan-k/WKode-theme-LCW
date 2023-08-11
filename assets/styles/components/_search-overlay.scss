@@ -110,16 +110,16 @@
 
   /* Handle */
   &::-webkit-scrollbar-thumb {
-    background: white;
+    background: #a8a8a8;
     border-radius: 10px;
-    transition: background-color 0.8s;
+    transition: all 0.3s;
   }
   &::-webkit-scrollbar-corner {
     border-radius: 5px;
   }
   /* Handle on hover */
   &::-webkit-scrollbar-thumb:hover {
-    background: #e6e6e69f;
+    background: #818181;
   }
   .one-half {
     padding-bottom: 0;
