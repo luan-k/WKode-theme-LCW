@@ -301,12 +301,12 @@ add_action( 'init', 'create_products_taxonomy_acessorios_diversos', 0 );
 function create_products_taxonomy_roupas_equipamentos() {
 
     $labels = array(
-        'name'                       => _x( 'Roupas e Equipamentos', 'Taxonomy General Name', 'roupas-equipamentos' ),
+        'name'                       => _x( 'Jaquetas', 'Taxonomy General Name', 'roupas-equipamentos' ),
         'singular_name'              => _x( 'Equipamento', 'Taxonomy Singular Name', 'roupas-equipamentos' ),
-        'menu_name'                  => __( 'Roupas e Equipamentos', 'roupas-equipamentos' ),
-        'all_items'                  => __( 'Todos os Equipamentos', 'roupas-equipamentos' ),
-        'parent_item'                => __( 'Equipamentos Parente', 'roupas-equipamentos' ),
-        'parent_item_colon'          => __( 'Equipamentos Parente:', 'roupas-equipamentos' ),
+        'menu_name'                  => __( 'Jaquetas', 'roupas-equipamentos' ),
+        'all_items'                  => __( 'Todos as Jaquetas', 'roupas-equipamentos' ),
+        'parent_item'                => __( 'Jaquetas Parente', 'roupas-equipamentos' ),
+        'parent_item_colon'          => __( 'Jaquetas Parente:', 'roupas-equipamentos' ),
         'new_item_name'              => __( 'Novo Item', 'roupas-equipamentos' ),
         'add_new_item'               => __( 'Adicionar novo Item', 'roupas-equipamentos' ),
         'edit_item'                  => __( 'Editar Item', 'roupas-equipamentos' ),

@@ -90,7 +90,7 @@ $count = new WP_Query($countArgs);
             </div>
             <div class="wrapper-cat-list">
                 <h4 class="title-taxonomy">
-                    Roupas e Equipamentos
+                    Jaquetas
                     <img class="title-taxonomy-arrow" src="<?php echo get_theme_file_uri('./assets/img/svg/filters-arrow.svg'); ?>" alt="" srcset=""> 
                 </h4>
                 <ul class="cat-list mt-7 ">
