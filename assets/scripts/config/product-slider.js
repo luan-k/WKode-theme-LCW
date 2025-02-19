@@ -1,14 +1,5 @@
 import $ from "jquery";
 
-$(".slider-fuck-test").slick({
-  autoplay: false,
-  autoplaySpeed: 2000,
-  dots: true,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-});
 $(".wkode-used-bikes__slider").slick({
   autoplay: false,
   autoplaySpeed: 2000,
