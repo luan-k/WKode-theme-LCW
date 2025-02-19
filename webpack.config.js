@@ -85,7 +85,7 @@ module.exports = [
         },
       }),
       new BrowserSyncPlugin({
-        proxy: "lcw.local",
+        proxy: "lcwmotos.local",
         files: ["**/*.php", "**/*.css", "**/*.scss"],
         notify: false,
       }),
