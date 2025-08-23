@@ -123,7 +123,7 @@ $images = get_field('wkode_single_used_imgs', get_the_ID());
                         <div id="credere-pnp"></div>
 
 
-                        <div class="wkode-single-used-bikes-template__btn">
+                        <div class="wkode-single-used-bikes-template__btn mt-12">
                             <a href="" class="wkode-btn wkode-btn--outline-red" id="openModalBtn">
                                 Solicite uma cotação
                             </a>

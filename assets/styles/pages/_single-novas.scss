@@ -231,6 +231,10 @@
     }
   }
 
+  &__price {
+    @apply bg-white;
+  }
+
   &__wrapper {
     @apply grid grid-cols-1 lg:grid-cols-12 py-60 gap-12 container;
   }
