@@ -1,5 +1,6 @@
 <?php get_header(); 
 
+require_once 'inc/format_prices.php';
 ?>
 
 <div id="primary" class="wkode-single-new-bikes-template content-area wkode-single-new-bikes-template--check">
@@ -430,6 +431,19 @@
                             </section>
                         </section>
                     <?php } ?>
+                    <?php
+                    $price = get_field('wkode_single_new_price');
+                    if ($price) { ?>
+                        <div class="wkode-single-new-bikes-template-block__price wkode-single-new-bikes-template-block__light-mode py-60">
+                            <div class="wkode-new-bikes-single__price col-span-full container">
+                                <h3 class="wkode-new-bikes-single__price-title wkode-single-new-bikes-template-block__title text-center">Simule aqui seu financiamento</h3>
+                                <div class="wkode-single-used-bikes-template__price">
+                                    Por apenas <h3>R$ <?php echo format_price($price); ?></h3> à vista
+                                </div>
+                                <div id="credere-pnp"></div>
+                            </div>
+                        </div>
+                    <?php } ?>
                     <div class="wkode-single-new-bikes-template__content entry-content">
                         <?php the_content(); ?>
                     </div>
@@ -441,5 +455,8 @@
 
     </main>
 </div>
+
+<script src="https://app.meucredere.com.br/simulador/loja/04.472.318/0001-26/veiculo/detectar.js"></script>
+
 
 <?php get_footer(); ?>

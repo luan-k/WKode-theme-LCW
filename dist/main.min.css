@@ -504,6 +504,9 @@ video {
 .col-span-12{
   grid-column: span 12 / span 12;
 }
+.col-span-full{
+  grid-column: 1 / -1;
+}
 .m-auto{
   margin: auto;
 }
@@ -543,6 +546,9 @@ video {
 .ml-6{
   margin-left: 1.5rem;
 }
+.mt-12{
+  margin-top: 3rem;
+}
 .mt-20{
   margin-top: 5rem;
 }
@@ -557,6 +563,9 @@ video {
 }
 .mt-7{
   margin-top: 1.75rem;
+}
+.mt-9{
+  margin-top: 2.25rem;
 }
 .block{
   display: block;
@@ -3842,6 +3851,10 @@ wkode-btn wkode-btn--solid-white-red
 .wkode-single-new-bikes-template-block__inverted-direction .wkode-single-new-bikes-template-block__image .wkode-single-new-bikes-template-block__img {
   border-radius: 12px;
 }
+.wkode-single-new-bikes-template-block__price{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+}
 .wkode-single-new-bikes-template-block__wrapper{
   width: 100%;
   margin-right: auto;
@@ -4455,52 +4468,6 @@ wkode-btn wkode-btn--solid-white-red
   font-family: "Rubik";
   font-size: 1.2rem;
   margin-bottom: 1rem;
-}
-
-.wkode-single-used-bikes-template__body{
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: 1rem;
-  padding-left: 1rem;
-}
-
-@media (min-width: 640px){
-  .wkode-single-used-bikes-template__body{
-    max-width: 640px;
-    padding-right: 2rem;
-    padding-left: 2rem;
-  }
-}
-
-@media (min-width: 768px){
-  .wkode-single-used-bikes-template__body{
-    max-width: 768px;
-  }
-}
-
-@media (min-width: 1024px){
-  .wkode-single-used-bikes-template__body{
-    max-width: 1024px;
-    padding-right: 7%;
-    padding-left: 7%;
-  }
-}
-
-@media (min-width: 1280px){
-  .wkode-single-used-bikes-template__body{
-    max-width: 1280px;
-    padding-right: 8%;
-    padding-left: 8%;
-  }
-}
-
-@media (min-width: 1685px){
-  .wkode-single-used-bikes-template__body{
-    max-width: 1685px;
-    padding-right: 10%;
-    padding-left: 10%;
-  }
 }
 
 .wkode-single-used-bikes-template__body{
