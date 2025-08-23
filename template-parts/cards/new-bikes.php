@@ -1,59 +1,74 @@
 <?php
- // Get the value of the custom field for the current post 
-$custom_field_value = get_field('wkode_motorcycles_post_colors', get_the_ID()); ?>
-<div class="wkode-new-bikes__card ">
-    <h3 class="wkode-new-bikes__card-title ">
-        <a href="<?php the_permalink(); ?>">
-            <?php echo wp_trim_words( the_title() , 15); ?>
+// Get repeater rows (may be array or false/null)
+$colors = get_field('wkode_motorcycles_post_colors', get_the_ID());
+if (!is_array($colors)) {
+    $colors = [];
+}
+
+$title     = wp_trim_words(get_the_title(), 15);
+$permalink = get_permalink();
+?>
+<div class="wkode-new-bikes__card">
+    <h3 class="wkode-new-bikes__card-title">
+        <a href="<?php echo esc_url($permalink); ?>">
+            <?php echo esc_html($title); ?>
         </a>
     </h3>
-    <a href="<?php the_permalink(); ?>">
-        <!-- <img class="wkode-new-bikes__card-img active-color-image" src="<?php if(has_post_thumbnail()){ the_post_thumbnail_url('full'); } else {/*  echo get_theme_file_uri('/images/standard.png'); */ }  ?>" alt="" srcset=""> -->
-        <?php
-        foreach ($custom_field_value as $index => $field) {
-            $postImg = $field['wkode_motorcycles_post_img'];
-            if($index == 0){ ?>
-                
-                <img class="wkode-new-bikes__card-img active-color-image" src="<?php echo $postImg; ?>" alt="" srcset=""><?php
-            }else{  ?>
-                <img class="wkode-new-bikes__card-img" src="<?php echo $postImg; ?>" alt="" srcset=""> <?php
-            }
-        
-        }
-        ?>
+
+    <a href="<?php echo esc_url($permalink); ?>">
+        <?php if (!empty($colors)) : ?>
+            <?php foreach ($colors as $index => $field) :
+                $postImg = isset($field['wkode_motorcycles_post_img']) ? $field['wkode_motorcycles_post_img'] : '';
+                if (!$postImg) { continue; }
+                $imgClass = 'wkode-new-bikes__card-img' . ($index === 0 ? ' active-color-image' : '');
+            ?>
+                <img class="<?php echo esc_attr($imgClass); ?>" src="<?php echo esc_url($postImg); ?>" alt="<?php echo esc_attr($title); ?>">
+            <?php endforeach; ?>
+        <?php elseif (has_post_thumbnail()) : ?>
+            <?php
+            $thumb_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
+            if ($thumb_url) :
+            ?>
+                <img class="wkode-new-bikes__card-img active-color-image" src="<?php echo esc_url($thumb_url); ?>" alt="<?php echo esc_attr($title); ?>">
+            <?php endif; ?>
+        <?php endif; ?>
     </a>
+
     <div class="wkode-new-bikes__card-colors text-black">
-        <?php
-        foreach ($custom_field_value as $index => $field) {
-            $postColor = $field['wkode_motorcycles_post_color'];
-            $biOrTri = $field['wkode_motorcycles_bicolor_ou_tricolor'];
-            $secondColor = $field['wkode_motorcycles_post_color_two'];
-            $thirdColor = $field['wkode_motorcycles_post_color_three'];
-            
-            if($biOrTri == 'bicolor'){
-                $biOrTriClass = "wkode-new-bikes__card-color--bicolor";
-            }elseif($biOrTri == 'tricolor'){
-                $biOrTriClass = "wkode-new-bikes__card-color--tricolor";
-            }else{
-                $biOrTriClass = "wkode-new-bikes__card-color--unique";
-            }
-            if($index == 0){ 
-                $active_color = "active-color";
-            }else{ 
-                $active_color = "";
-            } ?>
-            <span class="wkode-new-bikes__card-color <?php echo $active_color ?>">
-                <span class="<?php echo $biOrTriClass ?>" style="background-color: <?php echo $postColor; ?>"></span>
-                <?php
-                if($biOrTri == 'bicolor'){ ?>
-                    <span class="<?php echo $biOrTriClass ?>" style="background-color: <?php echo $secondColor; ?>"></span><?php 
-                }if($biOrTri == 'tricolor'){?>
-                    <span class="<?php echo $biOrTriClass ?>" style="background-color: <?php echo $secondColor; ?>"></span>
-                    <span class="<?php echo $biOrTriClass ?>" style="background-color: <?php echo $thirdColor; ?>"></span><?php 
+        <?php if (!empty($colors)) : ?>
+            <?php foreach ($colors as $index => $field) :
+                $biOrTri     = isset($field['wkode_motorcycles_bicolor_ou_tricolor']) ? strtolower((string)$field['wkode_motorcycles_bicolor_ou_tricolor']) : '';
+                $postColor   = isset($field['wkode_motorcycles_post_color']) ? sanitize_hex_color($field['wkode_motorcycles_post_color']) : '';
+                $secondColor = isset($field['wkode_motorcycles_post_color_two']) ? sanitize_hex_color($field['wkode_motorcycles_post_color_two']) : '';
+                $thirdColor  = isset($field['wkode_motorcycles_post_color_three']) ? sanitize_hex_color($field['wkode_motorcycles_post_color_three']) : '';
+
+                if ($biOrTri === 'bicolor') {
+                    $biOrTriClass = 'wkode-new-bikes__card-color--bicolor';
+                } elseif ($biOrTri === 'tricolor') {
+                    $biOrTriClass = 'wkode-new-bikes__card-color--tricolor';
+                } else {
+                    $biOrTriClass = 'wkode-new-bikes__card-color--unique';
                 }
-                ?>
-            </span> <?php
-        }
-        ?>
+
+                $active_color = ($index === 0) ? 'active-color' : '';
+            ?>
+                <span class="wkode-new-bikes__card-color <?php echo esc_attr($active_color); ?>">
+                    <?php if ($postColor) : ?>
+                        <span class="<?php echo esc_attr($biOrTriClass); ?>" style="background-color: <?php echo esc_attr($postColor); ?>"></span>
+                    <?php endif; ?>
+
+                    <?php if ($biOrTriClass === 'wkode-new-bikes__card-color--bicolor' && $secondColor) : ?>
+                        <span class="<?php echo esc_attr($biOrTriClass); ?>" style="background-color: <?php echo esc_attr($secondColor); ?>"></span>
+                    <?php elseif ($biOrTriClass === 'wkode-new-bikes__card-color--tricolor') : ?>
+                        <?php if ($secondColor) : ?>
+                            <span class="<?php echo esc_attr($biOrTriClass); ?>" style="background-color: <?php echo esc_attr($secondColor); ?>"></span>
+                        <?php endif; ?>
+                        <?php if ($thirdColor) : ?>
+                            <span class="<?php echo esc_attr($biOrTriClass); ?>" style="background-color: <?php echo esc_attr($thirdColor); ?>"></span>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                </span>
+            <?php endforeach; ?>
+        <?php endif; ?>
     </div>
 </div>
