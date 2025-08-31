@@ -69,7 +69,7 @@ $images = get_field('wkode_single_used_imgs', get_the_ID());
                                     <div class="<?php echo $contentCellClass; ?>"><?php echo !empty($table['wkode_single_used_table_km']) ? $table['wkode_single_used_table_km'] : ''; ?></div>
                                 </div>
                                 <div class="table-row">
-                                    <div class="<?php echo $titleCellClass; ?>">Place Final:</div>
+                                    <div class="<?php echo $titleCellClass; ?>">Placa Final:</div>
                                     <div class="<?php echo $contentCellClass; ?>"><?php echo !empty($table['wkode_single_used_table_license']) ? $table['wkode_single_used_table_license'] : ''; ?></div>
                                 </div>
                                 <div class="table-row table-row--dark">

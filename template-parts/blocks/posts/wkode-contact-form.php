@@ -16,8 +16,14 @@ if( isset( $block['data']['preview'] )  ) {    /* rendering in inserter preview 
             <h3 class="wkode-contact-block__subtitle">
                 Horário de atendimento:
             </h3>
-            <p class="wkode-contact-block__text">
+            <p class="wkode-contact-block__text mb-6">
                 Segunda à sexta das: 08h00 às 18h00
+            </p>
+            <p class="wkode-contact-block__text mb-6">
+                (48) 3369-4159
+            </p>
+            <p class="wkode-contact-block__text mb-6">
+                Armando Calil Bulos, 6515, Ingleses - Florianópolis/SC 88058-001
             </p>
         </header>
         <div class="wkode-contact-block__form ">
