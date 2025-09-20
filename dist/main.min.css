@@ -1647,6 +1647,9 @@ body .wraper {
   transition: all 0.3s;
   z-index: 89;
 }
+.wkode-contact-block__form .wpforms-container form .wpforms-field-container .wpforms-error.mailcheck-error {
+  display: none !important;
+}
 .wkode-contact-block__form .wpforms-container form .wpforms-field-container input,
 .wkode-contact-block__form .wpforms-container form .wpforms-field-container textarea {
   background-color: transparent !important;
@@ -1657,7 +1660,6 @@ body .wraper {
   font-size: 1.4rem !important;
   font-weight: 300 !important;
   min-width: 100% !important;
-  text-transform: capitalize !important;
 }
 .wkode-contact-block__form .wpforms-container form .wpforms-field-container input::-moz-placeholder, .wkode-contact-block__form .wpforms-container form .wpforms-field-container textarea::-moz-placeholder {
   color: white !important;
@@ -1665,7 +1667,6 @@ body .wraper {
   font-size: 1.4rem !important;
   font-weight: 300 !important;
   min-width: 100% !important;
-  text-transform: capitalize !important;
 }
 .wkode-contact-block__form .wpforms-container form .wpforms-field-container input::placeholder,
 .wkode-contact-block__form .wpforms-container form .wpforms-field-container textarea::placeholder {
@@ -1674,7 +1675,6 @@ body .wraper {
   font-size: 1.4rem !important;
   font-weight: 300 !important;
   min-width: 100% !important;
-  text-transform: capitalize !important;
 }
 .wkode-contact-block__form .wpforms-container form .wpforms-field-container .wpforms-field {
   padding: 5px 0 !important;

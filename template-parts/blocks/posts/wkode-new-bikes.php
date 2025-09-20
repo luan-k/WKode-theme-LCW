@@ -26,7 +26,7 @@ if( isset( $block['data']['preview'] )  ) {    /* rendering in inserter preview 
 }else{ ?>
 
 <section class="wkode-new-bikes__section">
-        <h2 class="wkode-new-bikes__title title ">Modelos em destaque</h2>
+        <h2 class="wkode-new-bikes__title title ">Motos 0KM em destaque</h2>
         <div class="wkode-new-bikes__category category-filter-container-wrapper ">
             <?php
             //sorry... no time

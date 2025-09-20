@@ -33,6 +33,9 @@
     z-index: 89;
 
     .wpforms-container form .wpforms-field-container {
+      .wpforms-error.mailcheck-error {
+        display: none !important;
+      }
       input,
       textarea {
         background-color: transparent !important;
@@ -43,14 +46,12 @@
         font-size: 1.4rem !important;
         font-weight: 300 !important;
         min-width: 100% !important;
-        text-transform: capitalize !important;
         &::placeholder {
           color: white !important;
           font-family: "Rubik" !important;
           font-size: 1.4rem !important;
           font-weight: 300 !important;
           min-width: 100% !important;
-          text-transform: capitalize !important;
         }
       }
       .wpforms-field {
