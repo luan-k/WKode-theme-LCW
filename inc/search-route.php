@@ -37,47 +37,26 @@ function WkodeSearchResults($data){
         $newQuery->the_post();
     
         if (get_post_type() == 'motos-novas') {
-            $custom_field_value = get_field('wkode_motorcycles_post_colors', get_the_ID());
-            $newBike = array(
-                'title' => wp_trim_words(get_the_title(), 15),
-                'permalink' => get_the_permalink(),
-                'images' => array(),
-                'colors' => array(),
-            );
-    
-            foreach ($custom_field_value as $index => $field) {
-                $postImg = $field['wkode_motorcycles_post_img'];
-                $postColor = $field['wkode_motorcycles_post_color'];
-                $biOrTri = $field['wkode_motorcycles_bicolor_ou_tricolor'];
-                $secondColor = $field['wkode_motorcycles_post_color_two'];
-                $thirdColor = $field['wkode_motorcycles_post_color_three'];
-    
-                $isActiveColor = ($index == 0) ? ' active-color-image' : '';
-    
-                $newBike['images'][] = array(
-                    'src' => $postImg,
-                    'isActiveColor' => $isActiveColor,
-                );
-    
-                $colorData = array(
-                    'colorClass' => '',
-                    'colorStyles' => array('background-color: ' . $postColor), // Initialize as an array
-                    'isActiveColor' => ($index == 0) ? ' active-color' : '',
-                );
-    
-                if ($biOrTri == 'bicolor') {
-                    $colorData['colorClass'] = 'wkode-new-bikes__card-color--bicolor';
-                    $colorData['colorStyles'][] = 'background-color: ' . $secondColor; // Add the second color
-                } elseif ($biOrTri == 'tricolor') {
-                    $colorData['colorClass'] = 'wkode-new-bikes__card-color--tricolor';
-                    $colorData['colorStyles'][] = 'background-color: ' . $secondColor; // Add the second color
-                    $colorData['colorStyles'][] = 'background-color: ' . $thirdColor; // Add the third color
-                } else {
-                    $colorData['colorClass'] = 'wkode-new-bikes__card-color--unique';
-                }
-    
-                $newBike['colors'][] = $colorData;
+            $table = get_field('wkode_single_new_bikes_table', get_the_ID());
+            $year = '';
+            $km = '';
+            if ($table) {
+                $year = $table['wkode_single_new_table_year'];
+                $km = $table['wkode_single_new_table_km'];
             }
+            $price = get_field('wkode_single_new_bikes_price', get_the_ID());
+    
+            $newBike = array(
+                'title' => wp_trim_words(get_the_title(), 4),
+                'permalink' => get_the_permalink(),
+                'image' => get_the_post_thumbnail_url(0, 'motos_seminovas_card'),
+                'descricao' => wp_trim_words(get_the_content(), 24),
+                'year' => $year ? $year : '23/23',
+                'km' => $km ? $km : '1000',
+                'price' => $price ? 'R$ ' . format_price($price) : 'consulte',
+                'calendarSvg' => get_theme_file_uri('./assets/img/svg/calendar-used.svg'),
+                'kmSvg' => get_theme_file_uri('./assets/img/svg/km.svg'),
+            );
     
             array_push($results['newBikes'], $newBike);
         }

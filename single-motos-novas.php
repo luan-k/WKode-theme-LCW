@@ -5,7 +5,6 @@ $table = get_field('wkode_single_new_bikes_table', get_the_ID());
 $price = get_field('wkode_single_new_bikes_price', get_the_ID());
 $images = get_field('wkode_single_new_bikes_image_gallery', get_the_ID());
 
-var_dump($table);
 ?>
 
 <div id="primary" class="wkode-single-used-bikes-template content-area">

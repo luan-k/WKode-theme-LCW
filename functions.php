@@ -61,7 +61,7 @@ function add_megamenu_wrapper($args) {
     }
     return $args;
 }
-add_filter('wp_nav_menu_args', 'add_megamenu_wrapper');
+//add_filter('wp_nav_menu_args', 'add_megamenu_wrapper');
 
 class Megamenu_Walker extends Walker_Nav_Menu {
     function start_lvl(&$output, $depth = 0, $args = array()) {

@@ -84,41 +84,36 @@ class Search {
                     .map(
                       (item) =>
                         `
-                        <div class="wkode-new-bikes__card">
-                        <h3 class="wkode-new-bikes__card-title">
-                            <a href="${item.permalink}">
-                                ${item.title}
+                        <div class="wkode-used-bikes__card mx-2">
+                            <a href="${item.permalink}" class="wkode-used-bikes__card-link">
+                                <img class="wkode-used-bikes__card-img" src="${item.image}" alt="imagem produto">
                             </a>
-                        </h3>
-                        <a href="${item.permalink}">
-                            ${item.images
-                              .map(
-                                (image, index) => `
-                                        <img class="wkode-new-bikes__card-img${image.isActiveColor}" src="${image.src}" alt="" srcset="">
-                                    `
-                              )
-                              .join("")}
-                        </a>
-                        <div class="wkode-new-bikes__card-colors text-black">
-                            ${item.colors
-                              .map(
-                                (color, index) => `
-                                        <span class="wkode-new-bikes__card-color${
-                                          color.isActiveColor
-                                        }">
-                                            ${color.colorStyles
-                                              .map(
-                                                (style) => `
-                                                        <span class="${color.colorClass}" style="${style}"></span>
-                                                    `
-                                              )
-                                              .join("")}
-                                        </span>
-                                    `
-                              )
-                              .join("")}
+                            <div class="wkode-used-bikes__card-body">
+                                <h3 class="wkode-used-bikes__card-title">
+                                    <a href="${item.permalink}">
+                                        ${item.title}
+                                    </a>
+                                </h3>
+                                <div class="wkode-used-bikes__card-info">
+                                  <div class="wkode-used-bikes__card-info-date">
+                                      <img class="wkode-used-bikes__card-img" src="${item.calendarSvg}" alt="" srcset=""> 
+                                      ${item.year}
+                                  </div>
+                                  <div class="wkode-used-bikes__card-info-km">
+                                      <img class="wkode-used-bikes__card-img" src="${item.kmSvg}" alt="" srcset=""> 
+                                      ${item.km}
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="wkode-used-bikes__card-footer">
+                                <div class="wkode-used-bikes__card-footer-price">
+                                    ${item.price}
+                                </div>
+                                <div class="wkode-used-bikes__card-footer-btn">
+                                    <a href="${item.permalink}" class="wkode-btn wkode-btn--outline-red">Ver Mais</a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
                         `
                     )
                     .join("")}
