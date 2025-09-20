@@ -22,7 +22,7 @@ $taxonomies = get_object_taxonomies($post_type);
 /* =================================== */
 
 // Call the function from the included file
-$filterData = filter_function($post_type, $taxonomy, $bikes);
+$filterData = filter_function($post_type, $taxonomyMarcas, $bikes);
 
 $brandsValue = $filterData['brandsResult'];
 $modelsValue = $filterData['modelsResult'];
@@ -173,7 +173,7 @@ $count = new WP_Query($countArgs);
         <?php }
         ?>
 
-        <div class="wkode-archive__grid filter-tiles" id="filter-tiles" template-path="<?= $template_path ?>" post-type="<?= $post_type ?>" taxonomy="<?= $taxonomy ?>">
+    <div class="wkode-archive__grid filter-tiles" id="filter-tiles" template-path="<?= $template_path ?>" post-type="<?= $post_type ?>" taxonomy="<?= $taxonomyMarcas ?>">
             <?php if ($bikes->have_posts()) : ?>
 
                 <?php while ($bikes->have_posts()) : $bikes->the_post(); 
