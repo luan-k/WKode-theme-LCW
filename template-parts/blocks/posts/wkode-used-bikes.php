@@ -28,7 +28,7 @@ if( isset( $block['data']['preview'] )  ) {    /* rendering in inserter preview 
 
 
 <section class="wkode-used-bikes__section">
-        <h2 class="wkode-used-bikes__title title ">Seminovos em destaque</h2>
+        <h2 class="wkode-used-bikes__title title ">Seminovas em destaque</h2>
         
         <!-- <div class="wkode-used-bikes__category category-filter-container-wrapper grid grid-cols-3 gap-24 container"> -->
         <div class="wkode-used-bikes__category category-filter-container-wrapper wkode-used-bikes__slider   px-12 md:container">
