@@ -3,879 +3,9 @@
     "title": "Motos Novas",
     "fields": [
         {
-            "key": "field_64b44079fcf4f",
-            "label": "Título versão Principal",
-            "name": "wkode_new_motorcycles_main_version_title",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_6433f689b80b6",
-            "label": "Cores",
-            "name": "wkode_motorcycles_post_colors",
-            "type": "repeater",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "collapsed": "",
-            "min": 1,
-            "max": 5,
-            "layout": "table",
-            "button_label": "",
-            "sub_fields": [
-                {
-                    "key": "field_6474e6647253e",
-                    "label": "nome",
-                    "name": "wkode_motorcycles_post_name",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_6474e6e07253f",
-                    "label": "Imagem",
-                    "name": "wkode_motorcycles_post_img",
-                    "type": "image",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "url",
-                    "preview_size": "medium",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": ""
-                },
-                {
-                    "key": "field_6433facdb80b7",
-                    "label": "Cor",
-                    "name": "wkode_motorcycles_post_color",
-                    "type": "color_picker",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "enable_opacity": 0,
-                    "return_format": "string"
-                },
-                {
-                    "key": "field_6433fd6671514",
-                    "label": "Bicolor ou Tricolor",
-                    "name": "wkode_motorcycles_bicolor_ou_tricolor",
-                    "type": "radio",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "choices": {
-                        "bicolor": "Bicolor",
-                        "tricolor": "Tricolor"
-                    },
-                    "allow_null": 1,
-                    "other_choice": 0,
-                    "default_value": "",
-                    "layout": "horizontal",
-                    "return_format": "value",
-                    "save_other_choice": 0
-                },
-                {
-                    "key": "field_6433fdbf71515",
-                    "label": "Segunda Cor",
-                    "name": "wkode_motorcycles_post_color_two",
-                    "type": "color_picker",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_6433fd6671514",
-                                "operator": "==",
-                                "value": "bicolor"
-                            }
-                        ],
-                        [
-                            {
-                                "field": "field_6433fd6671514",
-                                "operator": "==",
-                                "value": "tricolor"
-                            }
-                        ]
-                    ],
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "enable_opacity": 0,
-                    "return_format": "string"
-                },
-                {
-                    "key": "field_6433fddd71516",
-                    "label": "Terceira Cor",
-                    "name": "wkode_motorcycles_post_color_three",
-                    "type": "color_picker",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_6433fd6671514",
-                                "operator": "==",
-                                "value": "tricolor"
-                            }
-                        ]
-                    ],
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "enable_opacity": 0,
-                    "return_format": "string"
-                }
-            ]
-        },
-        {
-            "key": "field_64b43acf65dc5",
-            "label": "Versões Disponíveis",
-            "name": "wkode_new_motorcycles_version",
-            "type": "repeater",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "collapsed": "",
-            "min": 0,
-            "max": 3,
-            "layout": "block",
-            "button_label": "Versão Adicional",
-            "sub_fields": [
-                {
-                    "key": "field_64b43c7565dc6",
-                    "label": "Título versão alternativa",
-                    "name": "wkode_new_motorcycles_version_title",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_64b43ce365dc7",
-                    "label": "Cores",
-                    "name": "wkode_new_motorcycles_colors",
-                    "type": "repeater",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "collapsed": "",
-                    "min": 1,
-                    "max": 5,
-                    "layout": "table",
-                    "button_label": "",
-                    "sub_fields": [
-                        {
-                            "key": "field_64b43ce365dc8",
-                            "label": "nome",
-                            "name": "wkode_motorcycles_post_name",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
-                            "key": "field_64b43ce465dc9",
-                            "label": "Imagem",
-                            "name": "wkode_motorcycles_post_img",
-                            "type": "image",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "url",
-                            "preview_size": "medium",
-                            "library": "all",
-                            "min_width": "",
-                            "min_height": "",
-                            "min_size": "",
-                            "max_width": "",
-                            "max_height": "",
-                            "max_size": "",
-                            "mime_types": ""
-                        },
-                        {
-                            "key": "field_64b43ce465dca",
-                            "label": "Cor",
-                            "name": "wkode_motorcycles_post_color",
-                            "type": "color_picker",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "enable_opacity": 0,
-                            "return_format": "string"
-                        },
-                        {
-                            "key": "field_64b43ce465dcb",
-                            "label": "Bicolor ou Tricolor",
-                            "name": "wkode_motorcycles_bicolor_ou_tricolor",
-                            "type": "radio",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "choices": {
-                                "bicolor": "Bicolor",
-                                "tricolor": "Tricolor"
-                            },
-                            "allow_null": 1,
-                            "other_choice": 0,
-                            "save_other_choice": 0,
-                            "default_value": "",
-                            "layout": "horizontal",
-                            "return_format": "value"
-                        },
-                        {
-                            "key": "field_64b43ce465dcc",
-                            "label": "Segunda Cor",
-                            "name": "wkode_motorcycles_post_color_two",
-                            "type": "color_picker",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": [
-                                [
-                                    {
-                                        "field": "field_64b43ce465dcb",
-                                        "operator": "==",
-                                        "value": "bicolor"
-                                    }
-                                ],
-                                [
-                                    {
-                                        "field": "field_64b43ce465dcb",
-                                        "operator": "==",
-                                        "value": "tricolor"
-                                    }
-                                ]
-                            ],
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "enable_opacity": 0,
-                            "return_format": "string"
-                        },
-                        {
-                            "key": "field_64b43ce465dcd",
-                            "label": "Terceira Cor",
-                            "name": "wkode_motorcycles_post_color_three",
-                            "type": "color_picker",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": [
-                                [
-                                    {
-                                        "field": "field_64b43ce465dcb",
-                                        "operator": "==",
-                                        "value": "tricolor"
-                                    }
-                                ]
-                            ],
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "enable_opacity": 0,
-                            "return_format": "string"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "key": "field_6494a48652bf3",
-            "label": "BLOCO INTRO",
-            "name": "wkode_new_motorcycles_hero_image_intro_block",
-            "type": "group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "row",
-            "sub_fields": [
-                {
-                    "key": "field_6494a4ee52bf4",
-                    "label": "Dark Mode?",
-                    "name": "wkode_main_block_dark_mode",
-                    "type": "true_false",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "message": "",
-                    "default_value": 1,
-                    "ui": 1,
-                    "ui_on_text": "Dark Mode",
-                    "ui_off_text": "Light Mode"
-                },
-                {
-                    "key": "field_6494a52152bf5",
-                    "label": "Titulo",
-                    "name": "wkode_main_block_title",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "Lorem ipsum dolor sit amet",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_6494a55252bf6",
-                    "label": "Descrição",
-                    "name": "wkode_main_block_description",
-                    "type": "wysiwyg",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "tabs": "all",
-                    "toolbar": "full",
-                    "media_upload": 1,
-                    "delay": 0
-                },
-                {
-                    "key": "field_6494a57952bf7",
-                    "label": "Direção",
-                    "name": "wkode_main_block_direction",
-                    "type": "true_false",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "message": "texto na esquerda e imagem na direita",
-                    "default_value": 0,
-                    "ui": 1,
-                    "ui_on_text": "Invertido",
-                    "ui_off_text": "Normal"
-                },
-                {
-                    "key": "field_6494a5ab52bf8",
-                    "label": "Imagem",
-                    "name": "wkode_main_block_img",
-                    "type": "image",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array",
-                    "preview_size": "medium",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": ""
-                }
-            ]
-        },
-        {
-            "key": "field_6495a603b5db4",
-            "label": "Bloco Descritivo padrão",
-            "name": "wkode_new_motorcycles_standart_descriptive_block",
-            "type": "group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "row",
-            "sub_fields": [
-                {
-                    "key": "field_6495a603b5db5",
-                    "label": "Dark Mode?",
-                    "name": "wkode_main_block_dark_mode",
-                    "type": "true_false",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "message": "",
-                    "default_value": 1,
-                    "ui": 1,
-                    "ui_on_text": "Dark Mode",
-                    "ui_off_text": "Light Mode"
-                },
-                {
-                    "key": "field_6495a603b5db6",
-                    "label": "Titulo",
-                    "name": "wkode_main_block_title",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "Lorem ipsum dolor sit amet",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_6495a603b5db7",
-                    "label": "Descrição",
-                    "name": "wkode_main_block_description",
-                    "type": "wysiwyg",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "tabs": "all",
-                    "toolbar": "full",
-                    "media_upload": 1,
-                    "delay": 0
-                },
-                {
-                    "key": "field_6495a603b5db8",
-                    "label": "Direção",
-                    "name": "wkode_main_block_direction",
-                    "type": "true_false",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "message": "texto na esquerda e imagem na direita",
-                    "default_value": 0,
-                    "ui": 1,
-                    "ui_on_text": "Invertido",
-                    "ui_off_text": "Normal"
-                },
-                {
-                    "key": "field_6495a603b5db9",
-                    "label": "Imagem",
-                    "name": "wkode_main_block_img",
-                    "type": "image",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array",
-                    "preview_size": "medium",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": ""
-                }
-            ]
-        },
-        {
-            "key": "field_6495af38ddde9",
-            "label": "Bloco Descritivo 2",
-            "name": "wkode_new_motorcycles_standart_descriptive_block_2",
-            "type": "group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "row",
-            "sub_fields": [
-                {
-                    "key": "field_6495af38dddea",
-                    "label": "Dark Mode?",
-                    "name": "wkode_main_block_dark_mode",
-                    "type": "true_false",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "message": "",
-                    "default_value": 1,
-                    "ui": 1,
-                    "ui_on_text": "Dark Mode",
-                    "ui_off_text": "Light Mode"
-                },
-                {
-                    "key": "field_6495af38dddeb",
-                    "label": "Titulo",
-                    "name": "wkode_main_block_title",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "Lorem ipsum dolor sit amet",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_6495af38dddec",
-                    "label": "Descrição",
-                    "name": "wkode_main_block_description",
-                    "type": "wysiwyg",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "tabs": "all",
-                    "toolbar": "full",
-                    "media_upload": 1,
-                    "delay": 0
-                },
-                {
-                    "key": "field_6495af38ddded",
-                    "label": "Direção",
-                    "name": "wkode_main_block_direction",
-                    "type": "true_false",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "message": "texto na esquerda e imagem na direita",
-                    "default_value": 1,
-                    "ui": 1,
-                    "ui_on_text": "Invertido",
-                    "ui_off_text": "Normal"
-                },
-                {
-                    "key": "field_6495af38dddee",
-                    "label": "Imagem",
-                    "name": "wkode_main_block_img",
-                    "type": "image",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array",
-                    "preview_size": "medium",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": ""
-                }
-            ]
-        },
-        {
-            "key": "field_6495f675b3837",
-            "label": "Configurações slider",
-            "name": "wkode_new_motorcycles_repeater_group",
-            "type": "group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "sub_fields": [
-                {
-                    "key": "field_6495f8b8b3838",
-                    "label": "Titulo",
-                    "name": "wkode_new_motorcycles_repeater_title",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_6495f405b382f",
-                    "label": "Configurações",
-                    "name": "wkode_new_motorcycles_repeater",
-                    "type": "repeater",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "collapsed": "",
-                    "min": 0,
-                    "max": 3,
-                    "layout": "table",
-                    "button_label": "",
-                    "sub_fields": [
-                        {
-                            "key": "field_6495f5f8b3830",
-                            "label": "Bloco Descritivo Repeater",
-                            "name": "wkode_new_motorcycles_standart_descriptive_block_repeater",
-                            "type": "group",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "layout": "block",
-                            "sub_fields": [
-                                {
-                                    "key": "field_6495f5f8b3832",
-                                    "label": "Titulo",
-                                    "name": "wkode_main_block_title",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": 1,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": "Lorem ipsum dolor sit amet",
-                                    "prepend": "",
-                                    "append": "",
-                                    "maxlength": ""
-                                },
-                                {
-                                    "key": "field_6495f5f8b3833",
-                                    "label": "Descrição",
-                                    "name": "wkode_main_block_description",
-                                    "type": "wysiwyg",
-                                    "instructions": "",
-                                    "required": 1,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "tabs": "all",
-                                    "toolbar": "full",
-                                    "media_upload": 1,
-                                    "delay": 0
-                                },
-                                {
-                                    "key": "field_6495f5f8b3835",
-                                    "label": "Imagem",
-                                    "name": "wkode_main_block_img",
-                                    "type": "image",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "return_format": "array",
-                                    "preview_size": "medium",
-                                    "library": "all",
-                                    "min_width": "",
-                                    "min_height": "",
-                                    "min_size": "",
-                                    "max_width": "",
-                                    "max_height": "",
-                                    "max_size": "",
-                                    "mime_types": ""
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "key": "field_6498a8b7954a3",
-            "label": "Galeria",
-            "name": "wkode_new_motorcycles_gallery",
+            "key": "field_649c708df68e6",
+            "label": "Imagens Adicionais",
+            "name": "wkode_single_new_imgs",
             "type": "gallery",
             "instructions": "",
             "required": 0,
@@ -890,7 +20,7 @@
             "insert": "append",
             "library": "all",
             "min": "",
-            "max": 10,
+            "max": "",
             "min_width": "",
             "min_height": "",
             "min_size": "",
@@ -900,10 +30,31 @@
             "mime_types": ""
         },
         {
-            "key": "field_6499a49bf13de",
-            "label": "ESPECIFICAÇÕES",
-            "name": "wkode_new_motorcycles_accordion",
-            "type": "repeater",
+            "key": "field_649b9f4396cef",
+            "label": "Preço",
+            "name": "wkode_single_new_price",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": "new_price_number_field_admin"
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "R$",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": 0
+        },
+        {
+            "key": "field_649b8017ebbcd",
+            "label": "Tabela Embaixo do Título",
+            "name": "wkode_single_new_table",
+            "type": "group",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -912,16 +63,12 @@
                 "class": "",
                 "id": ""
             },
-            "collapsed": "",
-            "min": 0,
-            "max": 0,
-            "layout": "block",
-            "button_label": "",
+            "layout": "row",
             "sub_fields": [
                 {
-                    "key": "field_6499a6e0ec195",
-                    "label": "Titulo",
-                    "name": "wkode_new_motorcycles_accordion_title",
+                    "key": "field_649b8275ebbce",
+                    "label": "Estado:",
+                    "name": "wkode_single_new_table_state",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -938,20 +85,129 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_6499a6fbec196",
-                    "label": "Conteudo",
-                    "name": "wkode_new_motorcycles_accordion_repeater",
+                    "key": "field_649b83c0ebbcf",
+                    "label": "Ano:",
+                    "name": "wkode_single_new_table_year",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_649b83e6ebbd0",
+                    "label": "Quilometragem",
+                    "name": "wkode_single_new_table_km",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "min": "",
+                    "max": "",
+                    "step": ""
+                },
+                {
+                    "key": "field_649b84b1ebbd2",
+                    "label": "Placa Final:",
+                    "name": "wkode_single_new_table_license",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_649b84d9ebbd3",
+                    "label": "Combustível",
+                    "name": "wkode_single_new_table_fuel",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_649b859bebbd4",
+                    "label": "Câmbio",
+                    "name": "wkode_single_new_table_transmission",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_649b85e6ebbd5",
+                    "label": "Cor",
+                    "name": "wkode_single_new_table_color",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_649b861debbd6",
+                    "label": "Linhas da tabela adicionais",
+                    "name": "wkode_single_new_table_repeater",
                     "type": "repeater",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_64b47730c282b",
-                                "operator": "!=empty"
-                            }
-                        ]
-                    ],
+                    "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -964,10 +220,10 @@
                     "button_label": "",
                     "sub_fields": [
                         {
-                            "key": "field_6499a737ec197",
-                            "label": "Titulo",
-                            "name": "wkode_new_motorcycles_accordion_inner_title",
-                            "type": "text",
+                            "key": "field_649b885bebbd7",
+                            "label": "Linhas Adicionais",
+                            "name": "wkode_single_new_table_repeater_group",
+                            "type": "group",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -976,104 +232,51 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
-                            "key": "field_6499a80dec198",
-                            "label": "Texto",
-                            "name": "wkode_new_motorcycles_accordion_inner_text",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
+                            "layout": "table",
+                            "sub_fields": [
+                                {
+                                    "key": "field_649b89ebebbd8",
+                                    "label": "Titulo Nova linha",
+                                    "name": "wkode_single_new_table_repeater_title",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "Titulo",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_649b8ac7ebbd9",
+                                    "label": "Campo Nova linha",
+                                    "name": "wkode_single_new_table_repeater_field",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "Campo",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                }
+                            ]
                         }
                     ]
-                },
-                {
-                    "key": "field_64b47730c282b",
-                    "label": "Complexo?",
-                    "name": "wkode_new_motorcycles_accordion_complex",
-                    "type": "checkbox",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "choices": {
-                        "complex": "Complexo?"
-                    },
-                    "allow_custom": 0,
-                    "default_value": [],
-                    "layout": "vertical",
-                    "toggle": 0,
-                    "return_format": "value",
-                    "save_custom": 0
-                },
-                {
-                    "key": "field_64b477b1c282c",
-                    "label": "Conteudo",
-                    "name": "wkode_new_motorcycles_accordion_content",
-                    "type": "wysiwyg",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_64b47730c282b",
-                                "operator": "==empty"
-                            }
-                        ]
-                    ],
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "tabs": "all",
-                    "toolbar": "full",
-                    "media_upload": 1,
-                    "delay": 0
                 }
             ]
-        },
-        {
-            "key": "field_68a98fb85d71c",
-            "label": "Preço",
-            "name": "wkode_single_new_price",
-            "type": "number",
-            "instructions": "Necessário para integração com Credere",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "min": "",
-            "max": "",
-            "step": ""
         }
     ],
     "location": [
@@ -1094,5 +297,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 1,
-    "modified": 1755943267
+    "modified": 1758372791
 }
