@@ -557,8 +557,14 @@ video {
 .mt-9{
   margin-top: 2.25rem;
 }
+.mr-2{
+  margin-right: 0.5rem;
+}
 .block{
   display: block;
+}
+.inline-block{
+  display: inline-block;
 }
 .flex{
   display: flex;
@@ -4735,7 +4741,6 @@ body.modal-open::after {
   font-weight: 300 !important;
   height: 4.2rem !important;
   min-width: 100% !important;
-  text-transform: capitalize !important;
 }
 .wkode-single-used-bikes-template__form .wpforms-container form .wpforms-field-container input::-moz-placeholder, .wkode-single-used-bikes-template__form .wpforms-container form .wpforms-field-container textarea::-moz-placeholder {
   color: white !important;
@@ -4753,6 +4758,9 @@ body.modal-open::after {
   font-weight: 300 !important;
   min-width: 100% !important;
   text-transform: capitalize !important;
+}
+.wkode-single-used-bikes-template__form .wpforms-container form .wpforms-field-container .wpforms-error.mailcheck-error {
+  display: none !important;
 }
 .wkode-single-used-bikes-template__form .wpforms-container form .wpforms-field-container .wpforms-field {
   padding: 10px 0 !important;
