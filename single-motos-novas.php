@@ -1,10 +1,11 @@
 <?php get_header(); 
 
 require_once 'inc/format_prices.php';
-$table = get_field('wkode_single_new_table', get_the_ID());
-$price = get_field('wkode_single_new_price', get_the_ID());
-$images = get_field('wkode_single_new_imgs', get_the_ID());
+$table = get_field('wkode_single_new_bikes_table', get_the_ID());
+$price = get_field('wkode_single_new_bikes_price', get_the_ID());
+$images = get_field('wkode_single_new_bikes_image_gallery', get_the_ID());
 
+var_dump($table);
 ?>
 
 <div id="primary" class="wkode-single-used-bikes-template content-area">
@@ -37,15 +38,6 @@ $images = get_field('wkode_single_new_imgs', get_the_ID());
                                 ?>
                             </div>
                         <?php endif; ?>
-                        <div class="wkode-single-used-bikes-template__body mt-9">
-                            <h4 class="wkode-single-used-bikes-template__description-title">
-                                Descrição
-                            </h4>
-                            <div class="wkode-single-used-bikes-template__content entry-content">
-                                <?php the_content(); ?>
-                            </div>
-
-                        </div>
                     </div>
                     <div class="wkode-single-used-bikes-template__entry-content">
                         <h1 class="wkode-single-used-bikes-template__title wkode-single-used-bikes-template__title--desktop"><?php the_title(); ?></h1>
@@ -56,52 +48,116 @@ $images = get_field('wkode_single_new_imgs', get_the_ID());
                                 $cellClass = 'table-cell';
                                 $titleCellClass = $cellClass . ' table-cell--title';
                                 $contentCellClass = $cellClass . ' table-cell--content';
+                                $row_count = 0;
+                                $has_visible_rows = false;
+                                
+                                
+                                ob_start();
                                 ?>
-                                <div class="table-row table-row--dark">
-                                    <div class="<?php echo esc_attr($titleCellClass); ?>">Estado:</div>
-                                    <div class="<?php echo esc_attr($contentCellClass); ?>"><?php echo !empty($table['wkode_single_new_table_state']) ? esc_html($table['wkode_single_new_table_state']) : ''; ?></div>
-                                </div>
-                                <div class="table-row">
-                                    <div class="<?php echo esc_attr($titleCellClass); ?>">Ano:</div>
-                                    <div class="<?php echo esc_attr($contentCellClass); ?>"><?php echo !empty($table['wkode_single_new_table_year']) ? esc_html($table['wkode_single_new_table_year']) : ''; ?></div>
-                                </div>
-                                <div class="table-row table-row--dark">
-                                    <div class="<?php echo esc_attr($titleCellClass); ?>">Quilometragem:</div>
-                                    <div class="<?php echo esc_attr($contentCellClass); ?>"><?php echo !empty($table['wkode_single_new_table_km']) ? esc_html($table['wkode_single_new_table_km']) : ''; ?></div>
-                                </div>
-                                <div class="table-row">
-                                    <div class="<?php echo esc_attr($titleCellClass); ?>">Placa Final:</div>
-                                    <div class="<?php echo esc_attr($contentCellClass); ?>"><?php echo !empty($table['wkode_single_new_table_license']) ? esc_html($table['wkode_single_new_table_license']) : ''; ?></div>
-                                </div>
-                                <div class="table-row table-row--dark">
-                                    <div class="<?php echo esc_attr($titleCellClass); ?>">Combustível:</div>
-                                    <div class="<?php echo esc_attr($contentCellClass); ?>"><?php echo !empty($table['wkode_single_new_table_fuel']) ? esc_html($table['wkode_single_new_table_fuel']) : ''; ?></div>
-                                </div>
-                                <div class="table-row">
-                                    <div class="<?php echo esc_attr($titleCellClass); ?>">Câmbio:</div>
-                                    <div class="<?php echo esc_attr($contentCellClass); ?>"><?php echo !empty($table['wkode_single_new_table_transmission']) ? esc_html($table['wkode_single_new_table_transmission']) : ''; ?></div>
-                                </div>
-                                <div class="table-row table-row--dark">
-                                    <div class="<?php echo esc_attr($titleCellClass); ?>">Cor:</div>
-                                    <div class="<?php echo esc_attr($contentCellClass); ?>"><?php echo !empty($table['wkode_single_new_table_color']) ? esc_html($table['wkode_single_new_table_color']) : ''; ?></div>
-                                </div>
+                                <?php if (!empty($table['wkode_single_new_table_state'])) : ?>
+                                    <div class="table-row <?php echo ($row_count % 2 === 0) ? 'table-row--dark' : ''; ?>">
+                                        <div class="<?php echo esc_attr($titleCellClass); ?>">Estado:</div>
+                                        <div class="<?php echo esc_attr($contentCellClass); ?>"><?php echo esc_html($table['wkode_single_new_table_state']); ?></div>
+                                    </div>
+                                    <?php $row_count++; $has_visible_rows = true; ?>
+                                <?php endif; ?>
+                                
+                                <?php if (!empty($table['wkode_single_new_table_year'])) : ?>
+                                    <div class="table-row <?php echo ($row_count % 2 === 0) ? 'table-row--dark' : ''; ?>">
+                                        <div class="<?php echo esc_attr($titleCellClass); ?>">Ano:</div>
+                                        <div class="<?php echo esc_attr($contentCellClass); ?>"><?php echo esc_html($table['wkode_single_new_table_year']); ?></div>
+                                    </div>
+                                    <?php $row_count++; $has_visible_rows = true; ?>
+                                <?php endif; ?>
+                                
+                                <?php if (!empty($table['wkode_single_new_table_km'])) : ?>
+                                    <div class="table-row <?php echo ($row_count % 2 === 0) ? 'table-row--dark' : ''; ?>">
+                                        <div class="<?php echo esc_attr($titleCellClass); ?>">Quilometragem:</div>
+                                        <div class="<?php echo esc_attr($contentCellClass); ?>"><?php echo esc_html($table['wkode_single_new_table_km']); ?></div>
+                                    </div>
+                                    <?php $row_count++; $has_visible_rows = true; ?>
+                                <?php endif; ?>
+                                
+                                <?php if (!empty($table['wkode_single_new_table_license'])) : ?>
+                                    <div class="table-row <?php echo ($row_count % 2 === 0) ? 'table-row--dark' : ''; ?>">
+                                        <div class="<?php echo esc_attr($titleCellClass); ?>">Placa Final:</div>
+                                        <div class="<?php echo esc_attr($contentCellClass); ?>"><?php echo esc_html($table['wkode_single_new_table_license']); ?></div>
+                                    </div>
+                                    <?php $row_count++; $has_visible_rows = true; ?>
+                                <?php endif; ?>
+                                
+                                <?php if (!empty($table['wkode_single_new_table_fuel'])) : ?>
+                                    <div class="table-row <?php echo ($row_count % 2 === 0) ? 'table-row--dark' : ''; ?>">
+                                        <div class="<?php echo esc_attr($titleCellClass); ?>">Combustível:</div>
+                                        <div class="<?php echo esc_attr($contentCellClass); ?>"><?php echo esc_html($table['wkode_single_new_table_fuel']); ?></div>
+                                    </div>
+                                    <?php $row_count++; $has_visible_rows = true; ?>
+                                <?php endif; ?>
+                                
+                                <?php if (!empty($table['wkode_single_new_table_transmission']) || !empty($table['wkode_single_used_new_transmission'])) : ?>
+                                    <div class="table-row <?php echo ($row_count % 2 === 0) ? 'table-row--dark' : ''; ?>">
+                                        <div class="<?php echo esc_attr($titleCellClass); ?>">Câmbio:</div>
+                                        <div class="<?php echo esc_attr($contentCellClass); ?>"><?php echo esc_html(!empty($table['wkode_single_new_table_transmission']) ? $table['wkode_single_new_table_transmission'] : $table['wkode_single_used_new_transmission']); ?></div>
+                                    </div>
+                                    <?php $row_count++; $has_visible_rows = true; ?>
+                                <?php endif; ?>
+                                
+                                <?php if (!empty($table['wkode_single_new_table_color'])) : ?>
+                                    <div class="table-row <?php echo ($row_count % 2 === 0) ? 'table-row--dark' : ''; ?>">
+                                        <div class="<?php echo esc_attr($titleCellClass); ?>">Cor:</div>
+                                        <div class="<?php echo esc_attr($contentCellClass); ?>"><?php echo esc_html($table['wkode_single_new_table_color']); ?></div>
+                                    </div>
+                                    <?php $row_count++; $has_visible_rows = true; ?>
+                                <?php endif; ?>
                                 <?php
                                 $repeater_rows = isset($table['wkode_single_new_table_repeater']) && is_array($table['wkode_single_new_table_repeater']) ? $table['wkode_single_new_table_repeater'] : [];
                                 if (!empty($repeater_rows)) :
                                     foreach ($repeater_rows as $index => $row) :
                                         if (!is_array($row)) { continue; }
-                                        $row_group = isset($row['wkode_single_new_table_repeater_group']) && is_array($row['wkode_single_new_table_repeater_group']) ? $row['wkode_single_new_table_repeater_group'] : [];
-                                        $title = !empty($row_group['wkode_single_new_table_repeater_title']) ? $row_group['wkode_single_new_table_repeater_title'] : '';
-                                        $field = !empty($row_group['wkode_single_new_table_repeater_field']) ? $row_group['wkode_single_new_table_repeater_field'] : '';
-                                        $rowClass = ($index % 2 === 1) ? 'table-row--dark' : '';
-                                        ?>
-                                        <div class="table-row <?php echo esc_attr($rowClass); ?>">
-                                            <div class="<?php echo esc_attr($titleCellClass); ?>"><?php echo esc_html($title); ?></div>
-                                            <div class="<?php echo esc_attr($contentCellClass); ?>"><?php echo esc_html($field); ?></div>
-                                        </div>
+                                        
+                                        
+                                        $row_group = [];
+                                        if (isset($row['wkode_single_new_table_repeater_group']) && is_array($row['wkode_single_new_table_repeater_group'])) {
+                                            $row_group = $row['wkode_single_new_table_repeater_group'];
+                                        } elseif (isset($row['wkode_single_used_table_repeater_group']) && is_array($row['wkode_single_used_table_repeater_group'])) {
+                                            $row_group = $row['wkode_single_used_table_repeater_group'];
+                                        }
+                                        
+                                        
+                                        $title = '';
+                                        $field = '';
+                                        
+                                        if (!empty($row_group['wkode_single_new_table_repeater_title'])) {
+                                            $title = $row_group['wkode_single_new_table_repeater_title'];
+                                        } elseif (!empty($row_group['wkode_single_used_table_repeater_title'])) {
+                                            $title = $row_group['wkode_single_used_table_repeater_title'];
+                                        }
+                                        
+                                        if (!empty($row_group['wkode_single_new_table_repeater_field'])) {
+                                            $field = $row_group['wkode_single_new_table_repeater_field'];
+                                        } elseif (!empty($row_group['wkode_single_used_table_repeater_field'])) {
+                                            $field = $row_group['wkode_single_used_table_repeater_field'];
+                                        }
+                                        
+                                        
+                                        if ($title !== '' && $field !== '') :
+                                            $rowClass = ($row_count % 2 === 0) ? 'table-row--dark' : '';
+                                            ?>
+                                            <div class="table-row <?php echo esc_attr($rowClass); ?>">
+                                                <div class="<?php echo esc_attr($titleCellClass); ?>"><?php echo esc_html($title); ?></div>
+                                                <div class="<?php echo esc_attr($contentCellClass); ?>"><?php echo esc_html($field); ?></div>
+                                            </div>
+                                            <?php $row_count++; $has_visible_rows = true; ?>
+                                        <?php endif; ?>
                                     <?php
                                     endforeach;
                                 endif;
+
+                                $table_content = ob_get_clean();
+
+                                if ($has_visible_rows) {
+                                    echo $table_content;
+                                }
                             }
                             ?>
                         </div>
@@ -131,6 +187,13 @@ $images = get_field('wkode_single_new_imgs', get_the_ID());
                             </a>
                         </div>
 
+                    </div>
+                </div>
+
+                <div class="wkode-single-used-bikes-template__body mt-9 container">
+                    <h4 class="wkode-single-used-bikes-template__description-title">Descrição</h4>
+                    <div class="wkode-single-used-bikes-template__content entry-content">
+                        <?php the_content(); ?>
                     </div>
                 </div>
 

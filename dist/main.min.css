@@ -495,17 +495,14 @@ video {
 /* .my-obj {
     @apply bg-brand-primary text-center text-brand-tertiary font-customFontName;
   } */
-.relative{
-  position: relative;
+.visible{
+  visibility: visible;
 }
 .col-span-1{
   grid-column: span 1 / span 1;
 }
 .col-span-12{
   grid-column: span 12 / span 12;
-}
-.col-span-full{
-  grid-column: 1 / -1;
 }
 .m-auto{
   margin: auto;
@@ -5206,17 +5203,8 @@ body.modal-open::after {
 }
 
 @media (min-width: 768px){
-  .md\:col-span-2{
-    grid-column: span 2 / span 2;
-  }
   .md\:col-span-3{
     grid-column: span 3 / span 3;
-  }
-  .md\:col-span-4{
-    grid-column: span 4 / span 4;
-  }
-  .md\:col-span-6{
-    grid-column: span 6 / span 6;
   }
   .md\:mt-0{
     margin-top: 0px;
@@ -5232,10 +5220,6 @@ body.modal-open::after {
   }
   .md\:grid-cols-3{
     grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-  .md\:px-0{
-    padding-left: 0px;
-    padding-right: 0px;
   }
 }
 
