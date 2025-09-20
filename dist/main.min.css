@@ -495,9 +495,6 @@ video {
 /* .my-obj {
     @apply bg-brand-primary text-center text-brand-tertiary font-customFontName;
   } */
-.visible{
-  visibility: visible;
-}
 .col-span-1{
   grid-column: span 1 / span 1;
 }
@@ -510,10 +507,6 @@ video {
 .mx-2{
   margin-left: 0.5rem;
   margin-right: 0.5rem;
-}
-.my-12{
-  margin-top: 3rem;
-  margin-bottom: 3rem;
 }
 .my-36{
   margin-top: 9rem;
