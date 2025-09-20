@@ -536,6 +536,9 @@ video {
 .ml-6{
   margin-left: 1.5rem;
 }
+.mr-2{
+  margin-right: 0.5rem;
+}
 .mt-12{
   margin-top: 3rem;
 }
@@ -556,9 +559,6 @@ video {
 }
 .mt-9{
   margin-top: 2.25rem;
-}
-.mr-2{
-  margin-right: 0.5rem;
 }
 .block{
   display: block;
