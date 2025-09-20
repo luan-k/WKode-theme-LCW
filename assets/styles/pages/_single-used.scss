@@ -237,7 +237,6 @@ body.modal-open {
       font-weight: 300 !important;
       height: 4.2rem !important;
       min-width: 100% !important;
-      text-transform: capitalize !important;
       &::placeholder {
         color: white !important;
         font-family: "Rubik" !important;
@@ -246,6 +245,9 @@ body.modal-open {
         min-width: 100% !important;
         text-transform: capitalize !important;
       }
+    }
+    .wpforms-error.mailcheck-error {
+      display: none !important;
     }
     .wpforms-field {
       padding: 10px 0 !important;

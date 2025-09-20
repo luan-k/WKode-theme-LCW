@@ -35,15 +35,6 @@ $images = get_field('wkode_single_used_imgs', get_the_ID());
                                 ?>
                             </div>
                         <?php endif; ?>
-                        <div class="wkode-single-used-bikes-template__body mt-9">
-                            <h4 class="wkode-single-used-bikes-template__description-title">
-                                Descrição
-                            </h4>
-                            <div class="wkode-single-used-bikes-template__content entry-content">
-                                <?php the_content(); ?>
-                            </div>
-
-                        </div>
                     </div>
 
                     <div class="wkode-single-used-bikes-template__entry-content">
@@ -120,7 +111,6 @@ $images = get_field('wkode_single_used_imgs', get_the_ID());
                                 </h3>
                             <?php } ?>
                         </div>
-                        <div id="credere-pnp"></div>
 
 
                         <div class="wkode-single-used-bikes-template__btn mt-12">
@@ -131,6 +121,17 @@ $images = get_field('wkode_single_used_imgs', get_the_ID());
 
                     </div>
                 </div>
+
+                <div class="wkode-single-used-bikes-template__body container">
+                    <h4 class="wkode-single-used-bikes-template__description-title">
+                        Descrição
+                    </h4>
+                    <div class="wkode-single-used-bikes-template__content entry-content">
+                        <?php the_content(); ?>
+                    </div>
+
+                </div>
+
 
                 <div class="wkode-single-used-bikes-template__random-used mb-48 mt-52">
                     <?php
@@ -196,7 +197,6 @@ $images = get_field('wkode_single_used_imgs', get_the_ID());
     </main>
 </div>
 
-<script src="https://app.meucredere.com.br/simulador/loja/04.472.318/0001-26/veiculo/detectar.js"></script>
 
 
 <?php get_footer(); ?>

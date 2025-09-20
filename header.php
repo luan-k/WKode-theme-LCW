@@ -19,7 +19,7 @@ $is_blurred = false;
 
 // Check if the post type is 'custom_post_type'
 if (is_single() && $post_type === 'motos-novas') {
-    $is_blurred = true;
+    $is_blurred = false;
 } else {
     $is_blurred = false;
 }

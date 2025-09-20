@@ -24,7 +24,7 @@ function create_posttype() {
 			'has_archive'         => true,
 			'exclude_from_search' => false,
 			'publicly_queryable'  => true,
-			'taxonomies' => array( 'moto_nova_categoria' ),
+			'taxonomies' => array( 'moto_nova_categoria', 'moto_nova_marca', 'moto_nova_estilos' ),
 			'capability_type'     => 'post',
 			'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail',  'revisions', 'custom-fields', ),
 
@@ -72,6 +72,84 @@ function create_taxonomy() {
 
 }
 add_action( 'init', 'create_taxonomy', 0 );
+
+function create_nova_marca_taxonomy() {
+
+    $labels = array(
+        'name'                       => _x( 'Marcas', 'Taxonomy General Name', 'moto-nova-marca' ),
+        'singular_name'              => _x( 'Marca', 'Taxonomy Singular Name', 'moto-nova-marca' ),
+        'menu_name'                  => __( 'Marcas', 'moto-nova-marca' ),
+        'all_items'                  => __( 'Todas as Marcas', 'moto-nova-marca' ),
+        'parent_item'                => __( 'Marca Parente', 'moto-nova-marca' ),
+        'parent_item_colon'          => __( 'Marca Parente:', 'moto-nova-marca' ),
+        'new_item_name'              => __( 'Novo Item', 'moto-nova-marca' ),
+        'add_new_item'               => __( 'Adicionar novo Item', 'moto-nova-marca' ),
+        'edit_item'                  => __( 'Editar Item', 'moto-nova-marca' ),
+        'update_item'                => __( 'Update Item', 'moto-nova-marca' ),
+        'view_item'                  => __( 'Ver Item', 'moto-nova-marca' ),
+        'separate_items_with_commas' => __( 'Separar Items com virgulas', 'moto-nova-marca' ),
+        'add_or_remove_items'        => __( 'Adiconar ou Remover Items', 'moto-nova-marca' ),
+        'choose_from_most_used'      => __( 'Escolher os Mais Usados', 'moto-nova-marca' ),
+        'popular_items'              => __( 'Items Populares', 'moto-nova-marca' ),
+        'search_items'               => __( 'Procurar Items', 'moto-nova-marca' ),
+        'not_found'                  => __( 'Não Encontrado', 'moto-nova-marca' ),
+        'no_terms'                   => __( 'Nenhum Item', 'moto-nova-marca' ),
+        'items_list'                 => __( 'Lista de Items', 'moto-nova-marca' ),
+        'items_list_navigation'      => __( 'Navegação de items de lista ', 'moto-nova-marca' ),
+    );
+    $args = array(
+        'labels'                     => $labels,
+        'hierarchical'               => true,
+        'public'                     => true,
+        'show_ui'                    => true,
+        'show_admin_column'          => true,
+		'show_in_rest'               => true,
+        'show_in_nav_menus'          => true,
+        'show_tagcloud'              => true,
+    );
+    register_taxonomy( 'moto_nova_marca', array( 'motos-novas' ), $args );
+
+}
+add_action( 'init', 'create_nova_marca_taxonomy', 0 );
+
+function create_nova_estilos_taxonomy() {
+
+    $labels = array(
+        'name'                       => _x( 'Estilos', 'Taxonomy General Name', 'moto-nova-estilo' ),
+        'singular_name'              => _x( 'Estilo', 'Taxonomy Singular Name', 'moto-nova-estilo' ),
+        'menu_name'                  => __( 'Estilos', 'moto-nova-estilo' ),
+        'all_items'                  => __( 'Todos os Estilos', 'moto-nova-estilo' ),
+        'parent_item'                => __( 'Estilo Parente', 'moto-nova-estilo' ),
+        'parent_item_colon'          => __( 'Estilo Parente:', 'moto-nova-estilo' ),
+        'new_item_name'              => __( 'Novo Item', 'moto-nova-estilo' ),
+        'add_new_item'               => __( 'Adicionar novo Item', 'moto-nova-estilo' ),
+        'edit_item'                  => __( 'Editar Item', 'moto-nova-estilo' ),
+        'update_item'                => __( 'Update Item', 'moto-nova-estilo' ),
+        'view_item'                  => __( 'Ver Item', 'moto-nova-estilo' ),
+        'separate_items_with_commas' => __( 'Separar Items com virgulas', 'moto-nova-estilo' ),
+        'add_or_remove_items'        => __( 'Adiconar ou Remover Items', 'moto-nova-estilo' ),
+        'choose_from_most_used'      => __( 'Escolher os Mais Usados', 'moto-nova-estilo' ),
+        'popular_items'              => __( 'Items Populares', 'moto-nova-estilo' ),
+        'search_items'               => __( 'Procurar Items', 'moto-nova-estilo' ),
+        'not_found'                  => __( 'Não Encontrado', 'moto-nova-estilo' ),
+        'no_terms'                   => __( 'Nenhum Item', 'moto-nova-estilo' ),
+        'items_list'                 => __( 'Lista de Items', 'moto-nova-estilo' ),
+        'items_list_navigation'      => __( 'Navegação de items de lista ', 'moto-nova-estilo' ),
+    );
+    $args = array(
+        'labels'                     => $labels,
+        'hierarchical'               => true,
+        'public'                     => true,
+        'show_ui'                    => true,
+        'show_admin_column'          => true,
+		'show_in_rest'               => true,
+        'show_in_nav_menus'          => true,
+        'show_tagcloud'              => true,
+    );
+    register_taxonomy( 'moto_nova_estilos', array( 'motos-novas' ), $args );
+
+}
+add_action( 'init', 'create_nova_estilos_taxonomy', 0 );
 
 
 // Post type new bikes
