@@ -1,9 +1,9 @@
 <?php get_header(); 
 
-require_once 'filter/multiple-filter-front.php';
+require_once 'filter/filter-front.php';
 
 $taxonomy = 'moto_nova_categoria';
-$taxonomyModelos = 'moto_nova_modelo';
+$taxonomyMarcas = 'moto_nova_marca';
 $taxonomyStyles = 'moto_nova_estilos';
 $post_type = 'motos-novas';
 $template_path = './template-parts/cards/new-bikes';
@@ -22,7 +22,7 @@ $taxonomies = get_object_taxonomies($post_type);
 /* =================================== */
 
 // Call the function from the included file
-$filterData = multiple_filter_function($post_type, $taxonomy, $bikes);
+$filterData = filter_function($post_type, $taxonomy, $bikes);
 
 $brandsValue = $filterData['brandsResult'];
 $modelsValue = $filterData['modelsResult'];
@@ -36,8 +36,8 @@ $categories = get_terms(array(
     'taxonomy' => $taxonomy,
     'hide_empty' => false,
 ));
-$models = get_terms(array(
-    'taxonomy' => $taxonomyModelos,
+$brands = get_terms(array(
+    'taxonomy' => $taxonomyMarcas,
     'hide_empty' => false,
 ));
 $styles = get_terms(array(
@@ -70,7 +70,7 @@ $count = new WP_Query($countArgs);
                     <img class="title-taxonomy-arrow" src="<?php echo get_theme_file_uri('./assets/img/svg/filters-arrow.svg'); ?>" alt="" srcset=""> 
                 </h4>
                 <ul class="cat-list">
-                    <?php foreach($categories as $category) : 
+                    <?php foreach($brands as $category) : 
                         ?>
                         <li class="">
                             <input <?php
@@ -95,7 +95,7 @@ $count = new WP_Query($countArgs);
                     <img class="title-taxonomy-arrow" src="<?php echo get_theme_file_uri('./assets/img/svg/filters-arrow.svg'); ?>" alt="" srcset=""> 
                 </h4>
                 <ul class="cat-list mt-7 ">
-                    <?php foreach($models as $category) : 
+                    <?php foreach($categories as $category) : 
                         ?>
                         <li class="">
                             <input <?php
@@ -173,7 +173,7 @@ $count = new WP_Query($countArgs);
         <?php }
         ?>
 
-        <div class="wkode-archive__grid filter-multiple-tiles" id="multiple-filter-tiles" template-path="<?= $template_path ?>" post-type="<?= $post_type ?>" taxonomy="<?= $taxonomy ?>">
+        <div class="wkode-archive__grid filter-tiles" id="filter-tiles" template-path="<?= $template_path ?>" post-type="<?= $post_type ?>" taxonomy="<?= $taxonomy ?>">
             <?php if ($bikes->have_posts()) : ?>
 
                 <?php while ($bikes->have_posts()) : $bikes->the_post(); 

@@ -16,6 +16,13 @@ function filter_posts() {
     $taxonomy = $_POST['taxonomy'];
     $catSlug = $_POST['category'];
     $paged = $_POST['currentPage'];
+    $minimumPrice = $_POST['minimumPrice'];
+    $maximumPrice = $_POST['maximumPrice'];
+
+    $taxonomyModels = 'moto_nova_categoria';
+    $modelsTerms = $_POST['models'];
+    $taxonomyStyles = 'moto_nova_estilos';
+    $stylesTerms = $_POST['styles'];
 
     $query_args = [
         'post_type' => $post_type,
@@ -29,25 +36,67 @@ function filter_posts() {
 		'posts_per_page' => -1,
 	];
 
+    $taxonomies = array(
+      'relation' => 'AND',
+    );
+
+    if($catSlug){
+      $catPosts = array(
+        'taxonomy' => $taxonomy,
+        'field' => 'slug', // Change 'slug' to 'term_id' if you are passing term IDs instead of slugs
+        'terms' => $catSlug,
+      );
+      array_push($taxonomies, $catPosts);
+    }
+    if($modelsTerms){
+      $modelsPosts = array(
+          'taxonomy' => $taxonomyModels,
+          'field'    => 'slug',
+          'terms'    => $modelsTerms,
+      );
+      array_push($taxonomies, $modelsPosts);
+    }
+    if($stylesTerms){
+      $stylesPosts = array(
+          'taxonomy' => $taxonomyStyles,
+          'field'    => 'slug',
+          'terms'    => $stylesTerms,
+      );
+      array_push($taxonomies, $stylesPosts);
+    }
+    
+    $acf_numbers = array(
+      'relation' => 'AND',
+    );
+    if($minimumPrice){
+      $minimumPosts = array(
+        'key' => 'wkode_single_new_bikes_price',
+        'value' => $minimumPrice,
+        'compare' => '>=',
+        'type' => 'NUMERIC',
+      );
+      array_push($acf_numbers, $minimumPosts);
+    }
+    if($maximumPrice){
+      $maximumPosts = array(
+        'key' => 'wkode_single_new_bikes_price',
+        'value' => $maximumPrice,
+        'compare' => '<=',
+        'type' => 'NUMERIC',
+      );
+      array_push($acf_numbers, $maximumPosts);
+    }
+
+    $query_args['tax_query'] = $taxonomies;
+    $query_args['meta_query'] = $acf_numbers;
+    $countArgs['tax_query'] = $taxonomies;
+    $countArgs['meta_query'] = $acf_numbers;
+
     if (!empty($catSlug)) {
-        $query_args['tax_query'] = [
-          [
-            'taxonomy' => $taxonomy,
-            'field' => 'slug', // Change 'slug' to 'term_id' if you are passing term IDs instead of slugs
-            'terms' => $catSlug,
-            'relation' => 'AND',
-            //'operator' => 'IN'
-          ],
-        ];
-        $countArgs['tax_query'] = [
-          [
-            'taxonomy' => $taxonomy,
-            'field' => 'slug', // Change 'slug' to 'term_id' if you are passing term IDs instead of slugs
-            'terms' => $catSlug,
-            //'relation' => 'AND',
-            //'operator' => 'IN'
-          ],
-        ];
+    }
+
+    if (!empty($catSlug) || !empty($modelsTerms) || !empty($stylesTerms) || !empty($minimumPrice) || !empty($maximumPrice)) {
+        // Tax query and meta query are already set above
     }
     
   
@@ -73,7 +122,10 @@ function filter_posts() {
         'total_number_posts' => $count->post_count,
         'html' => $output,
         'paged' => $paged,
-        'cat' => $catSlug
+        'cat' => $catSlug,
+        'minPrice' => $minimumPrice,
+        'maxPrice' => $maximumPrice,
+        'acfNumber' => $acf_numbers,
     ];
 
   
