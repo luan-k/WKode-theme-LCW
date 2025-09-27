@@ -10,6 +10,8 @@ $standart_posts = new WP_Query([
     'posts_per_page' => 9,
 ]);
 
+require_once get_template_directory() . '/inc/format_prices.php';
+
 if($posts){
     if(count($posts) > 6){
         $final_posts = true;
@@ -47,76 +49,69 @@ if( isset( $block['data']['preview'] )  ) {    /* rendering in inserter preview 
                             if($final_posts){
                                 foreach ($posts as $post) {
                                     setup_postdata($post);
-                                    ?>
-                                    <div class="wkode-new-bikes__card carousel-image">
-                                        <h3 class="wkode-new-bikes__card-title ">
-                                            <a href="<?php echo get_permalink($post->ID); ?>">
-                                                <?php echo wp_trim_words(get_the_title($post->ID), 15); ?>
-                                            </a>
-                                        </h3>
-                                        <a href="<?php echo get_permalink($post->ID); ?>">
-                                            <?php
-                                            $custom_field_value = get_field('wkode_motorcycles_post_colors', $post->ID);
-                                            if ($custom_field_value) {
-                                                foreach ($custom_field_value as $index => $field) {
-                                                    $postImg = $field['wkode_motorcycles_post_img'];
-                                                    if ($index == 0) {
-                                                        ?>
-                                                        <img class="wkode-new-bikes__card-img active-color-image" src="<?php echo $postImg; ?>" alt="" srcset="">
-                                                        <?php
-                                                    } else {
-                                                        ?>
-                                                        <img class="wkode-new-bikes__card-img" src="<?php echo $postImg; ?>" alt="" srcset="">
-                                                        <?php
-                                                    }
-                                                }
-                                            }
-                                            ?>
-                                        </a>
-                                        <div class="wkode-new-bikes__card-colors text-black">
-                                            <?php
-                                            if ($custom_field_value) {
-                                                foreach ($custom_field_value as $index => $field) {
-                                                    $postColor = $field['wkode_motorcycles_post_color'];
-                                                    $biOrTri = $field['wkode_motorcycles_bicolor_ou_tricolor'];
-                                                    $secondColor = $field['wkode_motorcycles_post_color_two'];
-                                                    $thirdColor = $field['wkode_motorcycles_post_color_three'];
-            
-                                                    if ($biOrTri == 'bicolor') {
-                                                        $biOrTriClass = "wkode-new-bikes__card-color--bicolor";
-                                                    } elseif ($biOrTri == 'tricolor') {
-                                                        $biOrTriClass = "wkode-new-bikes__card-color--tricolor";
-                                                    } else {
-                                                        $biOrTriClass = "wkode-new-bikes__card-color--unique";
-                                                    }
-                                                    if ($index == 0) {
-                                                        $active_color = "active-color";
-                                                    } else {
-                                                        $active_color = "";
-                                                    }
-                                                    ?>
-                                                    <span class="wkode-new-bikes__card-color <?php echo $active_color ?>">
-                                                        <span class="<?php echo $biOrTriClass ?>" style="background-color: <?php echo $postColor; ?>"></span>
-                                                        <?php
-                                                        if ($biOrTri == 'bicolor') {
-                                                            ?>
-                                                            <span class="<?php echo $biOrTriClass ?>" style="background-color: <?php echo $secondColor; ?>"></span>
-                                                            <?php
-                                                        }
-                                                        if ($biOrTri == 'tricolor') {
-                                                            ?>
-                                                            <span class="<?php echo $biOrTriClass ?>" style="background-color: <?php echo $secondColor; ?>"></span>
-                                                            <span class="<?php echo $biOrTriClass ?>" style="background-color: <?php echo $thirdColor; ?>"></span>
-                                                            <?php
-                                                        }
-                                                        ?>
-                                                    </span>
-                                                    <?php
-                                                }
-                                            }
-                                            ?>
-                                        </div>
-                                    </div>
+
+$post_id = $post->ID;
+
+$table = get_field('wkode_single_new_bikes_table', $post_id);
+$year  = '';
+$km    = '';
+if (is_array($table)) {
+    $year = isset($table['wkode_single_new_table_year']) ? (string)$table['wkode_single_new_table_year'] : '';
+    $km   = isset($table['wkode_single_new_table_km'])   ? (string)$table['wkode_single_new_table_km']   : '';
+}
+
+$price = get_field('wkode_single_new_bikes_price', $post_id);
+?>
+<div class="wkode-used-bikes__card mx-2">
+
+  <a class="wkode-used-bikes__card-link" href="<?php echo esc_url( get_permalink($post_id) ); ?>">
+    <img
+      class="wkode-used-bikes__card-img"
+      src="<?php
+        if ( has_post_thumbnail($post_id) ) {
+          echo esc_url( get_the_post_thumbnail_url($post_id, 'motos_seminovas_card') );
+        } else {
+          echo esc_url( get_theme_file_uri('./assets/img/standart-used.png') );
+        }
+      ?>"
+      alt="<?php echo esc_attr( get_the_title($post_id) ); ?>">
+  </a>
+
+  <div class="wkode-used-bikes__card-body">
+    <h3 class="wkode-used-bikes__card-title">
+      <a href="<?php echo esc_url( get_permalink($post_id) ); ?>">
+        <?php echo esc_html( wp_trim_words( get_the_title($post_id), 15 ) ); ?>
+      </a>
+    </h3>
+
+    <div class="wkode-used-bikes__card-info">
+      <div class="wkode-used-bikes__card-info-date">
+        <img class="wkode-used-bikes__card-img" src="<?php echo esc_url( get_theme_file_uri('./assets/img/svg/calendar-used.svg') ); ?>" alt="">
+        <?php echo $year !== '' ? esc_html($year) : '23/23'; ?>
+      </div>
+
+      <div class="wkode-used-bikes__card-info-km">
+        <img class="wkode-used-bikes__card-img" src="<?php echo esc_url( get_theme_file_uri('./assets/img/svg/km.svg') ); ?>" alt="">
+        <?php echo $km !== '' ? esc_html($km) : '0'; ?>
+      </div>
+    </div>
+  </div>
+
+  <div class="wkode-used-bikes__card-footer">
+    <div class="wkode-used-bikes__card-footer-price">
+      <?php
+      if ($price) {
+        echo 'R$ ' . esc_html( format_price($price) );
+      } else {
+        echo 'consulte';
+      }
+      ?>
+    </div>
+    <div class="wkode-used-bikes__card-footer-btn">
+      <a href="<?php echo esc_url( get_permalink($post_id) ); ?>" class="wkode-btn wkode-btn--outline-red">Ver Mais</a>
+    </div>
+  </div>
+</div>
                                     <?php
                                 }
                                 wp_reset_postdata();
