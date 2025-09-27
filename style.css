@@ -11,6 +11,6 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 @media(max-width: 1050px){
   .wkode-single-used-bikes-template__form{
-    width: 90%;
+    width: 90%!important;
   }
 }
