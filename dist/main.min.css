@@ -1239,7 +1239,7 @@ body .wraper {
     position: absolute;
     top: 0;
     width: 100%;
-    z-index: 998;
+    z-index: 997;
   }
   .wkode-main-block__image .wkode-main-block__img {
     display: none;
