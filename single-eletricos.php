@@ -92,7 +92,7 @@ $images = get_field('wkode_single_product_imgs', get_the_ID());
                         </div>
 
                         <div class="wkode-single-used-bikes-template__btn">
-                            <a href="" class="wkode-btn wkode-btn--outline-red" id="openModalBtn">
+                            <a target="_blank" href="https://app.leadster.com.br/capture/4EqLLbVcdSjjYUcZ" class="wkode-btn wkode-btn--outline-red" id="">
                                 Solicite uma cotação
                             </a>
                         </div>

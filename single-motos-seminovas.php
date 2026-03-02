@@ -114,7 +114,7 @@ $images = get_field('wkode_single_used_imgs', get_the_ID());
 
 
                         <div class="wkode-single-used-bikes-template__btn mt-12">
-                            <a href="" class="wkode-btn wkode-btn--outline-red" id="openModalBtn">
+                            <a target="_blank" href="https://app.leadster.com.br/capture/4EqLLbVcdSjjYUcZ" class="wkode-btn wkode-btn--outline-red" id="">
                                 Solicite uma cotação
                             </a>
                         </div>
