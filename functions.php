@@ -161,4 +161,37 @@ function disable_embeds_filter_oembed_response_data_( $data ) {
     unset($data['author_name']);
     return $data;
 }
+
+function wkode_get_vehicle_gallery_images( $post_id, $acf_field_name ) {
+    $images = get_field( $acf_field_name, $post_id );
+
+    if ( is_array( $images ) && ! empty( $images ) ) {
+        return $images;
+    }
+
+    $gallery_urls = get_post_meta( $post_id, '_boom_gallery_urls', true );
+
+    if ( is_string( $gallery_urls ) ) {
+        $decoded_gallery_urls = json_decode( $gallery_urls, true );
+        if ( json_last_error() === JSON_ERROR_NONE && is_array( $decoded_gallery_urls ) ) {
+            $gallery_urls = $decoded_gallery_urls;
+        }
+    }
+
+    if ( ! is_array( $gallery_urls ) ) {
+        return array();
+    }
+
+    $normalized_images = array();
+
+    foreach ( $gallery_urls as $gallery_url ) {
+        if ( is_string( $gallery_url ) && $gallery_url !== '' ) {
+            $normalized_images[] = array(
+                'url' => $gallery_url,
+            );
+        }
+    }
+
+    return $normalized_images;
+}
 ?>
