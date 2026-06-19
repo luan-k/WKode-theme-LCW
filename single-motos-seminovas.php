@@ -16,23 +16,28 @@ $images = wkode_get_vehicle_gallery_images(get_the_ID(), 'wkode_single_used_imgs
                 <div class="wkode-single-used-bikes-template__wrapper">
                     <h1 class="wkode-single-used-bikes-template__title wkode-single-used-bikes-template__title--mobile"><?php the_title(); ?></h1>
                     <div class="wkode-single-used-bikes-template__image featured-image">
-                        <?php if (has_post_thumbnail()) : ?>
-                            <?php $thumbnail_url = get_the_post_thumbnail_url($post->ID, 'wkode_single_used_bikes'); ?>
+                        <?php
+                        $thumbnail_url     = has_post_thumbnail() ? get_the_post_thumbnail_url( $post->ID, 'wkode_single_used_bikes' ) : '';
+                        $first_gallery_url = ( $images && is_array( $images ) && ! empty( $images[0]['url'] ) ) ? $images[0]['url'] : '';
+                        $main_img = $thumbnail_url ?: $first_gallery_url;
+                        if ( $main_img || ! empty( $images ) ) : ?>
                             <div class="f-carousel" id="myCarousel">
-                                <div class="f-carousel__slide" data-thumb-src="<?php echo $thumbnail_url; ?>">
-                                    <img class="wkode-single-used-bikes__img" data-lazy-src="<?php echo $thumbnail_url; ?>" />
+                                <?php if ( $main_img ) : ?>
+                                <div class="f-carousel__slide" data-thumb-src="<?php echo esc_url( $main_img ); ?>">
+                                    <img class="wkode-single-used-bikes__img" data-lazy-src="<?php echo esc_url( $main_img ); ?>" />
                                 </div>
+                                <?php endif; ?>
                                 <?php
-                                if($images) : 
-                                    foreach ($images as $image) : ?>
-                                        <?php $image_url = $image['url']; ?>
-                                        <div class="f-carousel__slide" data-thumb-src="<?php echo $image_url; ?>">
-                                            <img class="wkode-single-used-bikes__img" data-lazy-src="<?php echo $image_url; ?>" />
+                                if ( $images && is_array( $images ) ) :
+                                    foreach ( $images as $image ) :
+                                        $image_url = isset( $image['url'] ) ? $image['url'] : '';
+                                        // Skip if this URL is already shown as the main image
+                                        if ( ! $image_url || $image_url === $main_img ) { continue; } ?>
+                                        <div class="f-carousel__slide" data-thumb-src="<?php echo esc_url( $image_url ); ?>">
+                                            <img class="wkode-single-used-bikes__img" data-lazy-src="<?php echo esc_url( $image_url ); ?>" />
                                         </div>
-                                    <?php 
-                                    endforeach; 
-                                endif;
-                                ?>
+                                    <?php endforeach;
+                                endif; ?>
                             </div>
                         <?php endif; ?>
                     </div>
