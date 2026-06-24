@@ -26,6 +26,7 @@ function filter_posts() {
 
     $query_args = [
         'post_type' => $post_type,
+        'post_status' => 'publish',
         'posts_per_page' => 36,
         'paged' => $paged,
         'order_by' => 'date',
@@ -33,6 +34,7 @@ function filter_posts() {
     ];
     $countArgs = [
 		'post_type' => $post_type,
+		'post_status' => 'publish',
 		'posts_per_page' => -1,
 	];
 
